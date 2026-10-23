@@ -1,0 +1,28 @@
+{
+  "name": "Dataset Detective",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [5173, 4173],
+  "portsAttributes": {
+    "5173": { "label": "Dev server", "onAutoForward": "openPreview" },
+    "4173": { "label": "Production preview", "onAutoForward": "notify" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "oxc.oxc-vscode",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "vitest.explorer",
+        "ms-playwright.playwright"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  }
+}

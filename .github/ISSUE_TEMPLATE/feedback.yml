@@ -1,0 +1,25 @@
+name: Feedback
+description: Tell me what worked, what didn't, or what you'd like it to check.
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying Dataset Detective. **Please don't attach real or sensitive data.**
+        If a file caused a problem, describe its shape (columns, delimiter, a made-up example row) instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, or what would you like?
+    validations:
+      required: true
+  - type: textarea
+    id: file
+    attributes:
+      label: What kind of file were you profiling?
+      description: Size, number of columns, where it came from (e.g. an Excel export). No real values, please.
+  - type: dropdown
+    id: region
+    attributes:
+      label: Region setting
+      options: [United Kingdom, Canada, United States]
