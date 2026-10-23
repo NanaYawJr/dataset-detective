@@ -1,0 +1,1379 @@
+Order ID,Order Date,Ship Date,Order Priority,Order Quantity,Discount,Unit Price,Profit,Ship Mode,City | Region,Customer Segment,Customer Email
+1024,28/01/2025,30/01/2025,3-Medium,29,4%,24.66,-15.37,Regular Air,London | London,Consumer,customer313@example.com
+1054,25/04/2025,28/04/2025,4-Not Specified,35,8%,104.54,-21.37,Regular Air,Newcastle | North East,Consumer,customer286@example.com
+1054,25/04/2025,28/04/2025,4-Not Specified,46,7%,44.33,-13.43,Delivery Truck,Newcastle | North East,Consumer,customer286@example.com
+1054,25/04/2025,30/04/2025,4-Not Specified,41,6%,261.55,-4185.01,Regular Air,Newcastle | North East,Consumer,customer286@example.com
+1054,25/04/2025,01/05/2025,4-Not Specified,18,3%,302.71,15.55,Regular Air,Newcastle | North East,Consumer,customer286@example.com
+1069,26/12/2025,26/12/2025,2-High,28,3%,176.32,13.78,Regular Air,Birmingham | West Midlands,Consumer,customer301@example.com
+1089,15/02/2025,19/02/2025,1-Urgent,14,3%,49.09,-27.75,Delivery Truck,Nottingham | East Midlands,Corporate,customer273@example.com
+1116,08/12/2025,12/12/2025,3-Medium,7,8%,113.67,14.55,Express Air,Sheffield | Yorkshire and the Humber,Consumer,customer269@example.com
+1116,08/12/2025,15/12/2025,3-Medium,24,9%,333.59,16.35,Express Air,Sheffield | Yorkshire and the Humber,Consumer,customer269@example.com
+1116,08/12/2025,15/12/2025,3-Medium,33,6%,410.86,12.00,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer269@example.com
+1116,08/12/2025,10/12/2025,3-Medium,39,4%,217.16,-6.09,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer269@example.com
+1155,08/12/2025,15/12/2025,1-Urgent,22,4%,229.89,-14.36,Delivery Truck,Birmingham | West Midlands,Home Office,customer96@example.com
+1155,08/12/2025,09/12/2025,1-Urgent,48,1%,202.67,-15.78,Regular Air,Birmingham | West Midlands,Home Office,customer96@example.com
+1155,08/12/2025,08/12/2025,1-Urgent,8,8%,193.30,29.20,Regular Air,Birmingham | West Midlands,Home Office,customer96@example.com
+1187,16/08/2025,17/08/2025,3-Medium,26,2%,281.88,-8.67,Express Air,London | London,Corporate,customer94@example.com
+1223,27/08/2025,27/08/2025,2-High,29,6%,297.87,-17.68,Regular Air,Newcastle | North East,Home Office,customer299@example.com
+1238,03/12/2025,05/12/2025,3-Medium,46,10%,144.08,22.10,Regular Air,Birmingham | West Midlands,Home Office,customer373@example.com
+1274,14/06/2025,21/06/2025,1-Urgent,48,2%,15.79,-5.03,Regular Air,Nottingham | East Midlands,Consumer,customer266@example.com
+1289,21/01/2025,25/01/2025,1-Urgent,9,8%,434.23,30.86,Regular Air,Glasgow | Scotland,Home Office,customer233@example.com
+1329,22/08/2025,23/08/2025,5-Low,5,0%,42.84,-23.54,Regular Air,Bristol | South West,Consumer,customer389@example.com
+1329,22/08/2025,23/08/2025,5-Low,46,0%,460.53,6.35,Regular Air,Bristol | South West,Consumer,customer389@example.com
+1329,22/08/2025,22/08/2025,5-Low,32,7%,105.33,-27.93,Delivery Truck,Bristol | South West,Consumer,customer389@example.com
+1329,22/08/2025,22/08/2025,5-Low,6,2%,165.19,-13.03,Regular Air,Bristol | South West,Consumer,customer389@example.com
+1333,28/03/2025,03/04/2025,2-High,1,0%,149.86,27.90,Regular Air,York | Yorkshire and the Humber,Consumer,customer69@example.com
+1333,28/03/2025,04/04/2025,2-High,28,7%,241.97,13.92,Regular Air,York | Yorkshire and the Humber,Consumer,customer69@example.com
+1333,28/03/2025,29/03/2025,2-High,8,4%,361.34,-24.04,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer69@example.com
+1333,28/03/2025,01/04/2025,2-High,49,9%,197.54,-6.06,Regular Air,York | Yorkshire and the Humber,Consumer,customer69@example.com
+1343,08/09/2025,13/09/2025,1-Urgent,40,0%,86.95,29.58,Regular Air,London | London,Consumer,customer139@example.com
+1349,31/08/2025,03/09/2025,4-Not Specified,42,4%,436.80,-3036.70,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer380@example.com
+1349,31/08/2025,03/09/2025,4-Not Specified,9,2%,48.12,7.98,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer380@example.com
+1371,01/11/2025,04/11/2025,2-High,40,3%,261.92,-17.21,Regular Air,York | Yorkshire and the Humber,Home Office,customer172@example.com
+1407,08/09/2025,12/09/2025,5-Low,21,9%,229.79,-20.38,Regular Air,York | Yorkshire and the Humber,Small Business,customer124@example.com
+1441,30/11/2025,06/12/2025,5-Low,38,10%,136.28,-18.75,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer390@example.com
+1447,20/09/2025,20/09/2025,5-Low,43,9%,84.92,29.55,Delivery Truck,Manchester | North West,Corporate,customer332@example.com
+1480,15/11/2025,18/11/2025,1-Urgent,35,10%,478.65,-8.46,Regular Air,Bristol | South West,Small Business,customer72@example.com
+1503,24/03/2025,24/03/2025,4-Not Specified,3,6%,368.91,-15.23,Delivery Truck,London | London,Consumer,customer297@example.com
+1503,24/03/2025,30/03/2025,4-Not Specified,8,7%,116.03,-6.56,Regular Air,London | London,Consumer,customer297@example.com
+1503,24/03/2025,31/03/2025,4-Not Specified,42,5%,67.28,21.26,Delivery Truck,London | London,Consumer,customer297@example.com
+1503,24/03/2025,31/03/2025,4-Not Specified,28,6%,293.76,4.61,Regular Air,London | London,Consumer,customer297@example.com
+1514,09/06/2025,13/06/2025,4-Not Specified,17,5%,189.94,-25.70,Express Air,London | London,Consumer,customer183@example.com
+1536,21/06/2025,25/06/2025,2-High,23,8%,141.16,21.15,Regular Air,Bristol | South West,Consumer,customer220@example.com
+1558,15/02/2025,19/02/2025,5-Low,3,3%,102.33,-12.15,Regular Air,Cardiff | Wales,Small Business,customer185@example.com
+1586,24/05/2025,30/05/2025,1-Urgent,49,5%,215.05,27.69,Regular Air,Liverpool | North West,Corporate,customer117@example.com
+1597,05/12/2025,05/12/2025,4-Not Specified,5,2%,333.78,-15.82,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer61@example.com
+1600,21/01/2025,25/01/2025,1-Urgent,7,2%,13.04,-11.62,Regular Air,Bristol | South West,Small Business,customer219@example.com
+1638,25/02/2025,26/02/2025,2-High,49,3%,366.65,-15.34,Regular Air,Newcastle | North East,Corporate,customer133@example.com
+1638,25/02/2025,28/02/2025,2-High,28,5%,254.47,9.25,Express Air,Newcastle | North East,Corporate,customer133@example.com
+1638,25/02/2025,01/03/2025,2-High,49,4%,76.79,-24.75,Regular Air,Newcastle | North East,Corporate,customer133@example.com
+1638,25/02/2025,04/03/2025,2-High,42,3%,311.23,25.84,Regular Air,Newcastle | North East,Corporate,customer133@example.com
+1643,10/05/2025,12/05/2025,5-Low,12,3%,53.31,-24.51,Regular Air,Newcastle | North East,Small Business,customer18@example.com
+1682,21/04/2025,17/04/2025,1-Urgent,2,5%,464.67,-17.66,Regular Air,Nottingham | East Midlands,Consumer,customer262@example.com
+1682,21/04/2025,27/04/2025,1-Urgent,49,2%,375.25,-6.36,Regular Air,Nottingham | East Midlands,Consumer,customer262@example.com
+1682,21/04/2025,25/04/2025,1-Urgent,5,6%,415.55,-4.95,Regular Air,Nottingham | East Midlands,Consumer,customer262@example.com
+1713,29/11/2025,02/12/2025,1-Urgent,28,7%,17.79,-14.90,Regular Air,Birmingham | West Midlands,Home Office,customer326@example.com
+1748,25/05/2025,29/05/2025,4-Not Specified,25,6%,283.15,13.28,Express Air,Leeds | Yorkshire and the Humber,Corporate,customer352@example.com
+1788,30/12/2025,05/01/2026,5-Low,4,3%,273.11,19.19,Express Air,Newcastle | North East,Home Office,customer2@example.com
+1788,30/12/2025,04/01/2026,5-Low,50,7%,431.51,7.04,Regular Air,Newcastle | North East,Home Office,customer2@example.com
+1788,30/12/2025,05/01/2026,5-Low,30,6%,208.15,22.89,Express Air,Newcastle | North East,Home Office,customer2@example.com
+1788,30/12/2025,05/01/2026,5-Low,16,10%,440.25,9.45,Regular Air,Newcastle | North East,Home Office,customer2@example.com
+1793,08/10/2025,15/10/2025,1-Urgent,19,9%,318.47,27.07,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer81@example.com
+1826,02/05/2025,04/05/2025,5-Low,39,5%,212.99,27.37,Regular Air,Birmingham | West Midlands,Corporate,customer226@example.com
+1826,02/05/2025,06/05/2025,5-Low,34,4%,200.97,-25.14,Regular Air,Birmingham | West Midlands,Corporate,customer226@example.com
+1826,02/05/2025,05/05/2025,5-Low,37,4%,25.37,-22.54,Delivery Truck,Birmingham | West Midlands,Corporate,customer226@example.com
+1826,02/05/2025,06/05/2025,5-Low,32,10%,207.30,14.43,Delivery Truck,Birmingham | West Midlands,Corporate,customer226@example.com
+1839,27/06/2025,03/07/2025,5-Low,6,10%,193.29,25.71,Delivery Truck,York | Yorkshire and the Humber,Home Office,customer210@example.com
+1843,12/01/2025,12/01/2025,1-Urgent,27,8%,2.37,22.73,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer289@example.com
+1870,22/11/2025,24/11/2025,5-Low,18,4%,43.38,9.57,Delivery Truck,Leeds | Yorkshire and the Humber,Consumer,customer254@example.com
+1870,22/11/2025,23/11/2025,5-Low,22,5%,121.82,-19.69,Delivery Truck,Leeds | Yorkshire and the Humber,Consumer,customer254@example.com
+1870,22/11/2025,23/11/2025,5-Low,10,3%,96.67,5850.71,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer254@example.com
+1902,25/12/2025,30/12/2025,3-Medium,50,3%,395.70,28.82,Delivery Truck,Birmingham | West Midlands,Consumer,customer63@example.com
+1921,18/11/2025,20/11/2025,3-Medium,11,6%,393.04,29.95,Regular Air,Birmingham | West Midlands,Consumer,customer386@example.com
+1961,02/02/2025,03/02/2025,3-Medium,41,6%,423.18,30.82,Regular Air,Bristol | South West,Home Office,customer279@example.com
+1977,21/10/2025,26/10/2025,1-Urgent,24,9%,446.19,-10.69,Express Air,Nottingham | East Midlands,Small Business,customer400@example.com
+1977,21/10/2025,22/10/2025,1-Urgent,37,1%,286.38,4.75,Regular Air,Nottingham | East Midlands,Small Business,customer400@example.com
+1977,21/10/2025,23/10/2025,1-Urgent,26,1%,112.81,-21.11,Delivery Truck,Nottingham | East Midlands,Small Business,customer400@example.com
+2012,30/11/2025,03/12/2025,3-Medium,19,9%,230.58,4.24,Delivery Truck,York | Yorkshire and the Humber,Small Business,customer266@example.com
+2052,21/09/2025,23/09/2025,2-High,2,2%,414.89,-7.08,Delivery Truck,Manchester | North West,Corporate,customer93@example.com
+2052,21/09/2025,28/09/2025,2-High,13,5%,276.73,15.17,Delivery Truck,Manchester | North West,Corporate,customer93@example.com
+2052,21/09/2025,23/09/2025,2-High,24,7%,214.72,10.95,Express Air,Manchester | North West,Corporate,customer93@example.com
+2091,06/05/2025,12/05/2025,1-Urgent,17,3%,467.95,-20.42,Regular Air,Birmingham | West Midlands,Home Office,customer44@example.com
+2117,17/03/2025,18/03/2025,2-High,50,2%,422.99,-5232.23,Regular Air,Liverpool | North West,Small Business,customer367@example.com
+2117,17/03/2025,17/03/2025,2-High,48,8%,243.96,1.37,Express Air,Liverpool | North West,Small Business,customer367@example.com
+2147,26/10/2025,02/11/2025,4-Not Specified,16,0%,290.27,14.21,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer365@example.com
+2184,22/10/2025,25/10/2025,4-Not Specified,18,2%,256.05,21.08,Regular Air,Newcastle | North East,Corporate,customer258@example.com
+2220,07/08/2025,07/08/2025,1-Urgent,10,3%,280.77,-16.06,Regular Air,Liverpool | North West,Small Business,customer14@example.com
+2220,07/08/2025,09/08/2025,1-Urgent,16,1%,409.13,17.36,Delivery Truck,Liverpool | North West,Small Business,customer14@example.com
+2220,07/08/2025,12/08/2025,1-Urgent,43,1%,496.25,23.66,Regular Air,Liverpool | North West,Small Business,customer14@example.com
+2257,16/12/2025,21/12/2025,2-High,23,2%,77.39,2.43,Regular Air,Bristol | South West,Small Business,customer334@example.com
+2286,09/11/2025,13/11/2025,5-Low,20,6%,1.89,12.05,Delivery Truck,Glasgow | Scotland,Home Office,customer315@example.com
+2318,16/11/2025,18/11/2025,2-High,34,4%,145.26,-23.12,Regular Air,Manchester | North West,Home Office,customer86@example.com
+2333,26/10/2025,30/10/2025,2-High,43,9%,438.94,29.34,Regular Air,Newcastle | North East,Corporate,customer199@example.com
+2354,07/12/2025,10/12/2025,2-High,35,6%,232.62,18.69,Delivery Truck,Leeds | Yorkshire and the Humber,Home Office,customer90@example.com
+2394,26/05/2025,26/05/2025,1-Urgent,25,4%,352.07,21.57,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer396@example.com
+2433,06/05/2025,06/05/2025,1-Urgent,37,8%,495.42,19.84,Express Air,Liverpool | North West,Home Office,customer361@example.com
+2433,06/05/2025,10/05/2025,1-Urgent,7,7%,395.79,-12.82,Regular Air,Liverpool | North West,Home Office,customer361@example.com
+2433,06/05/2025,06/05/2025,1-Urgent,23,4%,403.48,1.50,Express Air,Liverpool | North West,Home Office,customer361@example.com
+2433,06/05/2025,06/05/2025,1-Urgent,34,5%,76.91,16.69,Regular Air,Liverpool | North West,Home Office,customer361@example.com
+2434,03/01/2025,08/01/2025,1-Urgent,3,4%,90.15,13.75,Regular Air,Cardiff | Wales,Small Business,customer10@example.com
+2456,08/08/2025,09/08/2025,2-High,29,10%,118.96,-13.70,Regular Air,Bristol | South West,Corporate,customer215@example.com
+2456,08/08/2025,13/08/2025,2-High,1,4%,16.75,-25.51,Express Air,Bristol | South West,Corporate,customer215@example.com
+2456,08/08/2025,12/08/2025,2-High,1,2%,171.65,-17.70,Regular Air,Bristol | South West,Corporate,customer215@example.com
+2477,05/05/2025,09/05/2025,4-Not Specified,29,10%,425.99,-19.70,Regular Air,York | Yorkshire and the Humber,Home Office,customer243@example.com
+2477,05/05/2025,07/05/2025,4-Not Specified,29,5%,3.20,7.18,Regular Air,York | Yorkshire and the Humber,Home Office,customer243@example.com
+2477,05/05/2025,06/05/2025,4-Not Specified,45,7%,263.13,2.89,Express Air,York | Yorkshire and the Humber,Home Office,customer243@example.com
+2507,17/01/2025,20/01/2025,3-Medium,43,0%,475.31,30.81,Regular Air,Cardiff | Wales,Small Business,customer385@example.com
+2507,17/01/2025,20/01/2025,3-Medium,42,6%,203.31,12.44,Regular Air,Cardiff | Wales,Small Business,customer385@example.com
+2524,14/10/2025,19/10/2025,5-Low,30,4%,24.52,-17.93,Delivery Truck,Leeds | Yorkshire and the Humber,Home Office,customer244@example.com
+2555,18/06/2025,20/06/2025,4-Not Specified,29,5%,371.30,-10.26,Regular Air,Birmingham | West Midlands,Small Business,customer306@example.com
+2555,18/06/2025,19/06/2025,4-Not Specified,18,4%,25.33,26.80,Regular Air,Birmingham | West Midlands,Small Business,customer306@example.com
+2555,18/06/2025,22/06/2025,4-Not Specified,24,4%,154.22,22.88,Regular Air,Birmingham | West Midlands,Small Business,customer306@example.com
+2588,26/06/2025,26/06/2025,1-Urgent,22,3%,16.56,-18.93,Regular Air,York | Yorkshire and the Humber,Consumer,customer126@example.com
+2613,05/11/2025,06/11/2025,3-Medium,20,9%,217.44,-6.49,Regular Air,London | London,Small Business,customer269@example.com
+2625,12/12/2025,12/12/2025,2-High,9,0%,27.53,-14.06,Regular Air,Liverpool | North West,Corporate,customer302@example.com
+2641,29/04/2025,29/04/2025,3-Medium,31,5%,56.98,-12.66,Regular Air,Newcastle | North East,Corporate,customer96@example.com
+2645,31/01/2025,01/02/2025,4-Not Specified,24,3%,202.49,26.19,Express Air,Cardiff | Wales,Corporate,customer78@example.com
+2645,31/01/2025,03/02/2025,4-Not Specified,30,7%,300.87,-0.51,Regular Air,Cardiff | Wales,Corporate,customer78@example.com
+2645,31/01/2025,06/02/2025,4-Not Specified,37,4%,499.08,-7.98,Regular Air,Cardiff | Wales,Corporate,customer78@example.com
+2681,20/02/2025,23/02/2025,1-Urgent,6,7%,63.35,17.08,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer218@example.com
+2681,20/02/2025,23/02/2025,1-Urgent,24,9%,460.61,15.94,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer218@example.com
+2714,29/08/2025,02/09/2025,5-Low,17,1%,413.92,12.06,Delivery Truck,London | London,Small Business,customer243@example.com
+2715,16/11/2025,22/11/2025,2-High,10,4%,275.21,-6.43,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer225@example.com
+2739,30/01/2025,03/02/2025,3-Medium,48,7%,102.34,-11.88,Regular Air,Liverpool | North West,Home Office,customer224@example.com
+2741,29/01/2025,04/02/2025,2-High,5,7%,397.69,-19.34,Delivery Truck,Cardiff | Wales,Corporate,customer166@example.com
+2767,25/04/2025,26/04/2025,4-Not Specified,3,6%,9.74,18.04,Regular Air,Newcastle | North East,Small Business,customer135@example.com
+2767,25/04/2025,02/05/2025,4-Not Specified,14,7%,71.50,-7.40,Regular Air,Newcastle | North East,Small Business,customer135@example.com
+2767,25/04/2025,29/04/2025,4-Not Specified,46,0%,241.93,27.82,Regular Air,Newcastle | North East,Small Business,customer135@example.com
+2767,25/04/2025,26/04/2025,4-Not Specified,20,7%,1.70,-6.85,Regular Air,Newcastle | North East,Small Business,customer135@example.com
+2800,20/04/2025,26/04/2025,4-Not Specified,29,7%,433.25,0.06,Regular Air,Bristol | South West,Corporate,customer251@example.com
+2812,02/01/2025,08/01/2025,1-Urgent,8,10%,310.34,16.86,Delivery Truck,Manchester | North West,Small Business,customer45@example.com
+2822,12/10/2025,13/10/2025,4-Not Specified,4,0%,277.04,-28.53,Regular Air,Cardiff | Wales,Corporate,customer81@example.com
+2853,13/09/2025,17/09/2025,1-Urgent,25,5%,166.91,7.53,Regular Air,Manchester | North West,Consumer,customer181@example.com
+2853,13/09/2025,17/09/2025,1-Urgent,34,1%,52.97,-7.37,Regular Air,Manchester | North West,Consumer,customer181@example.com
+2878,22/08/2025,26/08/2025,5-Low,35,0%,118.94,26.61,Delivery Truck,London | London,Home Office,customer255@example.com
+2887,09/09/2025,11/09/2025,5-Low,27,3%,155.29,5.45,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer254@example.com
+2887,09/09/2025,11/09/2025,5-Low,18,4%,263.55,-18.29,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer254@example.com
+2922,20/05/2025,22/05/2025,3-Medium,44,10%,319.04,11.92,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer21@example.com
+2922,20/05/2025,22/05/2025,3-Medium,30,2%,50.15,4.11,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer21@example.com
+2949,08/09/2025,10/09/2025,1-Urgent,12,0%,238.16,21.22,Regular Air,Newcastle | North East,Small Business,customer54@example.com
+2989,22/08/2025,26/08/2025,2-High,14,6%,170.45,24.51,Regular Air,Glasgow | Scotland,Corporate,customer84@example.com
+3005,15/03/2025,17/03/2025,4-Not Specified,27,10%,162.01,-25.39,Regular Air,York | Yorkshire and the Humber,Home Office,customer275@example.com
+3005,15/03/2025,20/03/2025,4-Not Specified,43,0%,167.26,-10.65,Regular Air,York | Yorkshire and the Humber,Home Office,customer275@example.com
+3045,14/08/2025,14/08/2025,1-Urgent,38,6%,175.10,-6.02,Regular Air,Birmingham | West Midlands,Home Office,customer266@example.com
+3045,14/08/2025,18/08/2025,1-Urgent,44,9%,447.69,-17.83,Regular Air,Birmingham | West Midlands,Home Office,customer266@example.com
+3045,14/08/2025,14/08/2025,1-Urgent,28,8%,168.38,15.32,Regular Air,Birmingham | West Midlands,Home Office,customer266@example.com
+3045,14/08/2025,20/08/2025,1-Urgent,32,6%,187.81,1.20,Delivery Truck,Birmingham | West Midlands,Home Office,customer266@example.com
+3081,19/12/2025,22/12/2025,2-High,22,1%,376.38,-9.79,Delivery Truck,Cardiff | Wales,Consumer,customer31@example.com
+3091,12/04/2025,13/04/2025,5-Low,48,4%,70.04,25.79,Regular Air,Liverpool | North West,Small Business,customer45@example.com
+3125,25/01/2025,20/01/2025,3-Medium,4,6%,210.09,-7.13,Regular Air,Cardiff | Wales,Consumer,customer35@example.com
+3161,23/12/2025,29/12/2025,2-High,22,5%,30.27,-18.88,Regular Air,York | Yorkshire and the Humber,Home Office,customer141@example.com
+3167,06/02/2025,09/02/2025,4-Not Specified,35,2%,456.34,-5.92,Regular Air,Newcastle | North East,Consumer,customer123@example.com
+3171,30/11/2025,30/11/2025,2-High,28,3%,236.18,2.01,Delivery Truck,Bristol | South West,Corporate,customer392@example.com
+3210,12/10/2025,12/10/2025,3-Medium,47,5%,110.65,4.16,Regular Air,Cardiff | Wales,Consumer,customer342@example.com
+3214,25/06/2025,01/07/2025,4-Not Specified,50,7%,98.04,-10.95,Regular Air,Nottingham | East Midlands,Consumer,customer242@example.com
+3218,23/10/2025,24/10/2025,2-High,14,2%,73.99,15.10,Express Air,Nottingham | East Midlands,Home Office,customer226@example.com
+3218,23/10/2025,28/10/2025,2-High,9,4%,243.27,-21.12,Delivery Truck,Nottingham | East Midlands,Home Office,customer226@example.com
+3238,27/02/2025,04/03/2025,5-Low,33,4%,292.20,23.84,Regular Air,York | Yorkshire and the Humber,Corporate,customer10@example.com
+3254,04/04/2025,08/04/2025,3-Medium,9,3%,44.26,11.04,Delivery Truck,Sheffield | Yorkshire and the Humber,Consumer,customer294@example.com
+3254,04/04/2025,09/04/2025,3-Medium,41,6%,368.22,21.89,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer294@example.com
+3254,04/04/2025,04/04/2025,3-Medium,33,0%,14.02,7.67,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer294@example.com
+3278,25/12/2025,31/12/2025,2-High,41,1%,172.81,-25.30,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer272@example.com
+3282,22/11/2025,22/11/2025,3-Medium,27,4%,394.94,20.40,Express Air,Nottingham | East Midlands,Consumer,customer209@example.com
+3282,22/11/2025,25/11/2025,3-Medium,43,8%,360.61,-21.51,Regular Air,Nottingham | East Midlands,Consumer,customer209@example.com
+3282,22/11/2025,26/11/2025,3-Medium,24,2%,76.93,-24.75,Regular Air,Nottingham | East Midlands,Consumer,customer209@example.com
+3313,24/04/2025,29/04/2025,1-Urgent,12,8%,255.28,18.23,Express Air,Glasgow | Scotland,Corporate,customer228@example.com
+3328,26/11/2025,27/11/2025,2-High,43,4%,490.04,-26.63,Regular Air,Cardiff | Wales,Corporate,customer225@example.com
+3358,07/10/2025,11/10/2025,4-Not Specified,33,10%,334.80,7.29,Regular Air,Birmingham | West Midlands,Home Office,customer180@example.com
+3358,07/10/2025,14/10/2025,4-Not Specified,34,5%,135.05,7.82,Regular Air,Birmingham | West Midlands,Home Office,customer180@example.com
+3374,25/06/2025,29/06/2025,1-Urgent,40,8%,398.08,3.47,Regular Air,Newcastle | North East,Corporate,customer244@example.com
+3412,18/02/2025,23/02/2025,4-Not Specified,25,10%,297.86,5.14,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer398@example.com
+3442,03/08/2025,07/08/2025,4-Not Specified,8,7%,300.30,0.84,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer200@example.com
+3480,24/02/2025,27/02/2025,1-Urgent,45,2%,39.36,7.85,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer270@example.com
+3480,24/02/2025,28/02/2025,1-Urgent,17,3%,226.95,-28.70,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer270@example.com
+3520,28/04/2025,29/04/2025,5-Low,43,3%,115.61,-20.63,Regular Air,Glasgow | Scotland,Small Business,customer312@example.com
+3552,09/01/2025,15/01/2025,5-Low,8,4%,9.48,-0.51,Express Air,Cardiff | Wales,Home Office,customer196@example.com
+3556,19/06/2025,21/06/2025,3-Medium,43,9%,315.40,14.39,Express Air,Liverpool | North West,Small Business,customer328@example.com
+3576,01/01/2025,08/01/2025,2-High,46,8%,185.66,-18.13,Regular Air,London | London,Home Office,customer15@example.com
+3576,01/01/2025,05/01/2025,2-High,24,1%,38.59,-15.64,Regular Air,London | London,Home Office,customer15@example.com
+3576,01/01/2025,01/01/2025,2-High,8,8%,247.57,-0.90,Delivery Truck,London | London,Home Office,customer15@example.com
+3576,01/01/2025,03/01/2025,2-High,23,2%,453.51,-15.12,Express Air,London | London,Home Office,customer15@example.com
+3607,01/04/2025,05/04/2025,5-Low,40,5%,322.38,3.22,Regular Air,Liverpool | North West,Consumer,customer397@example.com
+3644,27/12/2025,03/01/2026,5-Low,47,5%,460.74,29.69,Delivery Truck,Nottingham | East Midlands,Corporate,customer260@example.com
+3645,01/05/2025,01/05/2025,3-Medium,18,6%,296.33,-4.76,Regular Air,Liverpool | North West,Corporate,customer353@example.com
+3658,24/04/2025,25/04/2025,5-Low,6,9%,276.99,-14.65,Express Air,Birmingham | West Midlands,Consumer,customer326@example.com
+3681,11/04/2025,17/04/2025,4-Not Specified,29,0%,252.39,-12.76,Delivery Truck,Glasgow | Scotland,Home Office,customer393@example.com
+3684,15/10/2025,20/10/2025,2-High,26,7%,179.98,1.86,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer35@example.com
+3704,18/08/2025,23/08/2025,1-Urgent,37,3%,46.28,18.04,Regular Air,Manchester | North West,Small Business,customer112@example.com
+3704,18/08/2025,19/08/2025,1-Urgent,27,5%,452.13,-16.89,Regular Air,Manchester | North West,Small Business,customer112@example.com
+3704,18/08/2025,25/08/2025,1-Urgent,22,3%,381.51,19.04,Regular Air,Manchester | North West,Small Business,customer112@example.com
+3704,18/08/2025,19/08/2025,1-Urgent,14,1%,133.53,2.58,Delivery Truck,Manchester | North West,Small Business,customer112@example.com
+3705,14/04/2025,17/04/2025,5-Low,50,0%,108.08,-11.24,Regular Air,Bristol | South West,Small Business,customer31@example.com
+3725,31/05/2025,04/06/2025,4-Not Specified,48,1%,397.47,17.15,Delivery Truck,London | London,Corporate,customer78@example.com
+3763,28/12/2025,03/01/2026,2-High,20,7%,472.14,8061.37,Express Air,Birmingham | West Midlands,Home Office,customer311@example.com
+3763,28/12/2025,03/01/2026,2-High,33,7%,344.46,-26.77,Regular Air,Birmingham | West Midlands,Home Office,customer311@example.com
+3763,28/12/2025,30/12/2025,2-High,24,2%,208.53,-10.43,Regular Air,Birmingham | West Midlands,Home Office,customer311@example.com
+3763,28/12/2025,02/01/2026,2-High,1,5%,304.96,-8.84,Regular Air,Birmingham | West Midlands,Home Office,customer311@example.com
+3795,15/10/2025,17/10/2025,5-Low,10,3%,253.30,-3050.75,Delivery Truck,Newcastle | North East,Small Business,customer359@example.com
+3815,23/11/2025,27/11/2025,4-Not Specified,1,9%,336.14,-25.26,Regular Air,Manchester | North West,Home Office,customer204@example.com
+3828,02/01/2025,08/01/2025,4-Not Specified,41,10%,139.38,-17.60,Regular Air,Liverpool | North West,Consumer,customer37@example.com
+3862,28/03/2025,28/03/2025,1-Urgent,37,8%,440.78,-18.67,Express Air,Bristol | South West,Consumer,customer389@example.com
+3862,28/03/2025,30/03/2025,1-Urgent,3,6%,321.81,-15.46,Regular Air,Bristol | South West,Consumer,customer389@example.com
+3864,24/12/2025,28/12/2025,4-Not Specified,34,6%,479.81,4.94,Regular Air,York | Yorkshire and the Humber,Small Business,customer222@example.com
+3890,19/01/2025,19/01/2025,4-Not Specified,22,0%,227.96,13.73,Delivery Truck,Nottingham | East Midlands,Home Office,customer145@example.com
+3930,02/10/2025,03/10/2025,1-Urgent,25,2%,237.98,14.38,Express Air,Sheffield | Yorkshire and the Humber,Corporate,customer106@example.com
+3942,18/04/2025,18/04/2025,4-Not Specified,48,8%,438.48,20.96,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer106@example.com
+3942,18/04/2025,25/04/2025,4-Not Specified,41,9%,194.63,19.68,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer106@example.com
+3975,28/09/2025,05/10/2025,1-Urgent,5,2%,481.72,8.33,Regular Air,Nottingham | East Midlands,Small Business,customer45@example.com
+4010,16/05/2025,16/05/2025,3-Medium,47,0%,312.71,-0.77,Regular Air,Newcastle | North East,Consumer,customer5@example.com
+4042,06/06/2025,13/06/2025,3-Medium,19,3%,395.36,12.87,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer353@example.com
+4042,06/06/2025,08/06/2025,3-Medium,5,3%,433.89,-7.05,Express Air,Sheffield | Yorkshire and the Humber,Home Office,customer353@example.com
+4042,06/06/2025,11/06/2025,3-Medium,23,5%,170.64,4.12,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer353@example.com
+4042,06/06/2025,11/06/2025,3-Medium,43,5%,116.02,4.83,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer353@example.com
+4046,04/10/2025,06/10/2025,2-High,39,4%,157.69,29.41,Regular Air,Glasgow | Scotland,Consumer,customer95@example.com
+4069,12/09/2025,12/09/2025,1-Urgent,49,2%,80.01,24.20,Regular Air,Liverpool | North West,Consumer,customer124@example.com
+4108,09/05/2025,10/05/2025,4-Not Specified,10,4%,342.10,18.75,Express Air,London | London,Consumer,customer179@example.com
+4121,05/09/2025,09/09/2025,1-Urgent,32,3%,482.40,17.48,Regular Air,Bristol | South West,Home Office,customer290@example.com
+4124,23/09/2025,28/09/2025,3-Medium,4,0%,269.06,11.38,Regular Air,Bristol | South West,Small Business,customer280@example.com
+4130,13/02/2025,15/02/2025,2-High,6,5%,488.48,22.71,Regular Air,Bristol | South West,Consumer,customer240@example.com
+4146,29/12/2025,30/12/2025,5-Low,14,7%,205.24,24.75,Regular Air,Nottingham | East Midlands,Home Office,customer389@example.com
+4172,30/12/2025,01/01/2026,3-Medium,29,3%,54.48,20.89,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer388@example.com
+4186,30/04/2025,05/05/2025,3-Medium,29,1%,235.95,10.63,Regular Air,London | London,Home Office,customer311@example.com
+4192,13/10/2025,16/10/2025,4-Not Specified,27,6%,292.56,28.28,Regular Air,Manchester | North West,Consumer,customer145@example.com
+4192,13/10/2025,15/10/2025,4-Not Specified,36,4%,368.62,19.94,Regular Air,Manchester | North West,Consumer,customer145@example.com
+4225,24/06/2025,28/06/2025,1-Urgent,41,0%,317.65,16.33,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer196@example.com
+4243,05/06/2025,06/06/2025,5-Low,12,2%,437.73,5.08,Regular Air,Bristol | South West,Consumer,customer111@example.com
+4243,05/06/2025,07/06/2025,5-Low,29,8%,325.33,11.35,Regular Air,Bristol | South West,Consumer,customer111@example.com
+4278,30/03/2025,31/03/2025,2-High,20,4%,135.78,23.05,Delivery Truck,Liverpool | North West,Home Office,customer330@example.com
+4300,03/12/2025,09/12/2025,3-Medium,5,1%,175.88,-15.80,Regular Air,Cardiff | Wales,Home Office,customer350@example.com
+4300,03/12/2025,08/12/2025,3-Medium,19,7%,105.17,10.52,Regular Air,Cardiff | Wales,Home Office,customer350@example.com
+4300,03/12/2025,07/12/2025,3-Medium,39,6%,254.79,26.87,Express Air,Cardiff | Wales,Home Office,customer350@example.com
+4335,23/05/2025,30/05/2025,4-Not Specified,16,1%,216.30,-21.77,Regular Air,Nottingham | East Midlands,Small Business,customer84@example.com
+4335,23/05/2025,24/05/2025,4-Not Specified,10,5%,108.38,-28.31,Regular Air,Nottingham | East Midlands,Small Business,customer84@example.com
+4371,10/01/2025,11/01/2025,5-Low,23,5%,432.21,3.02,Regular Air,Bristol | South West,Small Business,customer284@example.com
+4410,20/12/2025,24/12/2025,2-High,24,9%,19.37,-11.19,Regular Air,Nottingham | East Midlands,Consumer,customer76@example.com
+4422,18/11/2025,19/11/2025,5-Low,21,3%,381.90,27.90,Regular Air,Nottingham | East Midlands,Home Office,customer389@example.com
+4442,23/04/2025,24/04/2025,5-Low,4,0%,142.95,-14.93,Regular Air,Glasgow | Scotland,Consumer,customer299@example.com
+4465,31/05/2025,31/05/2025,3-Medium,35,9%,179.29,6.35,Regular Air,Bristol | South West,Home Office,customer198@example.com
+4465,31/05/2025,05/06/2025,3-Medium,41,5%,343.31,6.75,Express Air,Bristol | South West,Home Office,customer198@example.com
+4465,31/05/2025,04/06/2025,3-Medium,34,10%,221.88,8.98,Express Air,Bristol | South West,Home Office,customer198@example.com
+4465,31/05/2025,07/06/2025,3-Medium,26,6%,68.67,-23.76,Express Air,Bristol | South West,Home Office,customer198@example.com
+4504,26/12/2025,31/12/2025,5-Low,43,2%,63.96,-12.94,Express Air,Leeds | Yorkshire and the Humber,Small Business,customer67@example.com
+4530,02/12/2025,06/12/2025,2-High,43,3%,244.83,-11.53,Regular Air,Glasgow | Scotland,Small Business,customer319@example.com
+4535,06/08/2025,11/08/2025,1-Urgent,20,7%,171.17,7.67,Regular Air,Cardiff | Wales,Corporate,customer373@example.com
+4535,06/08/2025,06/08/2025,1-Urgent,18,2%,422.52,-7.13,Regular Air,Cardiff | Wales,Corporate,customer373@example.com
+4535,06/08/2025,06/08/2025,1-Urgent,3,4%,472.16,-6657.02,Express Air,Cardiff | Wales,Corporate,customer373@example.com
+4570,12/10/2025,08/10/2025,3-Medium,33,9%,379.41,-18.27,Regular Air,Nottingham | East Midlands,Corporate,customer320@example.com
+4591,05/08/2025,08/08/2025,4-Not Specified,45,6%,160.30,24.12,Delivery Truck,Bristol | South West,Home Office,customer181@example.com
+4609,14/08/2025,19/08/2025,2-High,37,7%,75.60,9.48,Regular Air,London | London,Corporate,customer237@example.com
+4609,14/08/2025,16/08/2025,2-High,48,5%,99.74,-9.17,Regular Air,London | London,Corporate,customer237@example.com
+4609,14/08/2025,19/08/2025,2-High,3,9%,32.98,-22.92,Regular Air,London | London,Corporate,customer237@example.com
+4609,14/08/2025,21/08/2025,2-High,22,9%,417.06,31.10,Delivery Truck,London | London,Corporate,customer237@example.com
+4612,16/05/2025,18/05/2025,2-High,27,0%,467.36,-18.05,Regular Air,Liverpool | North West,Consumer,customer141@example.com
+4612,16/05/2025,22/05/2025,2-High,50,5%,333.69,8.17,Regular Air,Liverpool | North West,Consumer,customer141@example.com
+4612,16/05/2025,16/05/2025,2-High,49,1%,62.65,-3.80,Regular Air,Liverpool | North West,Consumer,customer141@example.com
+4629,21/04/2025,27/04/2025,2-High,48,2%,336.10,-26.80,Regular Air,Nottingham | East Midlands,Corporate,customer363@example.com
+4629,21/04/2025,22/04/2025,2-High,37,2%,298.94,-0.00,Regular Air,Nottingham | East Midlands,Corporate,customer363@example.com
+4629,21/04/2025,26/04/2025,2-High,40,4%,133.45,-27.53,Regular Air,Nottingham | East Midlands,Corporate,customer363@example.com
+4629,21/04/2025,27/04/2025,2-High,10,7%,162.36,9025.49,Regular Air,Nottingham | East Midlands,Corporate,customer363@example.com
+4644,30/04/2025,06/05/2025,3-Medium,10,4%,321.80,22.46,Regular Air,London | London,Home Office,customer325@example.com
+4668,05/12/2025,10/12/2025,1-Urgent,18,0%,231.04,7.21,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer19@example.com
+4705,11/06/2025,12/06/2025,5-Low,13,1%,162.60,8.32,Regular Air,Bristol | South West,Small Business,customer199@example.com
+4720,27/04/2025,27/04/2025,1-Urgent,2,1%,439.55,22.95,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer13@example.com
+4722,25/02/2025,26/02/2025,3-Medium,27,3%,472.20,12.18,Regular Air,Nottingham | East Midlands,Corporate,customer151@example.com
+4749,14/08/2025,17/08/2025,3-Medium,19,7%,438.42,-28.02,Regular Air,Newcastle | North East,Home Office,customer331@example.com
+4778,28/01/2025,03/02/2025,5-Low,30,1%,190.12,24.41,Regular Air,York | Yorkshire and the Humber,Small Business,customer63@example.com
+4782,13/11/2025,15/11/2025,3-Medium,33,10%,410.19,20.56,Regular Air,Newcastle | North East,Consumer,customer141@example.com
+4797,13/10/2025,20/10/2025,1-Urgent,20,1%,239.67,28.80,Regular Air,Cardiff | Wales,Corporate,customer210@example.com
+4830,17/12/2025,18/12/2025,5-Low,16,10%,204.48,9.04,Regular Air,London | London,Small Business,customer383@example.com
+4868,20/06/2025,26/06/2025,5-Low,41,1%,358.06,-14.81,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer33@example.com
+4868,20/06/2025,25/06/2025,5-Low,44,5%,196.15,-27.70,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer33@example.com
+4868,20/06/2025,24/06/2025,5-Low,24,6%,329.58,-26.94,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer33@example.com
+4872,28/01/2025,29/01/2025,4-Not Specified,23,6%,161.18,-5.09,Regular Air,Bristol | South West,Home Office,customer347@example.com
+4891,30/06/2025,02/07/2025,1-Urgent,41,10%,379.86,-17.74,Regular Air,Manchester | North West,Corporate,customer361@example.com
+4905,13/09/2025,13/09/2025,3-Medium,4,10%,203.70,23.82,Regular Air,York | Yorkshire and the Humber,Home Office,customer118@example.com
+4931,15/08/2025,17/08/2025,1-Urgent,11,4%,185.42,-6815.80,Regular Air,Newcastle | North East,Home Office,customer64@example.com
+4934,31/10/2025,02/11/2025,4-Not Specified,45,9%,436.16,-19.97,Regular Air,Glasgow | Scotland,Small Business,customer332@example.com
+4934,31/10/2025,03/11/2025,4-Not Specified,10,4%,314.08,-25.06,Regular Air,Glasgow | Scotland,Small Business,customer332@example.com
+4934,31/10/2025,05/11/2025,4-Not Specified,38,6%,153.58,0.36,Express Air,Glasgow | Scotland,Small Business,customer332@example.com
+4950,24/11/2025,24/11/2025,4-Not Specified,45,6%,483.39,18.63,Delivery Truck,Birmingham | West Midlands,Corporate,customer332@example.com
+4950,24/11/2025,27/11/2025,4-Not Specified,2,1%,107.19,9.32,Delivery Truck,Birmingham | West Midlands,Corporate,customer332@example.com
+4950,24/11/2025,28/11/2025,4-Not Specified,17,8%,84.80,26.62,Regular Air,Birmingham | West Midlands,Corporate,customer332@example.com
+4970,28/03/2025,03/04/2025,3-Medium,20,7%,48.13,6.03,Express Air,York | Yorkshire and the Humber,Home Office,customer116@example.com
+4986,11/08/2025,11/08/2025,4-Not Specified,25,7%,190.14,-21.44,Delivery Truck,Sheffield | Yorkshire and the Humber,Home Office,customer45@example.com
+4999,18/10/2025,20/10/2025,5-Low,15,4%,65.33,-10.79,Regular Air,Newcastle | North East,Consumer,customer228@example.com
+4999,18/10/2025,25/10/2025,5-Low,20,2%,367.00,9.73,Regular Air,Newcastle | North East,Consumer,customer228@example.com
+5024,15/02/2025,15/02/2025,1-Urgent,9,2%,358.05,30.38,Delivery Truck,Birmingham | West Midlands,Corporate,customer375@example.com
+5039,14/08/2025,18/08/2025,2-High,43,4%,19.85,-4088.25,Regular Air,Cardiff | Wales,Home Office,customer87@example.com
+5039,14/08/2025,18/08/2025,2-High,32,1%,136.99,15.22,Regular Air,Cardiff | Wales,Home Office,customer87@example.com
+5039,14/08/2025,20/08/2025,2-High,21,8%,295.33,-7.49,Regular Air,Cardiff | Wales,Home Office,customer87@example.com
+5050,20/10/2025,23/10/2025,2-High,26,5%,481.69,-8.94,Delivery Truck,Manchester | North West,Small Business,customer111@example.com
+5073,09/10/2025,13/10/2025,4-Not Specified,9,7%,158.34,26.13,Regular Air,Birmingham | West Midlands,Corporate,customer218@example.com
+5073,09/10/2025,13/10/2025,4-Not Specified,22,3%,465.22,30.36,Express Air,Birmingham | West Midlands,Corporate,customer218@example.com
+5073,09/10/2025,11/10/2025,4-Not Specified,24,3%,171.74,-1.89,Regular Air,Birmingham | West Midlands,Corporate,customer218@example.com
+5075,31/01/2025,04/02/2025,5-Low,8,4%,251.35,-17.64,Regular Air,Glasgow | Scotland,Corporate,customer40@example.com
+5080,15/05/2025,21/05/2025,1-Urgent,8,4%,250.25,-7.72,Regular Air,Liverpool | North West,Consumer,customer352@example.com
+5099,29/06/2025,30/06/2025,2-High,27,2%,165.76,-12.67,Regular Air,Birmingham | West Midlands,Consumer,customer341@example.com
+5129,25/04/2025,26/04/2025,3-Medium,44,9%,10.90,1.00,Regular Air,Bristol | South West,Consumer,customer182@example.com
+5144,08/11/2025,09/11/2025,2-High,42,2%,393.48,26.24,Express Air,Sheffield | Yorkshire and the Humber,Corporate,customer263@example.com
+5144,08/11/2025,11/11/2025,2-High,6,9%,155.71,17.91,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer263@example.com
+5144,08/11/2025,10/11/2025,2-High,21,6%,63.17,-21.57,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer263@example.com
+5144,08/11/2025,11/11/2025,2-High,24,5%,365.12,23.93,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer263@example.com
+5176,21/10/2025,26/10/2025,3-Medium,41,10%,175.17,-20.44,Regular Air,Cardiff | Wales,Corporate,customer237@example.com
+5199,14/12/2025,20/12/2025,3-Medium,9,3%,269.16,-0.81,Regular Air,Liverpool | North West,Consumer,customer48@example.com
+5206,05/06/2025,09/06/2025,2-High,2,5%,465.17,-8.55,Regular Air,Manchester | North West,Consumer,customer121@example.com
+5206,05/06/2025,06/06/2025,2-High,44,3%,409.53,2.66,Regular Air,Manchester | North West,Consumer,customer121@example.com
+5206,05/06/2025,12/06/2025,2-High,2,3%,256.42,-17.23,Regular Air,Manchester | North West,Consumer,customer121@example.com
+5246,10/12/2025,17/12/2025,1-Urgent,42,7%,497.01,-26.60,Regular Air,Cardiff | Wales,Home Office,customer216@example.com
+5262,20/12/2025,20/12/2025,4-Not Specified,34,0%,291.80,-7046.84,Regular Air,Nottingham | East Midlands,Small Business,customer394@example.com
+5283,06/01/2025,11/01/2025,5-Low,48,10%,148.92,9.10,Delivery Truck,Manchester | North West,Consumer,customer4@example.com
+5309,08/08/2025,14/08/2025,5-Low,1,6%,28.11,-9.00,Regular Air,Glasgow | Scotland,Small Business,customer224@example.com
+5310,04/02/2025,05/02/2025,2-High,14,2%,248.08,27.47,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer145@example.com
+5310,04/02/2025,09/02/2025,2-High,3,2%,483.62,-5.71,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer145@example.com
+5310,04/02/2025,04/02/2025,2-High,34,4%,114.92,-15.16,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer145@example.com
+5310,04/02/2025,10/02/2025,2-High,35,6%,211.63,12.17,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer145@example.com
+5323,27/05/2025,29/05/2025,4-Not Specified,6,1%,243.86,-3.24,Regular Air,Liverpool | North West,Corporate,customer226@example.com
+5340,16/01/2025,22/01/2025,3-Medium,26,5%,10.22,-28.75,Express Air,London | London,Small Business,customer204@example.com
+5346,03/09/2025,04/09/2025,1-Urgent,17,3%,400.54,16.73,Regular Air,London | London,Home Office,customer98@example.com
+5353,23/10/2025,24/10/2025,4-Not Specified,35,6%,489.78,-2.60,Regular Air,London | London,Corporate,customer45@example.com
+5353,23/10/2025,27/10/2025,4-Not Specified,25,2%,252.44,17.13,Express Air,London | London,Corporate,customer45@example.com
+5359,15/11/2025,15/11/2025,3-Medium,12,8%,21.82,-10.91,Express Air,Glasgow | Scotland,Consumer,customer111@example.com
+5359,15/11/2025,17/11/2025,3-Medium,24,6%,249.14,29.12,Express Air,Glasgow | Scotland,Consumer,customer111@example.com
+5359,15/11/2025,22/11/2025,3-Medium,45,1%,426.52,19.48,Delivery Truck,Glasgow | Scotland,Consumer,customer111@example.com
+5388,01/01/2025,07/01/2025,3-Medium,6,0%,325.96,-20.13,Regular Air,Birmingham | West Midlands,Home Office,customer336@example.com
+5423,05/05/2025,12/05/2025,2-High,10,0%,361.21,-20.94,Regular Air,London | London,Consumer,customer264@example.com
+5432,17/05/2025,17/05/2025,4-Not Specified,4,10%,241.07,-18.04,Regular Air,London | London,Home Office,customer19@example.com
+5432,17/05/2025,23/05/2025,4-Not Specified,16,5%,19.94,-14.94,Express Air,London | London,Home Office,customer19@example.com
+5452,30/04/2025,05/05/2025,5-Low,46,1%,363.60,-5.68,Regular Air,York | Yorkshire and the Humber,Corporate,customer284@example.com
+5452,30/04/2025,06/05/2025,5-Low,40,10%,143.03,28.09,Regular Air,York | Yorkshire and the Humber,Corporate,customer284@example.com
+5452,30/04/2025,04/05/2025,5-Low,50,8%,74.03,-24.25,Regular Air,York | Yorkshire and the Humber,Corporate,customer284@example.com
+5452,30/04/2025,30/04/2025,5-Low,22,8%,48.56,17.89,Regular Air,York | Yorkshire and the Humber,Corporate,customer284@example.com
+5470,10/04/2025,15/04/2025,3-Medium,41,7%,147.03,-27.35,Express Air,Newcastle | North East,Home Office,customer70@example.com
+5470,10/04/2025,16/04/2025,3-Medium,39,4%,473.05,22.55,Regular Air,Newcastle | North East,Home Office,customer70@example.com
+5506,01/08/2025,04/08/2025,4-Not Specified,15,4%,121.82,-9.99,Regular Air,London | London,Corporate,customer300@example.com
+5539,31/05/2025,05/06/2025,5-Low,26,2%,198.71,24.25,Regular Air,Manchester | North West,Small Business,customer393@example.com
+5569,14/02/2025,20/02/2025,5-Low,21,3%,51.47,-5.76,Regular Air,Birmingham | West Midlands,Home Office,customer51@example.com
+5604,04/10/2025,11/10/2025,3-Medium,34,1%,215.34,-3.98,Delivery Truck,Cardiff | Wales,Corporate,customer17@example.com
+5618,25/01/2025,27/01/2025,5-Low,35,4%,331.49,3.25,Express Air,Sheffield | Yorkshire and the Humber,Consumer,customer297@example.com
+5649,27/12/2025,31/12/2025,2-High,3,10%,209.18,0.45,Delivery Truck,Liverpool | North West,Small Business,customer112@example.com
+5649,27/12/2025,30/12/2025,2-High,31,0%,321.90,-13.59,Regular Air,Liverpool | North West,Small Business,customer112@example.com
+5650,19/05/2025,22/05/2025,2-High,25,4%,133.83,28.65,Regular Air,Bristol | South West,Corporate,customer72@example.com
+5650,19/05/2025,20/05/2025,2-High,7,2%,444.85,-25.39,Delivery Truck,Bristol | South West,Corporate,customer72@example.com
+5679,23/08/2025,23/08/2025,1-Urgent,48,8%,63.73,-1.66,Regular Air,Cardiff | Wales,Corporate,customer144@example.com
+5679,23/08/2025,22/08/2025,1-Urgent,2,4%,138.18,-26.98,Express Air,Cardiff | Wales,Corporate,customer144@example.com
+5679,23/08/2025,26/08/2025,1-Urgent,7,9%,405.09,29.73,Regular Air,Cardiff | Wales,Corporate,customer144@example.com
+5694,30/03/2025,06/04/2025,5-Low,43,4%,203.49,6598.64,Delivery Truck,Bristol | South West,Small Business,customer221@example.com
+5725,30/03/2025,03/04/2025,4-Not Specified,26,5%,95.12,13.34,Express Air,Liverpool | North West,Home Office,customer279@example.com
+5730,11/05/2025,15/05/2025,3-Medium,31,3%,6.90,0.67,Regular Air,Glasgow | Scotland,Small Business,customer316@example.com
+5730,11/05/2025,17/05/2025,3-Medium,1,4%,236.37,-15.08,Regular Air,Glasgow | Scotland,Small Business,customer316@example.com
+5744,06/11/2025,12/11/2025,2-High,44,4%,363.14,-24.86,Express Air,Birmingham | West Midlands,Small Business,customer172@example.com
+5759,10/08/2025,10/08/2025,4-Not Specified,42,8%,113.60,-20.52,Regular Air,Liverpool | North West,Home Office,customer32@example.com
+5759,10/08/2025,14/08/2025,4-Not Specified,31,3%,498.77,22.89,Regular Air,Liverpool | North West,Home Office,customer32@example.com
+5769,17/03/2025,20/03/2025,2-High,48,5%,338.23,29.34,Regular Air,Liverpool | North West,Corporate,customer70@example.com
+5797,30/08/2025,01/09/2025,1-Urgent,1,7%,409.39,30.00,Regular Air,Liverpool | North West,Consumer,customer147@example.com
+5810,04/08/2025,07/08/2025,5-Low,19,0%,71.76,10.60,Regular Air,Cardiff | Wales,Home Office,customer68@example.com
+5831,14/10/2025,19/10/2025,5-Low,35,4%,360.04,26.42,Regular Air,Bristol | South West,Corporate,customer120@example.com
+5860,27/06/2025,02/07/2025,4-Not Specified,2,3%,60.94,25.67,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer14@example.com
+5882,12/06/2025,18/06/2025,3-Medium,29,1%,228.79,-9.10,Express Air,Birmingham | West Midlands,Home Office,customer122@example.com
+5904,20/03/2025,26/03/2025,5-Low,18,7%,300.37,25.82,Regular Air,Liverpool | North West,Home Office,customer113@example.com
+5925,20/11/2025,27/11/2025,2-High,13,6%,463.63,1.73,Regular Air,York | Yorkshire and the Humber,Corporate,customer56@example.com
+5961,19/04/2025,23/04/2025,1-Urgent,8,10%,438.77,-14.44,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer309@example.com
+5995,14/05/2025,20/05/2025,2-High,17,2%,305.06,5.62,Regular Air,Bristol | South West,Small Business,customer268@example.com
+5995,14/05/2025,21/05/2025,2-High,38,5%,373.96,-21.30,Regular Air,Bristol | South West,Small Business,customer268@example.com
+5995,14/05/2025,20/05/2025,2-High,11,8%,474.97,-0.42,Express Air,Bristol | South West,Small Business,customer268@example.com
+5995,14/05/2025,15/05/2025,2-High,20,10%,402.78,5501.69,Delivery Truck,Bristol | South West,Small Business,customer268@example.com
+6025,03/05/2025,10/05/2025,2-High,8,9%,34.31,-25.43,Delivery Truck,Birmingham | West Midlands,Home Office,customer181@example.com
+6047,26/12/2025,28/12/2025,1-Urgent,24,1%,241.08,-0.91,Delivery Truck,York | Yorkshire and the Humber,Home Office,customer387@example.com
+6061,28/01/2025,04/02/2025,2-High,24,10%,418.35,-24.22,Delivery Truck,Bristol | South West,Corporate,customer72@example.com
+6093,31/12/2025,04/01/2026,5-Low,40,6%,128.54,-23.14,Regular Air,Manchester | North West,Corporate,customer176@example.com
+6125,14/01/2025,17/01/2025,2-High,45,2%,423.98,-8.03,Regular Air,Birmingham | West Midlands,Consumer,customer1@example.com
+6130,15/01/2025,21/01/2025,5-Low,35,3%,188.81,15.57,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer387@example.com
+6130,15/01/2025,17/01/2025,5-Low,35,1%,308.97,-5.24,Express Air,Leeds | Yorkshire and the Humber,Small Business,customer387@example.com
+6130,15/01/2025,20/01/2025,5-Low,29,8%,85.59,13.82,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer387@example.com
+6130,15/01/2025,16/01/2025,5-Low,41,1%,121.01,20.69,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer387@example.com
+6146,18/02/2025,23/02/2025,5-Low,47,1%,392.47,-4.69,Regular Air,Liverpool | North West,Home Office,customer144@example.com
+6162,20/10/2025,23/10/2025,1-Urgent,50,9%,16.36,29.64,Regular Air,London | London,Home Office,customer391@example.com
+6190,11/09/2025,12/09/2025,3-Medium,6,1%,326.81,15.07,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer375@example.com
+6192,23/06/2025,25/06/2025,4-Not Specified,38,1%,310.50,3.49,Regular Air,Cardiff | Wales,Home Office,customer246@example.com
+6192,23/06/2025,29/06/2025,4-Not Specified,11,6%,64.56,18.30,Regular Air,Cardiff | Wales,Home Office,customer246@example.com
+6222,11/12/2025,16/12/2025,2-High,24,0%,333.38,-13.73,Regular Air,Manchester | North West,Home Office,customer235@example.com
+6222,11/12/2025,17/12/2025,2-High,28,10%,341.24,20.66,Regular Air,Manchester | North West,Home Office,customer235@example.com
+6222,11/12/2025,15/12/2025,2-High,6,4%,385.46,-12.38,Express Air,Manchester | North West,Home Office,customer235@example.com
+6222,11/12/2025,13/12/2025,2-High,13,0%,77.30,-3.01,Express Air,Manchester | North West,Home Office,customer235@example.com
+6228,07/06/2025,13/06/2025,2-High,26,6%,334.57,-16.27,Delivery Truck,Newcastle | North East,Corporate,customer49@example.com
+6256,26/11/2025,27/11/2025,5-Low,2,4%,266.13,10.34,Regular Air,Bristol | South West,Corporate,customer9@example.com
+6294,19/05/2025,24/05/2025,3-Medium,18,7%,105.30,-24.16,Regular Air,Liverpool | North West,Corporate,customer12@example.com
+6324,07/08/2025,08/08/2025,3-Medium,34,5%,415.50,18.79,Regular Air,Liverpool | North West,Corporate,customer64@example.com
+6329,13/05/2025,17/05/2025,4-Not Specified,43,3%,439.59,-9.68,Regular Air,Glasgow | Scotland,Home Office,customer330@example.com
+6368,11/02/2025,14/02/2025,3-Medium,37,9%,304.23,23.74,Regular Air,Newcastle | North East,Small Business,customer130@example.com
+6406,19/04/2025,26/04/2025,4-Not Specified,43,8%,65.24,24.56,Regular Air,Cardiff | Wales,Small Business,customer129@example.com
+6430,11/05/2025,15/05/2025,5-Low,2,1%,28.90,29.81,Express Air,Bristol | South West,Small Business,customer133@example.com
+6451,08/04/2025,10/04/2025,2-High,15,6%,285.94,-9.20,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer25@example.com
+6451,08/04/2025,09/04/2025,2-High,21,8%,16.78,1.36,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer25@example.com
+6451,08/04/2025,09/04/2025,2-High,6,3%,270.15,17.64,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer25@example.com
+6458,21/11/2025,25/11/2025,2-High,39,0%,231.11,8.66,Delivery Truck,London | London,Home Office,customer290@example.com
+6491,17/06/2025,19/06/2025,5-Low,48,9%,209.17,25.01,Regular Air,York | Yorkshire and the Humber,Consumer,customer307@example.com
+6491,17/06/2025,24/06/2025,5-Low,39,8%,226.50,-12.20,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer307@example.com
+6491,17/06/2025,24/06/2025,5-Low,30,8%,255.00,19.25,Express Air,York | Yorkshire and the Humber,Consumer,customer307@example.com
+6524,16/03/2025,21/03/2025,3-Medium,48,2%,191.73,7.00,Regular Air,Manchester | North West,Small Business,customer54@example.com
+6525,30/12/2025,06/01/2026,2-High,46,5%,338.84,29.24,Regular Air,Nottingham | East Midlands,Home Office,customer21@example.com
+6525,30/12/2025,06/01/2026,2-High,14,6%,259.61,15.21,Express Air,Nottingham | East Midlands,Home Office,customer21@example.com
+6529,27/06/2025,02/07/2025,4-Not Specified,42,1%,263.79,25.25,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer325@example.com
+6529,27/06/2025,01/07/2025,4-Not Specified,48,5%,386.17,10.56,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer325@example.com
+6529,27/06/2025,01/07/2025,4-Not Specified,46,9%,480.18,16.12,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer325@example.com
+6542,11/10/2025,14/10/2025,4-Not Specified,46,0%,408.61,-15.34,Regular Air,York | Yorkshire and the Humber,Corporate,customer155@example.com
+6542,11/10/2025,11/10/2025,4-Not Specified,5,8%,173.12,8.31,Express Air,York | Yorkshire and the Humber,Corporate,customer155@example.com
+6542,11/10/2025,16/10/2025,4-Not Specified,14,9%,498.42,15.27,Express Air,York | Yorkshire and the Humber,Corporate,customer155@example.com
+6570,25/01/2025,26/01/2025,2-High,14,5%,393.93,0.55,Express Air,Liverpool | North West,Small Business,customer68@example.com
+6587,12/09/2025,19/09/2025,1-Urgent,18,8%,463.98,-25.99,Regular Air,Glasgow | Scotland,Small Business,customer248@example.com
+6587,12/09/2025,15/09/2025,1-Urgent,6,3%,61.11,-20.85,Express Air,Glasgow | Scotland,Small Business,customer248@example.com
+6587,12/09/2025,12/09/2025,1-Urgent,13,0%,386.22,20.52,Regular Air,Glasgow | Scotland,Small Business,customer248@example.com
+6587,12/09/2025,16/09/2025,1-Urgent,21,7%,388.11,-2.63,Regular Air,Glasgow | Scotland,Small Business,customer248@example.com
+6617,13/10/2025,16/10/2025,1-Urgent,22,3%,251.56,-4.96,Regular Air,Nottingham | East Midlands,Home Office,customer61@example.com
+6626,11/02/2025,12/02/2025,2-High,50,1%,286.22,16.66,Regular Air,Glasgow | Scotland,Home Office,customer311@example.com
+6626,11/02/2025,13/02/2025,2-High,14,10%,80.53,-18.23,Regular Air,Glasgow | Scotland,Home Office,customer311@example.com
+6626,11/02/2025,15/02/2025,2-High,20,7%,431.87,21.24,Regular Air,Glasgow | Scotland,Home Office,customer311@example.com
+6626,11/02/2025,16/02/2025,2-High,2,4%,94.96,-18.69,Regular Air,Glasgow | Scotland,Home Office,customer311@example.com
+6661,17/01/2025,18/01/2025,3-Medium,19,0%,429.58,-7.09,Regular Air,Newcastle | North East,Small Business,customer124@example.com
+6669,27/04/2025,30/04/2025,2-High,44,1%,100.10,29.64,Regular Air,Cardiff | Wales,Consumer,customer270@example.com
+6669,27/04/2025,30/04/2025,2-High,7,8%,246.92,-10.99,Express Air,Cardiff | Wales,Consumer,customer270@example.com
+6669,27/04/2025,30/04/2025,2-High,13,5%,108.18,12.56,Regular Air,Cardiff | Wales,Consumer,customer270@example.com
+6669,27/04/2025,29/04/2025,2-High,6,3%,302.50,7170.16,Express Air,Cardiff | Wales,Consumer,customer270@example.com
+6695,23/01/2025,23/01/2025,5-Low,10,4%,289.91,-20.32,Delivery Truck,Glasgow | Scotland,Corporate,customer253@example.com
+6704,23/04/2025,30/04/2025,1-Urgent,29,1%,280.56,17.24,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer254@example.com
+6730,04/01/2025,05/01/2025,3-Medium,48,10%,289.83,-14.18,Regular Air,Newcastle | North East,Small Business,customer130@example.com
+6730,04/01/2025,10/01/2025,3-Medium,26,5%,458.58,11.82,Express Air,Newcastle | North East,Small Business,customer130@example.com
+6730,04/01/2025,09/01/2025,3-Medium,7,10%,295.96,28.42,Delivery Truck,Newcastle | North East,Small Business,customer130@example.com
+6730,04/01/2025,04/01/2025,3-Medium,23,10%,459.47,30.74,Regular Air,Newcastle | North East,Small Business,customer130@example.com
+6733,20/06/2025,24/06/2025,3-Medium,27,4%,252.39,-8.93,Regular Air,London | London,Small Business,customer386@example.com
+6742,22/04/2025,22/04/2025,3-Medium,43,6%,421.94,-27.30,Regular Air,Glasgow | Scotland,Corporate,customer54@example.com
+6746,12/02/2025,14/02/2025,1-Urgent,49,3%,469.71,25.56,Regular Air,York | Yorkshire and the Humber,Consumer,customer129@example.com
+6766,29/04/2025,05/05/2025,2-High,41,8%,87.39,1.32,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer122@example.com
+6766,29/04/2025,30/04/2025,2-High,9,10%,404.18,-15.29,Express Air,Leeds | Yorkshire and the Humber,Home Office,customer122@example.com
+6766,29/04/2025,02/05/2025,2-High,34,5%,467.90,19.97,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer122@example.com
+6787,03/05/2025,09/05/2025,3-Medium,1,10%,256.28,-4.32,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer239@example.com
+6820,25/08/2025,27/08/2025,4-Not Specified,49,3%,195.94,27.75,Regular Air,Newcastle | North East,Home Office,customer305@example.com
+6820,25/08/2025,25/08/2025,4-Not Specified,10,5%,69.30,5.95,Regular Air,Newcastle | North East,Home Office,customer305@example.com
+6839,20/04/2025,20/04/2025,1-Urgent,13,6%,117.40,-7.31,Regular Air,Glasgow | Scotland,Home Office,customer359@example.com
+6839,20/04/2025,25/04/2025,1-Urgent,27,0%,202.09,-11.31,Regular Air,Glasgow | Scotland,Home Office,customer359@example.com
+6839,20/04/2025,24/04/2025,1-Urgent,34,5%,385.19,13.59,Regular Air,Glasgow | Scotland,Home Office,customer359@example.com
+6859,19/11/2025,20/11/2025,2-High,4,1%,386.42,-4.09,Regular Air,Liverpool | North West,Consumer,customer172@example.com
+6879,24/10/2025,26/10/2025,4-Not Specified,2,6%,371.15,10.83,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer246@example.com
+6879,24/10/2025,30/10/2025,4-Not Specified,23,2%,178.34,6986.61,Express Air,Sheffield | Yorkshire and the Humber,Corporate,customer246@example.com
+6879,24/10/2025,25/10/2025,4-Not Specified,4,6%,283.39,15.89,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer246@example.com
+6879,24/10/2025,31/10/2025,4-Not Specified,1,7%,300.36,-23.84,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer246@example.com
+6883,28/09/2025,04/10/2025,2-High,24,9%,171.86,0.25,Regular Air,Bristol | South West,Home Office,customer321@example.com
+6883,28/09/2025,02/10/2025,2-High,38,0%,488.17,0.18,Regular Air,Bristol | South West,Home Office,customer321@example.com
+6883,28/09/2025,03/10/2025,2-High,47,0%,310.86,-2.38,Regular Air,Bristol | South West,Home Office,customer321@example.com
+6911,09/02/2025,15/02/2025,5-Low,34,7%,68.73,3.55,Regular Air,London | London,Small Business,customer136@example.com
+6936,17/11/2025,20/11/2025,2-High,37,2%,160.84,-23.04,Delivery Truck,Nottingham | East Midlands,Consumer,customer234@example.com
+6940,05/04/2025,12/04/2025,3-Medium,34,2%,410.09,-19.02,Regular Air,Glasgow | Scotland,Consumer,customer181@example.com
+6964,21/12/2025,21/12/2025,4-Not Specified,48,7%,114.52,-15.59,Regular Air,Bristol | South West,Home Office,customer185@example.com
+6964,21/12/2025,24/12/2025,4-Not Specified,19,6%,116.01,29.40,Regular Air,Bristol | South West,Home Office,customer185@example.com
+6964,21/12/2025,25/12/2025,4-Not Specified,50,9%,189.62,-18.14,Regular Air,Bristol | South West,Home Office,customer185@example.com
+6964,21/12/2025,27/12/2025,4-Not Specified,31,9%,37.90,19.75,Delivery Truck,Bristol | South West,Home Office,customer185@example.com
+6995,09/12/2025,16/12/2025,2-High,46,7%,96.64,1.30,Regular Air,Liverpool | North West,Home Office,customer221@example.com
+6995,09/12/2025,12/12/2025,2-High,11,4%,115.35,24.91,Regular Air,Liverpool | North West,Home Office,customer221@example.com
+6995,09/12/2025,15/12/2025,2-High,13,3%,268.96,-20.22,Delivery Truck,Liverpool | North West,Home Office,customer221@example.com
+6995,09/12/2025,12/12/2025,2-High,32,3%,479.70,7.19,Regular Air,Liverpool | North West,Home Office,customer221@example.com
+7021,27/02/2025,28/02/2025,4-Not Specified,32,2%,482.97,-6.42,Regular Air,Liverpool | North West,Corporate,customer274@example.com
+7057,07/10/2025,14/10/2025,3-Medium,32,8%,368.38,-3.62,Regular Air,Liverpool | North West,Home Office,customer48@example.com
+7069,03/12/2025,08/12/2025,5-Low,20,4%,47.50,-6.26,Express Air,Liverpool | North West,Home Office,customer195@example.com
+7097,24/02/2025,26/02/2025,5-Low,6,3%,127.77,4.53,Regular Air,York | Yorkshire and the Humber,Consumer,customer256@example.com
+7097,24/02/2025,26/02/2025,5-Low,34,9%,334.83,9.70,Express Air,York | Yorkshire and the Humber,Consumer,customer256@example.com
+7097,24/02/2025,28/02/2025,5-Low,6,10%,127.70,28.21,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer256@example.com
+7097,24/02/2025,28/02/2025,5-Low,48,1%,243.15,18.12,Regular Air,York | Yorkshire and the Humber,Consumer,customer256@example.com
+7111,11/09/2025,13/09/2025,4-Not Specified,22,4%,293.81,25.65,Regular Air,Birmingham | West Midlands,Home Office,customer354@example.com
+7111,11/09/2025,17/09/2025,4-Not Specified,15,5%,318.90,8351.86,Regular Air,Birmingham | West Midlands,Home Office,customer354@example.com
+7111,11/09/2025,12/09/2025,4-Not Specified,37,1%,369.69,-21.47,Regular Air,Birmingham | West Midlands,Home Office,customer354@example.com
+7139,05/10/2025,11/10/2025,4-Not Specified,50,10%,345.49,23.02,Regular Air,Birmingham | West Midlands,Corporate,customer180@example.com
+7161,21/01/2025,26/01/2025,1-Urgent,22,5%,460.43,17.05,Delivery Truck,Nottingham | East Midlands,Corporate,customer125@example.com
+7166,08/04/2025,11/04/2025,5-Low,39,5%,52.09,16.69,Delivery Truck,London | London,Consumer,customer399@example.com
+7169,25/02/2025,25/02/2025,2-High,5,10%,385.19,24.47,Regular Air,Glasgow | Scotland,Corporate,customer283@example.com
+7169,25/02/2025,02/03/2025,2-High,48,3%,416.63,1.50,Express Air,Glasgow | Scotland,Corporate,customer283@example.com
+7169,25/02/2025,25/02/2025,2-High,28,8%,309.70,-25.00,Regular Air,Glasgow | Scotland,Corporate,customer283@example.com
+7169,25/02/2025,26/02/2025,2-High,38,1%,23.15,-19.76,Regular Air,Glasgow | Scotland,Corporate,customer283@example.com
+7193,26/09/2025,27/09/2025,5-Low,9,4%,407.04,-4.93,Regular Air,Birmingham | West Midlands,Home Office,customer341@example.com
+7193,26/09/2025,30/09/2025,5-Low,18,5%,68.37,-20.12,Regular Air,Birmingham | West Midlands,Home Office,customer341@example.com
+7193,26/09/2025,02/10/2025,5-Low,14,10%,99.88,-10.83,Regular Air,Birmingham | West Midlands,Home Office,customer341@example.com
+7193,26/09/2025,03/10/2025,5-Low,36,2%,4.73,8.62,Express Air,Birmingham | West Midlands,Home Office,customer341@example.com
+7225,11/05/2025,17/05/2025,3-Medium,7,2%,168.16,-17.54,Regular Air,Liverpool | North West,Small Business,customer64@example.com
+7239,25/05/2025,25/05/2025,2-High,29,5%,138.11,-7.54,Delivery Truck,Glasgow | Scotland,Consumer,customer370@example.com
+7273,14/10/2025,16/10/2025,5-Low,48,3%,441.18,10.18,Express Air,Cardiff | Wales,Consumer,customer376@example.com
+7273,14/10/2025,15/10/2025,5-Low,43,2%,196.63,3.55,Regular Air,Cardiff | Wales,Consumer,customer376@example.com
+7299,26/09/2025,29/09/2025,2-High,12,4%,452.39,-21.62,Regular Air,Liverpool | North West,Small Business,customer276@example.com
+7299,26/09/2025,29/09/2025,2-High,50,6%,25.11,-13.99,Express Air,Liverpool | North West,Small Business,customer276@example.com
+7299,26/09/2025,28/09/2025,2-High,41,8%,49.18,3.54,Regular Air,Liverpool | North West,Small Business,customer276@example.com
+7306,25/12/2025,25/12/2025,2-High,40,0%,357.38,6.46,Regular Air,Manchester | North West,Corporate,customer225@example.com
+7312,04/08/2025,11/08/2025,3-Medium,45,9%,177.10,4.70,Regular Air,Nottingham | East Midlands,Consumer,customer311@example.com
+7324,04/04/2025,08/04/2025,4-Not Specified,28,0%,414.59,-15.44,Delivery Truck,Nottingham | East Midlands,Home Office,customer7@example.com
+7324,04/04/2025,07/04/2025,4-Not Specified,43,1%,129.69,-5345.86,Express Air,Nottingham | East Midlands,Home Office,customer7@example.com
+7324,04/04/2025,07/04/2025,4-Not Specified,9,1%,292.38,6.63,Regular Air,Nottingham | East Midlands,Home Office,customer7@example.com
+7324,04/04/2025,04/04/2025,4-Not Specified,46,9%,444.42,-15.49,Express Air,Nottingham | East Midlands,Home Office,customer7@example.com
+7364,09/06/2025,14/06/2025,1-Urgent,35,6%,225.52,-0.13,Regular Air,Glasgow | Scotland,Corporate,customer110@example.com
+7364,09/06/2025,13/06/2025,1-Urgent,13,4%,257.27,-26.14,Regular Air,Glasgow | Scotland,Corporate,customer110@example.com
+7364,09/06/2025,09/06/2025,1-Urgent,36,0%,163.05,4.31,Delivery Truck,Glasgow | Scotland,Corporate,customer110@example.com
+7404,06/05/2025,10/05/2025,4-Not Specified,12,5%,245.13,-2.56,Regular Air,Bristol | South West,Consumer,customer272@example.com
+7406,18/05/2025,24/05/2025,3-Medium,19,6%,481.01,26.50,Regular Air,Nottingham | East Midlands,Consumer,customer352@example.com
+7440,21/02/2025,26/02/2025,2-High,43,0%,300.58,-26.88,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer275@example.com
+7480,06/12/2025,11/12/2025,3-Medium,38,7%,457.06,-9.34,Regular Air,Bristol | South West,Consumer,customer280@example.com
+7480,06/12/2025,13/12/2025,3-Medium,8,0%,365.58,-6392.23,Regular Air,Bristol | South West,Consumer,customer280@example.com
+7480,06/12/2025,09/12/2025,3-Medium,25,1%,81.35,17.67,Express Air,Bristol | South West,Consumer,customer280@example.com
+7494,04/05/2025,09/05/2025,3-Medium,18,8%,49.49,-27.91,Regular Air,Glasgow | Scotland,Corporate,customer326@example.com
+7497,25/02/2025,04/03/2025,1-Urgent,3,9%,254.94,-14.38,Regular Air,York | Yorkshire and the Humber,Corporate,customer37@example.com
+7533,11/03/2025,11/03/2025,3-Medium,20,3%,65.84,-23.05,Regular Air,Liverpool | North West,Small Business,customer30@example.com
+7533,11/03/2025,11/03/2025,3-Medium,32,10%,215.70,-26.23,Regular Air,Liverpool | North West,Small Business,customer30@example.com
+7551,23/06/2025,24/06/2025,5-Low,35,0%,6.04,10.47,Regular Air,Nottingham | East Midlands,Home Office,customer134@example.com
+7571,07/09/2025,14/09/2025,4-Not Specified,2,6%,410.80,-23.62,Express Air,Glasgow | Scotland,Small Business,customer397@example.com
+7571,07/09/2025,11/09/2025,4-Not Specified,33,0%,7.81,25.65,Regular Air,Glasgow | Scotland,Small Business,customer397@example.com
+7592,27/03/2025,03/04/2025,3-Medium,36,6%,354.91,-26.58,Regular Air,York | Yorkshire and the Humber,Small Business,customer117@example.com
+7606,20/08/2025,27/08/2025,5-Low,23,3%,192.64,-9.43,Regular Air,Liverpool | North West,Home Office,customer299@example.com
+7607,25/01/2025,26/01/2025,2-High,5,8%,108.64,30.32,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer160@example.com
+7609,31/01/2025,06/02/2025,1-Urgent,38,4%,112.08,2.25,Regular Air,Birmingham | West Midlands,Small Business,customer42@example.com
+7609,31/01/2025,02/02/2025,1-Urgent,36,6%,272.21,30.37,Regular Air,Birmingham | West Midlands,Small Business,customer42@example.com
+7609,31/01/2025,03/02/2025,1-Urgent,42,0%,160.14,-13.95,Regular Air,Birmingham | West Midlands,Small Business,customer42@example.com
+7609,31/01/2025,06/02/2025,1-Urgent,39,0%,480.37,-11.71,Regular Air,Birmingham | West Midlands,Small Business,customer42@example.com
+7618,04/08/2025,04/08/2025,1-Urgent,11,8%,466.84,14.11,Delivery Truck,Liverpool | North West,Small Business,customer371@example.com
+7618,04/08/2025,06/08/2025,1-Urgent,33,8%,324.21,11.70,Delivery Truck,Liverpool | North West,Small Business,customer371@example.com
+7618,04/08/2025,05/08/2025,1-Urgent,17,7%,151.90,-6.73,Regular Air,Liverpool | North West,Small Business,customer371@example.com
+7628,16/09/2025,20/09/2025,3-Medium,35,9%,125.08,20.36,Express Air,Manchester | North West,Consumer,customer176@example.com
+7629,08/02/2025,14/02/2025,5-Low,20,2%,464.94,30.57,Express Air,London | London,Small Business,customer78@example.com
+7669,11/05/2025,11/05/2025,4-Not Specified,37,5%,33.03,-25.09,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer381@example.com
+7698,23/02/2025,24/02/2025,2-High,50,9%,344.50,16.18,Regular Air,York | Yorkshire and the Humber,Consumer,customer341@example.com
+7698,23/02/2025,25/02/2025,2-High,11,6%,240.48,7.44,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer341@example.com
+7698,23/02/2025,25/02/2025,2-High,19,2%,441.39,14.17,Regular Air,York | Yorkshire and the Humber,Consumer,customer341@example.com
+7715,07/09/2025,13/09/2025,3-Medium,11,1%,178.89,-17.00,Delivery Truck,Glasgow | Scotland,Home Office,customer99@example.com
+7715,07/09/2025,11/09/2025,3-Medium,35,8%,436.03,11.54,Regular Air,Glasgow | Scotland,Home Office,customer99@example.com
+7715,07/09/2025,11/09/2025,3-Medium,17,7%,105.70,16.76,Regular Air,Glasgow | Scotland,Home Office,customer99@example.com
+7727,28/02/2025,04/03/2025,1-Urgent,20,7%,84.63,-20.81,Regular Air,Bristol | South West,Corporate,customer263@example.com
+7752,20/04/2025,20/04/2025,2-High,3,10%,191.25,-24.46,Regular Air,Glasgow | Scotland,Corporate,customer395@example.com
+7769,27/01/2025,03/02/2025,5-Low,11,2%,33.77,5317.46,Regular Air,Nottingham | East Midlands,Corporate,customer122@example.com
+7806,06/01/2025,06/01/2025,2-High,22,3%,158.02,23.05,Express Air,Glasgow | Scotland,Corporate,customer67@example.com
+7830,23/03/2025,26/03/2025,3-Medium,42,2%,478.57,27.39,Regular Air,Birmingham | West Midlands,Corporate,customer94@example.com
+7859,10/03/2025,11/03/2025,1-Urgent,47,3%,303.28,-15.80,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer77@example.com
+7859,10/03/2025,14/03/2025,1-Urgent,3,8%,384.72,-8.13,Delivery Truck,Leeds | Yorkshire and the Humber,Home Office,customer77@example.com
+7859,10/03/2025,15/03/2025,1-Urgent,48,1%,59.08,11.87,Express Air,Leeds | Yorkshire and the Humber,Home Office,customer77@example.com
+7859,10/03/2025,10/03/2025,1-Urgent,16,6%,233.79,-1.89,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer77@example.com
+7890,04/06/2025,09/06/2025,1-Urgent,42,0%,181.68,9.75,Regular Air,Birmingham | West Midlands,Corporate,customer53@example.com
+7904,06/05/2025,06/05/2025,3-Medium,9,9%,390.57,-20.84,Regular Air,Bristol | South West,Corporate,customer100@example.com
+7937,11/06/2025,15/06/2025,2-High,44,2%,14.36,-14.83,Regular Air,London | London,Consumer,customer119@example.com
+7968,28/08/2025,02/09/2025,3-Medium,10,2%,383.41,28.51,Regular Air,Cardiff | Wales,Home Office,customer235@example.com
+7977,31/08/2025,04/09/2025,4-Not Specified,7,1%,313.48,-4.45,Regular Air,Cardiff | Wales,Home Office,customer48@example.com
+7993,22/03/2025,23/03/2025,5-Low,4,0%,97.36,-4.96,Regular Air,Cardiff | Wales,Consumer,customer355@example.com
+8020,12/09/2025,18/09/2025,1-Urgent,5,4%,186.60,15.11,Regular Air,Nottingham | East Midlands,Corporate,customer356@example.com
+8025,24/02/2025,01/03/2025,2-High,23,7%,306.47,28.88,Regular Air,London | London,Consumer,customer155@example.com
+8026,12/09/2025,19/09/2025,5-Low,12,4%,76.18,0.04,Regular Air,Glasgow | Scotland,Small Business,customer221@example.com
+8066,03/08/2025,08/08/2025,5-Low,3,3%,217.57,-19.16,Regular Air,York | Yorkshire and the Humber,Corporate,customer66@example.com
+8088,01/02/2025,06/02/2025,2-High,27,6%,431.88,7.35,Express Air,Nottingham | East Midlands,Home Office,customer252@example.com
+8105,19/02/2025,21/02/2025,3-Medium,11,0%,312.40,2.33,Express Air,Manchester | North West,Consumer,customer337@example.com
+8105,19/02/2025,24/02/2025,3-Medium,30,3%,148.97,25.77,Regular Air,Manchester | North West,Consumer,customer337@example.com
+8105,19/02/2025,20/02/2025,3-Medium,9,1%,47.92,11.53,Regular Air,Manchester | North West,Consumer,customer337@example.com
+8105,19/02/2025,20/02/2025,3-Medium,45,9%,148.93,21.26,Regular Air,Manchester | North West,Consumer,customer337@example.com
+8124,30/09/2025,06/10/2025,4-Not Specified,9,7%,345.98,2552.45,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer288@example.com
+8162,10/04/2025,15/04/2025,3-Medium,33,9%,293.85,0.79,Regular Air,Bristol | South West,Corporate,customer173@example.com
+8162,10/04/2025,14/04/2025,3-Medium,2,8%,426.50,-16.37,Delivery Truck,Bristol | South West,Corporate,customer173@example.com
+8162,10/04/2025,14/04/2025,3-Medium,27,5%,156.58,-28.35,Delivery Truck,Bristol | South West,Corporate,customer173@example.com
+8184,05/12/2025,08/12/2025,4-Not Specified,19,3%,14.53,-27.87,Regular Air,Birmingham | West Midlands,Corporate,customer107@example.com
+8187,12/06/2025,15/06/2025,5-Low,6,5%,285.81,28.25,Regular Air,Cardiff | Wales,Small Business,customer204@example.com
+8187,12/06/2025,13/06/2025,5-Low,18,7%,167.91,8480.70,Regular Air,Cardiff | Wales,Small Business,customer204@example.com
+8187,12/06/2025,17/06/2025,5-Low,7,10%,474.20,-24.62,Regular Air,Cardiff | Wales,Small Business,customer204@example.com
+8209,21/06/2025,21/06/2025,5-Low,13,8%,384.24,7.73,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer116@example.com
+8242,11/04/2025,14/04/2025,4-Not Specified,40,10%,496.81,8.54,Regular Air,Liverpool | North West,Home Office,customer44@example.com
+8271,25/12/2025,27/12/2025,5-Low,34,5%,386.11,-3.71,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer108@example.com
+8271,25/12/2025,31/12/2025,5-Low,28,3%,294.20,29.62,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer108@example.com
+8291,14/01/2025,18/01/2025,5-Low,41,6%,19.93,-26.95,Regular Air,York | Yorkshire and the Humber,Corporate,customer100@example.com
+8321,11/10/2025,12/10/2025,1-Urgent,23,6%,293.80,2.07,Regular Air,Newcastle | North East,Small Business,customer281@example.com
+8327,09/09/2025,13/09/2025,3-Medium,35,7%,16.59,5.96,Delivery Truck,Glasgow | Scotland,Corporate,customer290@example.com
+8332,19/12/2025,26/12/2025,3-Medium,10,7%,477.31,29.91,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer158@example.com
+8363,30/05/2025,02/06/2025,4-Not Specified,20,0%,100.49,24.26,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer334@example.com
+8371,21/10/2025,21/10/2025,3-Medium,33,6%,83.90,-9.46,Regular Air,Newcastle | North East,Corporate,customer15@example.com
+8409,18/08/2025,24/08/2025,4-Not Specified,20,1%,197.16,-24.71,Regular Air,Newcastle | North East,Small Business,customer104@example.com
+8428,03/03/2025,07/03/2025,3-Medium,38,4%,332.79,-28.32,Regular Air,Newcastle | North East,Home Office,customer357@example.com
+8464,10/04/2025,12/04/2025,1-Urgent,8,9%,140.71,4.58,Regular Air,Glasgow | Scotland,Consumer,customer152@example.com
+8476,31/10/2025,03/11/2025,3-Medium,7,7%,284.60,-6.38,Delivery Truck,Birmingham | West Midlands,Consumer,customer333@example.com
+8476,31/10/2025,31/10/2025,3-Medium,22,4%,33.29,21.04,Express Air,Birmingham | West Midlands,Consumer,customer333@example.com
+8513,19/09/2025,23/09/2025,2-High,19,0%,196.37,-10.60,Express Air,Nottingham | East Midlands,Corporate,customer233@example.com
+8522,28/05/2025,31/05/2025,3-Medium,35,0%,373.83,-12.93,Regular Air,Bristol | South West,Consumer,customer76@example.com
+8550,02/04/2025,07/04/2025,5-Low,40,6%,364.76,23.69,Regular Air,Newcastle | North East,Home Office,customer177@example.com
+8587,11/12/2025,16/12/2025,2-High,2,0%,299.17,-24.71,Regular Air,Nottingham | East Midlands,Corporate,customer193@example.com
+8592,16/09/2025,16/09/2025,1-Urgent,44,2%,114.04,-25.16,Regular Air,London | London,Corporate,customer389@example.com
+8628,22/08/2025,24/08/2025,4-Not Specified,7,5%,250.37,14.56,Delivery Truck,Glasgow | Scotland,Home Office,customer11@example.com
+8641,06/04/2025,12/04/2025,4-Not Specified,25,3%,499.37,-19.76,Express Air,Sheffield | Yorkshire and the Humber,Consumer,customer351@example.com
+8641,06/04/2025,08/04/2025,4-Not Specified,30,10%,334.83,-15.43,Delivery Truck,Sheffield | Yorkshire and the Humber,Consumer,customer351@example.com
+8641,06/04/2025,11/04/2025,4-Not Specified,47,6%,62.44,3.75,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer351@example.com
+8641,06/04/2025,10/04/2025,4-Not Specified,11,3%,473.78,23.10,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer351@example.com
+8670,25/12/2025,29/12/2025,4-Not Specified,41,5%,333.38,26.27,Regular Air,London | London,Home Office,customer264@example.com
+8696,06/04/2025,11/04/2025,2-High,40,0%,420.53,-26.69,Regular Air,Manchester | North West,Corporate,customer129@example.com
+8696,06/04/2025,09/04/2025,2-High,46,0%,20.92,-11.44,Regular Air,Manchester | North West,Corporate,customer129@example.com
+8726,04/01/2025,05/01/2025,5-Low,40,3%,343.00,-11.41,Express Air,Liverpool | North West,Consumer,customer178@example.com
+8727,03/04/2025,03/04/2025,4-Not Specified,22,8%,315.56,-10.91,Regular Air,Bristol | South West,Home Office,customer189@example.com
+8727,03/04/2025,05/04/2025,4-Not Specified,30,1%,431.07,5.04,Express Air,Bristol | South West,Home Office,customer189@example.com
+8727,03/04/2025,04/04/2025,4-Not Specified,18,10%,435.54,3.24,Regular Air,Bristol | South West,Home Office,customer189@example.com
+8727,03/04/2025,04/04/2025,4-Not Specified,19,10%,57.00,-7.10,Regular Air,Bristol | South West,Home Office,customer189@example.com
+8761,07/12/2025,11/12/2025,5-Low,15,9%,167.35,-18.94,Regular Air,Manchester | North West,Home Office,customer47@example.com
+8782,22/10/2025,24/10/2025,2-High,6,6%,97.27,-10.07,Regular Air,Bristol | South West,Corporate,customer154@example.com
+8812,27/11/2025,01/12/2025,3-Medium,43,7%,218.26,-24.76,Regular Air,Liverpool | North West,Home Office,customer159@example.com
+8848,13/05/2025,14/05/2025,2-High,25,8%,171.81,31.16,Regular Air,Birmingham | West Midlands,Home Office,customer42@example.com
+8882,22/12/2025,26/12/2025,4-Not Specified,13,5%,339.94,-9.07,Regular Air,York | Yorkshire and the Humber,Home Office,customer299@example.com
+8913,12/04/2025,13/04/2025,1-Urgent,50,10%,167.09,12.29,Regular Air,Newcastle | North East,Home Office,customer154@example.com
+8913,12/04/2025,13/04/2025,1-Urgent,9,8%,375.86,-28.10,Delivery Truck,Newcastle | North East,Home Office,customer154@example.com
+8913,12/04/2025,13/04/2025,1-Urgent,17,7%,64.34,30.76,Express Air,Newcastle | North East,Home Office,customer154@example.com
+8922,04/11/2025,09/11/2025,1-Urgent,48,4%,312.13,-2.63,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer248@example.com
+8922,04/11/2025,09/11/2025,1-Urgent,10,1%,304.64,24.54,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer248@example.com
+8922,04/11/2025,07/11/2025,1-Urgent,17,3%,213.10,8.59,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer248@example.com
+8944,30/01/2025,04/02/2025,1-Urgent,27,10%,30.26,16.81,Regular Air,Bristol | South West,Home Office,customer27@example.com
+8984,10/04/2025,10/04/2025,4-Not Specified,45,5%,261.99,-12.90,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer237@example.com
+8984,10/04/2025,10/04/2025,4-Not Specified,17,2%,111.18,4.47,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer237@example.com
+8984,10/04/2025,14/04/2025,4-Not Specified,3,8%,102.39,2.16,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer237@example.com
+8990,31/03/2025,01/04/2025,5-Low,31,10%,232.47,-3.05,Regular Air,Manchester | North West,Small Business,customer128@example.com
+8990,31/03/2025,02/04/2025,5-Low,20,4%,161.71,-22.72,Regular Air,Manchester | North West,Small Business,customer128@example.com
+8990,31/03/2025,07/04/2025,5-Low,2,0%,386.84,29.82,Delivery Truck,Manchester | North West,Small Business,customer128@example.com
+8990,31/03/2025,06/04/2025,5-Low,47,0%,383.43,9.73,Regular Air,Manchester | North West,Small Business,customer128@example.com
+9015,10/03/2025,14/03/2025,1-Urgent,41,10%,203.64,14.43,Regular Air,Bristol | South West,Corporate,customer332@example.com
+9025,21/03/2025,21/03/2025,4-Not Specified,15,3%,492.68,21.23,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer399@example.com
+9055,14/11/2025,19/11/2025,2-High,45,8%,263.42,9.94,Regular Air,Glasgow | Scotland,Small Business,customer54@example.com
+9058,26/04/2025,28/04/2025,1-Urgent,5,10%,106.95,-9.39,Regular Air,Nottingham | East Midlands,Small Business,customer237@example.com
+9090,05/08/2025,07/08/2025,5-Low,4,5%,436.66,16.34,Regular Air,Manchester | North West,Corporate,customer196@example.com
+9090,05/08/2025,07/08/2025,5-Low,5,10%,143.31,29.00,Regular Air,Manchester | North West,Corporate,customer196@example.com
+9095,20/03/2025,24/03/2025,1-Urgent,12,3%,68.25,-7.30,Regular Air,London | London,Home Office,customer323@example.com
+9095,20/03/2025,22/03/2025,1-Urgent,7,8%,443.48,-0.84,Express Air,London | London,Home Office,customer323@example.com
+9095,20/03/2025,21/03/2025,1-Urgent,18,9%,203.53,-16.52,Regular Air,London | London,Home Office,customer323@example.com
+9095,20/03/2025,25/03/2025,1-Urgent,14,2%,96.65,31.06,Express Air,London | London,Home Office,customer323@example.com
+9121,23/09/2025,26/09/2025,3-Medium,36,4%,426.14,-2.65,Delivery Truck,Liverpool | North West,Small Business,customer340@example.com
+9121,23/09/2025,27/09/2025,3-Medium,49,9%,137.26,29.09,Regular Air,Liverpool | North West,Small Business,customer340@example.com
+9121,23/09/2025,28/09/2025,3-Medium,31,2%,320.67,-4.19,Express Air,Liverpool | North West,Small Business,customer340@example.com
+9126,26/05/2025,02/06/2025,4-Not Specified,4,8%,219.68,26.79,Regular Air,Nottingham | East Midlands,Small Business,customer280@example.com
+9142,06/06/2025,06/06/2025,5-Low,50,4%,332.13,23.43,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer316@example.com
+9142,06/06/2025,08/06/2025,5-Low,22,3%,310.65,-4.23,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer316@example.com
+9142,06/06/2025,13/06/2025,5-Low,41,8%,480.74,-9.38,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer316@example.com
+9142,06/06/2025,12/06/2025,5-Low,41,10%,356.45,-4.12,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer316@example.com
+9166,18/01/2025,24/01/2025,5-Low,38,7%,117.03,13.38,Regular Air,Glasgow | Scotland,Small Business,customer273@example.com
+9166,18/01/2025,21/01/2025,5-Low,23,6%,496.15,-19.13,Regular Air,Glasgow | Scotland,Small Business,customer273@example.com
+9166,18/01/2025,20/01/2025,5-Low,42,6%,54.74,11.55,Delivery Truck,Glasgow | Scotland,Small Business,customer273@example.com
+9200,01/01/2025,06/01/2025,1-Urgent,34,0%,100.84,-8.76,Regular Air,Bristol | South West,Small Business,customer398@example.com
+9200,01/01/2025,06/01/2025,1-Urgent,37,3%,445.11,28.04,Express Air,Bristol | South West,Small Business,customer398@example.com
+9200,01/01/2025,05/01/2025,1-Urgent,35,0%,332.21,-3414.48,Express Air,Bristol | South West,Small Business,customer398@example.com
+9240,23/03/2025,25/03/2025,3-Medium,23,6%,450.97,0.53,Regular Air,Newcastle | North East,Small Business,customer54@example.com
+9240,23/03/2025,24/03/2025,3-Medium,36,8%,17.20,-11.41,Delivery Truck,Newcastle | North East,Small Business,customer54@example.com
+9240,23/03/2025,26/03/2025,3-Medium,32,0%,474.75,-0.06,Regular Air,Newcastle | North East,Small Business,customer54@example.com
+9260,15/06/2025,15/06/2025,4-Not Specified,11,4%,132.97,10.13,Delivery Truck,Birmingham | West Midlands,Consumer,customer62@example.com
+9291,25/09/2025,25/09/2025,1-Urgent,40,4%,381.36,-0.92,Regular Air,York | Yorkshire and the Humber,Consumer,customer144@example.com
+9313,19/11/2025,21/11/2025,2-High,17,3%,269.26,-8.06,Regular Air,Bristol | South West,Home Office,customer90@example.com
+9313,19/11/2025,23/11/2025,2-High,39,10%,344.76,-7.94,Regular Air,Bristol | South West,Home Office,customer90@example.com
+9313,19/11/2025,22/11/2025,2-High,41,3%,289.52,20.80,Regular Air,Bristol | South West,Home Office,customer90@example.com
+9313,19/11/2025,23/11/2025,2-High,44,1%,436.66,-28.21,Delivery Truck,Bristol | South West,Home Office,customer90@example.com
+9346,20/09/2025,26/09/2025,3-Medium,30,7%,38.30,3.96,Regular Air,London | London,Consumer,customer245@example.com
+9363,27/10/2025,27/10/2025,2-High,26,8%,139.26,-13.53,Express Air,York | Yorkshire and the Humber,Consumer,customer197@example.com
+9390,23/12/2025,24/12/2025,3-Medium,40,0%,364.02,25.73,Regular Air,Birmingham | West Midlands,Home Office,customer194@example.com
+9390,23/12/2025,26/12/2025,3-Medium,1,5%,451.80,0.09,Regular Air,Birmingham | West Midlands,Home Office,customer194@example.com
+9423,06/03/2025,08/03/2025,2-High,14,9%,379.28,-13.68,Regular Air,Cardiff | Wales,Consumer,customer56@example.com
+9444,15/01/2025,22/01/2025,4-Not Specified,14,9%,281.92,15.02,Regular Air,London | London,Home Office,customer130@example.com
+9484,10/01/2025,12/01/2025,5-Low,35,0%,219.77,6.38,Delivery Truck,Birmingham | West Midlands,Home Office,customer241@example.com
+9491,08/09/2025,12/09/2025,2-High,23,6%,422.80,22.08,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer41@example.com
+9491,08/09/2025,11/09/2025,2-High,31,5%,484.06,19.50,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer41@example.com
+9491,08/09/2025,14/09/2025,2-High,38,10%,443.47,-8.71,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer41@example.com
+9491,08/09/2025,13/09/2025,2-High,18,8%,255.18,-23.32,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer41@example.com
+9502,15/02/2025,21/02/2025,2-High,46,9%,497.15,-0.22,Regular Air,Bristol | South West,Corporate,customer44@example.com
+9527,12/05/2025,13/05/2025,4-Not Specified,22,4%,317.14,-22.90,Regular Air,York | Yorkshire and the Humber,Consumer,customer6@example.com
+9560,24/04/2025,27/04/2025,4-Not Specified,28,8%,344.36,-0.07,Regular Air,Bristol | South West,Consumer,customer228@example.com
+9564,01/02/2025,06/02/2025,5-Low,9,1%,470.79,26.95,Regular Air,Manchester | North West,Consumer,customer161@example.com
+9577,01/12/2025,05/12/2025,3-Medium,12,6%,208.54,13.36,Regular Air,London | London,Consumer,customer79@example.com
+9591,29/06/2025,02/07/2025,2-High,13,1%,151.18,5.60,Regular Air,Nottingham | East Midlands,Small Business,customer60@example.com
+9591,29/06/2025,04/07/2025,2-High,12,5%,486.44,12.69,Regular Air,Nottingham | East Midlands,Small Business,customer60@example.com
+9602,15/02/2025,16/02/2025,5-Low,41,6%,436.65,22.56,Express Air,Bristol | South West,Home Office,customer128@example.com
+9602,15/02/2025,18/02/2025,5-Low,35,3%,261.70,8.40,Delivery Truck,Bristol | South West,Home Office,customer128@example.com
+9620,22/11/2025,29/11/2025,5-Low,50,2%,48.96,30.48,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer184@example.com
+9633,10/06/2025,15/06/2025,1-Urgent,7,9%,467.89,8.70,Regular Air,Liverpool | North West,Corporate,customer155@example.com
+9633,10/06/2025,12/06/2025,1-Urgent,44,9%,448.23,18.49,Regular Air,Liverpool | North West,Corporate,customer155@example.com
+9673,12/09/2025,12/09/2025,5-Low,20,8%,127.27,-27.53,Regular Air,Newcastle | North East,Home Office,customer309@example.com
+9674,12/05/2025,19/05/2025,3-Medium,21,10%,192.06,-18.39,Regular Air,Liverpool | North West,Corporate,customer281@example.com
+9694,13/03/2025,15/03/2025,3-Medium,9,3%,488.82,14.26,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer187@example.com
+9721,09/10/2025,15/10/2025,5-Low,1,10%,325.28,3059.46,Regular Air,Liverpool | North West,Home Office,customer249@example.com
+9740,24/04/2025,28/04/2025,4-Not Specified,9,9%,271.74,-2.65,Express Air,Sheffield | Yorkshire and the Humber,Consumer,customer213@example.com
+9776,11/11/2025,15/11/2025,1-Urgent,39,2%,366.48,4.21,Regular Air,Birmingham | West Midlands,Home Office,customer361@example.com
+9812,07/11/2025,08/11/2025,4-Not Specified,43,3%,464.56,7.21,Delivery Truck,Manchester | North West,Home Office,customer239@example.com
+9812,07/11/2025,14/11/2025,4-Not Specified,20,4%,121.93,-12.02,Express Air,Manchester | North West,Home Office,customer239@example.com
+9812,07/11/2025,08/11/2025,4-Not Specified,38,4%,443.43,4660.51,Regular Air,Manchester | North West,Home Office,customer239@example.com
+9818,07/04/2025,08/04/2025,5-Low,36,9%,439.69,-18.96,Regular Air,Nottingham | East Midlands,Home Office,customer128@example.com
+9818,07/04/2025,13/04/2025,5-Low,23,2%,225.87,16.59,Regular Air,Nottingham | East Midlands,Home Office,customer128@example.com
+9821,22/11/2025,28/11/2025,3-Medium,1,8%,282.82,-26.07,Regular Air,Nottingham | East Midlands,Small Business,customer237@example.com
+9821,22/11/2025,25/11/2025,3-Medium,12,9%,263.17,-0.94,Regular Air,Nottingham | East Midlands,Small Business,customer237@example.com
+9821,22/11/2025,23/11/2025,3-Medium,42,2%,282.05,-20.34,Delivery Truck,Nottingham | East Midlands,Small Business,customer237@example.com
+9821,22/11/2025,25/11/2025,3-Medium,43,9%,244.90,-15.56,Regular Air,Nottingham | East Midlands,Small Business,customer237@example.com
+9853,28/12/2025,04/01/2026,1-Urgent,32,9%,222.15,-22.68,Regular Air,Newcastle | North East,Home Office,customer103@example.com
+9862,12/10/2025,14/10/2025,1-Urgent,49,0%,118.31,-5.71,Regular Air,Bristol | South West,Home Office,customer317@example.com
+9862,12/10/2025,14/10/2025,1-Urgent,44,4%,331.81,-22.30,Regular Air,Bristol | South West,Home Office,customer317@example.com
+9862,12/10/2025,14/10/2025,1-Urgent,24,6%,493.86,12.40,Regular Air,Bristol | South West,Home Office,customer317@example.com
+9881,19/11/2025,23/11/2025,1-Urgent,42,7%,286.29,17.06,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer397@example.com
+9904,08/12/2025,14/12/2025,5-Low,17,5%,369.47,-26.22,Regular Air,Glasgow | Scotland,Corporate,customer170@example.com
+9904,08/12/2025,11/12/2025,5-Low,19,8%,355.97,-13.98,Express Air,Glasgow | Scotland,Corporate,customer170@example.com
+9904,08/12/2025,14/12/2025,5-Low,35,4%,82.31,-11.49,Regular Air,Glasgow | Scotland,Corporate,customer170@example.com
+9904,08/12/2025,11/12/2025,5-Low,22,4%,94.76,2.06,Express Air,Glasgow | Scotland,Corporate,customer170@example.com
+9934,14/08/2025,17/08/2025,2-High,28,1%,90.77,11.77,Regular Air,London | London,Consumer,customer224@example.com
+9934,14/08/2025,18/08/2025,2-High,5,7%,412.57,24.62,Regular Air,London | London,Consumer,customer224@example.com
+9934,14/08/2025,19/08/2025,2-High,26,10%,36.86,30.38,Delivery Truck,London | London,Consumer,customer224@example.com
+9934,14/08/2025,17/08/2025,2-High,17,7%,56.45,27.13,Regular Air,London | London,Consumer,customer224@example.com
+9960,22/12/2025,23/12/2025,4-Not Specified,18,3%,179.87,13.80,Regular Air,London | London,Small Business,customer195@example.com
+9960,22/12/2025,22/12/2025,4-Not Specified,27,10%,448.15,-5.83,Regular Air,London | London,Small Business,customer195@example.com
+9960,22/12/2025,29/12/2025,4-Not Specified,5,0%,110.67,30.03,Regular Air,London | London,Small Business,customer195@example.com
+9999,20/05/2025,20/05/2025,2-High,11,6%,338.11,7776.55,Regular Air,Newcastle | North East,Consumer,customer14@example.com
+9999,20/05/2025,21/05/2025,2-High,50,7%,142.78,17.87,Regular Air,Newcastle | North East,Consumer,customer14@example.com
+10002,03/04/2025,10/04/2025,4-Not Specified,42,2%,139.90,3.51,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer100@example.com
+10007,25/11/2025,02/12/2025,1-Urgent,21,1%,407.21,1.25,Regular Air,Manchester | North West,Corporate,customer282@example.com
+10014,10/05/2025,12/05/2025,5-Low,43,10%,8.29,-11.25,Regular Air,Birmingham | West Midlands,Small Business,customer282@example.com
+10044,30/06/2025,02/07/2025,4-Not Specified,16,1%,275.70,22.45,Delivery Truck,Birmingham | West Midlands,Small Business,customer326@example.com
+10083,26/02/2025,02/03/2025,4-Not Specified,41,4%,76.95,-18.61,Delivery Truck,Glasgow | Scotland,Small Business,customer336@example.com
+10112,05/06/2025,09/06/2025,1-Urgent,25,10%,494.62,28.85,Regular Air,Cardiff | Wales,Home Office,customer39@example.com
+10144,07/05/2025,10/05/2025,1-Urgent,40,6%,348.03,18.40,Regular Air,Glasgow | Scotland,Corporate,customer373@example.com
+10148,29/09/2025,29/09/2025,2-High,7,3%,252.34,26.77,Regular Air,Liverpool | North West,Consumer,customer70@example.com
+10148,29/09/2025,01/10/2025,2-High,12,1%,141.30,2.16,Regular Air,Liverpool | North West,Consumer,customer70@example.com
+10151,25/10/2025,30/10/2025,2-High,39,1%,332.13,13.98,Delivery Truck,Sheffield | Yorkshire and the Humber,Small Business,customer238@example.com
+10151,25/10/2025,29/10/2025,2-High,21,3%,218.44,13.83,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer238@example.com
+10151,25/10/2025,27/10/2025,2-High,50,8%,288.32,-14.77,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer238@example.com
+10183,29/01/2025,04/02/2025,3-Medium,1,1%,115.44,-17.83,Regular Air,Liverpool | North West,Small Business,customer31@example.com
+10185,29/03/2025,04/04/2025,4-Not Specified,36,5%,61.51,-14.49,Regular Air,Birmingham | West Midlands,Small Business,customer374@example.com
+10218,15/06/2025,22/06/2025,5-Low,39,1%,371.89,-2.25,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer115@example.com
+10226,14/10/2025,18/10/2025,1-Urgent,2,7%,282.87,-28.67,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer56@example.com
+10235,23/04/2025,24/04/2025,4-Not Specified,44,1%,89.27,14.53,Regular Air,Nottingham | East Midlands,Home Office,customer241@example.com
+10246,12/12/2025,14/12/2025,4-Not Specified,17,9%,354.85,9.76,Regular Air,Cardiff | Wales,Consumer,customer323@example.com
+10261,23/10/2025,29/10/2025,4-Not Specified,16,4%,55.96,-2.34,Delivery Truck,Glasgow | Scotland,Corporate,customer206@example.com
+10295,31/05/2025,04/06/2025,1-Urgent,27,7%,396.00,-15.47,Delivery Truck,Bristol | South West,Consumer,customer221@example.com
+10304,31/01/2025,04/02/2025,2-High,18,8%,287.98,17.78,Regular Air,Newcastle | North East,Small Business,customer113@example.com
+10325,18/11/2025,19/11/2025,2-High,17,6%,154.70,9.38,Regular Air,York | Yorkshire and the Humber,Home Office,customer358@example.com
+10340,12/03/2025,12/03/2025,4-Not Specified,6,9%,24.37,28.79,Regular Air,Bristol | South West,Small Business,customer157@example.com
+10340,12/03/2025,16/03/2025,4-Not Specified,4,6%,13.62,-11.50,Regular Air,Bristol | South West,Small Business,customer157@example.com
+10340,12/03/2025,19/03/2025,4-Not Specified,15,4%,284.75,-2.23,Regular Air,Bristol | South West,Small Business,customer157@example.com
+10340,12/03/2025,17/03/2025,4-Not Specified,6,0%,445.41,5.97,Delivery Truck,Bristol | South West,Small Business,customer157@example.com
+10377,25/05/2025,25/05/2025,2-High,44,10%,488.54,13.61,Regular Air,Glasgow | Scotland,Consumer,customer74@example.com
+10413,12/10/2025,17/10/2025,5-Low,8,1%,335.14,20.32,Regular Air,London | London,Corporate,customer310@example.com
+10418,30/11/2025,04/12/2025,3-Medium,46,3%,64.50,7.12,Express Air,Manchester | North West,Home Office,customer266@example.com
+10418,30/11/2025,02/12/2025,3-Medium,29,6%,165.28,28.90,Regular Air,Manchester | North West,Home Office,customer266@example.com
+10418,30/11/2025,04/12/2025,3-Medium,45,0%,221.62,28.33,Express Air,Manchester | North West,Home Office,customer266@example.com
+10418,30/11/2025,05/12/2025,3-Medium,11,10%,215.35,28.65,Regular Air,Manchester | North West,Home Office,customer266@example.com
+10432,27/09/2025,03/10/2025,1-Urgent,15,8%,34.93,-4.71,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer178@example.com
+10440,26/08/2025,31/08/2025,5-Low,49,2%,321.21,-13.31,Regular Air,Manchester | North West,Home Office,customer40@example.com
+10440,26/08/2025,29/08/2025,5-Low,43,5%,387.07,20.75,Express Air,Manchester | North West,Home Office,customer40@example.com
+10440,26/08/2025,01/09/2025,5-Low,49,4%,103.42,-9.19,Regular Air,Manchester | North West,Home Office,customer40@example.com
+10480,12/08/2025,14/08/2025,4-Not Specified,20,3%,26.65,-23.29,Delivery Truck,Bristol | South West,Home Office,customer146@example.com
+10480,12/08/2025,13/08/2025,4-Not Specified,45,8%,129.55,24.92,Express Air,Bristol | South West,Home Office,customer146@example.com
+10480,12/08/2025,13/08/2025,4-Not Specified,1,2%,226.88,28.30,Regular Air,Bristol | South West,Home Office,customer146@example.com
+10501,02/06/2025,02/06/2025,5-Low,36,9%,286.93,25.64,Express Air,York | Yorkshire and the Humber,Consumer,customer236@example.com
+10529,26/02/2025,27/02/2025,5-Low,39,4%,434.53,16.47,Regular Air,Cardiff | Wales,Consumer,customer124@example.com
+10531,03/08/2025,10/08/2025,2-High,26,3%,130.04,-6.28,Regular Air,Bristol | South West,Small Business,customer313@example.com
+10531,03/08/2025,05/08/2025,2-High,15,2%,25.16,4.88,Express Air,Bristol | South West,Small Business,customer313@example.com
+10531,03/08/2025,08/08/2025,2-High,32,3%,105.09,27.27,Regular Air,Bristol | South West,Small Business,customer313@example.com
+10548,20/04/2025,25/04/2025,3-Medium,11,1%,133.13,15.90,Regular Air,London | London,Small Business,customer47@example.com
+10567,20/10/2025,21/10/2025,4-Not Specified,44,6%,22.20,8108.55,Regular Air,York | Yorkshire and the Humber,Corporate,customer298@example.com
+10567,20/10/2025,21/10/2025,4-Not Specified,39,5%,98.34,-3.73,Delivery Truck,York | Yorkshire and the Humber,Corporate,customer298@example.com
+10592,26/11/2025,03/12/2025,2-High,49,0%,116.49,4.12,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer135@example.com
+10626,14/08/2025,16/08/2025,3-Medium,49,5%,246.87,19.44,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer98@example.com
+10626,14/08/2025,15/08/2025,3-Medium,27,2%,459.38,24.81,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer98@example.com
+10666,07/09/2025,08/09/2025,1-Urgent,17,3%,363.08,-21.58,Regular Air,York | Yorkshire and the Humber,Small Business,customer127@example.com
+10682,30/04/2025,07/05/2025,1-Urgent,39,0%,428.53,21.91,Express Air,York | Yorkshire and the Humber,Small Business,customer236@example.com
+10714,20/05/2025,22/05/2025,4-Not Specified,38,4%,308.43,-8.74,Regular Air,Cardiff | Wales,Home Office,customer248@example.com
+10714,20/05/2025,22/05/2025,4-Not Specified,1,9%,91.42,19.01,Express Air,Cardiff | Wales,Home Office,customer248@example.com
+10725,08/12/2025,10/12/2025,2-High,22,3%,84.58,6.16,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer364@example.com
+10763,09/06/2025,10/06/2025,4-Not Specified,14,4%,118.37,21.79,Regular Air,London | London,Small Business,customer105@example.com
+10763,09/06/2025,15/06/2025,4-Not Specified,28,8%,143.34,-20.81,Regular Air,London | London,Small Business,customer105@example.com
+10763,09/06/2025,13/06/2025,4-Not Specified,39,8%,414.17,-5.43,Regular Air,London | London,Small Business,customer105@example.com
+10770,07/01/2025,11/01/2025,2-High,33,8%,264.36,-1.47,Regular Air,Manchester | North West,Consumer,customer203@example.com
+10798,14/11/2025,17/11/2025,1-Urgent,46,10%,162.61,-8.24,Express Air,Glasgow | Scotland,Consumer,customer4@example.com
+10801,23/09/2025,25/09/2025,5-Low,2,0%,439.84,-28.06,Delivery Truck,Bristol | South West,Corporate,customer276@example.com
+10811,24/10/2025,26/10/2025,2-High,35,10%,386.96,-14.69,Regular Air,York | Yorkshire and the Humber,Home Office,customer29@example.com
+10811,24/10/2025,28/10/2025,2-High,36,9%,63.14,12.10,Regular Air,York | Yorkshire and the Humber,Home Office,customer29@example.com
+10836,17/05/2025,24/05/2025,5-Low,47,6%,52.15,-7.03,Delivery Truck,Bristol | South West,Consumer,customer372@example.com
+10836,17/05/2025,18/05/2025,5-Low,13,4%,162.11,4.59,Regular Air,Bristol | South West,Consumer,customer372@example.com
+10862,19/04/2025,23/04/2025,2-High,18,7%,196.78,30.24,Regular Air,Glasgow | Scotland,Corporate,customer37@example.com
+10890,15/12/2025,16/12/2025,1-Urgent,45,2%,244.38,-4.83,Regular Air,Bristol | South West,Home Office,customer145@example.com
+10914,12/05/2025,12/05/2025,3-Medium,22,10%,383.35,18.46,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer309@example.com
+10950,03/05/2025,09/05/2025,3-Medium,35,5%,228.03,5.47,Regular Air,Cardiff | Wales,Small Business,customer234@example.com
+10985,18/10/2025,22/10/2025,5-Low,39,4%,151.40,-10.16,Regular Air,Birmingham | West Midlands,Home Office,customer340@example.com
+10992,28/08/2025,02/09/2025,3-Medium,20,4%,298.18,-22.24,Express Air,York | Yorkshire and the Humber,Home Office,customer63@example.com
+10992,28/08/2025,01/09/2025,3-Medium,30,6%,354.68,24.26,Regular Air,York | Yorkshire and the Humber,Home Office,customer63@example.com
+10992,28/08/2025,30/08/2025,3-Medium,35,5%,450.03,2737.97,Regular Air,York | Yorkshire and the Humber,Home Office,customer63@example.com
+10992,28/08/2025,01/09/2025,3-Medium,12,4%,333.48,-27.14,Regular Air,York | Yorkshire and the Humber,Home Office,customer63@example.com
+11003,07/06/2025,08/06/2025,3-Medium,34,9%,476.66,-19.20,Express Air,London | London,Consumer,customer97@example.com
+11035,11/05/2025,13/05/2025,2-High,23,2%,421.07,5601.15,Delivery Truck,Sheffield | Yorkshire and the Humber,Home Office,customer29@example.com
+11074,27/09/2025,29/09/2025,5-Low,22,10%,369.27,-2.97,Express Air,Birmingham | West Midlands,Small Business,customer270@example.com
+11075,09/06/2025,14/06/2025,5-Low,43,7%,321.38,19.11,Regular Air,Bristol | South West,Corporate,customer126@example.com
+11081,24/02/2025,27/02/2025,4-Not Specified,5,4%,295.21,-15.60,Delivery Truck,Cardiff | Wales,Corporate,customer379@example.com
+11101,07/05/2025,13/05/2025,4-Not Specified,18,3%,249.88,-14.98,Regular Air,London | London,Home Office,customer89@example.com
+11101,07/05/2025,10/05/2025,4-Not Specified,9,0%,294.02,-16.90,Regular Air,London | London,Home Office,customer89@example.com
+11101,07/05/2025,10/05/2025,4-Not Specified,46,2%,248.06,-0.69,Express Air,London | London,Home Office,customer89@example.com
+11101,07/05/2025,11/05/2025,4-Not Specified,42,8%,160.58,20.10,Express Air,London | London,Home Office,customer89@example.com
+11121,10/08/2025,14/08/2025,4-Not Specified,41,0%,104.19,4.66,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer150@example.com
+11121,10/08/2025,16/08/2025,4-Not Specified,27,6%,241.16,-28.71,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer150@example.com
+11121,10/08/2025,14/08/2025,4-Not Specified,40,4%,374.65,10.44,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer150@example.com
+11121,10/08/2025,14/08/2025,4-Not Specified,48,10%,224.20,10.28,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer150@example.com
+11143,31/05/2025,03/06/2025,5-Low,21,1%,490.90,24.31,Express Air,Birmingham | West Midlands,Small Business,customer297@example.com
+11170,06/11/2025,08/11/2025,4-Not Specified,14,4%,64.89,-4.35,Regular Air,London | London,Corporate,customer235@example.com
+11176,05/09/2025,11/09/2025,1-Urgent,46,3%,227.11,22.68,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer319@example.com
+11176,05/09/2025,09/09/2025,1-Urgent,36,5%,178.21,27.68,Delivery Truck,Sheffield | Yorkshire and the Humber,Home Office,customer319@example.com
+11188,03/05/2025,03/05/2025,5-Low,22,4%,148.16,18.82,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer243@example.com
+11208,30/03/2025,30/03/2025,5-Low,17,8%,389.63,-7.11,Delivery Truck,Liverpool | North West,Small Business,customer399@example.com
+11215,04/12/2025,11/12/2025,5-Low,19,2%,146.39,4813.57,Regular Air,Liverpool | North West,Consumer,customer383@example.com
+11222,02/06/2025,08/06/2025,2-High,25,5%,257.90,-16.26,Regular Air,Cardiff | Wales,Consumer,customer155@example.com
+11235,21/05/2025,23/05/2025,2-High,16,5%,81.19,-10.26,Regular Air,Liverpool | North West,Small Business,customer338@example.com
+11270,13/03/2025,15/03/2025,5-Low,11,4%,297.57,20.10,Regular Air,Birmingham | West Midlands,Small Business,customer141@example.com
+11303,18/02/2025,24/02/2025,1-Urgent,17,9%,327.59,-10.81,Delivery Truck,Newcastle | North East,Consumer,customer174@example.com
+11303,18/02/2025,21/02/2025,1-Urgent,34,6%,481.78,-2.19,Regular Air,Newcastle | North East,Consumer,customer174@example.com
+11303,18/02/2025,19/02/2025,1-Urgent,43,9%,263.37,12.23,Regular Air,Newcastle | North East,Consumer,customer174@example.com
+11303,18/02/2025,18/02/2025,1-Urgent,10,3%,382.83,8.12,Regular Air,Newcastle | North East,Consumer,customer174@example.com
+11332,09/05/2025,15/05/2025,5-Low,49,9%,45.00,30.40,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer244@example.com
+11332,09/05/2025,13/05/2025,5-Low,21,10%,329.87,-1.29,Express Air,York | Yorkshire and the Humber,Consumer,customer244@example.com
+11332,09/05/2025,15/05/2025,5-Low,6,4%,412.83,24.80,Express Air,York | Yorkshire and the Humber,Consumer,customer244@example.com
+11332,09/05/2025,09/05/2025,5-Low,48,10%,302.10,26.69,Regular Air,York | Yorkshire and the Humber,Consumer,customer244@example.com
+11364,07/09/2025,08/09/2025,1-Urgent,40,1%,99.87,25.29,Regular Air,Liverpool | North West,Corporate,customer34@example.com
+11391,26/02/2025,02/03/2025,3-Medium,21,6%,5.60,-24.14,Express Air,Bristol | South West,Home Office,customer152@example.com
+11408,29/04/2025,05/05/2025,3-Medium,25,2%,50.55,-21.32,Regular Air,Glasgow | Scotland,Corporate,customer8@example.com
+11408,29/04/2025,29/04/2025,3-Medium,9,6%,266.37,4708.05,Delivery Truck,Glasgow | Scotland,Corporate,customer8@example.com
+11441,24/12/2025,31/12/2025,2-High,42,2%,121.68,31.13,Regular Air,York | Yorkshire and the Humber,Small Business,customer98@example.com
+11457,17/03/2025,21/03/2025,3-Medium,43,4%,418.61,5.70,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer386@example.com
+11457,17/03/2025,21/03/2025,3-Medium,33,10%,153.11,17.68,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer386@example.com
+11463,02/11/2025,07/11/2025,4-Not Specified,49,3%,229.51,24.87,Regular Air,Liverpool | North West,Small Business,customer280@example.com
+11490,06/10/2025,10/10/2025,3-Medium,31,10%,296.96,-16.05,Regular Air,York | Yorkshire and the Humber,Home Office,customer330@example.com
+11524,05/06/2025,07/06/2025,5-Low,5,8%,312.73,25.59,Delivery Truck,Bristol | South West,Home Office,customer300@example.com
+11531,26/06/2025,27/06/2025,5-Low,30,3%,237.25,11.71,Regular Air,Bristol | South West,Corporate,customer175@example.com
+11531,26/06/2025,27/06/2025,5-Low,21,5%,65.15,-17.74,Regular Air,Bristol | South West,Corporate,customer175@example.com
+11540,15/09/2025,17/09/2025,3-Medium,2,8%,161.87,-14.87,Regular Air,York | Yorkshire and the Humber,Corporate,customer138@example.com
+11548,11/11/2025,14/11/2025,3-Medium,15,0%,208.73,18.33,Delivery Truck,Newcastle | North East,Corporate,customer166@example.com
+11564,10/04/2025,10/04/2025,2-High,4,10%,100.84,-14.32,Regular Air,Manchester | North West,Home Office,customer297@example.com
+11564,10/04/2025,17/04/2025,2-High,8,1%,191.60,-6.58,Regular Air,Manchester | North West,Home Office,customer297@example.com
+11564,10/04/2025,16/04/2025,2-High,16,0%,328.74,3.81,Regular Air,Manchester | North West,Home Office,customer297@example.com
+11597,10/11/2025,17/11/2025,2-High,35,10%,329.18,2.82,Regular Air,York | Yorkshire and the Humber,Small Business,customer150@example.com
+11597,10/11/2025,16/11/2025,2-High,11,10%,361.03,10.16,Express Air,York | Yorkshire and the Humber,Small Business,customer150@example.com
+11597,10/11/2025,16/11/2025,2-High,17,5%,282.49,4.54,Regular Air,York | Yorkshire and the Humber,Small Business,customer150@example.com
+11597,10/11/2025,13/11/2025,2-High,24,7%,118.54,-15.86,Delivery Truck,York | Yorkshire and the Humber,Small Business,customer150@example.com
+11618,24/01/2025,26/01/2025,2-High,2,7%,16.27,10.11,Express Air,Newcastle | North East,Consumer,customer162@example.com
+11618,24/01/2025,28/01/2025,2-High,2,9%,376.33,-23.04,Regular Air,Newcastle | North East,Consumer,customer162@example.com
+11618,24/01/2025,27/01/2025,2-High,31,4%,228.24,-2666.97,Regular Air,Newcastle | North East,Consumer,customer162@example.com
+11618,24/01/2025,28/01/2025,2-High,13,8%,150.75,14.84,Regular Air,Newcastle | North East,Consumer,customer162@example.com
+11633,21/02/2025,28/02/2025,5-Low,38,6%,343.62,-4.75,Delivery Truck,Nottingham | East Midlands,Corporate,customer300@example.com
+11667,08/04/2025,08/04/2025,4-Not Specified,24,4%,282.37,-8.97,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer45@example.com
+11667,08/04/2025,09/04/2025,4-Not Specified,15,7%,278.57,-6.58,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer45@example.com
+11667,08/04/2025,08/04/2025,4-Not Specified,1,8%,418.69,-8.22,Express Air,Sheffield | Yorkshire and the Humber,Home Office,customer45@example.com
+11667,08/04/2025,09/04/2025,4-Not Specified,11,6%,369.62,-24.60,Delivery Truck,Sheffield | Yorkshire and the Humber,Home Office,customer45@example.com
+11698,20/11/2025,21/11/2025,5-Low,49,4%,471.00,9354.83,Regular Air,London | London,Consumer,customer75@example.com
+11729,07/05/2025,08/05/2025,1-Urgent,31,7%,201.03,10.99,Regular Air,London | London,Corporate,customer252@example.com
+11757,15/02/2025,21/02/2025,4-Not Specified,2,3%,234.90,-27.07,Regular Air,Birmingham | West Midlands,Home Office,customer320@example.com
+11777,14/05/2025,21/05/2025,4-Not Specified,34,8%,115.66,-7.36,Regular Air,Newcastle | North East,Consumer,customer159@example.com
+11777,14/05/2025,18/05/2025,4-Not Specified,50,2%,251.16,29.13,Regular Air,Newcastle | North East,Consumer,customer159@example.com
+11777,14/05/2025,17/05/2025,4-Not Specified,46,10%,171.67,31.13,Regular Air,Newcastle | North East,Consumer,customer159@example.com
+11777,14/05/2025,19/05/2025,4-Not Specified,11,0%,191.10,11.26,Regular Air,Newcastle | North East,Consumer,customer159@example.com
+11797,08/04/2025,09/04/2025,2-High,42,3%,312.73,2.42,Regular Air,Manchester | North West,Small Business,customer221@example.com
+11810,04/04/2025,08/04/2025,1-Urgent,35,7%,217.20,-25.62,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer14@example.com
+11826,25/08/2025,29/08/2025,3-Medium,7,5%,240.47,17.59,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer193@example.com
+11866,12/08/2025,14/08/2025,1-Urgent,7,4%,441.37,-4.33,Regular Air,London | London,Corporate,customer42@example.com
+11894,03/08/2025,07/08/2025,2-High,23,8%,150.17,20.30,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer228@example.com
+11894,03/08/2025,08/08/2025,2-High,38,2%,184.55,24.15,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer228@example.com
+11894,03/08/2025,07/08/2025,2-High,43,9%,364.86,26.78,Delivery Truck,Sheffield | Yorkshire and the Humber,Small Business,customer228@example.com
+11894,03/08/2025,04/08/2025,2-High,18,6%,38.64,-21.05,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer228@example.com
+11921,02/06/2025,09/06/2025,1-Urgent,19,8%,224.23,16.26,Regular Air,Liverpool | North West,Corporate,customer226@example.com
+11922,17/12/2025,20/12/2025,4-Not Specified,27,2%,252.10,27.99,Regular Air,Manchester | North West,Corporate,customer379@example.com
+11957,18/03/2025,19/03/2025,1-Urgent,30,7%,28.08,-27.37,Regular Air,Glasgow | Scotland,Small Business,customer362@example.com
+11964,08/09/2025,14/09/2025,4-Not Specified,38,9%,178.69,-0.20,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer274@example.com
+11964,08/09/2025,11/09/2025,4-Not Specified,38,4%,210.29,-1.79,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer274@example.com
+11964,08/09/2025,08/09/2025,4-Not Specified,41,8%,241.70,-9.46,Delivery Truck,Sheffield | Yorkshire and the Humber,Consumer,customer274@example.com
+11967,14/09/2025,21/09/2025,5-Low,40,4%,195.85,-2.89,Regular Air,Birmingham | West Midlands,Consumer,customer194@example.com
+11967,14/09/2025,17/09/2025,5-Low,21,2%,470.98,-12.50,Delivery Truck,Birmingham | West Midlands,Consumer,customer194@example.com
+11971,24/05/2025,24/05/2025,1-Urgent,6,6%,319.56,-3.42,Regular Air,Newcastle | North East,Consumer,customer3@example.com
+11973,26/02/2025,05/03/2025,5-Low,39,5%,62.90,20.09,Regular Air,Liverpool | North West,Small Business,customer63@example.com
+11990,25/05/2025,31/05/2025,2-High,47,4%,203.09,-15.94,Regular Air,Nottingham | East Midlands,Corporate,customer113@example.com
+11990,25/05/2025,27/05/2025,2-High,6,8%,109.67,22.63,Regular Air,Nottingham | East Midlands,Corporate,customer113@example.com
+11990,25/05/2025,25/05/2025,2-High,33,8%,449.49,16.53,Regular Air,Nottingham | East Midlands,Corporate,customer113@example.com
+11990,25/05/2025,28/05/2025,2-High,40,1%,132.35,20.08,Regular Air,Nottingham | East Midlands,Corporate,customer113@example.com
+12021,03/02/2025,05/02/2025,1-Urgent,37,9%,186.58,-12.96,Express Air,Nottingham | East Midlands,Small Business,customer358@example.com
+12021,03/02/2025,06/02/2025,1-Urgent,45,6%,204.06,-24.45,Express Air,Nottingham | East Midlands,Small Business,customer358@example.com
+12021,03/02/2025,05/02/2025,1-Urgent,1,4%,420.05,15.53,Regular Air,Nottingham | East Midlands,Small Business,customer358@example.com
+12039,22/09/2025,28/09/2025,3-Medium,17,5%,60.84,-19.64,Regular Air,London | London,Home Office,customer23@example.com
+12045,21/05/2025,26/05/2025,4-Not Specified,25,9%,367.41,7.06,Delivery Truck,Liverpool | North West,Consumer,customer355@example.com
+12063,30/01/2025,02/02/2025,3-Medium,8,7%,251.67,5960.18,Express Air,Cardiff | Wales,Small Business,customer336@example.com
+12063,30/01/2025,04/02/2025,3-Medium,29,3%,124.62,1.34,Express Air,Cardiff | Wales,Small Business,customer336@example.com
+12087,25/04/2025,26/04/2025,3-Medium,6,0%,26.17,30.21,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer99@example.com
+12111,26/12/2025,26/12/2025,1-Urgent,34,5%,315.25,20.90,Regular Air,Glasgow | Scotland,Corporate,customer232@example.com
+12149,30/05/2025,04/06/2025,5-Low,23,8%,181.37,4.81,Regular Air,Bristol | South West,Small Business,customer35@example.com
+12185,06/09/2025,13/09/2025,5-Low,2,9%,282.20,12.10,Regular Air,London | London,Consumer,customer19@example.com
+12222,23/03/2025,25/03/2025,4-Not Specified,5,2%,263.74,-0.43,Regular Air,Glasgow | Scotland,Small Business,customer88@example.com
+12257,04/02/2025,10/02/2025,4-Not Specified,11,4%,402.44,14.70,Regular Air,Nottingham | East Midlands,Consumer,customer391@example.com
+12276,25/11/2025,02/12/2025,1-Urgent,9,10%,478.42,-28.79,Regular Air,Manchester | North West,Consumer,customer311@example.com
+12276,25/11/2025,28/11/2025,1-Urgent,21,5%,479.34,-26.08,Regular Air,Manchester | North West,Consumer,customer311@example.com
+12276,25/11/2025,27/11/2025,1-Urgent,26,10%,32.62,-15.65,Regular Air,Manchester | North West,Consumer,customer311@example.com
+12276,25/11/2025,02/12/2025,1-Urgent,39,5%,133.83,0.25,Regular Air,Manchester | North West,Consumer,customer311@example.com
+12302,11/12/2025,16/12/2025,2-High,17,10%,195.47,-2.11,Regular Air,Cardiff | Wales,Consumer,customer15@example.com
+12321,19/06/2025,26/06/2025,1-Urgent,48,4%,43.05,8.11,Regular Air,Manchester | North West,Consumer,customer293@example.com
+12331,20/02/2025,21/02/2025,5-Low,29,6%,119.31,-3.01,Regular Air,Nottingham | East Midlands,Small Business,customer380@example.com
+12331,20/02/2025,24/02/2025,5-Low,23,8%,252.25,3.51,Regular Air,Nottingham | East Midlands,Small Business,customer380@example.com
+12331,20/02/2025,20/02/2025,5-Low,14,7%,386.55,18.56,Regular Air,Nottingham | East Midlands,Small Business,customer380@example.com
+12355,24/01/2025,28/01/2025,1-Urgent,48,6%,249.82,18.00,Delivery Truck,Birmingham | West Midlands,Small Business,customer300@example.com
+12370,12/02/2025,14/02/2025,5-Low,36,3%,192.09,-19.37,Regular Air,Manchester | North West,Corporate,customer70@example.com
+12370,12/02/2025,17/02/2025,5-Low,33,2%,265.95,28.93,Regular Air,Manchester | North West,Corporate,customer70@example.com
+12377,14/05/2025,20/05/2025,2-High,10,0%,44.94,-3.23,Regular Air,Glasgow | Scotland,Consumer,customer226@example.com
+12377,14/05/2025,14/05/2025,2-High,12,4%,364.18,23.32,Delivery Truck,Glasgow | Scotland,Consumer,customer226@example.com
+12377,14/05/2025,14/05/2025,2-High,41,8%,326.23,-6.85,Regular Air,Glasgow | Scotland,Consumer,customer226@example.com
+12399,12/02/2025,17/02/2025,4-Not Specified,1,6%,115.91,27.99,Delivery Truck,Glasgow | Scotland,Corporate,customer21@example.com
+12399,12/02/2025,15/02/2025,4-Not Specified,3,0%,319.14,-20.75,Express Air,Glasgow | Scotland,Corporate,customer21@example.com
+12399,12/02/2025,16/02/2025,4-Not Specified,22,5%,487.61,3.69,Regular Air,Glasgow | Scotland,Corporate,customer21@example.com
+12415,28/09/2025,05/10/2025,3-Medium,27,2%,102.94,-5.93,Regular Air,Liverpool | North West,Small Business,customer177@example.com
+12432,24/01/2025,26/01/2025,5-Low,50,5%,345.41,-4.71,Regular Air,London | London,Corporate,customer177@example.com
+12459,10/05/2025,16/05/2025,4-Not Specified,34,9%,498.50,-4.58,Regular Air,York | Yorkshire and the Humber,Small Business,customer180@example.com
+12459,10/05/2025,11/05/2025,4-Not Specified,28,10%,117.70,10.38,Regular Air,York | Yorkshire and the Humber,Small Business,customer180@example.com
+12459,10/05/2025,14/05/2025,4-Not Specified,4,8%,355.54,10.56,Regular Air,York | Yorkshire and the Humber,Small Business,customer180@example.com
+12459,10/05/2025,17/05/2025,4-Not Specified,47,1%,423.35,-13.19,Express Air,York | Yorkshire and the Humber,Small Business,customer180@example.com
+12499,05/03/2025,05/03/2025,5-Low,44,6%,5.29,6.69,Regular Air,Nottingham | East Midlands,Home Office,customer347@example.com
+12529,28/02/2025,06/03/2025,4-Not Specified,17,1%,316.85,-5.79,Regular Air,Birmingham | West Midlands,Small Business,customer233@example.com
+12562,23/10/2025,24/10/2025,1-Urgent,14,7%,264.32,-10.60,Express Air,York | Yorkshire and the Humber,Corporate,customer311@example.com
+12562,23/10/2025,25/10/2025,1-Urgent,46,8%,3.38,20.86,Regular Air,York | Yorkshire and the Humber,Corporate,customer311@example.com
+12562,23/10/2025,27/10/2025,1-Urgent,38,0%,312.31,-10.97,Delivery Truck,York | Yorkshire and the Humber,Corporate,customer311@example.com
+12590,13/03/2025,13/03/2025,3-Medium,2,2%,452.85,7105.34,Regular Air,Glasgow | Scotland,Small Business,customer347@example.com
+12610,30/01/2025,05/02/2025,1-Urgent,39,4%,137.21,14.90,Regular Air,Liverpool | North West,Home Office,customer225@example.com
+12616,10/08/2025,11/08/2025,4-Not Specified,47,8%,201.97,29.36,Regular Air,Manchester | North West,Home Office,customer234@example.com
+12655,11/12/2025,11/12/2025,2-High,43,0%,459.04,-19.17,Regular Air,Glasgow | Scotland,Consumer,customer140@example.com
+12655,11/12/2025,14/12/2025,2-High,44,10%,32.26,-1.35,Regular Air,Glasgow | Scotland,Consumer,customer140@example.com
+12667,04/05/2025,07/05/2025,3-Medium,15,1%,188.77,10.52,Regular Air,Manchester | North West,Corporate,customer197@example.com
+12667,04/05/2025,09/05/2025,3-Medium,37,8%,24.78,-27.68,Regular Air,Manchester | North West,Corporate,customer197@example.com
+12667,04/05/2025,07/05/2025,3-Medium,49,4%,233.71,27.68,Delivery Truck,Manchester | North West,Corporate,customer197@example.com
+12667,04/05/2025,11/05/2025,3-Medium,48,10%,278.37,12.49,Regular Air,Manchester | North West,Corporate,customer197@example.com
+12687,26/12/2025,02/01/2026,5-Low,6,8%,473.49,-21.72,Delivery Truck,Leeds | Yorkshire and the Humber,Consumer,customer194@example.com
+12687,26/12/2025,02/01/2026,5-Low,49,5%,398.72,-26.48,Delivery Truck,Leeds | Yorkshire and the Humber,Consumer,customer194@example.com
+12687,26/12/2025,30/12/2025,5-Low,29,5%,335.13,-1.25,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer194@example.com
+12687,26/12/2025,27/12/2025,5-Low,23,10%,409.76,16.89,Delivery Truck,Leeds | Yorkshire and the Humber,Consumer,customer194@example.com
+12710,02/11/2025,05/11/2025,2-High,3,10%,233.64,23.93,Regular Air,Glasgow | Scotland,Consumer,customer196@example.com
+12714,09/05/2025,12/05/2025,5-Low,11,0%,230.66,11.86,Regular Air,Cardiff | Wales,Corporate,customer12@example.com
+12714,09/05/2025,11/05/2025,5-Low,16,10%,2.47,-25.64,Delivery Truck,Cardiff | Wales,Corporate,customer12@example.com
+12714,09/05/2025,09/05/2025,5-Low,37,1%,417.87,-15.08,Regular Air,Cardiff | Wales,Corporate,customer12@example.com
+12714,09/05/2025,16/05/2025,5-Low,28,1%,75.88,23.58,Regular Air,Cardiff | Wales,Corporate,customer12@example.com
+12717,28/12/2025,03/01/2026,1-Urgent,10,1%,364.29,-27.89,Regular Air,Manchester | North West,Corporate,customer387@example.com
+12721,30/08/2025,02/09/2025,4-Not Specified,3,0%,91.69,-2.01,Regular Air,Liverpool | North West,Consumer,customer174@example.com
+12721,30/08/2025,30/08/2025,4-Not Specified,13,5%,454.18,19.73,Regular Air,Liverpool | North West,Consumer,customer174@example.com
+12723,08/02/2025,13/02/2025,2-High,18,5%,257.93,-26.43,Regular Air,Newcastle | North East,Home Office,customer234@example.com
+12723,08/02/2025,15/02/2025,2-High,17,8%,85.17,12.10,Regular Air,Newcastle | North East,Home Office,customer234@example.com
+12723,08/02/2025,14/02/2025,2-High,35,2%,458.37,4.79,Delivery Truck,Newcastle | North East,Home Office,customer234@example.com
+12739,09/06/2025,12/06/2025,2-High,5,2%,90.28,17.95,Delivery Truck,Nottingham | East Midlands,Small Business,customer265@example.com
+12739,09/06/2025,11/06/2025,2-High,24,0%,437.99,4.85,Regular Air,Nottingham | East Midlands,Small Business,customer265@example.com
+12739,09/06/2025,16/06/2025,2-High,23,9%,411.79,-1.08,Regular Air,Nottingham | East Midlands,Small Business,customer265@example.com
+12773,21/12/2025,27/12/2025,3-Medium,31,10%,185.55,-16.31,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer394@example.com
+12795,14/10/2025,17/10/2025,4-Not Specified,30,4%,489.94,-14.63,Regular Air,Bristol | South West,Corporate,customer142@example.com
+12807,06/09/2025,12/09/2025,4-Not Specified,12,6%,288.52,4184.80,Express Air,York | Yorkshire and the Humber,Home Office,customer306@example.com
+12807,06/09/2025,11/09/2025,4-Not Specified,39,4%,329.88,16.09,Express Air,York | Yorkshire and the Humber,Home Office,customer306@example.com
+12841,23/08/2025,28/08/2025,2-High,4,6%,33.26,6.39,Delivery Truck,Cardiff | Wales,Home Office,customer359@example.com
+12843,18/04/2025,20/04/2025,3-Medium,2,5%,341.44,-23.00,Delivery Truck,York | Yorkshire and the Humber,Corporate,customer248@example.com
+12869,07/09/2025,08/09/2025,3-Medium,33,7%,137.71,22.47,Regular Air,Glasgow | Scotland,Home Office,customer305@example.com
+12869,07/09/2025,14/09/2025,3-Medium,46,9%,490.47,14.47,Express Air,Glasgow | Scotland,Home Office,customer305@example.com
+12892,05/04/2025,11/04/2025,4-Not Specified,47,0%,211.36,-16.66,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer366@example.com
+12894,18/12/2025,25/12/2025,3-Medium,33,2%,375.35,-8.99,Regular Air,Cardiff | Wales,Consumer,customer140@example.com
+12894,18/12/2025,23/12/2025,3-Medium,13,7%,422.20,22.50,Regular Air,Cardiff | Wales,Consumer,customer140@example.com
+12894,18/12/2025,22/12/2025,3-Medium,29,9%,90.93,21.67,Express Air,Cardiff | Wales,Consumer,customer140@example.com
+12929,12/03/2025,12/03/2025,4-Not Specified,46,0%,147.85,10.81,Express Air,Bristol | South West,Home Office,customer135@example.com
+12945,19/02/2025,22/02/2025,5-Low,13,6%,337.25,21.19,Regular Air,Cardiff | Wales,Corporate,customer69@example.com
+12970,30/08/2025,02/09/2025,1-Urgent,43,0%,435.87,14.36,Regular Air,Birmingham | West Midlands,Consumer,customer334@example.com
+13000,06/08/2025,09/08/2025,1-Urgent,29,0%,324.71,3.67,Regular Air,Birmingham | West Midlands,Corporate,customer134@example.com
+13024,07/04/2025,09/04/2025,2-High,33,5%,386.63,8.08,Regular Air,Bristol | South West,Home Office,customer189@example.com
+13040,06/08/2025,12/08/2025,5-Low,38,4%,392.95,14.97,Regular Air,Cardiff | Wales,Small Business,customer27@example.com
+13080,22/03/2025,26/03/2025,2-High,22,2%,374.12,-11.64,Delivery Truck,Sheffield | Yorkshire and the Humber,Consumer,customer294@example.com
+13115,25/03/2025,31/03/2025,1-Urgent,6,9%,145.55,21.43,Express Air,Newcastle | North East,Small Business,customer284@example.com
+13124,24/03/2025,26/03/2025,3-Medium,47,1%,478.17,-22.12,Delivery Truck,Manchester | North West,Home Office,customer347@example.com
+13131,06/02/2025,08/02/2025,3-Medium,44,3%,216.30,-12.35,Delivery Truck,Nottingham | East Midlands,Consumer,customer74@example.com
+13153,04/06/2025,07/06/2025,3-Medium,19,0%,150.71,18.37,Regular Air,Birmingham | West Midlands,Small Business,customer259@example.com
+13188,07/05/2025,07/05/2025,3-Medium,3,6%,359.83,16.68,Regular Air,Glasgow | Scotland,Corporate,customer352@example.com
+13209,24/11/2025,28/11/2025,3-Medium,42,1%,293.86,-2426.13,Express Air,Cardiff | Wales,Home Office,customer132@example.com
+13238,15/10/2025,22/10/2025,4-Not Specified,6,10%,331.72,25.57,Express Air,Newcastle | North East,Small Business,customer127@example.com
+13244,05/10/2025,10/10/2025,1-Urgent,40,6%,497.18,-11.23,Express Air,Newcastle | North East,Home Office,customer139@example.com
+13260,01/04/2025,08/04/2025,1-Urgent,6,3%,141.59,6245.23,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer8@example.com
+13290,05/01/2025,12/01/2025,2-High,11,4%,463.71,12.76,Delivery Truck,Birmingham | West Midlands,Consumer,customer391@example.com
+13330,10/03/2025,10/03/2025,1-Urgent,2,7%,491.84,-1994.28,Regular Air,Glasgow | Scotland,Small Business,customer172@example.com
+13347,07/01/2025,13/01/2025,3-Medium,29,7%,365.93,30.76,Regular Air,Liverpool | North West,Small Business,customer220@example.com
+13347,07/01/2025,12/01/2025,3-Medium,11,8%,463.41,-9.70,Regular Air,Liverpool | North West,Small Business,customer220@example.com
+13347,07/01/2025,12/01/2025,3-Medium,32,4%,441.11,-7.10,Regular Air,Liverpool | North West,Small Business,customer220@example.com
+13347,07/01/2025,10/01/2025,3-Medium,23,0%,32.52,29.24,Regular Air,Liverpool | North West,Small Business,customer220@example.com
+13386,08/06/2025,13/06/2025,1-Urgent,13,7%,484.24,21.62,Regular Air,Newcastle | North East,Consumer,customer212@example.com
+13423,05/03/2025,05/03/2025,3-Medium,23,1%,267.54,22.37,Delivery Truck,Glasgow | Scotland,Corporate,customer232@example.com
+13450,11/02/2025,12/02/2025,3-Medium,30,7%,206.75,-2356.40,Regular Air,Nottingham | East Midlands,Consumer,customer394@example.com
+13450,11/02/2025,11/02/2025,3-Medium,19,1%,104.38,10.83,Regular Air,Nottingham | East Midlands,Consumer,customer394@example.com
+13450,11/02/2025,11/02/2025,3-Medium,40,2%,364.66,-24.28,Regular Air,Nottingham | East Midlands,Consumer,customer394@example.com
+13450,11/02/2025,15/02/2025,3-Medium,43,4%,181.29,15.81,Regular Air,Nottingham | East Midlands,Consumer,customer394@example.com
+13467,27/06/2025,28/06/2025,4-Not Specified,29,10%,113.14,0.49,Regular Air,York | Yorkshire and the Humber,Small Business,customer158@example.com
+13483,19/11/2025,20/11/2025,1-Urgent,45,10%,315.87,11.36,Regular Air,Birmingham | West Midlands,Consumer,customer318@example.com
+13510,07/05/2025,09/05/2025,1-Urgent,37,2%,467.55,-0.98,Delivery Truck,Newcastle | North East,Consumer,customer58@example.com
+13541,19/04/2025,20/04/2025,3-Medium,5,8%,53.48,14.18,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer243@example.com
+13562,11/09/2025,17/09/2025,5-Low,31,0%,88.34,-6.90,Regular Air,Liverpool | North West,Small Business,customer101@example.com
+13596,15/03/2025,22/03/2025,2-High,9,6%,299.31,-28.09,Regular Air,London | London,Small Business,customer93@example.com
+13596,15/03/2025,19/03/2025,2-High,39,7%,284.22,2.84,Regular Air,London | London,Small Business,customer93@example.com
+13596,15/03/2025,17/03/2025,2-High,24,8%,39.95,1.58,Express Air,London | London,Small Business,customer93@example.com
+13596,15/03/2025,15/03/2025,2-High,38,2%,228.25,25.25,Regular Air,London | London,Small Business,customer93@example.com
+13634,24/10/2025,26/10/2025,4-Not Specified,6,10%,377.21,-25.14,Regular Air,Liverpool | North West,Consumer,customer200@example.com
+13634,24/10/2025,27/10/2025,4-Not Specified,39,7%,355.55,-25.26,Regular Air,Liverpool | North West,Consumer,customer200@example.com
+13634,24/10/2025,27/10/2025,4-Not Specified,34,3%,393.44,1.16,Express Air,Liverpool | North West,Consumer,customer200@example.com
+13634,24/10/2025,27/10/2025,4-Not Specified,1,3%,139.58,-6.28,Regular Air,Liverpool | North West,Consumer,customer200@example.com
+13660,08/05/2025,13/05/2025,1-Urgent,27,9%,497.64,-10.52,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer363@example.com
+13660,08/05/2025,09/05/2025,1-Urgent,23,8%,493.33,23.09,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer363@example.com
+13698,24/10/2025,27/10/2025,1-Urgent,15,2%,476.53,20.50,Regular Air,York | Yorkshire and the Humber,Small Business,customer109@example.com
+13698,24/10/2025,25/10/2025,1-Urgent,43,9%,139.31,-6.33,Delivery Truck,York | Yorkshire and the Humber,Small Business,customer109@example.com
+13698,24/10/2025,31/10/2025,1-Urgent,5,6%,408.32,24.77,Regular Air,York | Yorkshire and the Humber,Small Business,customer109@example.com
+13698,24/10/2025,28/10/2025,1-Urgent,13,0%,138.10,-7.74,Regular Air,York | Yorkshire and the Humber,Small Business,customer109@example.com
+13717,01/03/2025,08/03/2025,2-High,36,9%,298.63,-3.66,Regular Air,Birmingham | West Midlands,Corporate,customer226@example.com
+13724,23/09/2025,27/09/2025,3-Medium,37,7%,240.23,-28.00,Regular Air,London | London,Consumer,customer199@example.com
+13724,23/09/2025,28/09/2025,3-Medium,42,3%,236.26,-1.32,Delivery Truck,London | London,Consumer,customer199@example.com
+13724,23/09/2025,26/09/2025,3-Medium,19,5%,253.13,-7.91,Regular Air,London | London,Consumer,customer199@example.com
+13724,23/09/2025,23/09/2025,3-Medium,30,3%,3.66,-3.57,Regular Air,London | London,Consumer,customer199@example.com
+13734,14/03/2025,20/03/2025,1-Urgent,5,10%,306.60,-9.82,Delivery Truck,Liverpool | North West,Small Business,customer262@example.com
+13734,14/03/2025,14/03/2025,1-Urgent,23,0%,336.29,14.82,Delivery Truck,Liverpool | North West,Small Business,customer262@example.com
+13734,14/03/2025,16/03/2025,1-Urgent,40,4%,351.12,-27.15,Delivery Truck,Liverpool | North West,Small Business,customer262@example.com
+13762,21/02/2025,28/02/2025,5-Low,31,0%,60.57,16.80,Regular Air,London | London,Consumer,customer129@example.com
+13796,27/04/2025,01/05/2025,1-Urgent,10,8%,96.44,16.04,Regular Air,Liverpool | North West,Small Business,customer41@example.com
+13805,09/12/2025,13/12/2025,5-Low,11,5%,296.77,4.61,Delivery Truck,Newcastle | North East,Corporate,customer124@example.com
+13831,12/08/2025,18/08/2025,4-Not Specified,42,3%,490.77,9.15,Regular Air,Birmingham | West Midlands,Home Office,customer115@example.com
+13839,16/10/2025,17/10/2025,4-Not Specified,9,2%,82.50,-12.13,Express Air,Manchester | North West,Corporate,customer355@example.com
+13845,26/05/2025,29/05/2025,3-Medium,1,5%,311.63,15.14,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer309@example.com
+13868,08/02/2025,08/02/2025,4-Not Specified,49,5%,35.06,1.78,Regular Air,Bristol | South West,Corporate,customer330@example.com
+13905,09/11/2025,11/11/2025,1-Urgent,13,4%,433.19,-1.73,Express Air,Liverpool | North West,Corporate,customer93@example.com
+13941,18/05/2025,20/05/2025,1-Urgent,6,1%,173.36,5917.29,Regular Air,Manchester | North West,Corporate,customer85@example.com
+13977,26/10/2025,02/11/2025,1-Urgent,48,4%,16.01,-27.66,Regular Air,London | London,Consumer,customer341@example.com
+13977,26/10/2025,26/10/2025,1-Urgent,29,6%,10.43,27.75,Regular Air,London | London,Consumer,customer341@example.com
+14017,04/09/2025,05/09/2025,4-Not Specified,38,5%,404.08,-15.57,Regular Air,York | Yorkshire and the Humber,Corporate,customer398@example.com
+14032,04/01/2025,08/01/2025,1-Urgent,12,3%,280.84,21.73,Express Air,Glasgow | Scotland,Corporate,customer108@example.com
+14032,04/01/2025,11/01/2025,1-Urgent,4,8%,286.27,14.21,Regular Air,Glasgow | Scotland,Corporate,customer108@example.com
+14032,04/01/2025,07/01/2025,1-Urgent,35,3%,114.23,-0.05,Express Air,Glasgow | Scotland,Corporate,customer108@example.com
+14032,04/01/2025,09/01/2025,1-Urgent,35,6%,392.73,-14.09,Delivery Truck,Glasgow | Scotland,Corporate,customer108@example.com
+14067,13/12/2025,18/12/2025,1-Urgent,15,3%,47.38,14.37,Express Air,Birmingham | West Midlands,Small Business,customer190@example.com
+14067,13/12/2025,18/12/2025,1-Urgent,1,1%,161.34,-12.52,Regular Air,Birmingham | West Midlands,Small Business,customer190@example.com
+14067,13/12/2025,13/12/2025,1-Urgent,49,2%,168.81,30.10,Regular Air,Birmingham | West Midlands,Small Business,customer190@example.com
+14067,13/12/2025,20/12/2025,1-Urgent,43,10%,69.73,-3.39,Regular Air,Birmingham | West Midlands,Small Business,customer190@example.com
+14068,03/09/2025,05/09/2025,3-Medium,18,3%,244.74,-7.83,Regular Air,Bristol | South West,Home Office,customer197@example.com
+14102,04/08/2025,05/08/2025,4-Not Specified,9,1%,260.25,-1.33,Regular Air,Cardiff | Wales,Small Business,customer384@example.com
+14102,04/08/2025,07/08/2025,4-Not Specified,32,1%,494.17,-12.07,Regular Air,Cardiff | Wales,Small Business,customer384@example.com
+14102,04/08/2025,09/08/2025,4-Not Specified,37,0%,49.83,4.46,Regular Air,Cardiff | Wales,Small Business,customer384@example.com
+14107,08/08/2025,13/08/2025,4-Not Specified,44,7%,130.92,-19.68,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer235@example.com
+14135,06/09/2025,12/09/2025,5-Low,14,9%,242.17,29.63,Regular Air,Cardiff | Wales,Small Business,customer24@example.com
+14136,04/01/2025,04/01/2025,4-Not Specified,43,5%,189.55,30.16,Express Air,York | Yorkshire and the Humber,Consumer,customer334@example.com
+14144,02/05/2025,03/05/2025,3-Medium,12,0%,326.39,17.69,Express Air,Leeds | Yorkshire and the Humber,Corporate,customer214@example.com
+14157,08/12/2025,15/12/2025,2-High,31,1%,328.69,15.47,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer389@example.com
+14162,04/01/2025,06/01/2025,2-High,14,1%,341.90,-28.36,Regular Air,Newcastle | North East,Consumer,customer218@example.com
+14180,11/09/2025,12/09/2025,3-Medium,31,0%,356.10,13.89,Regular Air,Bristol | South West,Corporate,customer397@example.com
+14180,11/09/2025,15/09/2025,3-Medium,7,5%,260.79,18.53,Regular Air,Bristol | South West,Corporate,customer397@example.com
+14180,11/09/2025,13/09/2025,3-Medium,4,5%,490.71,1.17,Regular Air,Bristol | South West,Corporate,customer397@example.com
+14202,12/01/2025,15/01/2025,3-Medium,9,0%,144.50,-14.59,Regular Air,Glasgow | Scotland,Corporate,customer376@example.com
+14242,21/10/2025,23/10/2025,4-Not Specified,36,2%,80.92,6.13,Regular Air,Liverpool | North West,Corporate,customer106@example.com
+14271,12/11/2025,18/11/2025,4-Not Specified,42,4%,399.74,0.63,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer368@example.com
+14271,12/11/2025,16/11/2025,4-Not Specified,20,2%,118.28,31.14,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer368@example.com
+14271,12/11/2025,17/11/2025,4-Not Specified,26,3%,112.18,13.55,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer368@example.com
+14271,12/11/2025,14/11/2025,4-Not Specified,48,8%,150.87,24.09,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer368@example.com
+14280,05/12/2025,07/12/2025,3-Medium,40,9%,370.75,-7569.44,Regular Air,Bristol | South West,Home Office,customer305@example.com
+14291,25/04/2025,25/04/2025,4-Not Specified,5,2%,242.33,-7.13,Regular Air,Glasgow | Scotland,Consumer,customer54@example.com
+14291,25/04/2025,01/05/2025,4-Not Specified,5,8%,400.61,-18.49,Regular Air,Glasgow | Scotland,Consumer,customer54@example.com
+14330,29/11/2025,30/11/2025,2-High,13,7%,393.82,4.46,Regular Air,Birmingham | West Midlands,Home Office,customer372@example.com
+14330,29/11/2025,30/11/2025,2-High,33,1%,374.01,3.78,Regular Air,Birmingham | West Midlands,Home Office,customer372@example.com
+14330,29/11/2025,02/12/2025,2-High,33,0%,43.99,20.93,Delivery Truck,Birmingham | West Midlands,Home Office,customer372@example.com
+14330,29/11/2025,02/12/2025,2-High,2,8%,266.83,9.31,Regular Air,Birmingham | West Midlands,Home Office,customer372@example.com
+14336,30/08/2025,04/09/2025,3-Medium,42,3%,144.95,-15.59,Regular Air,York | Yorkshire and the Humber,Corporate,customer190@example.com
+14376,08/03/2025,11/03/2025,2-High,6,7%,100.21,6.21,Regular Air,Bristol | South West,Consumer,customer127@example.com
+14376,08/03/2025,08/03/2025,2-High,41,0%,319.79,24.43,Regular Air,Bristol | South West,Consumer,customer127@example.com
+14376,08/03/2025,11/03/2025,2-High,41,2%,7.95,4995.78,Regular Air,Bristol | South West,Consumer,customer127@example.com
+14415,04/04/2025,08/04/2025,3-Medium,2,1%,174.80,-27.88,Regular Air,Glasgow | Scotland,Consumer,customer306@example.com
+14445,21/11/2025,24/11/2025,4-Not Specified,39,10%,312.05,16.17,Regular Air,Nottingham | East Midlands,Consumer,customer134@example.com
+14445,21/11/2025,28/11/2025,4-Not Specified,49,2%,271.42,-9.22,Delivery Truck,Nottingham | East Midlands,Consumer,customer134@example.com
+14445,21/11/2025,28/11/2025,4-Not Specified,45,1%,278.01,27.81,Express Air,Nottingham | East Midlands,Consumer,customer134@example.com
+14445,21/11/2025,27/11/2025,4-Not Specified,2,5%,263.51,-7.07,Regular Air,Nottingham | East Midlands,Consumer,customer134@example.com
+14470,24/11/2025,01/12/2025,5-Low,27,0%,128.56,16.08,Regular Air,Liverpool | North West,Home Office,customer369@example.com
+14470,24/11/2025,28/11/2025,5-Low,18,5%,438.64,24.59,Regular Air,Liverpool | North West,Home Office,customer369@example.com
+14470,24/11/2025,25/11/2025,5-Low,26,1%,96.92,8.34,Regular Air,Liverpool | North West,Home Office,customer369@example.com
+14483,06/01/2025,08/01/2025,5-Low,25,10%,406.88,-27.65,Delivery Truck,Sheffield | Yorkshire and the Humber,Consumer,customer342@example.com
+14485,03/12/2025,09/12/2025,1-Urgent,37,0%,159.21,24.98,Regular Air,Bristol | South West,Home Office,customer354@example.com
+14497,16/05/2025,18/05/2025,3-Medium,6,0%,378.02,11.18,Express Air,York | Yorkshire and the Humber,Small Business,customer342@example.com
+14528,19/09/2025,22/09/2025,2-High,18,1%,260.36,4.98,Regular Air,Manchester | North West,Home Office,customer199@example.com
+14563,01/03/2025,08/03/2025,1-Urgent,48,5%,490.34,-20.39,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer345@example.com
+14594,17/11/2025,23/11/2025,4-Not Specified,33,5%,57.68,-1.54,Express Air,Cardiff | Wales,Corporate,customer181@example.com
+14594,17/11/2025,19/11/2025,4-Not Specified,34,1%,49.57,-27.19,Regular Air,Cardiff | Wales,Corporate,customer181@example.com
+14594,17/11/2025,22/11/2025,4-Not Specified,23,0%,434.34,-22.00,Regular Air,Cardiff | Wales,Corporate,customer181@example.com
+14613,04/03/2025,09/03/2025,2-High,34,10%,271.15,12.06,Regular Air,Manchester | North West,Consumer,customer183@example.com
+14622,02/09/2025,02/09/2025,5-Low,22,7%,489.54,5.60,Regular Air,Manchester | North West,Small Business,customer88@example.com
+14622,02/09/2025,05/09/2025,5-Low,40,6%,374.40,11.93,Express Air,Manchester | North West,Small Business,customer88@example.com
+14652,04/10/2025,10/10/2025,2-High,46,0%,237.99,9.98,Express Air,Bristol | South West,Home Office,customer335@example.com
+14652,04/10/2025,06/10/2025,2-High,4,4%,437.66,25.06,Delivery Truck,Bristol | South West,Home Office,customer335@example.com
+14652,04/10/2025,04/10/2025,2-High,17,1%,175.29,16.01,Delivery Truck,Bristol | South West,Home Office,customer335@example.com
+14678,16/10/2025,19/10/2025,3-Medium,24,7%,436.75,-4.68,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer157@example.com
+14685,13/11/2025,13/11/2025,2-High,38,10%,451.52,-6.86,Regular Air,London | London,Small Business,customer279@example.com
+14685,13/11/2025,20/11/2025,2-High,28,9%,209.03,19.28,Express Air,London | London,Small Business,customer279@example.com
+14685,13/11/2025,15/11/2025,2-High,14,3%,312.55,15.50,Delivery Truck,London | London,Small Business,customer279@example.com
+14685,13/11/2025,15/11/2025,2-High,13,4%,347.29,14.82,Delivery Truck,London | London,Small Business,customer279@example.com
+14721,28/10/2025,31/10/2025,4-Not Specified,42,0%,123.86,-3.94,Express Air,Cardiff | Wales,Small Business,customer71@example.com
+14721,28/10/2025,30/10/2025,4-Not Specified,1,7%,247.04,3.90,Regular Air,Cardiff | Wales,Small Business,customer71@example.com
+14721,28/10/2025,03/11/2025,4-Not Specified,29,5%,136.90,-0.59,Regular Air,Cardiff | Wales,Small Business,customer71@example.com
+14732,24/05/2025,31/05/2025,3-Medium,26,10%,279.51,26.29,Regular Air,Liverpool | North West,Corporate,customer333@example.com
+14757,06/06/2025,06/06/2025,3-Medium,23,1%,449.10,-27.51,Express Air,Newcastle | North East,Home Office,customer165@example.com
+14757,06/06/2025,13/06/2025,3-Medium,45,5%,435.40,29.79,Regular Air,Newcastle | North East,Home Office,customer165@example.com
+14757,06/06/2025,07/06/2025,3-Medium,19,3%,379.30,1.52,Regular Air,Newcastle | North East,Home Office,customer165@example.com
+14757,06/06/2025,07/06/2025,3-Medium,44,3%,161.13,16.09,Regular Air,Newcastle | North East,Home Office,customer165@example.com
+14791,06/10/2025,07/10/2025,1-Urgent,7,9%,124.54,0.34,Regular Air,Bristol | South West,Small Business,customer99@example.com
+14791,06/10/2025,10/10/2025,1-Urgent,13,10%,364.96,21.02,Regular Air,Bristol | South West,Small Business,customer99@example.com
+14803,12/08/2025,17/08/2025,3-Medium,16,6%,196.43,2.66,Express Air,Leeds | Yorkshire and the Humber,Small Business,customer306@example.com
+14803,12/08/2025,16/08/2025,3-Medium,20,4%,267.11,12.16,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer306@example.com
+14803,12/08/2025,12/08/2025,3-Medium,21,10%,120.15,-24.93,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer306@example.com
+14803,12/08/2025,18/08/2025,3-Medium,18,0%,254.44,12.36,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer306@example.com
+14841,09/05/2025,16/05/2025,4-Not Specified,16,9%,472.54,5.40,Express Air,Bristol | South West,Corporate,customer335@example.com
+14841,09/05/2025,15/05/2025,4-Not Specified,47,7%,28.77,-13.78,Regular Air,Bristol | South West,Corporate,customer335@example.com
+14858,15/01/2025,16/01/2025,2-High,31,5%,435.92,20.23,Express Air,Manchester | North West,Home Office,customer51@example.com
+14858,15/01/2025,21/01/2025,2-High,39,4%,335.69,11.59,Regular Air,Manchester | North West,Home Office,customer51@example.com
+14858,15/01/2025,21/01/2025,2-High,48,4%,379.86,-3.38,Regular Air,Manchester | North West,Home Office,customer51@example.com
+14858,15/01/2025,21/01/2025,2-High,17,2%,245.40,-17.77,Regular Air,Manchester | North West,Home Office,customer51@example.com
+14861,21/12/2025,27/12/2025,5-Low,19,6%,465.57,13.91,Regular Air,Cardiff | Wales,Small Business,customer217@example.com
+14872,13/03/2025,16/03/2025,1-Urgent,2,10%,432.48,2434.16,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer4@example.com
+14872,13/03/2025,16/03/2025,1-Urgent,8,7%,409.97,23.35,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer4@example.com
+14872,13/03/2025,20/03/2025,1-Urgent,20,10%,39.90,-1.58,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer4@example.com
+14872,13/03/2025,14/03/2025,1-Urgent,37,2%,247.68,10.15,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer4@example.com
+14909,27/08/2025,30/08/2025,3-Medium,31,10%,85.77,-27.92,Delivery Truck,Cardiff | Wales,Consumer,customer192@example.com
+14909,27/08/2025,03/09/2025,3-Medium,17,4%,76.95,12.54,Delivery Truck,Cardiff | Wales,Consumer,customer192@example.com
+14909,27/08/2025,02/09/2025,3-Medium,5,8%,128.66,24.40,Regular Air,Cardiff | Wales,Consumer,customer192@example.com
+14921,28/12/2025,04/01/2026,1-Urgent,15,1%,404.60,17.26,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer10@example.com
+14921,28/12/2025,28/12/2025,1-Urgent,20,1%,274.83,-5.70,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer10@example.com
+14921,28/12/2025,30/12/2025,1-Urgent,46,4%,76.02,11.82,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer10@example.com
+14929,22/02/2025,24/02/2025,2-High,24,4%,238.96,-27.90,Express Air,Newcastle | North East,Consumer,customer130@example.com
+14941,13/08/2025,16/08/2025,4-Not Specified,12,0%,147.61,-24.31,Regular Air,London | London,Consumer,customer162@example.com
+14941,13/08/2025,17/08/2025,4-Not Specified,1,3%,452.23,18.74,Regular Air,London | London,Consumer,customer162@example.com
+14941,13/08/2025,17/08/2025,4-Not Specified,49,7%,326.22,3.63,Regular Air,London | London,Consumer,customer162@example.com
+14950,22/11/2025,23/11/2025,5-Low,5,1%,427.30,2.60,Regular Air,Bristol | South West,Home Office,customer24@example.com
+14978,01/01/2025,01/01/2025,4-Not Specified,41,4%,122.40,-25.31,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer374@example.com
+14998,14/08/2025,14/08/2025,3-Medium,10,6%,98.91,5.98,Regular Air,Cardiff | Wales,Corporate,customer16@example.com
+14998,14/08/2025,16/08/2025,3-Medium,11,0%,85.88,25.64,Delivery Truck,Cardiff | Wales,Corporate,customer16@example.com
+14998,14/08/2025,16/08/2025,3-Medium,37,1%,28.75,19.92,Regular Air,Cardiff | Wales,Corporate,customer16@example.com
+15008,11/03/2025,17/03/2025,5-Low,22,5%,364.42,-0.17,Regular Air,Birmingham | West Midlands,Corporate,customer195@example.com
+15016,21/04/2025,23/04/2025,4-Not Specified,15,1%,86.05,-16.25,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer77@example.com
+15016,21/04/2025,27/04/2025,4-Not Specified,25,5%,152.90,2.10,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer77@example.com
+15016,21/04/2025,28/04/2025,4-Not Specified,5,3%,483.47,22.17,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer77@example.com
+15025,13/01/2025,19/01/2025,3-Medium,22,2%,20.38,-27.17,Regular Air,Manchester | North West,Consumer,customer246@example.com
+15025,13/01/2025,13/01/2025,3-Medium,14,6%,345.10,23.08,Express Air,Manchester | North West,Consumer,customer246@example.com
+15025,13/01/2025,20/01/2025,3-Medium,6,1%,324.98,4.79,Regular Air,Manchester | North West,Consumer,customer246@example.com
+15025,13/01/2025,14/01/2025,3-Medium,22,6%,93.41,-22.16,Regular Air,Manchester | North West,Consumer,customer246@example.com
+15046,20/02/2025,21/02/2025,4-Not Specified,28,6%,498.39,-5.93,Express Air,York | Yorkshire and the Humber,Home Office,customer142@example.com
+15056,26/10/2025,01/11/2025,2-High,12,5%,389.31,-16.03,Express Air,Newcastle | North East,Small Business,customer38@example.com
+15056,26/10/2025,01/11/2025,2-High,39,10%,344.88,-7.75,Regular Air,Newcastle | North East,Small Business,customer38@example.com
+15088,20/06/2025,27/06/2025,5-Low,46,7%,118.41,-8.63,Express Air,York | Yorkshire and the Humber,Home Office,customer71@example.com
+15088,20/06/2025,23/06/2025,5-Low,10,6%,261.21,17.76,Regular Air,York | Yorkshire and the Humber,Home Office,customer71@example.com
+15120,23/10/2025,23/10/2025,4-Not Specified,48,4%,231.04,7.81,Regular Air,Liverpool | North West,Corporate,customer105@example.com
+15144,14/06/2025,15/06/2025,5-Low,1,10%,425.59,-5.03,Regular Air,Newcastle | North East,Corporate,customer392@example.com
+15156,01/11/2025,03/11/2025,5-Low,1,2%,458.82,-1.63,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer342@example.com
+15165,07/01/2025,08/01/2025,4-Not Specified,30,1%,79.52,-10.14,Express Air,London | London,Home Office,customer279@example.com
+15165,07/01/2025,08/01/2025,4-Not Specified,42,0%,276.33,21.55,Regular Air,London | London,Home Office,customer279@example.com
+15165,07/01/2025,08/01/2025,4-Not Specified,2,0%,359.06,-19.37,Express Air,London | London,Home Office,customer279@example.com
+15188,26/06/2025,29/06/2025,3-Medium,48,9%,196.73,30.69,Regular Air,Manchester | North West,Corporate,customer394@example.com
+15193,01/09/2025,08/09/2025,5-Low,14,3%,442.13,3.59,Regular Air,Birmingham | West Midlands,Home Office,customer210@example.com
+15193,01/09/2025,01/09/2025,5-Low,12,6%,167.06,1.95,Regular Air,Birmingham | West Midlands,Home Office,customer210@example.com
+15193,01/09/2025,02/09/2025,5-Low,17,5%,334.92,27.27,Regular Air,Birmingham | West Midlands,Home Office,customer210@example.com
+15193,01/09/2025,05/09/2025,5-Low,14,0%,115.24,-18.27,Regular Air,Birmingham | West Midlands,Home Office,customer210@example.com
+15222,19/03/2025,26/03/2025,2-High,23,4%,119.39,30.41,Regular Air,Nottingham | East Midlands,Small Business,customer243@example.com
+15239,08/12/2025,09/12/2025,4-Not Specified,37,4%,167.94,13.46,Regular Air,Manchester | North West,Small Business,customer121@example.com
+15239,08/12/2025,10/12/2025,4-Not Specified,27,4%,205.09,-8.92,Regular Air,Manchester | North West,Small Business,customer121@example.com
+15239,08/12/2025,14/12/2025,4-Not Specified,21,10%,407.56,-21.54,Regular Air,Manchester | North West,Small Business,customer121@example.com
+15261,27/09/2025,02/10/2025,4-Not Specified,21,1%,250.65,12.79,Regular Air,Bristol | South West,Consumer,customer304@example.com
+15261,27/09/2025,02/10/2025,4-Not Specified,15,6%,402.80,8.10,Regular Air,Bristol | South West,Consumer,customer304@example.com
+15261,27/09/2025,27/09/2025,4-Not Specified,1,10%,213.54,15.52,Express Air,Bristol | South West,Consumer,customer304@example.com
+15261,27/09/2025,27/09/2025,4-Not Specified,6,8%,105.20,-11.43,Regular Air,Bristol | South West,Consumer,customer304@example.com
+15272,12/06/2025,13/06/2025,2-High,24,1%,449.18,9.74,Regular Air,Glasgow | Scotland,Home Office,customer15@example.com
+15273,18/10/2025,21/10/2025,3-Medium,34,5%,307.05,0.38,Regular Air,Glasgow | Scotland,Home Office,customer25@example.com
+15273,18/10/2025,22/10/2025,3-Medium,14,7%,88.84,-24.33,Delivery Truck,Glasgow | Scotland,Home Office,customer25@example.com
+15280,13/11/2025,19/11/2025,3-Medium,14,1%,139.83,-13.72,Regular Air,Birmingham | West Midlands,Corporate,customer88@example.com
+15280,13/11/2025,13/11/2025,3-Medium,44,3%,377.59,-3.53,Regular Air,Birmingham | West Midlands,Corporate,customer88@example.com
+15315,03/12/2025,05/12/2025,2-High,36,8%,68.38,-22.09,Regular Air,Cardiff | Wales,Consumer,customer353@example.com
+15329,01/09/2025,03/09/2025,4-Not Specified,48,2%,80.44,8.85,Regular Air,Glasgow | Scotland,Small Business,customer241@example.com
+15361,30/08/2025,30/08/2025,4-Not Specified,4,0%,492.89,-8.90,Regular Air,London | London,Consumer,customer164@example.com
+15397,11/11/2025,16/11/2025,4-Not Specified,18,7%,187.74,-23.43,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer40@example.com
+15398,24/09/2025,26/09/2025,3-Medium,15,3%,447.01,-26.79,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer70@example.com
+15411,22/03/2025,24/03/2025,3-Medium,33,1%,296.33,-21.22,Express Air,Bristol | South West,Home Office,customer115@example.com
+15434,20/04/2025,27/04/2025,1-Urgent,1,8%,203.19,28.33,Regular Air,Newcastle | North East,Home Office,customer133@example.com
+15434,20/04/2025,22/04/2025,1-Urgent,2,5%,224.78,-22.08,Regular Air,Newcastle | North East,Home Office,customer133@example.com
+15434,20/04/2025,21/04/2025,1-Urgent,31,8%,44.69,26.80,Regular Air,Newcastle | North East,Home Office,customer133@example.com
+15434,20/04/2025,20/04/2025,1-Urgent,32,8%,375.84,-24.74,Regular Air,Newcastle | North East,Home Office,customer133@example.com
+15450,10/11/2025,12/11/2025,5-Low,36,3%,254.17,-0.81,Delivery Truck,Sheffield | Yorkshire and the Humber,Home Office,customer40@example.com
+15482,29/04/2025,30/04/2025,2-High,3,10%,103.62,30.72,Regular Air,Manchester | North West,Small Business,customer122@example.com
+15507,01/10/2025,01/10/2025,5-Low,23,10%,326.60,8.67,Express Air,York | Yorkshire and the Humber,Consumer,customer15@example.com
+15518,30/03/2025,31/03/2025,2-High,16,8%,233.64,13.44,Regular Air,Birmingham | West Midlands,Small Business,customer366@example.com
+15518,30/03/2025,31/03/2025,2-High,15,0%,66.04,22.28,Regular Air,Birmingham | West Midlands,Small Business,customer366@example.com
+15518,30/03/2025,02/04/2025,2-High,33,9%,96.93,3.42,Regular Air,Birmingham | West Midlands,Small Business,customer366@example.com
+15518,30/03/2025,01/04/2025,2-High,33,3%,330.38,18.93,Regular Air,Birmingham | West Midlands,Small Business,customer366@example.com
+15552,06/12/2025,10/12/2025,4-Not Specified,23,9%,172.73,-12.61,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer33@example.com
+15567,19/02/2025,21/02/2025,2-High,41,9%,445.16,1.32,Express Air,York | Yorkshire and the Humber,Corporate,customer128@example.com
+15606,27/06/2025,28/06/2025,4-Not Specified,44,10%,221.75,15.20,Express Air,London | London,Corporate,customer234@example.com
+15611,27/08/2025,03/09/2025,2-High,44,6%,224.99,22.38,Express Air,York | Yorkshire and the Humber,Corporate,customer84@example.com
+15611,27/08/2025,01/09/2025,2-High,35,8%,92.86,3.00,Regular Air,York | Yorkshire and the Humber,Corporate,customer84@example.com
+15611,27/08/2025,02/09/2025,2-High,10,10%,376.82,29.87,Regular Air,York | Yorkshire and the Humber,Corporate,customer84@example.com
+15611,27/08/2025,29/08/2025,2-High,9,5%,40.50,-25.19,Regular Air,York | Yorkshire and the Humber,Corporate,customer84@example.com
+15626,07/09/2025,11/09/2025,1-Urgent,28,8%,456.06,-21.87,Regular Air,Liverpool | North West,Home Office,customer280@example.com
+15660,04/01/2025,11/01/2025,4-Not Specified,45,1%,152.12,24.13,Regular Air,Sheffield | Yorkshire and the Humber,Consumer,customer176@example.com
+15679,25/10/2025,28/10/2025,5-Low,45,0%,412.26,-27.71,Regular Air,Glasgow | Scotland,Corporate,customer77@example.com
+15699,05/01/2025,06/01/2025,5-Low,15,6%,262.19,19.87,Regular Air,Cardiff | Wales,Small Business,customer145@example.com
+15738,16/12/2025,16/12/2025,3-Medium,27,9%,11.04,1.58,Regular Air,Newcastle | North East,Corporate,customer372@example.com
+15755,15/04/2025,19/04/2025,3-Medium,18,9%,377.30,13.51,Regular Air,Nottingham | East Midlands,Consumer,customer309@example.com
+15770,11/02/2025,14/02/2025,2-High,6,2%,347.40,15.62,Express Air,Birmingham | West Midlands,Small Business,customer262@example.com
+15770,11/02/2025,15/02/2025,2-High,29,8%,468.65,25.42,Regular Air,Birmingham | West Midlands,Small Business,customer262@example.com
+15797,13/03/2025,17/03/2025,2-High,50,7%,376.95,4.27,Regular Air,Bristol | South West,Small Business,customer236@example.com
+15816,30/12/2025,31/12/2025,5-Low,39,1%,99.20,1.32,Regular Air,Manchester | North West,Home Office,customer355@example.com
+15816,30/12/2025,03/01/2026,5-Low,19,0%,234.30,13.50,Regular Air,Manchester | North West,Home Office,customer355@example.com
+15816,30/12/2025,31/12/2025,5-Low,31,7%,300.29,-6.28,Regular Air,Manchester | North West,Home Office,customer355@example.com
+15845,03/08/2025,09/08/2025,3-Medium,28,4%,189.62,-22.71,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer349@example.com
+15873,26/08/2025,02/09/2025,1-Urgent,11,10%,426.99,9.33,Regular Air,Liverpool | North West,Corporate,customer178@example.com
+15902,13/12/2025,18/12/2025,4-Not Specified,20,8%,196.05,-4.54,Delivery Truck,Sheffield | Yorkshire and the Humber,Small Business,customer279@example.com
+15925,21/01/2025,25/01/2025,2-High,35,5%,473.61,13.15,Regular Air,Newcastle | North East,Corporate,customer318@example.com
+15925,21/01/2025,22/01/2025,2-High,10,8%,124.11,-0.49,Delivery Truck,Newcastle | North East,Corporate,customer318@example.com
+15925,21/01/2025,28/01/2025,2-High,25,4%,163.98,2.87,Regular Air,Newcastle | North East,Corporate,customer318@example.com
+15925,21/01/2025,26/01/2025,2-High,49,9%,88.50,9.88,Express Air,Newcastle | North East,Corporate,customer318@example.com
+15931,16/03/2025,23/03/2025,5-Low,29,9%,205.70,-28.28,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer128@example.com
+15931,16/03/2025,21/03/2025,5-Low,42,9%,354.77,-24.27,Express Air,Sheffield | Yorkshire and the Humber,Small Business,customer128@example.com
+15931,16/03/2025,17/03/2025,5-Low,42,2%,353.73,12.11,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer128@example.com
+15933,13/03/2025,14/03/2025,4-Not Specified,37,6%,237.87,-27.03,Express Air,York | Yorkshire and the Humber,Corporate,customer257@example.com
+15953,30/04/2025,03/05/2025,2-High,11,1%,203.84,0.28,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer197@example.com
+15991,07/09/2025,09/09/2025,2-High,45,3%,87.42,16.29,Regular Air,London | London,Small Business,customer156@example.com
+15991,07/09/2025,12/09/2025,2-High,27,6%,426.01,26.90,Regular Air,London | London,Small Business,customer156@example.com
+15991,07/09/2025,14/09/2025,2-High,8,0%,436.11,-14.67,Regular Air,London | London,Small Business,customer156@example.com
+15991,07/09/2025,08/09/2025,2-High,34,9%,235.23,-22.83,Delivery Truck,London | London,Small Business,customer156@example.com
+16031,02/09/2025,05/09/2025,3-Medium,35,9%,371.97,10.39,Regular Air,Birmingham | West Midlands,Corporate,customer84@example.com
+16031,02/09/2025,02/09/2025,3-Medium,17,8%,229.96,8.76,Regular Air,Birmingham | West Midlands,Corporate,customer84@example.com
+16031,02/09/2025,05/09/2025,3-Medium,30,7%,81.28,-28.68,Delivery Truck,Birmingham | West Midlands,Corporate,customer84@example.com
+16031,02/09/2025,06/09/2025,3-Medium,38,4%,17.11,-12.32,Regular Air,Birmingham | West Midlands,Corporate,customer84@example.com
+16067,30/11/2025,01/12/2025,3-Medium,20,3%,83.28,11.62,Regular Air,London | London,Consumer,customer238@example.com
+16102,16/05/2025,16/05/2025,1-Urgent,22,8%,186.34,-24.99,Regular Air,London | London,Consumer,customer136@example.com
+16135,05/01/2025,12/01/2025,5-Low,29,1%,442.40,-13.49,Regular Air,Glasgow | Scotland,Small Business,customer101@example.com
+16164,17/01/2025,17/01/2025,5-Low,11,0%,107.96,-21.48,Regular Air,London | London,Small Business,customer90@example.com
+16169,08/08/2025,15/08/2025,2-High,18,8%,423.82,5.74,Regular Air,Nottingham | East Midlands,Corporate,customer370@example.com
+16204,16/10/2025,18/10/2025,5-Low,46,6%,119.75,26.01,Regular Air,Cardiff | Wales,Corporate,customer396@example.com
+16204,16/10/2025,20/10/2025,5-Low,13,3%,58.93,-4.17,Regular Air,Cardiff | Wales,Corporate,customer396@example.com
+16218,04/05/2025,07/05/2025,1-Urgent,20,8%,95.45,3.64,Delivery Truck,Sheffield | Yorkshire and the Humber,Small Business,customer344@example.com
+16218,04/05/2025,04/05/2025,1-Urgent,31,5%,285.49,20.52,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer344@example.com
+16244,12/10/2025,13/10/2025,1-Urgent,34,1%,343.86,-23.84,Delivery Truck,Glasgow | Scotland,Consumer,customer107@example.com
+16247,26/08/2025,30/08/2025,4-Not Specified,22,0%,98.08,0.36,Regular Air,Manchester | North West,Small Business,customer284@example.com
+16247,26/08/2025,26/08/2025,4-Not Specified,15,1%,208.32,-9.85,Regular Air,Manchester | North West,Small Business,customer284@example.com
+16247,26/08/2025,26/08/2025,4-Not Specified,29,4%,96.95,5.50,Regular Air,Manchester | North West,Small Business,customer284@example.com
+16247,26/08/2025,01/09/2025,4-Not Specified,32,3%,246.28,9.39,Regular Air,Manchester | North West,Small Business,customer284@example.com
+16279,02/01/2025,05/01/2025,2-High,39,8%,325.89,6.86,Regular Air,Bristol | South West,Corporate,customer124@example.com
+16279,02/01/2025,06/01/2025,2-High,12,8%,440.06,29.40,Regular Air,Bristol | South West,Corporate,customer124@example.com
+16279,02/01/2025,05/01/2025,2-High,11,2%,115.35,-3.42,Express Air,Bristol | South West,Corporate,customer124@example.com
+16279,02/01/2025,08/01/2025,2-High,11,4%,44.78,22.82,Regular Air,Bristol | South West,Corporate,customer124@example.com
+16317,20/09/2025,20/09/2025,5-Low,14,5%,478.67,18.87,Regular Air,Nottingham | East Midlands,Home Office,customer362@example.com
+16351,24/09/2025,28/09/2025,1-Urgent,25,8%,387.57,-24.13,Regular Air,Bristol | South West,Home Office,customer167@example.com
+16351,24/09/2025,24/09/2025,1-Urgent,2,10%,372.69,-22.71,Regular Air,Bristol | South West,Home Office,customer167@example.com
+16378,17/08/2025,19/08/2025,3-Medium,28,2%,234.82,6.41,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer176@example.com
+16378,17/08/2025,22/08/2025,3-Medium,17,6%,467.96,-14.59,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer176@example.com
+16415,11/11/2025,13/11/2025,2-High,17,7%,17.80,14.66,Regular Air,London | London,Home Office,customer255@example.com
+16415,11/11/2025,13/11/2025,2-High,2,4%,321.31,0.02,Regular Air,London | London,Home Office,customer255@example.com
+16415,11/11/2025,14/11/2025,2-High,19,0%,8.26,7.53,Regular Air,London | London,Home Office,customer255@example.com
+16415,11/11/2025,13/11/2025,2-High,31,9%,195.47,10.55,Express Air,London | London,Home Office,customer255@example.com
+16433,24/06/2025,01/07/2025,2-High,41,2%,112.42,-4.52,Delivery Truck,Manchester | North West,Consumer,customer387@example.com
+16433,24/06/2025,26/06/2025,2-High,15,9%,476.16,26.45,Regular Air,Manchester | North West,Consumer,customer387@example.com
+16450,04/04/2025,09/04/2025,2-High,14,2%,286.49,9452.36,Express Air,Newcastle | North East,Corporate,customer200@example.com
+16484,06/04/2025,10/04/2025,1-Urgent,35,6%,409.86,27.61,Regular Air,Cardiff | Wales,Corporate,customer265@example.com
+16492,01/05/2025,06/05/2025,5-Low,36,1%,256.23,0.85,Delivery Truck,Manchester | North West,Small Business,customer283@example.com
+16519,01/03/2025,04/03/2025,1-Urgent,8,7%,434.49,-7.18,Express Air,Manchester | North West,Corporate,customer152@example.com
+16527,30/11/2025,03/12/2025,3-Medium,45,3%,259.67,-16.99,Regular Air,Nottingham | East Midlands,Home Office,customer78@example.com
+16527,30/11/2025,05/12/2025,3-Medium,32,4%,422.26,-24.34,Regular Air,Nottingham | East Midlands,Home Office,customer78@example.com
+16527,30/11/2025,07/12/2025,3-Medium,32,4%,7.93,-25.86,Regular Air,Nottingham | East Midlands,Home Office,customer78@example.com
+16527,30/11/2025,05/12/2025,3-Medium,24,7%,462.10,-13.62,Express Air,Nottingham | East Midlands,Home Office,customer78@example.com
+16558,10/06/2025,16/06/2025,5-Low,20,9%,464.11,10.47,Regular Air,Sheffield | Yorkshire and the Humber,Corporate,customer397@example.com
+16579,11/02/2025,16/02/2025,4-Not Specified,2,10%,319.04,-21.22,Regular Air,Cardiff | Wales,Home Office,customer232@example.com
+16602,24/11/2025,26/11/2025,2-High,11,7%,351.64,4.44,Regular Air,York | Yorkshire and the Humber,Consumer,customer198@example.com
+16604,11/02/2025,13/02/2025,5-Low,6,6%,53.35,19.61,Delivery Truck,Cardiff | Wales,Home Office,customer187@example.com
+16611,26/05/2025,01/06/2025,4-Not Specified,30,2%,8.18,-1.11,Regular Air,Manchester | North West,Corporate,customer137@example.com
+16643,23/02/2025,02/03/2025,2-High,11,1%,439.83,-12.56,Regular Air,Birmingham | West Midlands,Small Business,customer204@example.com
+16666,15/05/2025,18/05/2025,5-Low,16,0%,261.99,-26.11,Regular Air,York | Yorkshire and the Humber,Corporate,customer360@example.com
+16680,26/11/2025,02/12/2025,3-Medium,38,10%,16.90,-17.97,Regular Air,Glasgow | Scotland,Home Office,customer161@example.com
+16680,26/11/2025,01/12/2025,3-Medium,32,10%,368.68,23.18,Express Air,Glasgow | Scotland,Home Office,customer161@example.com
+16680,26/11/2025,30/11/2025,3-Medium,34,5%,74.89,-24.03,Delivery Truck,Glasgow | Scotland,Home Office,customer161@example.com
+16715,15/01/2025,15/01/2025,4-Not Specified,48,0%,10.04,-25.65,Delivery Truck,Liverpool | North West,Small Business,customer290@example.com
+16715,15/01/2025,16/01/2025,4-Not Specified,24,4%,369.95,27.51,Express Air,Liverpool | North West,Small Business,customer290@example.com
+16736,11/05/2025,12/05/2025,2-High,6,3%,416.79,-2.24,Regular Air,Liverpool | North West,Corporate,customer304@example.com
+16736,11/05/2025,13/05/2025,2-High,24,6%,367.50,30.99,Regular Air,Liverpool | North West,Corporate,customer304@example.com
+16736,11/05/2025,12/05/2025,2-High,8,5%,96.98,15.89,Regular Air,Liverpool | North West,Corporate,customer304@example.com
+16747,08/05/2025,10/05/2025,1-Urgent,7,9%,376.60,-8.03,Regular Air,Birmingham | West Midlands,Home Office,customer165@example.com
+16747,08/05/2025,15/05/2025,1-Urgent,31,8%,488.25,-28.71,Regular Air,Birmingham | West Midlands,Home Office,customer165@example.com
+16747,08/05/2025,14/05/2025,1-Urgent,11,6%,364.22,-23.38,Delivery Truck,Birmingham | West Midlands,Home Office,customer165@example.com
+16747,08/05/2025,14/05/2025,1-Urgent,20,9%,213.40,4571.96,Express Air,Birmingham | West Midlands,Home Office,customer165@example.com
+16752,19/11/2025,23/11/2025,3-Medium,11,6%,138.08,-2880.51,Regular Air,Nottingham | East Midlands,Consumer,customer89@example.com
+16788,03/11/2025,05/11/2025,4-Not Specified,31,2%,315.78,-2148.91,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer135@example.com
+16812,13/05/2025,17/05/2025,3-Medium,24,1%,66.47,6.80,Express Air,York | Yorkshire and the Humber,Corporate,customer52@example.com
+16851,11/08/2025,16/08/2025,5-Low,13,6%,120.65,13.08,Regular Air,Bristol | South West,Corporate,customer144@example.com
+16858,07/12/2025,13/12/2025,2-High,43,9%,156.06,16.16,Regular Air,Nottingham | East Midlands,Small Business,customer378@example.com
+16875,10/01/2025,16/01/2025,2-High,14,4%,163.07,-8.43,Express Air,Bristol | South West,Home Office,customer283@example.com
+16875,10/01/2025,16/01/2025,2-High,42,7%,223.34,30.40,Express Air,Bristol | South West,Home Office,customer283@example.com
+16898,06/05/2025,12/05/2025,5-Low,4,1%,416.63,27.58,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer399@example.com
+16929,23/11/2025,24/11/2025,3-Medium,8,1%,29.42,-9.84,Regular Air,Cardiff | Wales,Small Business,customer37@example.com
+16950,24/09/2025,27/09/2025,2-High,30,8%,384.07,14.18,Regular Air,Liverpool | North West,Consumer,customer67@example.com
+16950,24/09/2025,27/09/2025,2-High,6,6%,342.53,-18.00,Regular Air,Liverpool | North West,Consumer,customer67@example.com
+16950,24/09/2025,01/10/2025,2-High,35,7%,299.57,18.61,Delivery Truck,Liverpool | North West,Consumer,customer67@example.com
+16950,24/09/2025,27/09/2025,2-High,31,10%,498.80,-20.85,Express Air,Liverpool | North West,Consumer,customer67@example.com
+16974,28/06/2025,04/07/2025,3-Medium,10,0%,47.75,14.34,Regular Air,London | London,Consumer,customer363@example.com
+17008,31/01/2025,07/02/2025,2-High,13,10%,55.46,4.32,Regular Air,Leeds | Yorkshire and the Humber,Home Office,customer298@example.com
+17025,05/03/2025,06/03/2025,2-High,25,0%,114.11,19.40,Regular Air,London | London,Small Business,customer186@example.com
+17025,05/03/2025,11/03/2025,2-High,38,8%,99.82,-9.90,Regular Air,London | London,Small Business,customer186@example.com
+17027,25/05/2025,30/05/2025,4-Not Specified,17,3%,405.30,-8.73,Express Air,York | Yorkshire and the Humber,Consumer,customer127@example.com
+17027,25/05/2025,26/05/2025,4-Not Specified,20,9%,285.02,-21.65,Regular Air,York | Yorkshire and the Humber,Consumer,customer127@example.com
+17027,25/05/2025,29/05/2025,4-Not Specified,5,8%,232.34,20.29,Delivery Truck,York | Yorkshire and the Humber,Consumer,customer127@example.com
+17027,25/05/2025,29/05/2025,4-Not Specified,25,5%,252.28,-25.20,Regular Air,York | Yorkshire and the Humber,Consumer,customer127@example.com
+17042,28/08/2025,28/08/2025,4-Not Specified,5,7%,485.91,24.91,Delivery Truck,Newcastle | North East,Corporate,customer354@example.com
+17042,28/08/2025,04/09/2025,4-Not Specified,26,0%,445.01,4.64,Regular Air,Newcastle | North East,Corporate,customer354@example.com
+17043,11/10/2025,15/10/2025,5-Low,27,1%,223.28,-20.01,Express Air,Manchester | North West,Small Business,customer325@example.com
+17063,27/03/2025,30/03/2025,4-Not Specified,36,9%,434.54,-3.16,Regular Air,Glasgow | Scotland,Consumer,customer114@example.com
+17081,19/01/2025,25/01/2025,2-High,25,8%,36.34,-15.81,Regular Air,York | Yorkshire and the Humber,Consumer,customer238@example.com
+17117,16/03/2025,16/03/2025,5-Low,44,9%,263.97,-24.97,Express Air,Glasgow | Scotland,Small Business,customer235@example.com
+17117,16/03/2025,18/03/2025,5-Low,23,5%,232.50,-22.77,Regular Air,Glasgow | Scotland,Small Business,customer235@example.com
+17117,16/03/2025,18/03/2025,5-Low,1,4%,115.58,-26.56,Regular Air,Glasgow | Scotland,Small Business,customer235@example.com
+17117,16/03/2025,23/03/2025,5-Low,42,4%,99.34,23.42,Regular Air,Glasgow | Scotland,Small Business,customer235@example.com
+17156,01/09/2025,08/09/2025,1-Urgent,16,8%,390.94,-23.38,Express Air,Leeds | Yorkshire and the Humber,Corporate,customer95@example.com
+17159,13/05/2025,13/05/2025,2-High,4,9%,208.26,3.77,Delivery Truck,Nottingham | East Midlands,Corporate,customer220@example.com
+17180,12/02/2025,15/02/2025,3-Medium,22,9%,422.84,-2.32,Delivery Truck,Nottingham | East Midlands,Small Business,customer307@example.com
+17203,08/08/2025,11/08/2025,1-Urgent,15,3%,351.24,7.46,Regular Air,Newcastle | North East,Small Business,customer153@example.com
+17203,08/08/2025,08/08/2025,1-Urgent,32,3%,137.61,21.14,Regular Air,Newcastle | North East,Small Business,customer153@example.com
+17203,08/08/2025,13/08/2025,1-Urgent,46,10%,271.92,-22.27,Regular Air,Newcastle | North East,Small Business,customer153@example.com
+17216,07/03/2025,14/03/2025,2-High,13,0%,433.55,-15.26,Express Air,Newcastle | North East,Small Business,customer279@example.com
+17228,13/11/2025,19/11/2025,2-High,20,9%,33.27,-25.41,Regular Air,Sheffield | Yorkshire and the Humber,Small Business,customer156@example.com
+17263,18/08/2025,25/08/2025,5-Low,27,1%,379.75,24.68,Regular Air,London | London,Corporate,customer21@example.com
+17263,18/08/2025,18/08/2025,5-Low,36,5%,161.40,-25.00,Regular Air,London | London,Corporate,customer21@example.com
+17290,20/06/2025,21/06/2025,1-Urgent,15,6%,351.56,-9.20,Express Air,Nottingham | East Midlands,Corporate,customer204@example.com
+17298,16/03/2025,22/03/2025,3-Medium,16,5%,366.12,1.46,Regular Air,York | Yorkshire and the Humber,Consumer,customer363@example.com
+17315,17/01/2025,20/01/2025,3-Medium,39,5%,172.80,-15.77,Regular Air,Newcastle | North East,Corporate,customer8@example.com
+17351,15/03/2025,17/03/2025,4-Not Specified,43,3%,129.30,20.10,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer198@example.com
+17351,15/03/2025,17/03/2025,4-Not Specified,42,6%,182.03,-11.94,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer198@example.com
+17351,15/03/2025,15/03/2025,4-Not Specified,48,6%,482.24,-20.25,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer198@example.com
+17377,09/03/2025,15/03/2025,1-Urgent,18,10%,412.11,-5.07,Regular Air,York | Yorkshire and the Humber,Consumer,customer397@example.com
+17381,24/02/2025,02/03/2025,2-High,36,0%,249.99,7.22,Express Air,Liverpool | North West,Corporate,customer335@example.com
+17383,02/06/2025,08/06/2025,1-Urgent,31,8%,209.08,14.16,Regular Air,Birmingham | West Midlands,Small Business,customer260@example.com
+17384,05/10/2025,12/10/2025,3-Medium,6,2%,473.09,-10.65,Delivery Truck,Birmingham | West Midlands,Corporate,customer53@example.com
+17384,05/10/2025,07/10/2025,3-Medium,26,4%,292.85,1.61,Express Air,Birmingham | West Midlands,Corporate,customer53@example.com
+17384,05/10/2025,05/10/2025,3-Medium,46,8%,314.17,-18.59,Regular Air,Birmingham | West Midlands,Corporate,customer53@example.com
+17384,05/10/2025,10/10/2025,3-Medium,9,10%,79.25,6.51,Regular Air,Birmingham | West Midlands,Corporate,customer53@example.com
+17413,06/08/2025,13/08/2025,5-Low,29,2%,417.95,19.90,Regular Air,Manchester | North West,Corporate,customer291@example.com
+17413,06/08/2025,09/08/2025,5-Low,31,10%,377.24,-11.53,Regular Air,Manchester | North West,Corporate,customer291@example.com
+17413,06/08/2025,13/08/2025,5-Low,48,6%,482.33,29.37,Express Air,Manchester | North West,Corporate,customer291@example.com
+17413,06/08/2025,13/08/2025,5-Low,7,1%,499.77,4.69,Regular Air,Manchester | North West,Corporate,customer291@example.com
+17438,28/10/2025,31/10/2025,4-Not Specified,16,5%,485.53,-19.35,Regular Air,York | Yorkshire and the Humber,Small Business,customer365@example.com
+17438,28/10/2025,04/11/2025,4-Not Specified,24,2%,403.38,17.58,Regular Air,York | Yorkshire and the Humber,Small Business,customer365@example.com
+17438,28/10/2025,30/10/2025,4-Not Specified,39,10%,73.57,2840.36,Regular Air,York | Yorkshire and the Humber,Small Business,customer365@example.com
+17469,21/09/2025,23/09/2025,5-Low,6,0%,41.02,19.27,Regular Air,Manchester | North West,Consumer,customer305@example.com
+17469,21/09/2025,23/09/2025,5-Low,44,5%,431.76,8583.36,Regular Air,Manchester | North West,Consumer,customer305@example.com
+17469,21/09/2025,23/09/2025,5-Low,27,8%,202.36,-8.71,Regular Air,Manchester | North West,Consumer,customer305@example.com
+17488,07/05/2025,13/05/2025,4-Not Specified,46,0%,48.67,-5.91,Regular Air,Cardiff | Wales,Corporate,customer181@example.com
+17488,07/05/2025,11/05/2025,4-Not Specified,20,6%,202.36,9.31,Regular Air,Cardiff | Wales,Corporate,customer181@example.com
+17488,07/05/2025,13/05/2025,4-Not Specified,7,6%,360.20,-27.86,Delivery Truck,Cardiff | Wales,Corporate,customer181@example.com
+17528,26/03/2025,27/03/2025,1-Urgent,31,8%,178.16,17.33,Regular Air,Bristol | South West,Consumer,customer204@example.com
+17543,15/12/2025,21/12/2025,5-Low,4,1%,63.69,7.17,Delivery Truck,Manchester | North West,Consumer,customer79@example.com
+17572,18/06/2025,20/06/2025,2-High,9,10%,425.03,-0.83,Regular Air,Manchester | North West,Corporate,customer200@example.com
+17572,18/06/2025,20/06/2025,2-High,35,7%,154.83,6.57,Regular Air,Manchester | North West,Corporate,customer200@example.com
+17572,18/06/2025,23/06/2025,2-High,16,0%,407.45,8.24,Regular Air,Manchester | North West,Corporate,customer200@example.com
+17610,10/12/2025,11/12/2025,4-Not Specified,8,5%,132.99,-21.79,Delivery Truck,Sheffield | Yorkshire and the Humber,Corporate,customer90@example.com
+17619,11/02/2025,18/02/2025,1-Urgent,38,7%,65.67,-27.12,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer182@example.com
+17619,11/02/2025,12/02/2025,1-Urgent,11,7%,389.54,-2.24,Regular Air,Leeds | Yorkshire and the Humber,Consumer,customer182@example.com
+17619,11/02/2025,11/02/2025,1-Urgent,48,6%,14.81,26.71,Express Air,Leeds | Yorkshire and the Humber,Consumer,customer182@example.com
+17656,06/09/2025,06/09/2025,5-Low,24,3%,494.62,-10.25,Delivery Truck,Cardiff | Wales,Consumer,customer172@example.com
+17694,17/08/2025,19/08/2025,2-High,16,1%,196.29,20.88,Delivery Truck,Glasgow | Scotland,Consumer,customer93@example.com
+17694,17/08/2025,24/08/2025,2-High,31,1%,11.06,2.82,Express Air,Glasgow | Scotland,Consumer,customer93@example.com
+17710,29/11/2025,02/12/2025,1-Urgent,50,5%,434.67,3.69,Regular Air,London | London,Home Office,customer7@example.com
+17710,29/11/2025,04/12/2025,1-Urgent,28,1%,111.20,-13.37,Regular Air,London | London,Home Office,customer7@example.com
+17710,29/11/2025,06/12/2025,1-Urgent,32,9%,437.74,-27.58,Regular Air,London | London,Home Office,customer7@example.com
+17727,07/08/2025,10/08/2025,2-High,15,3%,450.97,-4011.82,Regular Air,Cardiff | Wales,Consumer,customer184@example.com
+17727,07/08/2025,08/08/2025,2-High,41,8%,315.11,-20.21,Regular Air,Cardiff | Wales,Consumer,customer184@example.com
+17731,12/09/2025,18/09/2025,1-Urgent,33,1%,196.01,28.44,Delivery Truck,Glasgow | Scotland,Consumer,customer48@example.com
+17757,24/04/2025,27/04/2025,3-Medium,32,8%,420.65,-20.46,Express Air,Leeds | Yorkshire and the Humber,Small Business,customer42@example.com
+17759,02/05/2025,06/05/2025,3-Medium,38,4%,169.30,-17.30,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer212@example.com
+17759,02/05/2025,09/05/2025,3-Medium,5,4%,390.99,-7.23,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer212@example.com
+17759,02/05/2025,07/05/2025,3-Medium,1,7%,156.10,-17.39,Express Air,Leeds | Yorkshire and the Humber,Corporate,customer212@example.com
+17764,12/06/2025,15/06/2025,4-Not Specified,44,6%,30.40,21.99,Express Air,London | London,Consumer,customer205@example.com
+17793,03/11/2025,09/11/2025,4-Not Specified,47,4%,466.89,-23.70,Regular Air,York | Yorkshire and the Humber,Consumer,customer43@example.com
+17797,10/10/2025,13/10/2025,4-Not Specified,3,0%,164.32,26.89,Regular Air,Newcastle | North East,Home Office,customer141@example.com
+17797,10/10/2025,17/10/2025,4-Not Specified,28,0%,134.96,18.15,Regular Air,Newcastle | North East,Home Office,customer141@example.com
+17820,09/01/2025,10/01/2025,1-Urgent,28,6%,111.79,-12.89,Regular Air,Cardiff | Wales,Consumer,customer83@example.com
+17855,22/05/2025,24/05/2025,2-High,8,2%,104.29,-23.66,Regular Air,Nottingham | East Midlands,Consumer,customer59@example.com
+17863,28/05/2025,29/05/2025,2-High,22,2%,468.98,-5.17,Regular Air,Sheffield | Yorkshire and the Humber,Home Office,customer302@example.com
+17867,26/11/2025,26/11/2025,3-Medium,19,2%,312.37,-3.91,Delivery Truck,Manchester | North West,Small Business,customer173@example.com
+17902,15/01/2025,19/01/2025,1-Urgent,20,0%,185.27,-9.52,Express Air,Newcastle | North East,Small Business,customer110@example.com
+17925,08/12/2025,10/12/2025,5-Low,17,9%,65.93,13.17,Express Air,Glasgow | Scotland,Small Business,customer226@example.com
+17925,08/12/2025,09/12/2025,5-Low,39,7%,491.68,-27.72,Regular Air,Glasgow | Scotland,Small Business,customer226@example.com
+17948,02/10/2025,02/10/2025,4-Not Specified,29,2%,79.43,4.78,Regular Air,Cardiff | Wales,Home Office,customer343@example.com
+17948,02/10/2025,09/10/2025,4-Not Specified,33,2%,291.57,7.68,Express Air,Cardiff | Wales,Home Office,customer343@example.com
+17948,02/10/2025,07/10/2025,4-Not Specified,32,0%,467.71,15.30,Express Air,Cardiff | Wales,Home Office,customer343@example.com
+17948,02/10/2025,04/10/2025,4-Not Specified,36,8%,491.71,-25.72,Regular Air,Cardiff | Wales,Home Office,customer343@example.com
+17952,01/12/2025,03/12/2025,1-Urgent,30,10%,435.83,-15.94,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer14@example.com
+17952,01/12/2025,02/12/2025,1-Urgent,40,9%,440.55,-5.59,Regular Air,Leeds | Yorkshire and the Humber,Small Business,customer14@example.com
+17952,01/12/2025,05/12/2025,1-Urgent,47,2%,408.54,22.26,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer14@example.com
+17952,01/12/2025,04/12/2025,1-Urgent,22,3%,364.96,13.00,Delivery Truck,Leeds | Yorkshire and the Humber,Small Business,customer14@example.com
+17974,10/10/2025,17/10/2025,4-Not Specified,40,2%,456.05,-0.09,Express Air,Manchester | North West,Home Office,customer17@example.com
+17993,09/09/2025,14/09/2025,3-Medium,7,6%,6.13,-4127.36,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer63@example.com
+17993,09/09/2025,14/09/2025,3-Medium,1,8%,137.32,1.05,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer63@example.com
+17993,09/09/2025,09/09/2025,3-Medium,3,7%,185.68,0.89,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer63@example.com
+17993,09/09/2025,12/09/2025,3-Medium,16,5%,296.59,9.29,Regular Air,Leeds | Yorkshire and the Humber,Corporate,customer63@example.com
+18026,26/10/2025,27/10/2025,2-High,8,10%,486.35,24.93,Regular Air,Newcastle | North East,Corporate,customer352@example.com
