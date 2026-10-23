@@ -20,9 +20,9 @@ export interface RegionInfo {
 }
 
 export const REGIONS: readonly RegionInfo[] = [
-  { id: 'UK', label: 'United Kingdom', locale: 'en-GB', defaultDateOrder: 'day-first', example: '21 Oct 2026' },
-  { id: 'CA', label: 'Canada', locale: 'en-CA', defaultDateOrder: 'year-first', example: '2026-10-21' },
-  { id: 'US', label: 'United States', locale: 'en-US', defaultDateOrder: 'month-first', example: 'Oct 21, 2026' },
+  { id: 'UK', label: 'United Kingdom', locale: 'en-GB', defaultDateOrder: 'day-first' },
+  { id: 'CA', label: 'Canada', locale: 'en-CA', defaultDateOrder: 'year-first' },
+  { id: 'US', label: 'United States', locale: 'en-US', defaultDateOrder: 'month-first' },
 ];
 
 export const DEFAULT_REGION: Region = 'UK';
@@ -35,6 +35,15 @@ export function regionInfo(region: Region): RegionInfo {
 
 export function isRegion(value: unknown): value is Region {
   return value === 'UK' || value === 'CA' || value === 'US';
+}
+
+/**
+ * The calendar date of a moment as the user sees it on their own clock.
+ * formatDate reads UTC parts, so a local moment must go through this first,
+ * otherwise someone ahead of or behind UTC late at night sees the wrong day.
+ */
+export function localCalendarDate(moment: Date): Date {
+  return new Date(Date.UTC(moment.getFullYear(), moment.getMonth(), moment.getDate()));
 }
 
 /** Formats a calendar date (using its UTC parts) for display. */

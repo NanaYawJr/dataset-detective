@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { BLOCKING_PROBLEMS, DELIMITER_NAMES } from '../lib/format/detectFormat';
 import { encodingName, explainProblem, formatBytes } from '../lib/format/explain';
 import type { ProfileResult } from '../lib/profile/types';
-import { formatDate, formatNumber, type Region } from '../lib/region';
+import { formatDate, formatNumber, localCalendarDate, type Region } from '../lib/region';
 import { ColumnTable } from './ColumnTable';
 
 interface ResultsViewProps {
@@ -20,10 +20,10 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex min-w-0 flex-col gap-1">
-          <p className="font-mono text-sm text-muted">
-            Profiled {formatDate(result.profiledAt, region)} · {formatNumber(result.durationMs / 1000, region, 1)}s
+                    <p className="font-mono text-sm text-muted">
+            Profiled {formatDate(localCalendarDate(result.profiledAt), region)} ·{' '}
+            {formatNumber(result.durationMs / 1000, region, 1)}s
           </p>
-          <h1 className="break-words text-3xl font-extrabold tracking-tight">{result.fileName}</h1>
         </div>
         <button
           type="button"

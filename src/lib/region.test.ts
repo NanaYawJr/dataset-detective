@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatDate, formatNumber, formatPercent, isRegion, regionInfo } from './region';
+import { formatDate, formatNumber, formatPercent, isRegion, localCalendarDate, regionInfo } from './region';
 
 const date = new Date(Date.UTC(2026, 9, 21)); // 21 October 2026
 
@@ -12,6 +12,14 @@ describe('formatDate', () => {
 
   it('pads single-digit days and months in ISO form', () => {
     expect(formatDate(new Date(Date.UTC(2026, 2, 4)), 'CA')).toBe('2026-03-04');
+  });
+});
+
+describe('localCalendarDate', () => {
+  it('keeps the day the user sees on their own clock', () => {
+    // 23:30 local time on 23 October, whatever the machine's time zone.
+    const lateEvening = new Date(2026, 9, 23, 23, 30);
+    expect(formatDate(localCalendarDate(lateEvening), 'UK')).toBe('23 Oct 2026');
   });
 });
 

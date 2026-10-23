@@ -1,4 +1,4 @@
-import { REGIONS, isRegion, type Region } from '../lib/region';
+import { REGIONS, formatDate, isRegion, localCalendarDate, type Region } from '../lib/region';
 import { Logo } from './Logo';
 
 interface HeaderProps {
@@ -8,6 +8,9 @@ interface HeaderProps {
 }
 
 export function Header({ region, onRegionChange, onHome }: HeaderProps) {
+  // Each option shows today's date in that region's format.
+  const today = localCalendarDate(new Date());
+
   return (
     <header className="border-b border-line bg-white">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6">
@@ -33,7 +36,7 @@ export function Header({ region, onRegionChange, onHome }: HeaderProps) {
           >
             {REGIONS.map((r) => (
               <option key={r.id} value={r.id}>
-                {r.label} ({r.example})
+                {r.label} ({formatDate(today, r.id)})
               </option>
             ))}
           </select>
