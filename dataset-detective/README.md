@@ -4,8 +4,8 @@
 
 Dataset Detective profiles a CSV entirely in your browser. It works out how the file is written, whether it reads cleanly, and what each column really contains — and nothing is uploaded anywhere.
 
-[![CI](https://github.com/YOUR-GITHUB-USERNAME/dataset-detective/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/dataset-detective/actions/workflows/ci.yml)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/YOUR-GITHUB-USERNAME/dataset-detective)
+[![CI](https://github.com/NanaYawJr/dataset-detective/actions/workflows/ci.yml/badge.svg)](https://github.com/NanaYawJr/dataset-detective/actions/workflows/ci.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/NanaYawJr/dataset-detective)
 
 **Live demo:** _coming soon_
 
@@ -136,7 +136,7 @@ docs/             Architecture and decision records
 
 ## Feedback
 
-Feedback is very welcome — please [open an issue](https://github.com/YOUR-GITHUB-USERNAME/dataset-detective/issues/new/choose). **Please don't attach real or sensitive data**; a small made-up file that shows the problem is ideal.
+Feedback is very welcome — please [open an issue](https://github.com/NanaYawJr/dataset-detective/issues/new/choose). **Please don't attach real or sensitive data**; a small made-up file that shows the problem is ideal.
 
 ## Licence
 

@@ -24,4 +24,4 @@ A planned, optional "explain this report" feature would send a short summary of 
 
 ## Contact
 
-Questions or concerns: please [open an issue](https://github.com/YOUR-GITHUB-USERNAME/dataset-detective/issues).
+Questions or concerns: please [open an issue](https://github.com/NanaYawJr/dataset-detective/issues).

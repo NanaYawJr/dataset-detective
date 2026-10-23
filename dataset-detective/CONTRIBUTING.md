@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest. Feedback and bug reports are the most useful contributions right now — please use the [issue templates](https://github.com/YOUR-GITHUB-USERNAME/dataset-detective/issues/new/choose), and **never attach real or sensitive data**.
+Thanks for your interest. Feedback and bug reports are the most useful contributions right now — please use the [issue templates](https://github.com/NanaYawJr/dataset-detective/issues/new/choose), and **never attach real or sensitive data**.
 
 ## Working on the code
 

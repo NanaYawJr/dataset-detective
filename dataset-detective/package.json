@@ -42,7 +42,7 @@
   "author": "Michael Opoku Kwarteng",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR-GITHUB-USERNAME/dataset-detective.git"
+    "url": "https://github.com/NanaYawJr/dataset-detective.git"
   },
   "engines": {
     "node": ">=22"
