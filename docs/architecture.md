@@ -4,7 +4,7 @@ Dataset Detective is a static web app. All profiling happens in the browser; the
 
 ## The pipeline
 
-The system is organised as five stages. Stage 1 is built; the others are planned and shown here so the design is visible as a whole.
+The system is organised as five stages. Stages 1 and 2 are built; the others are planned and shown here so the design is visible as a whole.
 
 ```mermaid
 flowchart TB
@@ -56,15 +56,26 @@ flowchart TB
 
 ### Stage 1 · Load the file (built)
 
-| Step                  | Where                                     | Notes                                                                                                                                                                 |
-| --------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read the first 1 MB   | `lib/profile/profiler.ts` → `inspectFile` | Only a sample is read for detection, so huge files start instantly.                                                                                                   |
-| Detect format         | `lib/format/detectFormat.ts`              | Encoding from byte-order marks and UTF-8 validity; delimiter by which candidate splits rows most consistently; header by comparing the first row with the rows below. |
-| Clean-read check      | `detectFormat` → `problems`               | Wrong field counts, unclosed quotes, empty or binary files block loading. Blank or duplicate column names are noted but don't block.                                  |
-| Load                  | `profiler.ts` → `profileFile`             | Registers the file with DuckDB (UTF-8 is streamed; other encodings are converted in memory first) and creates a table with every column as text.                      |
-| Statistics and shapes | `lib/profile/sql.ts`                      | One summary query, one top-values query and one shapes query per column.                                                                                              |
+| Step                | Where                                     | Notes                                                                                                                                                                 |
+| ------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Read the first 1 MB | `lib/profile/profiler.ts` → `inspectFile` | Only a sample is read for detection, so huge files start instantly.                                                                                                   |
+| Detect format       | `lib/format/detectFormat.ts`              | Encoding from byte-order marks and UTF-8 validity; delimiter by which candidate splits rows most consistently; header by comparing the first row with the rows below. |
+| Clean-read check    | `detectFormat` → `problems`               | Wrong field counts, unclosed quotes, empty or binary files block loading. Blank or duplicate column names are noted but don't block.                                  |
+| Load                | `profiler.ts` → `profileFile`             | Registers the file with DuckDB (UTF-8 is streamed; other encodings are converted in memory first) and creates a table with every column as text.                      |
+| Raw statistics      | `lib/profile/factsSql.ts`                 | Counts, top values and value shapes for every column, read from the value-counts table built in stage 2.                                                              |
 
 The React side is a small state machine in `hooks/useProfiler.ts`: `idle → running → done`, with `blocked` (the format check stopped it) and `failed` (DuckDB stopped part-way) as the two ways out.
+
+### Stage 2 · Decide each column (built)
+
+| Step             | Where                            | Notes                                                                                                                                                                                                                                                                                                                                         |
+| ---------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Value counts     | `factsSql.ts` → `valueCountsSql` | Unpivots the table once into a temporary table of each distinct non-blank value per column and how many rows hold it.                                                                                                                                                                                                                         |
+| Evidence         | `factsSql.ts` → `columnFactsSql` | One query computes about 30 counts per column — number shapes, date parts, separators, placeholders, personal-data patterns — once per distinct value, weighted by row count. Cheap pre-checks (length, first character, `contains`) run before any regular expression. See [decision 0005](decisions/0005-evidence-from-distinct-values.md). |
+| Decide           | `lib/rules/decide.ts`            | Pure TypeScript: turns the evidence into a type, a role and findings for each column, then lets a column that proves its date order settle it for unproven date columns in the same file.                                                                                                                                                     |
+| Typed statistics | `factsSql.ts` → `typedStatsSql`  | One query for the statistics that depend on the decision: range, mean, median and standard deviation for measures; earliest and latest for dates.                                                                                                                                                                                             |
+
+The rules are deterministic and every finding carries its evidence. Changing the region re-runs only the decision and typed-statistics steps against the table already loaded.
 
 ### Why everything is read as text
 

@@ -51,45 +51,6 @@ export function createTableSql(table: string, source: string, sample: boolean): 
   return `CREATE OR REPLACE TABLE ${quoteIdent(table)} AS SELECT * FROM ${source}${sampling}`;
 }
 
-/** Text that counts as empty: NULL, or only whitespace. */
-const isFilled = (col: string) => `(${col} IS NOT NULL AND trim(${col}) <> '')`;
-
-export function columnSummarySql(table: string, column: string): string {
-  const c = quoteIdent(column);
-  return `SELECT
-  count(*) FILTER (WHERE ${isFilled(c)}) AS filled,
-  count(*) FILTER (WHERE NOT ${isFilled(c)}) AS empty,
-  count(DISTINCT ${c}) FILTER (WHERE ${isFilled(c)}) AS distinct_values,
-  min(length(${c})) FILTER (WHERE ${isFilled(c)}) AS min_length,
-  max(length(${c})) FILTER (WHERE ${isFilled(c)}) AS max_length
-FROM ${quoteIdent(table)}`;
-}
-
-export function topValuesSql(table: string, column: string, limit = 5): string {
-  const c = quoteIdent(column);
-  return `SELECT ${c} AS value, count(*) AS n
-FROM ${quoteIdent(table)}
-WHERE ${isFilled(c)}
-GROUP BY ${c}
-ORDER BY n DESC, value
-LIMIT ${limit}`;
-}
-
-/**
- * Value shapes: digits become 9, letters become A, everything else is
- * kept. "LS1 4AB" becomes "AA9 9AA" and "03/04/2026" becomes "99/99/9999".
- */
-export function shapesSql(table: string, column: string, limit = 3): string {
-  const c = quoteIdent(column);
-  return `SELECT left(regexp_replace(regexp_replace(${c}, '[0-9]', '9', 'g'), '[A-Za-z]', 'A', 'g'), 40) AS shape,
-  count(*) AS n
-FROM ${quoteIdent(table)}
-WHERE ${isFilled(c)}
-GROUP BY shape
-ORDER BY n DESC, shape
-LIMIT ${limit}`;
-}
-
 /** Encodings DuckDB can read directly; others are converted to UTF-8 first. */
 export function needsTranscoding(encoding: Encoding): boolean {
   return encoding !== 'utf-8';

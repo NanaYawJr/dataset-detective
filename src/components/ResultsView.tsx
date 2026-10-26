@@ -3,7 +3,9 @@ import { BLOCKING_PROBLEMS, DELIMITER_NAMES } from '../lib/format/detectFormat';
 import { encodingName, explainProblem, formatBytes } from '../lib/format/explain';
 import type { ProfileResult } from '../lib/profile/types';
 import { formatDate, formatNumber, localCalendarDate, type Region } from '../lib/region';
+import { rankFindings } from '../lib/rules/decide';
 import { ColumnTable } from './ColumnTable';
+import { FindingsPanel } from './FindingsPanel';
 
 interface ResultsViewProps {
   result: ProfileResult;
@@ -15,6 +17,7 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
   const { format } = result;
   const sampled = result.scope === 'sample' && result.profiledRows < result.totalRows;
   const notes = format.problems.filter((p) => !BLOCKING_PROBLEMS.includes(p.kind));
+  const findings = rankFindings(result.columns);
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
@@ -81,6 +84,8 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
           </ul>
         </section>
       )}
+
+      <FindingsPanel findings={findings} />
 
       <ColumnTable columns={result.columns} rows={result.profiledRows} region={region} />
     </main>

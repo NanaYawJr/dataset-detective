@@ -1,7 +1,8 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormatReport } from '../lib/format/detectFormat';
-import { inspectFile, profileFile } from '../lib/profile/profiler';
+import { inspectFile, profileFile, redecide } from '../lib/profile/profiler';
 import type { ProfileResult, Scope, Step } from '../lib/profile/types';
+import type { Region } from '../lib/region';
 
 export type ProfilerState =
   | { status: 'idle' }
@@ -15,7 +16,7 @@ function errorMessage(error: unknown): string {
   return String(error);
 }
 
-export function useProfiler(scope: Scope) {
+export function useProfiler(scope: Scope, region: Region) {
   const [state, setState] = useState<ProfilerState>({ status: 'idle' });
   // Ignore results from a run the user has since replaced.
   const runId = useRef(0);
@@ -30,6 +31,7 @@ export function useProfiler(scope: Scope) {
         const result = await profileFile(file, format, {
           scope,
           skipBrokenRows,
+          region,
           onStep: (step) => setIfCurrent({ status: 'running', file, step }),
         });
         setIfCurrent({ status: 'done', result });
@@ -37,7 +39,7 @@ export function useProfiler(scope: Scope) {
         setIfCurrent({ status: 'failed', file, format, message: errorMessage(error) });
       }
     },
-    [scope],
+    [scope, region],
   );
 
   const start = useCallback(
@@ -72,6 +74,19 @@ export function useProfiler(scope: Scope) {
     runId.current += 1;
     setState({ status: 'idle' });
   }, []);
+
+  // When the region changes after profiling, re-decide the loaded file:
+  // it only affects date orders the data couldn't prove.
+  const doneResult = state.status === 'done' ? state.result : null;
+  useEffect(() => {
+    if (!doneResult || doneResult.region === region) return;
+    const id = runId.current;
+    redecide(doneResult, region)
+      .then((result) => {
+        if (runId.current === id) setState({ status: 'done', result });
+      })
+      .catch(() => undefined);
+  }, [doneResult, region]);
 
   return { state, start, skipBrokenRows, reset };
 }

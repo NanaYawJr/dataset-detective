@@ -5,6 +5,9 @@ const PORT = 4173;
 export default defineConfig({
   testDir: './e2e',
   timeout: 60_000,
+  // Each test starts a fresh browser that downloads and starts the 35 MB
+  // DuckDB engine before profiling, so allow more than the 5-second default.
+  expect: { timeout: 20_000 },
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,

@@ -82,3 +82,72 @@ test('shows dates in the chosen region format', async ({ page }) => {
   await page.reload();
   await expect(page.getByLabel('Region')).toHaveValue('CA');
 });
+
+test('ranks the deliberate problems in the golden sample as findings', async ({ page }) => {
+  await page.goto('/');
+  await page.getByTestId('file-input').setInputFiles(SAMPLE);
+
+  const findings = page.getByRole('region', { name: 'Findings' });
+  await expect(findings).toContainText('Numbers stored as text');
+  await expect(findings).toContainText('Two fields in one column');
+  await expect(findings).toContainText('Placeholder values hide missing data');
+  await expect(findings).toContainText('Personal data: email addresses');
+  await expect(findings).toContainText('Repeats in 578 rows');
+  // The only high-severity finding is the percent-as-text Discount column.
+  await expect(page.getByTestId('finding-counts')).toContainText('1 high');
+
+  const discount = page.getByTestId('column-Discount');
+  await expect(discount).toContainText('Percent');
+  await expect(discount).toContainText('Measure');
+  await expect(discount).toContainText('0% – 10%');
+
+  const orderDate = page.getByTestId('column-Order Date');
+  await expect(orderDate).toContainText('1 Jan 2025 – 31 Dec 2025');
+  await expect(orderDate).toContainText('day-first, proven');
+
+  // Placeholders count as missing.
+  await expect(page.getByTestId('column-Order Priority')).toContainText('21.8%');
+});
+
+test('re-decides and re-formats when the region changes after profiling', async ({ page }) => {
+  await page.goto('/');
+  await page.getByTestId('file-input').setInputFiles(SAMPLE);
+  const orderDate = page.getByTestId('column-Order Date');
+  await expect(orderDate).toContainText('1 Jan 2025 – 31 Dec 2025');
+
+  await page.getByLabel('Region').selectOption('CA');
+  await expect(orderDate).toContainText('2025-01-01 – 2025-12-31');
+});
+
+test('borrows a proven date order from another column in the same file', async ({ page }) => {
+  await page.goto('/');
+  const csv = [
+    'REPORTING_PERIOD_START,REPORTING_PERIOD_END,ICB',
+    '01/10/2023,31/12/2023,QOP',
+    '01/10/2023,31/12/2023,QYG',
+    '',
+  ].join('\n');
+  await page
+    .getByTestId('file-input')
+    .setInputFiles({ name: 'periods.csv', mimeType: 'text/csv', buffer: Buffer.from(csv) });
+
+  await expect(page.getByTestId('column-REPORTING_PERIOD_START')).toContainText('day-first, like REPORTING_PERIOD_END');
+  await expect(page.getByTestId('column-REPORTING_PERIOD_START')).toContainText('1 Oct 2023 – 1 Oct 2023');
+});
+
+test('asks rather than guesses when Canadian dates cannot prove their order', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('Region').selectOption('CA');
+  const csv = ['visit,amount', '03/04/2026,10', '05/06/2026,20', '07/08/2026,30', ''].join('\n');
+  await page
+    .getByTestId('file-input')
+    .setInputFiles({ name: 'visits.csv', mimeType: 'text/csv', buffer: Buffer.from(csv) });
+
+  await expect(page.getByRole('region', { name: 'Findings' })).toContainText("Day/month order can't be proven");
+  await expect(page.getByTestId('column-visit')).toContainText('order unknown');
+
+  // Switching to UK re-decides with a suggestion, clearly marked as one.
+  await page.getByLabel('Region').selectOption('UK');
+  await expect(page.getByTestId('column-visit')).toContainText('day-first? suggested for UK');
+  await expect(page.getByTestId('column-visit')).toContainText('3 Apr 2026 – 7 Aug 2026');
+});

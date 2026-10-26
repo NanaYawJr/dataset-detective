@@ -38,6 +38,8 @@ const PERSONAL_LABELS: Record<PersonalDataKind, string> = {
   'date-of-birth': 'dates of birth',
 };
 
+const SEPARATOR_NAMES = { '|': 'a pipe (|)', ';': 'a semicolon (;)', '/': 'a slash (/)' } as const;
+
 const pct = (share: number) => `${(share * 100).toFixed(share < 0.1 ? 1 : 0)}%`;
 const n = (value: number) => value.toLocaleString('en-GB');
 const rowsWord = (count: number) => (count === 1 ? '1 row' : `${n(count)} rows`);
@@ -259,7 +261,7 @@ export function decideColumn(name: string, facts: ColumnFacts, rows: number, reg
         finding(
           'not-unique',
           'warn',
-          `${name} repeats in ${rowsWord(repeats)}`,
+          `Repeats in ${rowsWord(repeats)}`,
           `${n(facts.distinct)} distinct values across ${n(total)} rows. If each row should be one record, there are duplicates. More often it means each row is a line within a larger record, so count distinct ${name} values rather than rows.`,
           repeats,
         ),
@@ -289,7 +291,7 @@ export function decideColumn(name: string, facts: ColumnFacts, rows: number, reg
           'packed-field',
           'warn',
           'Two fields in one column',
-          `Every value has the form "a ${separator} b". Split it into ${parts[0]} and ${parts[1]} before filtering, grouping or joining on either part.`,
+          `Every value is two parts joined by ${SEPARATOR_NAMES[separator]}. Split it into ${parts[0]} and ${parts[1]} before filtering, grouping or joining on either part.`,
           total,
         ),
       );

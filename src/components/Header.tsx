@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { REGIONS, formatDate, isRegion, localCalendarDate, type Region } from '../lib/region';
 import { Logo } from './Logo';
 
@@ -8,8 +9,9 @@ interface HeaderProps {
 }
 
 export function Header({ region, onRegionChange, onHome }: HeaderProps) {
-  // Each option shows today's date in that region's format.
-  const today = localCalendarDate(new Date());
+  // Each option shows today's date in that region's format. Read the clock
+  // once, when the header first renders, rather than on every render.
+  const [today] = useState(() => localCalendarDate(new Date()));
 
   return (
     <header className="border-b border-line bg-white">

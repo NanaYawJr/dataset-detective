@@ -11,7 +11,7 @@ import { loadRegion, saveRegion, type Region } from './lib/region';
 export default function App() {
   const [region, setRegion] = useState<Region>(loadRegion);
   const [scope, setScope] = useState<Scope>('full');
-  const { state, start, skipBrokenRows, reset } = useProfiler(scope);
+  const { state, start, skipBrokenRows, reset } = useProfiler(scope, region);
 
   const changeRegion = (next: Region) => {
     setRegion(next);
