@@ -16,7 +16,6 @@ export interface RegionInfo {
   locale: 'en-GB' | 'en-CA' | 'en-US';
   /** Suggested order when the evidence in a file is inconclusive. */
   defaultDateOrder: DateOrder;
-  example: string;
 }
 
 export const REGIONS: readonly RegionInfo[] = [

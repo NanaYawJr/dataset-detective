@@ -20,7 +20,7 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex min-w-0 flex-col gap-1">
-                    <p className="font-mono text-sm text-muted">
+          <p className="font-mono text-sm text-muted">
             Profiled {formatDate(localCalendarDate(result.profiledAt), region)} ·{' '}
             {formatNumber(result.durationMs / 1000, region, 1)}s
           </p>
