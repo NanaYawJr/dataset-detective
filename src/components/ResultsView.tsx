@@ -24,6 +24,7 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
             Profiled {formatDate(localCalendarDate(result.profiledAt), region)} ·{' '}
             {formatNumber(result.durationMs / 1000, region, 1)}s
           </p>
+          <h1 className="break-words text-3xl font-extrabold tracking-tight">{result.fileName}</h1>
         </div>
         <button
           type="button"
