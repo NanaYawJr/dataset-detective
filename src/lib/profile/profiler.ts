@@ -1,7 +1,10 @@
 import { decode, detectFormat, type FormatReport } from '../format/detectFormat';
 import type { Region } from '../region';
 import { decideColumns } from '../rules/decide';
-import type { ColumnDecision, ColumnFacts } from '../rules/types';
+import type { ColumnDecision, ColumnFacts, Overrides } from '../rules/types';
+import { interpretTable } from '../table/interpret';
+import { runTableChecks, todayKey } from '../table/run';
+import type { TableReport } from '../table/types';
 import { getDuckDb, duckdb } from './duckdb';
 import {
   columnFactsSql,
@@ -106,11 +109,13 @@ async function decideAndMeasure(
   columns: { name: string; sqlName: string; facts: ColumnFacts }[],
   rowCount: number,
   region: Region,
+  overrides: Overrides,
 ): Promise<Decided[]> {
   const decisions = decideColumns(
     columns.map(({ name, facts }) => ({ name, facts })),
     rowCount,
     region,
+    overrides,
   );
   const typed: TypedColumn[] = columns.map((c, i) => ({ name: c.sqlName, decision: decisions[i].decision }));
   const sql = typedStatsSql(TABLE, typed);
@@ -132,6 +137,18 @@ async function decideAndMeasure(
     }
     return decided;
   });
+}
+
+/** Checks across rows and columns. Depends on the decisions, so it re-runs with them. */
+async function checkTable(
+  conn: Connection,
+  columns: { name: string; sqlName: string; facts: ColumnFacts; decision: ColumnDecision }[],
+  rowCount: number,
+  region: Region,
+  sampled: boolean,
+): Promise<TableReport> {
+  const results = await runTableChecks((sql) => rows(conn, sql), TABLE, columns, rowCount, todayKey(new Date()));
+  return interpretTable(results, { sampled, region });
 }
 
 export async function profileFile(file: File, format: FormatReport, options: ProfileOptions): Promise<ProfileResult> {
@@ -188,7 +205,7 @@ export async function profileFile(file: File, format: FormatReport, options: Pro
     }));
 
     step('decide');
-    const decided = await decideAndMeasure(conn, columns, profiledRows, options.region);
+    const decided = await decideAndMeasure(conn, columns, profiledRows, options.region, {});
 
     step('stats');
     const top = groupValues(await rows(conn, topValuesAllSql()));
@@ -206,6 +223,10 @@ export async function profileFile(file: File, format: FormatReport, options: Pro
       ...decided[i],
     }));
 
+    step('table');
+    const sampled = profiledRows < totalRows;
+    const table = await checkTable(conn, stats, profiledRows, options.region, sampled);
+
     return {
       fileName: file.name,
       fileSize: file.size,
@@ -216,6 +237,8 @@ export async function profileFile(file: File, format: FormatReport, options: Pro
       profiledRows,
       skippedRows,
       columns: stats,
+      table,
+      overrides: {},
       profiledAt: new Date(),
       durationMs: performance.now() - started,
     };
@@ -225,22 +248,21 @@ export async function profileFile(file: File, format: FormatReport, options: Pro
 }
 
 /**
- * Re-decides the columns of the file that is still loaded, for a new region.
- * Only unproven date orders depend on the region, so this is quick.
+ * Re-decides the columns of the file that is still loaded, for a new region
+ * or new corrections, then re-runs the table checks that depend on them.
  */
-export async function redecide(result: ProfileResult, region: Region): Promise<ProfileResult> {
+export async function redecide(result: ProfileResult, region: Region, overrides: Overrides): Promise<ProfileResult> {
   const db = await getDuckDb();
   const conn = await db.connect();
   try {
-    const decided = await decideAndMeasure(conn, result.columns, result.profiledRows, region);
-    return {
-      ...result,
-      region,
-      columns: result.columns.map((column, i) => {
-        const { measure: _measure, dateRange: _dateRange, ...rest } = column;
-        return { ...rest, ...decided[i] };
-      }),
-    };
+    const decided = await decideAndMeasure(conn, result.columns, result.profiledRows, region, overrides);
+    const columns = result.columns.map((column, i) => {
+      const { measure: _measure, dateRange: _dateRange, ...rest } = column;
+      return { ...rest, ...decided[i] };
+    });
+    const sampled = result.profiledRows < result.totalRows;
+    const table = await checkTable(conn, columns, result.profiledRows, region, sampled);
+    return { ...result, region, overrides, columns, table };
   } finally {
     await conn.close();
   }

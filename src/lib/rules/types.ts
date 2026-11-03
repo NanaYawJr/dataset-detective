@@ -55,7 +55,7 @@ export type DecidedDateOrder = 'day-first' | 'month-first' | 'year-first';
 export interface DateDecision {
   /** null when the order can't be decided: the user has to say. */
   order: DecidedDateOrder | null;
-  basis: 'evidence' | 'iso' | 'region-suggestion' | 'unresolved' | 'conflicting' | 'other-column';
+  basis: 'evidence' | 'iso' | 'region-suggestion' | 'unresolved' | 'conflicting' | 'other-column' | 'user';
   /** Values that prove the chosen order (or, when conflicting, the day-first count). */
   evidence: number;
   /** For 'other-column': the column whose dates proved the order. */
@@ -83,7 +83,8 @@ export type FindingKind =
   | 'placeholders'
   | 'rank-in-text'
   | 'personal-data'
-  | 'invalid-nhs-numbers';
+  | 'invalid-nhs-numbers'
+  | 'set-by-user';
 
 export interface Finding {
   kind: FindingKind;
@@ -104,3 +105,14 @@ export interface ColumnDecision {
   effectivelyMissing: number;
   findings: Finding[];
 }
+
+export type OverridableRole = 'identifier' | 'measure' | 'category' | 'free-text';
+
+/** A user's correction to one column's decision. */
+export interface ColumnOverride {
+  role?: OverridableRole;
+  dateOrder?: DecidedDateOrder;
+}
+
+/** Corrections keyed by column name. */
+export type Overrides = Record<string, ColumnOverride>;

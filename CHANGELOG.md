@@ -4,6 +4,24 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-03
+
+### Added
+
+- Whole-table checks, run after the column decisions:
+  - exact duplicate rows;
+  - the grain of the file: which column, or pair of columns, identifies every row, shown as a sentence such as "Each row is one Ticket";
+  - dependencies such as "each City has exactly one Region", including between the two parts of a packed column, with values that break an otherwise reliable rule named as examples;
+  - the order of events between date columns, such as a Ship Date before its Order Date;
+  - months with no rows in an otherwise steady run of dates, and dates in the future.
+- Rows per month chart for each date column, with empty months marked, a hover readout and a table view.
+- Corrections: the role of a column (identifier, measure, category, free text) and the order of a date column can be changed by the user. The findings and the table checks update, the correction is labelled "set by you", and a warning stays if the chosen date order goes against the evidence.
+- Decision record 0006 on how the table checks are chosen and kept fast.
+
+### Changed
+
+- A column named like an ID (`Order ID`, `Customer Ref`) with at least 20 distinct values is now an identifier even when values repeat a lot, so it is never summed or averaged. When each value appears in many rows, the note says it most likely refers to records kept elsewhere instead of warning about duplicates.
+
 ## [0.2.0] - 2026-10-26
 
 ### Added

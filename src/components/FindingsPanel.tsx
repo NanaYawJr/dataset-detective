@@ -1,6 +1,5 @@
-import type { Finding, Severity } from '../lib/rules/types';
-
-export type RankedFinding = Finding & { column: string };
+import type { ShownFinding } from '../lib/display';
+import type { Severity } from '../lib/rules/types';
 
 const BADGE: Record<Severity, { label: string; className: string }> = {
   high: { label: 'High', className: 'bg-red text-white' },
@@ -8,7 +7,7 @@ const BADGE: Record<Severity, { label: string; className: string }> = {
   info: { label: 'Note', className: 'bg-surface text-ink-soft' },
 };
 
-export function FindingsPanel({ findings }: { findings: RankedFinding[] }) {
+export function FindingsPanel({ findings }: { findings: ShownFinding[] }) {
   const counts = { high: 0, warn: 0, info: 0 };
   for (const f of findings) counts[f.severity] += 1;
   const important = findings.filter((f) => f.severity !== 'info');
@@ -35,7 +34,7 @@ export function FindingsPanel({ findings }: { findings: RankedFinding[] }) {
 
       <ul>
         {important.map((f) => (
-          <FindingRow key={`${f.column}-${f.kind}`} finding={f} />
+          <FindingRow key={f.key} finding={f} />
         ))}
       </ul>
 
@@ -46,7 +45,7 @@ export function FindingsPanel({ findings }: { findings: RankedFinding[] }) {
           </summary>
           <ul>
             {notes.map((f) => (
-              <FindingRow key={`${f.column}-${f.kind}`} finding={f} />
+              <FindingRow key={f.key} finding={f} />
             ))}
           </ul>
         </details>
@@ -55,7 +54,7 @@ export function FindingsPanel({ findings }: { findings: RankedFinding[] }) {
   );
 }
 
-function FindingRow({ finding }: { finding: RankedFinding }) {
+function FindingRow({ finding }: { finding: ShownFinding }) {
   const badge = BADGE[finding.severity];
   return (
     <li className="flex gap-4 border-t border-line px-5 py-4 first:border-t-0">
@@ -64,7 +63,7 @@ function FindingRow({ finding }: { finding: RankedFinding }) {
       </span>
       <div className="flex min-w-0 flex-col gap-1">
         <p className="font-bold">
-          <span className="font-mono text-sm font-semibold text-ink-soft">{finding.column}</span>
+          <span className="font-mono text-sm font-semibold text-ink-soft">{finding.subject}</span>
           <span className="mx-2 text-muted" aria-hidden="true">
             ·
           </span>

@@ -1,6 +1,7 @@
 import type { FormatReport } from '../format/detectFormat';
 import type { Region } from '../region';
-import type { ColumnDecision, ColumnFacts } from '../rules/types';
+import type { ColumnDecision, ColumnFacts, Overrides } from '../rules/types';
+import type { TableReport } from '../table/types';
 
 export type Scope = 'full' | 'sample';
 
@@ -58,11 +59,15 @@ export interface ProfileResult {
   /** Rows DuckDB skipped because they were broken (only when the user chose to skip them). */
   skippedRows: number;
   columns: ColumnStats[];
+  /** Checks across rows and columns: duplicates, keys, dependencies, dates. */
+  table: TableReport | null;
+  /** Corrections the user has made, by column name. */
+  overrides: Overrides;
   profiledAt: Date;
   durationMs: number;
 }
 
-export type Step = 'read-sample' | 'detect-format' | 'load' | 'evidence' | 'decide' | 'stats';
+export type Step = 'read-sample' | 'detect-format' | 'load' | 'evidence' | 'decide' | 'stats' | 'table';
 
 export const STEP_LABELS: Record<Step, string> = {
   'read-sample': 'Reading the start of the file',
@@ -71,6 +76,7 @@ export const STEP_LABELS: Record<Step, string> = {
   evidence: 'Gathering evidence from every value',
   decide: "Deciding each column's type and role",
   stats: 'Computing statistics, top values and shapes',
+  table: 'Checking rows and columns against each other',
 };
 
-export const STEPS: Step[] = ['read-sample', 'detect-format', 'load', 'evidence', 'decide', 'stats'];
+export const STEPS: Step[] = ['read-sample', 'detect-format', 'load', 'evidence', 'decide', 'stats', 'table'];

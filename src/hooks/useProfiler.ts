@@ -3,6 +3,7 @@ import type { FormatReport } from '../lib/format/detectFormat';
 import { inspectFile, profileFile, redecide } from '../lib/profile/profiler';
 import type { ProfileResult, Scope, Step } from '../lib/profile/types';
 import type { Region } from '../lib/region';
+import type { ColumnOverride, Overrides } from '../lib/rules/types';
 
 export type ProfilerState =
   | { status: 'idle' }
@@ -18,6 +19,7 @@ function errorMessage(error: unknown): string {
 
 export function useProfiler(scope: Scope, region: Region) {
   const [state, setState] = useState<ProfilerState>({ status: 'idle' });
+  const [overrides, setOverrides] = useState<Overrides>({});
   // Ignore results from a run the user has since replaced.
   const runId = useRef(0);
 
@@ -45,6 +47,7 @@ export function useProfiler(scope: Scope, region: Region) {
   const start = useCallback(
     async (file: File) => {
       const id = ++runId.current;
+      setOverrides({});
       setState({ status: 'running', file, step: 'read-sample' });
       try {
         const format = await inspectFile(file);
@@ -72,21 +75,40 @@ export function useProfiler(scope: Scope, region: Region) {
 
   const reset = useCallback(() => {
     runId.current += 1;
+    setOverrides({});
     setState({ status: 'idle' });
   }, []);
 
-  // When the region changes after profiling, re-decide the loaded file:
-  // it only affects date orders the data couldn't prove.
+  /** Sets or clears the user's correction for one column. */
+  const setOverride = useCallback((column: string, override: ColumnOverride | null) => {
+    setOverrides((current) => {
+      const next = { ...current };
+      const merged = { ...next[column], ...override };
+      if (override === null) delete next[column];
+      else {
+        for (const key of Object.keys(merged) as (keyof ColumnOverride)[]) if (!merged[key]) delete merged[key];
+        if (Object.keys(merged).length === 0) delete next[column];
+        else next[column] = merged;
+      }
+      return next;
+    });
+  }, []);
+
+  // When the region or a correction changes after profiling, re-decide the
+  // loaded file and re-run the table checks; the old result stays on screen.
   const doneResult = state.status === 'done' ? state.result : null;
+  const stale =
+    doneResult !== null &&
+    (doneResult.region !== region || JSON.stringify(doneResult.overrides) !== JSON.stringify(overrides));
   useEffect(() => {
-    if (!doneResult || doneResult.region === region) return;
+    if (!doneResult || !stale) return;
     const id = runId.current;
-    redecide(doneResult, region)
+    redecide(doneResult, region, overrides)
       .then((result) => {
         if (runId.current === id) setState({ status: 'done', result });
       })
       .catch(() => undefined);
-  }, [doneResult, region]);
+  }, [doneResult, stale, region, overrides]);
 
-  return { state, start, skipBrokenRows, reset };
+  return { state, start, skipBrokenRows, reset, overrides, setOverride, updating: stale };
 }

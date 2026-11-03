@@ -11,7 +11,7 @@ import { loadRegion, saveRegion, type Region } from './lib/region';
 export default function App() {
   const [region, setRegion] = useState<Region>(loadRegion);
   const [scope, setScope] = useState<Scope>('full');
-  const { state, start, skipBrokenRows, reset } = useProfiler(scope, region);
+  const { state, start, skipBrokenRows, reset, setOverride, updating } = useProfiler(scope, region);
 
   const changeRegion = (next: Region) => {
     setRegion(next);
@@ -47,7 +47,15 @@ export default function App() {
         />
       )}
 
-      {state.status === 'done' && <ResultsView result={state.result} region={region} onChooseAnother={reset} />}
+      {state.status === 'done' && (
+        <ResultsView
+          result={state.result}
+          region={region}
+          updating={updating}
+          onOverride={setOverride}
+          onChooseAnother={reset}
+        />
+      )}
 
       <footer className="mx-auto max-w-6xl px-4 pb-10 pt-4 text-sm text-muted sm:px-6">
         Dataset Detective gives a snapshot check of one file. It is not ongoing data quality monitoring.

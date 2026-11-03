@@ -151,3 +151,56 @@ test('asks rather than guesses when Canadian dates cannot prove their order', as
   await expect(page.getByTestId('column-visit')).toContainText('day-first? suggested for UK');
   await expect(page.getByTestId('column-visit')).toContainText('3 Apr 2026 – 7 Aug 2026');
 });
+
+test('checks the table as a whole and charts rows per month', async ({ page }) => {
+  const errors = watchForErrors(page);
+  await page.goto('/');
+  await page.getByTestId('file-input').setInputFiles(SAMPLE);
+
+  const findings = page.getByRole('region', { name: 'Findings' });
+  await expect(findings).toContainText('Ship Date is before Order Date in 4 rows');
+  await expect(findings).toContainText('No rows in Jul 2025');
+  await expect(findings).toContainText('Each City has exactly one Region');
+
+  const chart = page.getByTestId('coverage-Order Date');
+  await expect(chart).toContainText('1 month with no rows');
+  await chart.getByText('Show as a table').click();
+  await expect(chart.getByRole('row', { name: 'Jul 2025 0' })).toBeVisible();
+
+  expect(errors).toEqual([]);
+});
+
+test('names the grain when one column identifies every row', async ({ page }) => {
+  await page.goto('/');
+  const csv = ['Ticket,Status', ...Array.from({ length: 30 }, (_, i) => `T${i},${i % 2 ? 'open' : 'closed'}`), ''].join(
+    '\n',
+  );
+  await page
+    .getByTestId('file-input')
+    .setInputFiles({ name: 'tickets.csv', mimeType: 'text/csv', buffer: Buffer.from(csv) });
+  await expect(page.getByTestId('grain')).toHaveText('Each row is one Ticket.');
+});
+
+test('lets the user correct a decision and keeps the evidence visible', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('Region').selectOption('CA');
+  const csv = ['visit,amount', '03/04/2026,10', '05/06/2026,20', '07/08/2026,30', ''].join('\n');
+  await page
+    .getByTestId('file-input')
+    .setInputFiles({ name: 'visits.csv', mimeType: 'text/csv', buffer: Buffer.from(csv) });
+
+  const visit = page.getByTestId('column-visit');
+  await expect(visit).toContainText('order unknown');
+  await visit.getByText('Correct this').click();
+  await visit.getByLabel('Date order').selectOption('month-first');
+
+  await expect(visit).toContainText('month-first, set by you');
+  await expect(visit).toContainText('2026-03-04 – 2026-07-08');
+  const findings = page.getByRole('region', { name: 'Findings' });
+  await expect(findings).toContainText('Date order set by you: month-first');
+  await expect(findings).not.toContainText("Day/month order can't be proven");
+
+  // Back to the detected decision.
+  await visit.getByLabel('Date order').selectOption('');
+  await expect(visit).toContainText('order unknown');
+});

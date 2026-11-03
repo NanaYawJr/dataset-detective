@@ -182,7 +182,7 @@ function numericValue(column: string): string {
  * A slash or ISO date as an integer yyyymmdd, using the decided order.
  * Invalid dates (month above 12, day above 31) become NULL.
  */
-function dateKey(column: string, order: 'day-first' | 'month-first' | 'year-first'): string {
+export function dateKey(column: string, order: 'day-first' | 'month-first' | 'year-first'): string {
   const c = `trim(${quoteIdent(column)})`;
   const pattern = order === 'year-first' ? PATTERNS.isoDate : PATTERNS.slashDate;
   const g = (n: number) => `TRY_CAST(regexp_extract(${c}, ${lit(pattern)}, ${n}) AS INTEGER)`;

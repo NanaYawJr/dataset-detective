@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { decideColumn, decideColumns, decideDateOrder, rankFindings } from './decide';
+import { canChooseRole, decideColumn, decideColumns, decideDateOrder, rankFindings } from './decide';
 import type { ColumnFacts } from './types';
 
 /** Facts for a column of `filled` non-blank values; override what the test needs. */
@@ -281,5 +281,81 @@ describe('rankFindings', () => {
       },
     ]);
     expect(ranked[0]).toMatchObject({ column: 'B', severity: 'high' });
+  });
+});
+
+describe('corrections by the user', () => {
+  const slashDates = (overrides: Partial<ColumnFacts> = {}) => facts(100, { slashDates: 100, ...overrides });
+  const one = (name: string, f: ColumnFacts, override: Parameters<typeof decideColumns>[3]) =>
+    decideColumns([{ name, facts: f }], 100, 'CA', override)[0].decision;
+
+  it('settles an unknown date order and replaces the unproven note', () => {
+    const d = one('When', slashDates(), { When: { dateOrder: 'month-first' } });
+    expect(d.date).toEqual({ order: 'month-first', basis: 'user', evidence: 0 });
+    expect(kinds(d)).not.toContain('date-order-unproven');
+    expect(d.findings).toContainEqual(expect.objectContaining({ kind: 'set-by-user', severity: 'info' }));
+  });
+
+  it('warns when the chosen order goes against the evidence', () => {
+    const d = one('When', slashDates({ firstPartOver12: 30 }), { When: { dateOrder: 'month-first' } });
+    const note = d.findings.find((f) => f.kind === 'set-by-user');
+    expect(note?.severity).toBe('warn');
+    expect(note?.detail).toContain('30 values only make sense as day-first');
+  });
+
+  it('changes the role and adds or removes the uniqueness check to match', () => {
+    const code = facts(100, { distinct: 90, integers: 100, plainNumbers: 100, numberLike: 100 });
+    const asId = one('Code', code, { Code: { role: 'identifier' } });
+    expect(asId.role).toBe('identifier');
+    expect(asId.findings).toContainEqual(expect.objectContaining({ kind: 'not-unique', rows: 10 }));
+    const asMeasure = one('Code', code, { Code: { role: 'measure' } });
+    expect(asMeasure.role).toBe('measure');
+    expect(kinds(asMeasure)).not.toContain('not-unique');
+    expect(asMeasure.findings.find((f) => f.kind === 'set-by-user')?.title).toBe('Treated as measure by you');
+  });
+
+  it('ignores a role that does not fit the type', () => {
+    const name = facts(100, { distinct: 80, withSpaces: 80 });
+    const before = one('Note', name, {});
+    const after = one('Note', name, { Note: { role: 'measure' } });
+    expect(after.role).toBe(before.role);
+    expect(canChooseRole('measure', 'text')).toBe(false);
+    expect(canChooseRole('category', 'integer')).toBe(true);
+  });
+
+  it('leaves other columns alone', () => {
+    const [a, b] = decideColumns(
+      [
+        { name: 'A', facts: facts(100, { slashDates: 100 }) },
+        { name: 'B', facts: facts(100, { slashDates: 100 }) },
+      ],
+      100,
+      'UK',
+      { A: { dateOrder: 'month-first' } },
+    );
+    expect(a.decision.date?.basis).toBe('user');
+    expect(b.decision.date).toMatchObject({ order: 'day-first', basis: 'region-suggestion' });
+  });
+});
+
+describe('identifiers named like IDs', () => {
+  const ids = (distinct: number) => facts(3000, { distinct, integers: 3000, plainNumbers: 3000, numberLike: 3000 });
+
+  it('treats a repeating Order ID as an identifier, not a number to add up', () => {
+    const d = decideColumn('Order ID', ids(1000), 3000, 'UK');
+    expect(d.role).toBe('identifier');
+    expect(d.findings.find((f) => f.kind === 'not-unique')).toMatchObject({
+      severity: 'info',
+      title: 'Each value is in about 3 rows',
+    });
+  });
+
+  it('still warns when an ID is nearly but not quite unique', () => {
+    const d = decideColumn('Order ID', ids(2900), 3000, 'UK');
+    expect(d.findings.find((f) => f.kind === 'not-unique')).toMatchObject({ severity: 'warn', rows: 100 });
+  });
+
+  it('leaves a code with only a few values as a category', () => {
+    expect(decideColumn('Branch No', ids(8), 3000, 'UK').role).toBe('category');
   });
 });

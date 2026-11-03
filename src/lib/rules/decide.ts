@@ -1,6 +1,9 @@
 import { regionInfo, type Region } from '../region';
 import type {
   ColumnDecision,
+  ColumnOverride,
+  OverridableRole,
+  Overrides,
   ColumnFacts,
   DataType,
   DateDecision,
@@ -253,18 +256,27 @@ export function decideColumn(name: string, facts: ColumnFacts, rows: number, reg
   const uniqueness = facts.distinct / total;
   const codeLike = (type === 'integer' || type === 'text') && facts.withSpaces === 0;
   const namedLikeId = ID_WORD.test(name.trim()) || ID_CAMEL.test(name.trim());
-  if (codeLike && ((uniqueness >= TYPE_SHARE && total >= 20) || (namedLikeId && uniqueness >= 0.5))) {
+  if (codeLike && ((uniqueness >= TYPE_SHARE && total >= 20) || (namedLikeId && facts.distinct >= 20))) {
     role = 'identifier';
     if (facts.distinct < total) {
       const repeats = total - facts.distinct;
+      const perValue = total / facts.distinct;
       findings.push(
-        finding(
-          'not-unique',
-          'warn',
-          `Repeats in ${rowsWord(repeats)}`,
-          `${n(facts.distinct)} distinct values across ${n(total)} rows. If each row should be one record, there are duplicates. More often it means each row is a line within a larger record, so count distinct ${name} values rather than rows.`,
-          repeats,
-        ),
+        uniqueness >= 0.5
+          ? finding(
+              'not-unique',
+              'warn',
+              `Repeats in ${rowsWord(repeats)}`,
+              `${n(facts.distinct)} distinct values across ${n(total)} rows. If each row should be one record, there are duplicates. More often it means each row is a line within a larger record, so count distinct ${name} values rather than rows.`,
+              repeats,
+            )
+          : finding(
+              'not-unique',
+              'info',
+              `Each value is in about ${n(Math.round(perValue))} rows`,
+              `${n(facts.distinct)} distinct values across ${n(total)} rows, so ${name} most likely refers to records kept elsewhere (for example one customer across many orders). Count distinct ${name} values rather than rows.`,
+              repeats,
+            ),
       );
     }
   } else if (type === 'integer' && role === 'measure' && facts.distinct <= 12) {
@@ -408,6 +420,7 @@ export function decideColumns(
   columns: { name: string; facts: ColumnFacts }[],
   rows: number,
   region: Region,
+  overrides: Overrides = {},
 ): { name: string; decision: ColumnDecision }[] {
   const decided = columns.map(({ name, facts }) => ({
     name,
@@ -439,7 +452,91 @@ export function decideColumns(
     }
   }
 
+  for (const column of decided) {
+    const override = overrides[column.name];
+    if (override) column.decision = applyOverride(column.name, column.facts, column.decision, override);
+  }
+
   return decided.map(({ name, decision }) => ({ name, decision }));
+}
+
+/** Roles a user can choose, and the types each one makes sense for. */
+export const OVERRIDABLE_ROLES: Record<OverridableRole, DataType[] | 'any'> = {
+  identifier: 'any',
+  category: 'any',
+  measure: ['integer', 'decimal', 'percent', 'currency'],
+  'free-text': ['text'],
+};
+
+/** Whether a role can be chosen for a column of this type. */
+export function canChooseRole(role: OverridableRole, type: DataType): boolean {
+  const allowed = OVERRIDABLE_ROLES[role];
+  return allowed === 'any' || allowed.includes(type);
+}
+
+const DATE_ORDER_FINDINGS: Finding['kind'][] = [
+  'date-order-proven',
+  'date-order-unproven',
+  'date-order-inferred',
+  'date-order-conflict',
+];
+
+/**
+ * Applies a user's correction. The original evidence stays visible in the
+ * finding, so it is always clear what was decided and what was chosen.
+ */
+function applyOverride(
+  name: string,
+  facts: ColumnFacts,
+  decision: ColumnDecision,
+  override: ColumnOverride,
+): ColumnDecision {
+  const next: ColumnDecision = { ...decision, findings: [...decision.findings] };
+
+  if (override.dateOrder && decision.type === 'date') {
+    const proven = decision.date?.basis === 'evidence' || decision.date?.basis === 'iso';
+    const contradicts = proven && decision.date?.order !== override.dateOrder;
+    next.date = { order: override.dateOrder, basis: 'user', evidence: 0 };
+    next.findings = next.findings.filter((f) => !DATE_ORDER_FINDINGS.includes(f.kind));
+    next.findings.push(
+      finding(
+        'set-by-user',
+        contradicts ? 'warn' : 'info',
+        `Date order set by you: ${override.dateOrder}`,
+        contradicts
+          ? `${name} is read as ${override.dateOrder} because you chose it, but ${n(decision.date?.evidence ?? 0)} values only make sense as ${decision.date?.order}. Those values will not be read as dates.`
+          : `${name} is read as ${override.dateOrder} because you chose it.`,
+      ),
+    );
+  }
+
+  if (override.role && override.role !== decision.role && canChooseRole(override.role, decision.type)) {
+    const from = decision.role;
+    next.role = override.role;
+    next.findings = next.findings.filter((f) => f.kind !== 'not-unique');
+    if (override.role === 'identifier' && facts.distinct < facts.filled) {
+      const repeats = facts.filled - facts.distinct;
+      next.findings.push(
+        finding(
+          'not-unique',
+          'warn',
+          `Repeats in ${rowsWord(repeats)}`,
+          `${n(facts.distinct)} distinct values across ${n(facts.filled)} rows. If each row should be one record, there are duplicates.`,
+          repeats,
+        ),
+      );
+    }
+    next.findings.push(
+      finding(
+        'set-by-user',
+        'info',
+        `Treated as ${override.role.replace('-', ' ')} by you`,
+        `Detected as ${from.replace('-', ' ')}; you chose ${override.role.replace('-', ' ')}.`,
+      ),
+    );
+  }
+
+  return next;
 }
 
 const SEVERITY_ORDER: Record<Severity, number> = { high: 0, warn: 1, info: 2 };

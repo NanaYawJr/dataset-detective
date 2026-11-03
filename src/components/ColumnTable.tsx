@@ -1,14 +1,20 @@
 import { describeDateOrder, formatDateKey, formatMeasure, roleLabel, typeLabel } from '../lib/display';
 import type { ColumnStats, ValueCount } from '../lib/profile/types';
 import { formatNumber, formatPercent, type Region } from '../lib/region';
+import { canChooseRole, OVERRIDABLE_ROLES } from '../lib/rules/decide';
+import type { ColumnOverride, DecidedDateOrder, OverridableRole, Overrides } from '../lib/rules/types';
+
+type OnOverride = (column: string, override: ColumnOverride | null) => void;
 
 interface ColumnTableProps {
   columns: ColumnStats[];
   rows: number;
   region: Region;
+  overrides: Overrides;
+  onOverride: OnOverride;
 }
 
-export function ColumnTable({ columns, rows, region }: ColumnTableProps) {
+export function ColumnTable({ columns, rows, region, overrides, onOverride }: ColumnTableProps) {
   return (
     <section className="overflow-hidden rounded-2xl border border-line bg-white">
       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line px-5 py-4">
@@ -41,7 +47,14 @@ export function ColumnTable({ columns, rows, region }: ColumnTableProps) {
           </thead>
           <tbody>
             {columns.map((column) => (
-              <ColumnRow key={column.sqlName} column={column} rows={rows} region={region} />
+              <ColumnRow
+                key={column.sqlName}
+                column={column}
+                rows={rows}
+                region={region}
+                override={overrides[column.name]}
+                onOverride={onOverride}
+              />
             ))}
           </tbody>
         </table>
@@ -50,7 +63,15 @@ export function ColumnTable({ columns, rows, region }: ColumnTableProps) {
   );
 }
 
-function ColumnRow({ column, rows, region }: { column: ColumnStats; rows: number; region: Region }) {
+interface ColumnRowProps {
+  column: ColumnStats;
+  rows: number;
+  region: Region;
+  override?: ColumnOverride;
+  onOverride: OnOverride;
+}
+
+function ColumnRow({ column, rows, region, override, onOverride }: ColumnRowProps) {
   const { decision } = column;
   const missing = decision.effectivelyMissing;
   const missingShare = rows === 0 ? 0 : missing / rows;
@@ -71,6 +92,7 @@ function ColumnRow({ column, rows, region }: { column: ColumnStats; rows: number
             </span>
           )}
         </span>
+        <Correction column={column} override={override} onOverride={onOverride} />
       </th>
       <td className="whitespace-nowrap px-3 py-4">
         <span className={missingShare > 0 ? 'font-bold text-amber' : 'text-ink-soft'}>
@@ -99,6 +121,85 @@ function ColumnRow({ column, rows, region }: { column: ColumnStats; rows: number
         <ValueList values={column.shapes} total={column.filled} region={region} />
       </td>
     </tr>
+  );
+}
+
+const ROLE_CHOICES: Record<OverridableRole, string> = {
+  identifier: 'Identifier',
+  measure: 'Measure',
+  category: 'Category',
+  'free-text': 'Free text',
+};
+
+const DATE_CHOICES: Record<DecidedDateOrder, string> = {
+  'day-first': 'Day first (31/12/2025)',
+  'month-first': 'Month first (12/31/2025)',
+  'year-first': 'Year first (2025-12-31)',
+};
+
+/** Lets the user correct a decision. The evidence stays visible in the findings. */
+function Correction({
+  column,
+  override,
+  onOverride,
+}: {
+  column: ColumnStats;
+  override?: ColumnOverride;
+  onOverride: OnOverride;
+}) {
+  const { decision } = column;
+  const roles = (Object.keys(OVERRIDABLE_ROLES) as OverridableRole[]).filter((r) => canChooseRole(r, decision.type));
+  const canSetRole = !['empty', 'constant', 'date'].includes(decision.role) || Boolean(override?.role);
+  const canSetDate = decision.type === 'date';
+  if (!canSetRole && !canSetDate) return null;
+  const changed = Boolean(override?.role || override?.dateOrder);
+  const selectClass =
+    'min-h-11 w-full rounded-lg border border-line-strong bg-white px-2 text-sm font-semibold text-ink';
+
+  return (
+    <details className="mt-2" open={changed || undefined}>
+      <summary className="flex min-h-11 w-fit cursor-pointer items-center text-xs font-bold text-teal-dark">
+        {changed ? 'Corrected by you' : 'Correct this'}
+      </summary>
+      <div className="flex flex-col gap-2 pb-1">
+        {canSetRole && (
+          <label className="flex flex-col gap-1 text-xs font-semibold text-muted">
+            Treat as
+            <select
+              className={selectClass}
+              value={override?.role ?? ''}
+              onChange={(e) => onOverride(column.name, { role: (e.target.value || undefined) as OverridableRole })}
+            >
+              <option value="">As detected</option>
+              {roles.map((r) => (
+                <option key={r} value={r}>
+                  {ROLE_CHOICES[r]}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+        {canSetDate && (
+          <label className="flex flex-col gap-1 text-xs font-semibold text-muted">
+            Date order
+            <select
+              className={selectClass}
+              value={override?.dateOrder ?? ''}
+              onChange={(e) =>
+                onOverride(column.name, { dateOrder: (e.target.value || undefined) as DecidedDateOrder })
+              }
+            >
+              <option value="">As detected</option>
+              {(Object.keys(DATE_CHOICES) as DecidedDateOrder[]).map((o) => (
+                <option key={o} value={o}>
+                  {DATE_CHOICES[o]}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+      </div>
+    </details>
   );
 }
 

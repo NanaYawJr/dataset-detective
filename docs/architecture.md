@@ -4,7 +4,7 @@ Dataset Detective is a static web app. All profiling happens in the browser; the
 
 ## The pipeline
 
-The system is organised as five stages. Stages 1 and 2 are built; the others are planned and shown here so the design is visible as a whole.
+The system is organised as five stages. Stages 1 to 3 are built; the others are planned and shown here so the design is visible as a whole.
 
 ```mermaid
 flowchart TB
@@ -76,6 +76,16 @@ The React side is a small state machine in `hooks/useProfiler.ts`: `idle → run
 | Typed statistics | `factsSql.ts` → `typedStatsSql`  | One query for the statistics that depend on the decision: range, mean, median and standard deviation for measures; earliest and latest for dates.                                                                                                                                                                                             |
 
 The rules are deterministic and every finding carries its evidence. Changing the region re-runs only the decision and typed-statistics steps against the table already loaded.
+
+### Stage 3 · Check the whole table (built)
+
+| Step      | Where                                   | Notes                                                                                                                                                                                                                                                                    |
+| --------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Plan      | `lib/table/plan.ts`                     | Chooses which checks are worth running from the column decisions: key pairs only when no single column is a key, dependency pairs only between low-cardinality columns and the parts of packed columns, date pairs between decided date columns.                         |
+| Query     | `lib/table/tableSql.ts`                 | Four queries: keys and duplicates; dependencies (each pair grouped once, both directions read from the result); order of dates; rows per month. Dates are parsed once per distinct value or pair of values. See [decision 0006](decisions/0006-planned-table-checks.md). |
+| Run       | `lib/table/run.ts`                      | Runs the plan with any engine that answers SQL with rows — DuckDB-WASM in the browser, the same engine in Node in tests.                                                                                                                                                 |
+| Interpret | `lib/table/interpret.ts`                | Pure TypeScript: turns the counts into findings and the grain sentence, with thresholds for when a rule "nearly holds".                                                                                                                                                  |
+| Correct   | `lib/rules/decide.ts` → `applyOverride` | A user's correction is applied after the evidence-based decision, then stages 2 and 3 re-run on the table already loaded.                                                                                                                                                |
 
 ### Why everything is read as text
 

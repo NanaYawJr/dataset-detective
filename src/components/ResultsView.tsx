@@ -3,21 +3,27 @@ import { BLOCKING_PROBLEMS, DELIMITER_NAMES } from '../lib/format/detectFormat';
 import { encodingName, explainProblem, formatBytes } from '../lib/format/explain';
 import type { ProfileResult } from '../lib/profile/types';
 import { formatDate, formatNumber, localCalendarDate, type Region } from '../lib/region';
-import { rankFindings } from '../lib/rules/decide';
+import { allFindings } from '../lib/display';
+import type { ColumnOverride } from '../lib/rules/types';
 import { ColumnTable } from './ColumnTable';
+import { CoverageSection } from './CoverageChart';
 import { FindingsPanel } from './FindingsPanel';
 
 interface ResultsViewProps {
   result: ProfileResult;
   region: Region;
+  /** True while a correction or region change is being applied. */
+  updating: boolean;
+  onOverride: (column: string, override: ColumnOverride | null) => void;
   onChooseAnother: () => void;
 }
 
-export function ResultsView({ result, region, onChooseAnother }: ResultsViewProps) {
+export function ResultsView({ result, region, updating, onOverride, onChooseAnother }: ResultsViewProps) {
   const { format } = result;
   const sampled = result.scope === 'sample' && result.profiledRows < result.totalRows;
   const notes = format.problems.filter((p) => !BLOCKING_PROBLEMS.includes(p.kind));
-  const findings = rankFindings(result.columns);
+  const findings = allFindings(result.columns, result.table);
+  const grain = result.table?.grain;
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
@@ -28,6 +34,11 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
             {formatNumber(result.durationMs / 1000, region, 1)}s
           </p>
           <h1 className="break-words text-3xl font-extrabold tracking-tight">{result.fileName}</h1>
+          {grain && (
+            <p className="text-ink-soft" data-testid="grain">
+              {grain}.
+            </p>
+          )}
         </div>
         <button
           type="button"
@@ -85,9 +96,29 @@ export function ResultsView({ result, region, onChooseAnother }: ResultsViewProp
         </section>
       )}
 
+      <p className="sr-only" aria-live="polite">
+        {updating ? 'Updating the findings…' : ''}
+      </p>
+      {updating && (
+        <p
+          className="sticky top-2 z-10 self-center rounded-full bg-ink px-4 py-2 text-sm font-bold text-white shadow"
+          data-testid="updating"
+        >
+          Updating the findings…
+        </p>
+      )}
+
       <FindingsPanel findings={findings} />
 
-      <ColumnTable columns={result.columns} rows={result.profiledRows} region={region} />
+      {result.table && <CoverageSection coverage={result.table.coverage} region={region} />}
+
+      <ColumnTable
+        columns={result.columns}
+        rows={result.profiledRows}
+        region={region}
+        overrides={result.overrides}
+        onOverride={onOverride}
+      />
     </main>
   );
 }

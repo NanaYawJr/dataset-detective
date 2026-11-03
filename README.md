@@ -32,6 +32,14 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 - **Ranked findings in plain English:** numbers stored as text (`"5%"`), identifiers that repeat, two fields packed into one column (`City | Region`), placeholders that hide missing data (`"4-Not Specified"`, `N/A`, `1900-01-01`), ranks written into text (`1-Urgent`), impossible dates, and personal data — email addresses, UK postcodes, phone numbers, National Insurance numbers and NHS numbers, which are checked with their modulus 11 check digit.
 - **Region setting** (United Kingdom, Canada, United States) for how dates and numbers are shown. Dates are never displayed as ambiguous slash dates. Changing the region re-decides the loaded file instantly.
 
+**Checking the table as a whole (0.3)**
+
+- **Duplicates and grain:** exact copies of rows are counted, and the file is described in one sentence — "Each row is one Order ID", or one combination of two columns — or flagged when nothing identifies a row.
+- **Dependencies:** rules such as "each City has exactly one Region" are found, including inside a packed column. When a rule nearly holds, the values that break it are named, because those are usually typos.
+- **Order of events:** when one date column is almost always on or after another, the rows where it isn't are counted (a Ship Date before its Order Date).
+- **Date coverage:** a rows-per-month chart for each date column; months with no rows in an otherwise steady run, and dates in the future, are flagged.
+- **Corrections:** if a decision is wrong, change a column's role or date order. Everything updates, and the correction is labelled as yours, with the original evidence still visible.
+
 Every value is read as text first. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the CSV reader, so a value like `03/04/2026` is never silently turned into the wrong date.
 
 ## Roadmap
@@ -40,7 +48,7 @@ Every value is read as text first. Deciding what a column really is — a number
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **0.1** ✅ | Load the file: format detection, clean-read check, raw column statistics                                                                                    |
 | **0.2** ✅ | Decide each column: numbers stored as text, identifiers, dates with day/month evidence, packed fields (`City \| Region`), placeholder blanks, personal data |
-| 0.3        | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; first public deployment                     |
+| **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections. Next: first public deployment  |
 | 0.4        | Fix and export: Power Query M, T-SQL and pandas code, suggested validation rules, PDF report, saved profiles                                                |
 | 0.5        | Excel, Parquet and JSON files; compare two files                                                                                                            |
 | 0.6        | Optional, opt-in plain-English explanation of a report, sending a masked summary only — never rows                                                          |
@@ -131,7 +139,8 @@ The tests are built around a **golden sample**: [`samples/sales-sample.csv`](sam
 src/
   lib/format/     Encoding, delimiter and header detection; plain-English explanations
   lib/profile/    DuckDB setup, evidence SQL and the profiling pipeline
-  lib/rules/      Column decisions, findings, placeholder and NHS number checks
+  lib/rules/      Column decisions, findings, corrections, placeholder and NHS number checks
+  lib/table/      Whole-table checks: planning, SQL and interpretation
   lib/region.ts   Region setting: date and number display
   hooks/          The React hook that runs the pipeline
   components/     Upload, progress, stop, findings and results screens
