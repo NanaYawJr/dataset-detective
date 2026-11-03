@@ -470,12 +470,17 @@ export const OVERRIDABLE_ROLES: Record<OverridableRole, DataType[] | 'any'> = {
 };
 
 /**
- * Date orders that fit how a column's dates are written. Slash dates can be
- * day-first or month-first; ISO dates (2023-10-01) are always year-first, so
- * there is nothing to choose.
+ * Date orders a user can choose for a column. ISO dates (2023-10-01) are
+ * always year-first, and a column whose own values prove one order (31/12
+ * can only be day-first) has nothing to choose either. A choice is only
+ * offered when nothing in the column proves the order, or when it holds
+ * values proving both.
  */
 export function dateOrderChoices(facts: ColumnFacts): DecidedDateOrder[] {
-  return facts.slashDates > 0 ? ['day-first', 'month-first'] : [];
+  if (facts.slashDates === 0) return [];
+  const provesDay = facts.firstPartOver12 > 0;
+  const provesMonth = facts.secondPartOver12 > 0;
+  return provesDay !== provesMonth ? [] : ['day-first', 'month-first'];
 }
 
 /** Whether a role can be chosen for a column of this type. */
@@ -504,8 +509,9 @@ function applyOverride(
   const next: ColumnDecision = { ...decision, findings: [...decision.findings] };
 
   if (override.dateOrder && decision.type === 'date' && dateOrderChoices(facts).includes(override.dateOrder)) {
-    const proven = decision.date?.basis === 'evidence' || decision.date?.basis === 'iso';
-    const contradicts = proven && decision.date?.order !== override.dateOrder;
+    // An order borrowed from a column that proves it is still evidence: say so.
+    const borrowed = decision.date?.basis === 'other-column' ? decision.date : null;
+    const contradicts = borrowed !== null && borrowed.order !== override.dateOrder;
     next.date = { order: override.dateOrder, basis: 'user', evidence: 0 };
     next.findings = next.findings.filter((f) => !DATE_ORDER_FINDINGS.includes(f.kind));
     next.findings.push(
@@ -514,7 +520,7 @@ function applyOverride(
         contradicts ? 'warn' : 'info',
         `Date order set by you: ${override.dateOrder}`,
         contradicts
-          ? `${name} is read as ${override.dateOrder} because you chose it, but ${n(decision.date?.evidence ?? 0)} values only make sense as ${decision.date?.order}. Those values will not be read as dates.`
+          ? `${name} is read as ${override.dateOrder} because you chose it, but ${borrowed.source} in the same file proves its dates are ${borrowed.order}. Check the two columns really use different orders.`
           : `${name} is read as ${override.dateOrder} because you chose it.`,
       ),
     );

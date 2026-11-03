@@ -296,11 +296,31 @@ describe('corrections by the user', () => {
     expect(d.findings).toContainEqual(expect.objectContaining({ kind: 'set-by-user', severity: 'info' }));
   });
 
-  it('warns when the chosen order goes against the evidence', () => {
+  it('offers no choice when the column proves its own order', () => {
+    // 31/12/2023 can only be day-first.
+    expect(dateOrderChoices(slashDates({ firstPartOver12: 30 }))).toEqual([]);
     const d = one('When', slashDates({ firstPartOver12: 30 }), { When: { dateOrder: 'month-first' } });
-    const note = d.findings.find((f) => f.kind === 'set-by-user');
+    expect(d.date).toMatchObject({ order: 'day-first', basis: 'evidence' });
+    // Values proving both orders leave a real choice.
+    expect(dateOrderChoices(slashDates({ firstPartOver12: 3, secondPartOver12: 4 }))).toEqual([
+      'day-first',
+      'month-first',
+    ]);
+  });
+
+  it('warns when the chosen order goes against an order borrowed from another column', () => {
+    const [start] = decideColumns(
+      [
+        { name: 'START', facts: facts(10, { distinct: 1, slashDates: 10 }) },
+        { name: 'END', facts: facts(10, { distinct: 1, slashDates: 10, firstPartOver12: 10 }) },
+      ],
+      10,
+      'UK',
+      { START: { dateOrder: 'month-first' } },
+    );
+    const note = start.decision.findings.find((f) => f.kind === 'set-by-user');
     expect(note?.severity).toBe('warn');
-    expect(note?.detail).toContain('30 values only make sense as day-first');
+    expect(note?.detail).toContain('END in the same file proves its dates are day-first');
   });
 
   it('ignores a date order that does not fit how the dates are written', () => {
