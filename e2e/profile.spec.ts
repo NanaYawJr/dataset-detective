@@ -192,6 +192,12 @@ test('lets the user correct a decision and keeps the evidence visible', async ({
   const visit = page.getByTestId('column-visit');
   await expect(visit).toContainText('order unknown');
   await visit.getByText('Correct this').click();
+  // Slash dates can only be day-first or month-first.
+  await expect(visit.getByLabel('Date order').locator('option')).toHaveText([
+    'As detected',
+    'Day first (31/12/2025)',
+    'Month first (12/31/2025)',
+  ]);
   await visit.getByLabel('Date order').selectOption('month-first');
 
   await expect(visit).toContainText('month-first, set by you');

@@ -1,5 +1,6 @@
 import { regionInfo, type Region } from '../region';
 import type {
+  DecidedDateOrder,
   ColumnDecision,
   ColumnOverride,
   OverridableRole,
@@ -468,6 +469,15 @@ export const OVERRIDABLE_ROLES: Record<OverridableRole, DataType[] | 'any'> = {
   'free-text': ['text'],
 };
 
+/**
+ * Date orders that fit how a column's dates are written. Slash dates can be
+ * day-first or month-first; ISO dates (2023-10-01) are always year-first, so
+ * there is nothing to choose.
+ */
+export function dateOrderChoices(facts: ColumnFacts): DecidedDateOrder[] {
+  return facts.slashDates > 0 ? ['day-first', 'month-first'] : [];
+}
+
 /** Whether a role can be chosen for a column of this type. */
 export function canChooseRole(role: OverridableRole, type: DataType): boolean {
   const allowed = OVERRIDABLE_ROLES[role];
@@ -493,7 +503,7 @@ function applyOverride(
 ): ColumnDecision {
   const next: ColumnDecision = { ...decision, findings: [...decision.findings] };
 
-  if (override.dateOrder && decision.type === 'date') {
+  if (override.dateOrder && decision.type === 'date' && dateOrderChoices(facts).includes(override.dateOrder)) {
     const proven = decision.date?.basis === 'evidence' || decision.date?.basis === 'iso';
     const contradicts = proven && decision.date?.order !== override.dateOrder;
     next.date = { order: override.dateOrder, basis: 'user', evidence: 0 };

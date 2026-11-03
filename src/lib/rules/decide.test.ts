@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { canChooseRole, decideColumn, decideColumns, decideDateOrder, rankFindings } from './decide';
+import { canChooseRole, dateOrderChoices, decideColumn, decideColumns, decideDateOrder, rankFindings } from './decide';
 import type { ColumnFacts } from './types';
 
 /** Facts for a column of `filled` non-blank values; override what the test needs. */
@@ -301,6 +301,16 @@ describe('corrections by the user', () => {
     const note = d.findings.find((f) => f.kind === 'set-by-user');
     expect(note?.severity).toBe('warn');
     expect(note?.detail).toContain('30 values only make sense as day-first');
+  });
+
+  it('ignores a date order that does not fit how the dates are written', () => {
+    // 01/10/2023 can be day-first or month-first, never year-first.
+    const d = one('When', slashDates(), { When: { dateOrder: 'year-first' } });
+    expect(d.date?.basis).not.toBe('user');
+    expect(kinds(d)).not.toContain('set-by-user');
+    expect(dateOrderChoices(slashDates())).toEqual(['day-first', 'month-first']);
+    // ISO dates are already unambiguous: nothing to choose.
+    expect(dateOrderChoices(facts(100, { isoDates: 100 }))).toEqual([]);
   });
 
   it('changes the role and adds or removes the uniqueness check to match', () => {

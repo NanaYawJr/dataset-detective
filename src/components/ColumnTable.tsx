@@ -1,7 +1,7 @@
 import { describeDateOrder, formatDateKey, formatMeasure, roleLabel, typeLabel } from '../lib/display';
 import type { ColumnStats, ValueCount } from '../lib/profile/types';
 import { formatNumber, formatPercent, type Region } from '../lib/region';
-import { canChooseRole, OVERRIDABLE_ROLES } from '../lib/rules/decide';
+import { canChooseRole, dateOrderChoices, OVERRIDABLE_ROLES } from '../lib/rules/decide';
 import type { ColumnOverride, DecidedDateOrder, OverridableRole, Overrides } from '../lib/rules/types';
 
 type OnOverride = (column: string, override: ColumnOverride | null) => void;
@@ -150,7 +150,8 @@ function Correction({
   const { decision } = column;
   const roles = (Object.keys(OVERRIDABLE_ROLES) as OverridableRole[]).filter((r) => canChooseRole(r, decision.type));
   const canSetRole = !['empty', 'constant', 'date'].includes(decision.role) || Boolean(override?.role);
-  const canSetDate = decision.type === 'date';
+  const dateChoices = decision.type === 'date' ? dateOrderChoices(column.facts) : [];
+  const canSetDate = dateChoices.length > 0;
   if (!canSetRole && !canSetDate) return null;
   const changed = Boolean(override?.role || override?.dateOrder);
   const selectClass =
@@ -158,7 +159,7 @@ function Correction({
 
   return (
     <details className="mt-2" open={changed || undefined}>
-      <summary className="flex min-h-11 w-fit cursor-pointer items-center text-xs font-bold text-teal-dark">
+      <summary className="flex min-h-11 w-fit cursor-pointer items-center text-xs font-bold text-red">
         {changed ? 'Corrected by you' : 'Correct this'}
       </summary>
       <div className="flex flex-col gap-2 pb-1">
@@ -190,7 +191,7 @@ function Correction({
               }
             >
               <option value="">As detected</option>
-              {(Object.keys(DATE_CHOICES) as DecidedDateOrder[]).map((o) => (
+              {dateChoices.map((o) => (
                 <option key={o} value={o}>
                   {DATE_CHOICES[o]}
                 </option>
