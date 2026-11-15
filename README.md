@@ -109,6 +109,10 @@ npm run dev
 
 Try it with the included sample file: [`samples/sales-sample.csv`](samples/sales-sample.csv).
 
+## Deployment
+
+The site is built into a small container and served by Caddy with strict security headers. See [docs/deployment.md](docs/deployment.md).
+
 ## Scripts
 
 | Command              | What it does                                                       |

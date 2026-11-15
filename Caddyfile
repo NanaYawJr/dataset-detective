@@ -1,0 +1,42 @@
+# Web server for the built site. The host (Railway) provides HTTPS and sets PORT.
+{
+	admin off
+	auto_https off
+}
+
+:{$PORT:8080} {
+	root * {$SITE_ROOT:/srv}
+
+	# No access log is configured, so visits and addresses are not recorded here.
+
+	header {
+		# The same policy as the page's own <meta> tag (see vite.config.ts), plus
+		# frame-ancestors, which only works as a header. connect-src 'self' is what
+		# backs the privacy promise: the page can only fetch its own files.
+		Content-Security-Policy "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+		Cross-Origin-Opener-Policy "same-origin"
+		Cross-Origin-Resource-Policy "same-origin"
+		-Server
+	}
+
+	# Built files have a fingerprint in their name, so they can be cached for good.
+	# The page itself is always re-checked, so a new release shows up straight away.
+	@fingerprinted path /assets/*
+	header @fingerprinted Cache-Control "public, max-age=31536000, immutable"
+	@page not path /assets/*
+	header @page Cache-Control "no-cache"
+
+	encode zstd gzip
+	file_server {
+		precompressed br gzip
+	}
+
+	handle_errors {
+		respond "{err.status_code} {err.status_text}" {err.status_code}
+	}
+}

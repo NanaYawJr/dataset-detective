@@ -14,6 +14,10 @@ The production site sets a Content Security Policy that only allows the page to 
 
 You can check this yourself: open your browser's developer tools, go to the Network tab, and profile a file. The only requests are for the site's own files.
 
+## Visiting the site
+
+Loading the page works like any website: your browser asks the server for the site's files. The site uses no cookies, no analytics and no third-party scripts, and its web server is set up without an access log. The hosting provider (Railway) processes ordinary request details — such as IP address, time and the file requested — in order to deliver the site and keep it running. None of this includes anything about the files you profile.
+
 ## What is stored
 
 Only your region setting (United Kingdom, Canada or United States), in your own browser's local storage, so it is remembered next time. You can clear it by clearing site data for this page.

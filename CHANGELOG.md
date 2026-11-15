@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-11-15
+
+### Added
+
+- Deployment as a container: a Dockerfile that builds the site and serves it with Caddy, with the Content Security Policy sent as a response header (adding `frame-ancestors 'none'`), HSTS and other security headers, long-term caching for fingerprinted files, and the DuckDB engine pre-compressed (about 6 MB to download instead of 34 MB).
+- A test that fails if the security policy on the page and on the server ever differ.
+- Deployment guide and decision record 0007.
+- Privacy notice now describes what the hosting provider sees when the site is visited.
+
 ## [0.3.0] - 2026-11-03
 
 ### Added
