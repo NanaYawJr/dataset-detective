@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+
+- Link to the live site in the README.
+
 ## [0.3.1] - 2026-11-15
 
 ### Added

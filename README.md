@@ -7,7 +7,7 @@ Dataset Detective profiles a CSV entirely in your browser. It works out how the 
 [![CI](https://github.com/NanaYawJr/dataset-detective/actions/workflows/ci.yml/badge.svg)](https://github.com/NanaYawJr/dataset-detective/actions/workflows/ci.yml)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/NanaYawJr/dataset-detective)
 
-**Live demo:** _coming soon_
+**Try it:** [detective.michaelopokukwarteng.com](https://detective.michaelopokukwarteng.com)
 
 ![Profile of the sample sales file](docs/images/results.png)
 
@@ -48,7 +48,7 @@ Every value is read as text first. Deciding what a column really is — a number
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **0.1** ✅ | Load the file: format detection, clean-read check, raw column statistics                                                                                    |
 | **0.2** ✅ | Decide each column: numbers stored as text, identifiers, dates with day/month evidence, packed fields (`City \| Region`), placeholder blanks, personal data |
-| **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections. Next: first public deployment  |
+| **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections; first public deployment        |
 | 0.4        | Fix and export: Power Query M, T-SQL and pandas code, suggested validation rules, PDF report, saved profiles                                                |
 | 0.5        | Excel, Parquet and JSON files; compare two files                                                                                                            |
 | 0.6        | Optional, opt-in plain-English explanation of a report, sending a masked summary only — never rows                                                          |

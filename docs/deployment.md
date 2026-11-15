@@ -1,5 +1,7 @@
 # Deployment
 
+The live site is at [detective.michaelopokukwarteng.com](https://detective.michaelopokukwarteng.com).
+
 Dataset Detective is a static site: HTML, JavaScript, fonts and the DuckDB engine. It is built into a small container and served by [Caddy](https://caddyserver.com). There is no application server and no database.
 
 | File            | What it does                                                                                              |
