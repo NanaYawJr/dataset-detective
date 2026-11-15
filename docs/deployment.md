@@ -13,14 +13,28 @@ See [decision 0007](decisions/0007-static-site-in-a-container.md) for why it is 
 
 ## Deploying on Railway
 
-1. In Railway, choose **New Project → Deploy from GitHub repo** and pick `dataset-detective`. Railway finds the Dockerfile and builds it.
-2. In the service's **Variables**, add `PORT` = `8080`, so the port is fixed and known.
-3. In **Settings → Networking**, choose **Generate Domain** (enter port `8080` if asked). Open the address and profile the sample file to check it works.
-4. Still in **Networking**, choose **Custom Domain** and enter the address you want, for example `detective.example.com`. Railway shows the DNS records to add.
-5. At your domain registrar, add those records. Usually this is one `CNAME` record whose name is the subdomain (`detective`) and whose value is the address Railway shows; Railway may also ask for a `TXT` record to prove ownership.
-6. Wait for Railway to show the domain as verified (minutes, sometimes up to an hour). HTTPS is set up automatically.
+The site is published by the GitHub workflow, not by linking the repository to Railway. After the checks and browser tests pass on `main`, the `deploy` job in `.github/workflows/ci.yml` sends the code to Railway, which builds the Dockerfile. This works when the Railway account and the GitHub repository belong to different owners, and nothing is published unless the tests pass.
 
-Every push to `main` builds and publishes a new version. To avoid publishing a broken build, turn on **Wait for CI** in the service settings so Railway deploys only after the GitHub checks pass.
+### One-off setup
+
+1. In Railway, choose **New Project → Empty Project**, then **Create → Empty Service**. Name the service `dataset-detective` (the workflow publishes to a service with this name).
+2. In the service's **Variables**, add `PORT` = `8080`, so the port is fixed and known.
+3. In the project's **Settings → Tokens**, create a project token for the `production` environment and copy it.
+4. In the GitHub repository, go to **Settings → Secrets and variables → Actions → New repository secret**. Name it `RAILWAY_TOKEN` and paste the token.
+5. Push to `main` (or re-run the latest workflow from the **Actions** tab). When the `Publish to Railway` job is green, the service is built and running.
+6. In the service's **Settings → Networking**, choose **Generate Domain** (enter port `8080` if asked). Open the address and profile the sample file to check it works.
+
+Until the secret exists, the `deploy` job does nothing and stays green.
+
+### Custom domain
+
+1. In **Settings → Networking**, choose **Custom Domain** and enter the address you want, for example `detective.example.com`. Railway shows the DNS records to add.
+2. At your domain registrar, add those records. Usually this is one `CNAME` record whose name is the subdomain (`detective`) and whose value is the address Railway shows; Railway may also ask for a `TXT` record to prove ownership.
+3. Wait for Railway to show the domain as verified (minutes, sometimes up to an hour). HTTPS is set up automatically.
+
+### The token
+
+The project token can only deploy to this one Railway project. It is stored as an encrypted GitHub secret, is never printed in logs, and is not available to workflows started from forks. If it is ever exposed, delete it in Railway and create a new one.
 
 ## Checking a deployment
 

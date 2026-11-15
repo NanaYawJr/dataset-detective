@@ -23,6 +23,8 @@ The Content Security Policy is sent as a header **and** kept in the page's `<met
 
 Caddy is configured without an access log.
 
+Publishing is done by the GitHub workflow with a Railway project token, after all tests pass, instead of linking the repository to Railway. The repository and the hosting account can then belong to different owners, and a failing build is never published.
+
 ## Consequences
 
 - The first visit downloads about 6 MB for the engine instead of 34 MB. Later visits use the browser's cache.
