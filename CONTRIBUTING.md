@@ -18,4 +18,5 @@ Thanks for your interest. Feedback and bug reports are the most useful contribut
 - **Rules decide.** Every finding must come from a deterministic, tested rule that can state its evidence.
 - **Nothing leaves the browser** during profiling. Don't add network calls, analytics or third-party scripts to the profiling flow.
 - **Test against known answers.** New checks should be covered by the golden sample or a small purpose-made fixture with an exact expected result.
+- **Test readers against real files.** The Excel and Parquet fixtures are written by widely used programs (see `scripts/make-fixtures.py`), not by this project's own code, so the readers are tested against files as they occur in practice.
 - **Plain English.** Messages should say what's wrong, where, and what to do about it.

@@ -10,7 +10,12 @@ interface UploadPanelProps {
   onFile: (file: File) => void;
 }
 
-const ACCEPT = '.csv,.tsv,.txt,text/csv,text/tab-separated-values,text/plain';
+const ACCEPT = [
+  '.csv,.tsv,.txt,text/csv,text/tab-separated-values,text/plain',
+  '.xlsx,.xlsm,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  '.parquet',
+  '.json,.jsonl,.ndjson,application/json',
+].join(',');
 
 export function UploadPanel({ region, scope, onScopeChange, onFile }: UploadPanelProps) {
   const [dragging, setDragging] = useState(false);
@@ -29,8 +34,8 @@ export function UploadPanel({ region, scope, onScopeChange, onFile }: UploadPane
           Find what's wrong with a file before anyone builds on it.
         </h1>
         <p className="text-lg leading-relaxed text-ink-soft">
-          Drop in a delimited text file to see how it's written, whether it reads cleanly, and what each column really
-          contains.
+          Drop in a CSV, Excel, Parquet or JSON file to see how it's written, whether it reads cleanly, and what each
+          column really contains.
         </p>
       </section>
 
@@ -64,9 +69,7 @@ export function UploadPanel({ region, scope, onScopeChange, onFile }: UploadPane
               <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
             </svg>
             <span className="text-xl font-bold">Drop a file here, or click to choose</span>
-            <span className="text-sm text-muted">
-              CSV, TSV or other delimited text · Excel, Parquet and JSON coming soon
-            </span>
+            <span className="text-sm text-muted">CSV and other delimited text · Excel (.xlsx) · Parquet · JSON</span>
             <input
               type="file"
               accept={ACCEPT}

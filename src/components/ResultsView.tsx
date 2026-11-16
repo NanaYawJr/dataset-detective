@@ -15,11 +15,19 @@ interface ResultsViewProps {
   /** True while a correction or region change is being applied. */
   updating: boolean;
   onOverride: (column: string, override: ColumnOverride | null) => void;
+  /** Profiles another sheet of the same workbook. */
+  onSheet: (sheet: number) => void;
   onChooseAnother: () => void;
 }
 
-export function ResultsView({ result, region, updating, onOverride, onChooseAnother }: ResultsViewProps) {
-  const { format } = result;
+export function ResultsView({ result, region, updating, onOverride, onSheet, onChooseAnother }: ResultsViewProps) {
+  const { format, source } = result;
+  const columnNames: Record<typeof source.kind, string> = {
+    delimited: 'Names from the header row',
+    excel: 'Names from the header row',
+    parquet: "Names from the file's schema",
+    json: 'Names from the record keys',
+  };
   const sampled = result.scope === 'sample' && result.profiledRows < result.totalRows;
   const notes = format.problems.filter((p) => !BLOCKING_PROBLEMS.includes(p.kind));
   const findings = allFindings(result.columns, result.table);
@@ -34,19 +42,43 @@ export function ResultsView({ result, region, updating, onOverride, onChooseAnot
             {formatNumber(result.durationMs / 1000, region, 1)}s
           </p>
           <h1 className="break-words text-3xl font-extrabold tracking-tight">{result.fileName}</h1>
+          {source.kind !== 'delimited' && (
+            <p className="break-words text-sm text-ink-soft" data-testid="source-line">
+              {[source.label, ...source.facts].join(' · ')}
+            </p>
+          )}
           {grain && (
             <p className="text-ink-soft" data-testid="grain">
               {grain}.
             </p>
           )}
         </div>
-        <button
-          type="button"
-          onClick={onChooseAnother}
-          className="min-h-11 rounded-xl border border-line-strong bg-white px-5 font-bold text-ink hover:bg-surface"
-        >
-          Profile another file
-        </button>
+        <div className="flex flex-wrap items-end gap-3">
+          {source.sheets && source.sheets.length > 1 && (
+            <label className="flex flex-col gap-1 text-sm font-semibold text-muted">
+              Sheet
+              <select
+                className="min-h-11 max-w-60 rounded-xl border border-line-strong bg-white px-3 font-bold text-ink"
+                value={source.sheetIndex}
+                onChange={(e) => onSheet(Number(e.target.value))}
+              >
+                {source.sheets.map((sheet, i) => (
+                  <option key={sheet.name} value={i}>
+                    {sheet.name}
+                    {sheet.hidden ? ' (hidden)' : ''}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+          <button
+            type="button"
+            onClick={onChooseAnother}
+            className="min-h-11 rounded-xl border border-line-strong bg-white px-5 font-bold text-ink hover:bg-surface"
+          >
+            Profile another file
+          </button>
+        </div>
       </div>
 
       <section className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3" aria-label="File summary">
@@ -58,17 +90,27 @@ export function ResultsView({ result, region, updating, onOverride, onChooseAnot
               : 'All rows profiled'}
         </Stat>
         <Stat label="Columns" value={formatNumber(result.columns.length, region)}>
-          {format.hasHeader ? 'Names from the header row' : 'No header row found'}
+          {format.hasHeader ? columnNames[source.kind] : 'No header row found'}
         </Stat>
-        <Stat label="Delimiter" value={DELIMITER_NAMES[format.delimiter]}>
-          {format.lineEnding === 'none' ? 'Single line' : `${format.lineEnding} line endings`}
-        </Stat>
-        <Stat label="Encoding" value={encodingName(format.encoding)}>
-          {formatBytes(result.fileSize)}
-        </Stat>
+        {source.kind === 'delimited' ? (
+          <>
+            <Stat label="Delimiter" value={DELIMITER_NAMES[format.delimiter]}>
+              {format.lineEnding === 'none' ? 'Single line' : `${format.lineEnding} line endings`}
+            </Stat>
+            <Stat label="Encoding" value={encodingName(format.encoding)}>
+              {formatBytes(result.fileSize)}
+            </Stat>
+          </>
+        ) : (
+          source.cards.map((card, i) => (
+            <Stat key={card.label} label={card.label} value={card.value} asWritten>
+              {i === source.cards.length - 1 ? `${card.hint} · ${formatBytes(result.fileSize)}` : card.hint}
+            </Stat>
+          ))
+        )}
       </section>
 
-      {(notes.length > 0 || result.skippedRows > 0 || sampled) && (
+      {(notes.length > 0 || source.notes.length > 0 || result.skippedRows > 0 || sampled) && (
         <section className="flex flex-col gap-3 rounded-2xl border border-[#e8c99a] bg-amber-tint p-5">
           <h2 className="font-extrabold text-amber">Worth knowing</h2>
           <ul className="flex flex-col gap-2 text-sm text-[#5e3407]">
@@ -84,6 +126,11 @@ export function ResultsView({ result, region, updating, onOverride, onChooseAnot
                 out of {formatNumber(result.totalRows, region)}. Profile the full file for exact counts.
               </li>
             )}
+            {source.notes.map((note) => (
+              <li key={note.key} data-testid={`note-${note.key}`}>
+                <strong>{note.title}.</strong> {note.detail}
+              </li>
+            ))}
             {notes.map((problem) => {
               const { title, detail } = explainProblem(problem);
               return (
@@ -123,11 +170,22 @@ export function ResultsView({ result, region, updating, onOverride, onChooseAnot
   );
 }
 
-function Stat({ label, value, children }: { label: string; value: string; children: ReactNode }) {
+interface StatProps {
+  label: string;
+  value: string;
+  /** Keep the value's own capitalisation (a sheet name, for example). */
+  asWritten?: boolean;
+  children: ReactNode;
+}
+
+function Stat({ label, value, asWritten, children }: StatProps) {
   return (
-    <div className="flex flex-col gap-1 rounded-2xl border border-line bg-white px-5 py-4">
+    <div className="flex min-w-0 flex-col gap-1 rounded-2xl border border-line bg-white px-5 py-4">
       <span className="text-sm font-semibold text-muted">{label}</span>
-      <span className="text-2xl font-extrabold capitalize" data-testid={`stat-${label.toLowerCase()}`}>
+      <span
+        className={`break-words text-2xl font-extrabold ${asWritten ? '' : 'capitalize'}`}
+        data-testid={`stat-${label.toLowerCase().replaceAll(' ', '-')}`}
+      >
         {value}
       </span>
       <span className="text-sm text-ink-soft">{children}</span>

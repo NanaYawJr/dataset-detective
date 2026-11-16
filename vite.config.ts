@@ -44,6 +44,10 @@ export default defineConfig({
     // so the security policy doesn't need to allow data: sources.
     assetsInlineLimit: 0,
   },
+  worker: {
+    // The file-reading worker loads the Parquet reader on demand, which needs module workers.
+    format: 'es',
+  },
   optimizeDeps: {
     exclude: ['@duckdb/duckdb-wasm'],
   },

@@ -4,9 +4,21 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-16
+
 ### Added
 
-- Link to the live site in the README.
+- **Excel workbooks (.xlsx, .xlsm).** The table is found under any title or notes rows, empty spacer columns are left out, and a sheet picker switches between sheets (the first sheet holding a table is used to start with). Dates, which Excel stores as day counts, are converted to the dates they stand for, including in 1904-based workbooks. Hidden sheets, merged ranges, error values and formulas with no stored result are reported.
+- **Parquet.** The file's declared types are reported, and columns declared as text that hold dates or numbers are flagged. Lists and nested records are shown as JSON text. Snappy, gzip, zstd, brotli and LZ4 compression are supported.
+- **JSON and JSON Lines.** The list of records is found whether the file is a list, one record per line, or an object holding the list under a key. Nested objects are flattened into dotted column names; lists are kept as JSON text.
+- Clear explanations for files that can't be used: old `.xls` and password-protected workbooks, `.xlsb`, zip files that aren't workbooks, damaged Parquet, invalid JSON, and JSON with no list of records.
+- Excel and Parquet versions of the sample file, and test files written by four real programs.
+- Decision record 0008 on reading every format in the browser through one path.
+
+### Changed
+
+- Files are read in a background worker, so a large workbook no longer freezes the page while it is unzipped.
+- The roadmap order: file formats came before fix-and-export, which is now 0.5.
 
 ## [0.3.1] - 2026-11-15
 

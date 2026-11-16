@@ -9,7 +9,8 @@ The system is organised as five stages. Stages 1 to 3 are built; the others are 
 ```mermaid
 flowchart TB
   subgraph S1[1 · Load the file]
-    A[File dropped] --> B[Detect format<br/>encoding · delimiter · header]
+    A[File dropped] --> A2[Read it<br/>CSV · Excel · Parquet · JSON]
+    A2 --> B[Detect format<br/>encoding · delimiter · header]
     B --> C{Can it be read cleanly?}
     C -- no --> X[Stop and explain]
     C -- yes --> D[Choose scope<br/>full file or sample]
@@ -56,13 +57,22 @@ flowchart TB
 
 ### Stage 1 · Load the file (built)
 
-| Step                | Where                                     | Notes                                                                                                                                                                 |
-| ------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read the first 1 MB | `lib/profile/profiler.ts` → `inspectFile` | Only a sample is read for detection, so huge files start instantly.                                                                                                   |
-| Detect format       | `lib/format/detectFormat.ts`              | Encoding from byte-order marks and UTF-8 validity; delimiter by which candidate splits rows most consistently; header by comparing the first row with the rows below. |
-| Clean-read check    | `detectFormat` → `problems`               | Wrong field counts, unclosed quotes, empty or binary files block loading. Blank or duplicate column names are noted but don't block.                                  |
-| Load                | `profiler.ts` → `profileFile`             | Registers the file with DuckDB (UTF-8 is streamed; other encodings are converted in memory first) and creates a table with every column as text.                      |
-| Raw statistics      | `lib/profile/factsSql.ts`                 | Counts, top values and value shapes for every column, read from the value-counts table built in stage 2.                                                              |
+| Step               | Where                                    | Notes                                                                                                                                                                                                                               |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| What kind of file? | `lib/source/kind.ts`                     | Decided from the first bytes, then the name: a workbook renamed to `.csv` is still a workbook.                                                                                                                                      |
+| Prepare            | `lib/source/prepare.ts`, in a Web Worker | Delimited text is passed through. Excel, Parquet and JSON are read and written out as CSV text in memory, so every later step is the same for all formats. See [decision 0008](decisions/0008-read-every-format-in-the-browser.md). |
+| Detect format      | `lib/format/detectFormat.ts`             | For delimited text, from the first 1 MB: encoding from byte-order marks and UTF-8 validity; delimiter by which candidate splits rows most consistently; header by comparing the first row with the rows below.                      |
+| Clean-read check   | `detectFormat` → `problems`              | Wrong field counts, unclosed quotes, empty or binary files block loading. Blank or duplicate column names are noted but don't block.                                                                                                |
+| Load               | `profiler.ts` → `profileFile`            | Registers the file with DuckDB (UTF-8 is streamed; other encodings are converted in memory first) and creates a table with every column as text.                                                                                    |
+| Raw statistics     | `lib/profile/factsSql.ts`                | Counts, top values and value shapes for every column, read from the value-counts table built in stage 2.                                                                                                                            |
+
+The readers in `lib/source`:
+
+| Format  | Where                          | Notes                                                                                                                                                                                                                             |
+| ------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Excel   | `xlsx.ts`, `xml.ts`, `grid.ts` | A workbook is a zip of XML. It is unzipped with fflate and scanned once, without building a tree. `grid.ts` finds the header row under titles and notes. Cells with a date format are converted from Excel's day count to a date. |
+| Parquet | `parquet.ts`, `declared.ts`    | Read with hyparquet, one row group at a time. The declared types are kept so they can be compared with what the values turn out to be.                                                                                            |
+| JSON    | `json.ts`                      | Finds the list of records, flattens nested objects, keeps lists as JSON text.                                                                                                                                                     |
 
 The React side is a small state machine in `hooks/useProfiler.ts`: `idle → running → done`, with `blocked` (the format check stopped it) and `failed` (DuckDB stopped part-way) as the two ways out.
 

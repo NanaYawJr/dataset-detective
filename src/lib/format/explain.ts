@@ -30,7 +30,7 @@ export function explainProblem(problem: FormatProblem): Explanation {
       return {
         title: "This doesn't look like a text file",
         detail:
-          'It contains binary data. If it is an Excel workbook, save it as CSV for now — Excel support is coming.',
+          'It contains binary data. Dataset Detective reads CSV and other delimited text, Excel workbooks (.xlsx), Parquet and JSON.',
       };
     case 'unterminated-quote':
       return {
@@ -51,6 +51,8 @@ export function explainProblem(problem: FormatProblem): Explanation {
         title: 'Some columns have no name',
         detail: `Column ${problem.positions.join(', ')} ${problem.positions.length === 1 ? 'has' : 'have'} a blank header. They are given placeholder names.`,
       };
+    case 'cannot-read':
+      return { title: problem.title, detail: problem.detail };
     case 'duplicate-headers':
       return {
         title: 'Some column names are repeated',

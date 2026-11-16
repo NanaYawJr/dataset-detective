@@ -32,7 +32,7 @@ export default function App() {
         <StopPanel
           file={state.file}
           format={state.format}
-          onSkipBrokenRows={() => skipBrokenRows(state.file, state.format)}
+          onSkipBrokenRows={() => skipBrokenRows(state.file)}
           onChooseAnother={reset}
         />
       )}
@@ -42,7 +42,7 @@ export default function App() {
           file={state.file}
           format={state.format}
           engineMessage={state.message}
-          onSkipBrokenRows={state.format ? () => skipBrokenRows(state.file, state.format!) : undefined}
+          onSkipBrokenRows={state.format ? () => skipBrokenRows(state.file) : undefined}
           onChooseAnother={reset}
         />
       )}
@@ -53,6 +53,7 @@ export default function App() {
           region={region}
           updating={updating}
           onOverride={setOverride}
+          onSheet={(sheet) => void start(state.file, sheet)}
           onChooseAnother={reset}
         />
       )}

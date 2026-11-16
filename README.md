@@ -2,7 +2,7 @@
 
 **Find what's wrong with a file before anyone builds on it.**
 
-Dataset Detective profiles a CSV entirely in your browser. It works out how the file is written, whether it reads cleanly, and what each column really contains — and nothing is uploaded anywhere.
+Dataset Detective profiles a CSV, Excel, Parquet or JSON file entirely in your browser. It works out how the file is written, whether it reads cleanly, and what each column really contains — and nothing is uploaded anywhere.
 
 [![CI](https://github.com/NanaYawJr/dataset-detective/actions/workflows/ci.yml/badge.svg)](https://github.com/NanaYawJr/dataset-detective/actions/workflows/ci.yml)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/NanaYawJr/dataset-detective)
@@ -19,11 +19,14 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 
 ## What it does today
 
-**Loading the file (0.1)**
+**Loading the file (0.1, more formats in 0.4)**
 
 - **Detects how the file is written:** encoding (UTF-8, UTF-8 with BOM, UTF-16, Windows-1252), delimiter (comma, semicolon, tab, pipe), header row and line endings.
 - **Checks it can be read cleanly** and, if not, stops and explains why in plain English — which lines have the wrong number of columns, or where a quote is never closed. You can choose to skip broken rows; skipped rows are counted, never hidden.
 - **Full file or a repeatable sample** of 100,000 rows for large files.
+- **Excel workbooks (.xlsx):** finds the table under any title rows, lets you pick the sheet, and turns Excel's stored day counts into real dates. It reports hidden sheets, merged cells, error values and formulas that were never calculated.
+- **Parquet:** reports the types the file declares, then checks the values anyway — a column declared as text that holds dates or amounts is flagged.
+- **JSON and JSON Lines:** finds the list of records (even under a key such as `results`), flattens nested objects into `address.city`-style columns, and keeps lists as text.
 
 **Deciding each column (0.2)**
 
@@ -40,7 +43,7 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 - **Date coverage:** a rows-per-month chart for each date column; months with no rows in an otherwise steady run, and dates in the future, are flagged.
 - **Corrections:** if a decision is wrong, change a column's role or date order. Everything updates, and the correction is labelled as yours, with the original evidence still visible.
 
-Every value is read as text first. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the CSV reader, so a value like `03/04/2026` is never silently turned into the wrong date.
+Every value is read as text first, whatever the file format. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the file reader, so a value like `03/04/2026` is never silently turned into the wrong date, and every check works the same on every format.
 
 ## Roadmap
 
@@ -49,14 +52,14 @@ Every value is read as text first. Deciding what a column really is — a number
 | **0.1** ✅ | Load the file: format detection, clean-read check, raw column statistics                                                                                    |
 | **0.2** ✅ | Decide each column: numbers stored as text, identifiers, dates with day/month evidence, packed fields (`City \| Region`), placeholder blanks, personal data |
 | **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections; first public deployment        |
-| 0.4        | Fix and export: Power Query M, T-SQL and pandas code, suggested validation rules, PDF report, saved profiles                                                |
-| 0.5        | Excel, Parquet and JSON files; compare two files                                                                                                            |
+| **0.4** ✅ | More file formats: Excel workbooks, Parquet, JSON and JSON Lines, all read in the browser                                                                   |
+| 0.5        | Fix and export: Power Query M, T-SQL and pandas code, suggested validation rules, PDF report, saved profiles; compare two files                             |
 | 0.6        | Optional, opt-in plain-English explanation of a report, sending a masked summary only — never rows                                                          |
 
 ## Privacy
 
 - Files are read with the browser's File API and analysed by [DuckDB-WASM](https://duckdb.org/docs/stable/clients/wasm/overview), a database engine compiled to WebAssembly that runs inside the page.
-- The production build sets a strict [Content Security Policy](docs/decisions/0004-strict-content-security-policy.md): the page may only load and fetch its own files, so it cannot send your data anywhere. The engine is bundled with the site rather than fetched from a CDN, and extension downloads are switched off.
+- The production build sets a strict [Content Security Policy](docs/decisions/0004-strict-content-security-policy.md): the page may only load and fetch its own files, so it cannot send your data anywhere. The engine is bundled with the site rather than fetched from a CDN, and extension downloads are switched off. Excel, Parquet and JSON files are read by code that ships with the page, for the same reason.
 - The only thing stored is your region choice, in your own browser.
 
 See [PRIVACY.md](PRIVACY.md) for details.
@@ -65,7 +68,8 @@ See [PRIVACY.md](PRIVACY.md) for details.
 
 ```mermaid
 flowchart LR
-  A[File dropped] --> B[Detect format]
+  A[File dropped] --> A2[Read it<br/>CSV · Excel · Parquet · JSON]
+  A2 --> B[Detect format]
   B --> C{Can it be read cleanly?}
   C -- no --> D[Stop and explain]
   D -- skip broken rows --> E
@@ -81,6 +85,7 @@ The full design, including the stages still to come, is in [docs/architecture.md
 
 - **React 19 + TypeScript**, built with **Vite**
 - **DuckDB-WASM** for in-browser SQL, running in a Web Worker
+- **fflate** to unzip Excel workbooks (read by a small purpose-built reader) and **hyparquet** to read Parquet, both in a Web Worker
 - **Tailwind CSS** for styling
 - **Vitest** for unit tests, **Playwright** for browser tests against the production build
 - **oxlint** and **Prettier** for linting and formatting
@@ -107,7 +112,7 @@ npm ci
 npm run dev
 ```
 
-Try it with the included sample file: [`samples/sales-sample.csv`](samples/sales-sample.csv).
+Try it with the included sample files in [`samples/`](samples): the same sales extract as CSV, as an Excel workbook (with a title above the header and a second sheet) and as Parquet.
 
 ## Deployment
 
@@ -127,6 +132,8 @@ The site is built into a small container and served by Caddy with strict securit
 | `npm run format`     | Format all files                                                   |
 | `npm run sample`     | Regenerate the synthetic sample file                               |
 
+The Excel and Parquet samples and test files are written by `python scripts/make-fixtures.py` and committed, so Python is only needed to change them.
+
 Browser tests need Chromium the first time: `npx playwright install --with-deps chromium`.
 
 ## Testing
@@ -134,6 +141,7 @@ Browser tests need Chromium the first time: `npx playwright install --with-deps 
 The tests are built around a **golden sample**: [`samples/sales-sample.csv`](samples/sales-sample.csv), a synthetic sales extract generated by [`scripts/make-sample.mjs`](scripts/make-sample.mjs) with deliberate, known problems — repeated order IDs, discounts stored as `"5%"`, a packed `City | Region` column, a `4-Not Specified` placeholder, day-first dates with a missing month, and rows that ship before they were ordered. Because the problems are known in advance, every check can be tested against an exact expected answer.
 
 - **Unit tests** cover format detection, the column rules, NHS check digits, placeholders, region formatting and plain-English explanations.
+- **Format tests** read Excel and Parquet files written by four different real programs (openpyxl, XlsxWriter, pyarrow and DuckDB), and prove that the Excel and Parquet samples give the same column decisions as the CSV sample.
 - **Integration tests** run the real evidence SQL on the same DuckDB engine the browser uses, in Node, against the golden sample and a personal-data fixture, with expected answers computed independently.
 - **Browser tests** run the production build in Chromium with the security policy active, and fail on any console error — so a policy violation is caught, not just a wrong number.
 
@@ -142,14 +150,15 @@ The tests are built around a **golden sample**: [`samples/sales-sample.csv`](sam
 ```
 src/
   lib/format/     Encoding, delimiter and header detection; plain-English explanations
+  lib/source/     Readers for Excel, Parquet and JSON, and the worker they run in
   lib/profile/    DuckDB setup, evidence SQL and the profiling pipeline
   lib/rules/      Column decisions, findings, corrections, placeholder and NHS number checks
   lib/table/      Whole-table checks: planning, SQL and interpretation
   lib/region.ts   Region setting: date and number display
   hooks/          The React hook that runs the pipeline
   components/     Upload, progress, stop, findings and results screens
-samples/          The golden sample file
-scripts/          Sample generator
+samples/          The golden sample as CSV, Excel and Parquet
+scripts/          Sample and fixture generators
 e2e/              Browser tests
 docs/             Architecture and decision records
 ```

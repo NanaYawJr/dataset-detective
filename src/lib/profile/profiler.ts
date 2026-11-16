@@ -1,9 +1,11 @@
-import { decode, detectFormat, type FormatReport } from '../format/detectFormat';
+import { decode, type FormatReport } from '../format/detectFormat';
 import type { Region } from '../region';
 import { decideColumns } from '../rules/decide';
 import type { ColumnDecision, ColumnFacts, Overrides } from '../rules/types';
 import { interpretTable } from '../table/interpret';
 import { runTableChecks, todayKey } from '../table/run';
+import { withDeclaredNote } from '../source/declared';
+import type { PreparedSource } from '../source/types';
 import type { TableReport } from '../table/types';
 import { getDuckDb, duckdb } from './duckdb';
 import {
@@ -18,17 +20,8 @@ import {
 import { createTableSql, needsTranscoding, quoteIdent, readCsvSql } from './sql';
 import type { ColumnStats, DateRange, MeasureStats, ProfileResult, Scope, Step, ValueCount } from './types';
 
-/** How much of the file is read to detect its format. */
-export const FORMAT_SAMPLE_BYTES = 1024 * 1024;
-
 const TABLE = 'data';
 const SOURCE_FILE = 'input.csv';
-
-export async function inspectFile(file: File): Promise<FormatReport> {
-  const slice = file.slice(0, FORMAT_SAMPLE_BYTES);
-  const bytes = new Uint8Array(await slice.arrayBuffer());
-  return detectFormat(bytes, file.size > FORMAT_SAMPLE_BYTES);
-}
 
 export interface ProfileOptions {
   scope: Scope;
@@ -68,14 +61,15 @@ function groupValues(list: Row[]): Map<string, ValueCount[]> {
   return grouped;
 }
 
-async function registerSource(db: duckdb.AsyncDuckDB, file: File, format: FormatReport) {
+async function registerSource(db: duckdb.AsyncDuckDB, data: Blob, format: FormatReport) {
   await db.dropFile(SOURCE_FILE).catch(() => undefined);
   if (needsTranscoding(format.encoding)) {
     // DuckDB reads UTF-8; convert other encodings in memory first.
-    const text = decode(new Uint8Array(await file.arrayBuffer()), format.encoding);
+    const text = decode(new Uint8Array(await data.arrayBuffer()), format.encoding);
     await db.registerFileBuffer(SOURCE_FILE, new TextEncoder().encode(text));
   } else {
-    await db.registerFileHandle(SOURCE_FILE, file, duckdb.DuckDBDataProtocol.BROWSER_FILEREADER, true);
+    const handle = data instanceof File ? data : new File([data], SOURCE_FILE);
+    await db.registerFileHandle(SOURCE_FILE, handle, duckdb.DuckDBDataProtocol.BROWSER_FILEREADER, true);
   }
 }
 
@@ -151,13 +145,19 @@ async function checkTable(
   return interpretTable(results, { sampled, region });
 }
 
-export async function profileFile(file: File, format: FormatReport, options: ProfileOptions): Promise<ProfileResult> {
+/**
+ * Profiles a file that has been prepared (see lib/source/prepare.ts): the
+ * database reads `source.data`, which is the file itself for delimited
+ * text and text made from it for Excel, Parquet and JSON.
+ */
+export async function profileFile(file: File, source: PreparedSource, options: ProfileOptions): Promise<ProfileResult> {
+  const { format } = source;
   const started = performance.now();
   const step = options.onStep ?? (() => undefined);
 
   step('load');
   const db = await getDuckDb();
-  await registerSource(db, file, format);
+  await registerSource(db, source.data, format);
   const conn = await db.connect();
 
   try {
@@ -231,6 +231,7 @@ export async function profileFile(file: File, format: FormatReport, options: Pro
       fileName: file.name,
       fileSize: file.size,
       format,
+      source: withDeclaredNote(source.details, stats),
       scope: options.scope,
       region: options.region,
       totalRows,
@@ -262,7 +263,7 @@ export async function redecide(result: ProfileResult, region: Region, overrides:
     });
     const sampled = result.profiledRows < result.totalRows;
     const table = await checkTable(conn, columns, result.profiledRows, region, sampled);
-    return { ...result, region, overrides, columns, table };
+    return { ...result, region, overrides, columns, table, source: withDeclaredNote(result.source, columns) };
   } finally {
     await conn.close();
   }

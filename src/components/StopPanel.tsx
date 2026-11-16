@@ -21,7 +21,7 @@ export function StopPanel({ file, format, engineMessage, onSkipBrokenRows, onCho
       <div className="flex flex-col gap-1">
         <p className="font-mono text-sm text-muted">
           {file.name} · {formatBytes(file.size)}
-          {format && format.problems[0]?.kind !== 'not-text' && format.problems[0]?.kind !== 'empty-file'
+          {format && !['not-text', 'empty-file', 'cannot-read'].includes(format.problems[0]?.kind ?? '')
             ? ` · ${describeFormat(format)}`
             : ''}
         </p>

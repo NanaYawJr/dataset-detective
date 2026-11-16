@@ -30,7 +30,9 @@ export type FormatProblem =
       examples: { line: number; found: number }[];
     }
   | { kind: 'blank-headers'; positions: number[] }
-  | { kind: 'duplicate-headers'; names: string[] };
+  | { kind: 'duplicate-headers'; names: string[] }
+  /** An Excel, Parquet or JSON file that can't be turned into a table, with the reason in plain words. */
+  | { kind: 'cannot-read'; title: string; detail: string };
 
 /** Problems that stop loading until the user decides what to do. */
 export const BLOCKING_PROBLEMS: FormatProblem['kind'][] = [
@@ -38,6 +40,7 @@ export const BLOCKING_PROBLEMS: FormatProblem['kind'][] = [
   'not-text',
   'unterminated-quote',
   'inconsistent-fields',
+  'cannot-read',
 ];
 
 export interface FormatReport {
@@ -175,6 +178,24 @@ export function generatedColumnNames(count: number): string[] {
   return Array.from({ length: count }, (_, i) => `Column ${i + 1}`);
 }
 
+/** Blank and repeated column names. They don't stop loading, but the reader has to rename them. */
+export function headerProblems(columns: string[]): FormatProblem[] {
+  const problems: FormatProblem[] = [];
+  const blanks = columns.flatMap((name, i) => (name === '' ? [i + 1] : []));
+  if (blanks.length > 0) problems.push({ kind: 'blank-headers', positions: blanks });
+
+  const seen = new Set<string>();
+  const duplicates = new Set<string>();
+  for (const name of columns) {
+    if (name === '') continue;
+    const key = name.toLowerCase();
+    if (seen.has(key)) duplicates.add(name);
+    seen.add(key);
+  }
+  if (duplicates.size > 0) problems.push({ kind: 'duplicate-headers', names: [...duplicates] });
+  return problems;
+}
+
 export function detectFormat(bytes: Uint8Array, sampleTruncated: boolean): FormatReport {
   const base = {
     encoding: 'utf-8' as Encoding,
@@ -233,20 +254,7 @@ export function detectFormat(bytes: Uint8Array, sampleTruncated: boolean): Forma
     });
   }
 
-  if (headerRecord) {
-    const blanks = columns.flatMap((name, i) => (name === '' ? [i + 1] : []));
-    if (blanks.length > 0) problems.push({ kind: 'blank-headers', positions: blanks });
-
-    const seen = new Set<string>();
-    const duplicates = new Set<string>();
-    for (const name of columns) {
-      if (name === '') continue;
-      const key = name.toLowerCase();
-      if (seen.has(key)) duplicates.add(name);
-      seen.add(key);
-    }
-    if (duplicates.size > 0) problems.push({ kind: 'duplicate-headers', names: [...duplicates] });
-  }
+  if (headerRecord) problems.push(...headerProblems(columns));
 
   return {
     encoding,

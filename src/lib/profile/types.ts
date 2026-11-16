@@ -1,6 +1,7 @@
 import type { FormatReport } from '../format/detectFormat';
 import type { Region } from '../region';
 import type { ColumnDecision, ColumnFacts, Overrides } from '../rules/types';
+import type { SourceDetails } from '../source/types';
 import type { TableReport } from '../table/types';
 
 export type Scope = 'full' | 'sample';
@@ -49,6 +50,8 @@ export interface ProfileResult {
   fileName: string;
   fileSize: number;
   format: FormatReport;
+  /** What kind of file it was and how it was turned into a table. */
+  source: SourceDetails;
   scope: Scope;
   /** Region used when deciding the columns (it affects unproven date orders). */
   region: Region;
@@ -70,8 +73,8 @@ export interface ProfileResult {
 export type Step = 'read-sample' | 'detect-format' | 'load' | 'evidence' | 'decide' | 'stats' | 'table';
 
 export const STEP_LABELS: Record<Step, string> = {
-  'read-sample': 'Reading the start of the file',
-  'detect-format': 'Detecting encoding, delimiter and header row',
+  'read-sample': 'Reading the file',
+  'detect-format': 'Working out how the file is written',
   load: 'Loading into the in-browser database',
   evidence: 'Gathering evidence from every value',
   decide: "Deciding each column's type and role",
