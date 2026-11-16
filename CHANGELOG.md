@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-11-16
+
+### Added
+
+- Anonymous usage counting. The page tells its own server when it is opened and when a file is profiled (with the file format, and nothing else about the file). The server keeps daily totals only; distinct visitors are told apart in memory with a key that is replaced every day, so nothing identifying is stored and nobody is tracked across days.
+- A private usage page at `#stats`, behind a password set on the server, with lockout after repeated wrong passwords.
+- A small FastAPI server beside the site for the above, with its own tests in CI; Caddy passes it only requests under `/api/`.
+- Decision record 0009.
+
+### Changed
+
+- The privacy notice, the README and the wording on the upload page now describe the usage counting, including the exact contents of the two signals.
+
 ## [0.4.0] - 2026-11-16
 
 ### Added

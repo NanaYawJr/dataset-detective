@@ -12,3 +12,9 @@ docs
 *.log
 .env
 .env.*
+
+# Counting server
+api/tests
+api/data
+**/__pycache__
+**/.pytest_cache

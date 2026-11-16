@@ -37,8 +37,24 @@ function contentSecurityPolicy(): Plugin {
   };
 }
 
+/**
+ * `npm run preview` serves the built site without the counting server, so
+ * this answers its "page opened" signal the way the real server does.
+ */
+function usageCounterStandIn(): Plugin {
+  return {
+    name: 'usage-counter-stand-in',
+    configurePreviewServer(server) {
+      server.middlewares.use('/api/event', (_request, response) => {
+        response.statusCode = 204;
+        response.end();
+      });
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), contentSecurityPolicy()],
+  plugins: [react(), tailwindcss(), contentSecurityPolicy(), usageCounterStandIn()],
   build: {
     // Emit fonts and images as files instead of inline data: URLs,
     // so the security policy doesn't need to allow data: sources.

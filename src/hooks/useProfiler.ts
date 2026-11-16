@@ -6,6 +6,7 @@ import type { Region } from '../lib/region';
 import type { ColumnOverride, Overrides } from '../lib/rules/types';
 import { prepareInWorker } from '../lib/source/prepareInWorker';
 import type { PreparedSource } from '../lib/source/types';
+import { reportUsage } from '../lib/usage';
 
 export type ProfilerState =
   | { status: 'idle' }
@@ -42,6 +43,8 @@ export function useProfiler(scope: Scope, region: Region) {
           onStep: (step) => setIfCurrent({ status: 'running', file, step }),
         });
         setIfCurrent({ status: 'done', file, result });
+        // Anonymous count: a file of this format was profiled. Nothing about the file is sent.
+        if (runId.current === id) reportUsage({ type: 'profile', kind: source.details.kind });
       } catch (error) {
         setIfCurrent({ status: 'failed', file, format: source.format, message: errorMessage(error) });
       }

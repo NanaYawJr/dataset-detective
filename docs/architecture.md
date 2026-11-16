@@ -113,7 +113,7 @@ Browser tab
 
 No data leaves the tab. The production build's Content Security Policy only allows the page to load and connect to its own origin. See [decision 0004](decisions/0004-strict-content-security-policy.md).
 
-The site is served as static files from a small container; the server sends the same policy as a header. See [deployment](deployment.md) and [decision 0007](decisions/0007-static-site-in-a-container.md).
+The site is served as static files from a small container, beside a small server that counts usage anonymously ([decision 0009](decisions/0009-anonymous-usage-counts.md)); the server sends the same policy as a header. See [deployment](deployment.md) and [decision 0007](decisions/0007-static-site-in-a-container.md).
 
 ## Decision records
 

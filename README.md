@@ -59,8 +59,9 @@ Every value is read as text first, whatever the file format. Deciding what a col
 ## Privacy
 
 - Files are read with the browser's File API and analysed by [DuckDB-WASM](https://duckdb.org/docs/stable/clients/wasm/overview), a database engine compiled to WebAssembly that runs inside the page.
-- The production build sets a strict [Content Security Policy](docs/decisions/0004-strict-content-security-policy.md): the page may only load and fetch its own files, so it cannot send your data anywhere. The engine is bundled with the site rather than fetched from a CDN, and extension downloads are switched off. Excel, Parquet and JSON files are read by code that ships with the page, for the same reason.
-- The only thing stored is your region choice, in your own browser.
+- The production build sets a strict [Content Security Policy](docs/decisions/0004-strict-content-security-policy.md): the page may only load and fetch from its own address, so it cannot send your data to anyone else. The engine is bundled with the site rather than fetched from a CDN, and extension downloads are switched off. Excel, Parquet and JSON files are read by code that ships with the page, for the same reason.
+- The only thing stored in your browser is your region choice.
+- Usage is counted anonymously: the page tells its own server that it was opened and that a file of some format was profiled, and nothing about the file. Visitors are told apart in memory only, with a key that is replaced daily, so nobody is tracked. The exact signals are listed in [PRIVACY.md](PRIVACY.md).
 
 See [PRIVACY.md](PRIVACY.md) for details.
 
@@ -89,7 +90,9 @@ The full design, including the stages still to come, is in [docs/architecture.md
 - **Tailwind CSS** for styling
 - **Vitest** for unit tests, **Playwright** for browser tests against the production build
 - **oxlint** and **Prettier** for linting and formatting
-- **GitHub Actions** for CI
+- **FastAPI** and **SQLite** for the small server that counts usage, tested with **pytest**
+- **Caddy** as the web server, in a container on **Railway**
+- **GitHub Actions** for CI and publishing
 
 ## Getting started
 
@@ -143,6 +146,7 @@ The tests are built around a **golden sample**: [`samples/sales-sample.csv`](sam
 - **Unit tests** cover format detection, the column rules, NHS check digits, placeholders, region formatting and plain-English explanations.
 - **Format tests** read Excel and Parquet files written by four different real programs (openpyxl, XlsxWriter, pyarrow and DuckDB), and prove that the Excel and Parquet samples give the same column decisions as the CSV sample.
 - **Integration tests** run the real evidence SQL on the same DuckDB engine the browser uses, in Node, against the golden sample and a personal-data fixture, with expected answers computed independently.
+- **Server tests** (pytest) cover the usage counts, the password and lockout on the private usage page, and prove that no address or browser detail is written to disk.
 - **Browser tests** run the production build in Chromium with the security policy active, and fail on any console error — so a policy violation is caught, not just a wrong number.
 
 ## Project structure
@@ -155,11 +159,13 @@ src/
   lib/rules/      Column decisions, findings, corrections, placeholder and NHS number checks
   lib/table/      Whole-table checks: planning, SQL and interpretation
   lib/region.ts   Region setting: date and number display
+  lib/usage.ts    The anonymous usage signals
   hooks/          The React hook that runs the pipeline
   components/     Upload, progress, stop, findings and results screens
 samples/          The golden sample as CSV, Excel and Parquet
 scripts/          Sample and fixture generators
 e2e/              Browser tests
+api/              The server beside the site: anonymous usage counts (FastAPI)
 docs/             Architecture and decision records
 ```
 

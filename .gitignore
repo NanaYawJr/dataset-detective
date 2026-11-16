@@ -29,3 +29,8 @@ npm-debug.log*
 .env
 .env.*
 !.env.example
+
+# Counting server
+__pycache__/
+.pytest_cache/
+api/data/

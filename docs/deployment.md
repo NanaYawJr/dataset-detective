@@ -2,12 +2,14 @@
 
 The live site is at [detective.michaelopokukwarteng.com](https://detective.michaelopokukwarteng.com).
 
-Dataset Detective is a static site: HTML, JavaScript, fonts and the DuckDB engine. It is built into a small container and served by [Caddy](https://caddyserver.com). There is no application server and no database.
+Dataset Detective is a static site: HTML, JavaScript, fonts and the DuckDB engine. It is built into a small container and served by [Caddy](https://caddyserver.com). Beside it, in the same container, a small Python server counts usage anonymously and serves the private usage page; Caddy passes it only the requests under `/api/`.
 
 | File            | What it does                                                                                              |
 | --------------- | --------------------------------------------------------------------------------------------------------- |
 | `Dockerfile`    | Stage 1 builds the site with Node and compresses the files. Stage 2 is Caddy plus the built files only.   |
 | `Caddyfile`     | Serves the files with the security headers, caching rules and pre-compressed copies. Keeps no access log. |
+| `api/`          | The counting server (FastAPI). Listens only inside the container.                                         |
+| `start.sh`      | Starts the counting server and Caddy together.                                                            |
 | `railway.json`  | Tells Railway to build from the Dockerfile and to health-check the home page.                             |
 | `.dockerignore` | Keeps tests, docs and local files out of the build.                                                       |
 
@@ -27,6 +29,16 @@ The site is published by the GitHub workflow, not by linking the repository to R
 6. In the service's **Settings → Networking**, choose **Generate Domain** (enter port `8080` if asked). Open the address and profile the sample file to check it works.
 
 Until the secret exists, the `deploy` job does nothing and stays green.
+
+### Usage counts and the private usage page
+
+1. **Keep the counts between deployments.** In the service, add a **Volume** and mount it at `/data`. Without it the totals start again from zero on every deployment.
+2. **Set the password.** In the service's **Variables**, add `STATS_PASSWORD` with a long, random value. Without it the usage page stays switched off.
+3. Open `https://your-address/#stats` and enter the password.
+
+The page shows, per day: visits, distinct visitors, files profiled (by format) and distinct people who profiled a file. What is and isn't recorded is set out in [PRIVACY.md](../PRIVACY.md) and [decision 0009](decisions/0009-anonymous-usage-counts.md).
+
+To check that visitors are being told apart, open the site on two different networks (for example a laptop on Wi-Fi and a phone on mobile data): the day's visitors should go up by two.
 
 ### Custom domain
 
@@ -50,7 +62,7 @@ The response should include the Content Security Policy with `connect-src 'self'
 
 ```bash
 docker build -t dataset-detective .
-docker run --rm -p 8080:8080 dataset-detective
+docker run --rm -p 8080:8080 -e STATS_PASSWORD=change-me -v detective-data:/data dataset-detective
 ```
 
 Then open http://localhost:8080.
