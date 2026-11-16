@@ -97,6 +97,14 @@ The rules are deterministic and every finding carries its evidence. Changing the
 | Interpret | `lib/table/interpret.ts`                | Pure TypeScript: turns the counts into findings and the grain sentence, with thresholds for when a rule "nearly holds".                                                                                                                                                  |
 | Correct   | `lib/rules/decide.ts` → `applyOverride` | A user's correction is applied after the evidence-based decision, then stages 2 and 3 re-run on the table already loaded.                                                                                                                                                |
 
+### Stage 4 · Outputs (in progress)
+
+| Step  | Where                                           | Notes                                                                                                                                                                                    |
+| ----- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Plan  | `lib/fix/plan.ts`                               | Turns the column decisions into steps (drop, blank out placeholders, to number, to date, split, rank) in a form that belongs to no language. It also records what is left alone and why. |
+| Write | `lib/fix/powerQuery.ts`, `tsql.ts`, `pandas.ts` | Each writer turns the same plan into a complete script, with the reading step adapted to the kind of file. See [decision 0010](decisions/0010-one-fix-plan-three-languages.md).          |
+| Show  | `components/FixPanel.tsx`                       | Summary, language tabs, copy and download. Re-derived from the profile, so a correction changes the script.                                                                              |
+
 ### Why everything is read as text
 
 CSV readers guess types. A guess that `03/04/2026` is 4 March rather than 3 April is silently wrong for half the world. Reading text keeps every value exactly as written, so later stages can decide types from evidence — and say what that evidence was.

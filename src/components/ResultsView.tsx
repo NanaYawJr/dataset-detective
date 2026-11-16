@@ -8,6 +8,7 @@ import type { ColumnOverride } from '../lib/rules/types';
 import { ColumnTable } from './ColumnTable';
 import { CoverageSection } from './CoverageChart';
 import { FindingsPanel } from './FindingsPanel';
+import { FixPanel } from './FixPanel';
 
 interface ResultsViewProps {
   result: ProfileResult;
@@ -156,6 +157,8 @@ export function ResultsView({ result, region, updating, onOverride, onSheet, onC
       )}
 
       <FindingsPanel findings={findings} />
+
+      <FixPanel result={result} />
 
       {result.table && <CoverageSection coverage={result.table.coverage} region={region} />}
 

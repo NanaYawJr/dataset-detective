@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-16
+
+### Added
+
+- **Fix it:** a cleaning script for the profiled file in Power Query (M), T-SQL and pandas, with Copy and Download. The script is written from a plan that is the same for every language: remove empty columns, turn placeholders into blanks, convert percentages, currency and thousands separators to numbers, read dates in the proven order, split packed columns, and add a number column for ranks written into text.
+- The panel lists what the script does and what it deliberately leaves alone (codes with leading zeros; dates whose order is unproven), and follows corrections made with "Correct this".
+- The reading step adapts to the source: delimiter and encoding for text, sheet and header row for Excel, typed columns for Parquet, the record list and nested fields for JSON.
+- Tests that run the generated pandas script on the CSV, Excel and Parquet samples and check the cleaned data. CI installs pandas for this.
+- Decision record 0010.
+
 ## [0.4.1] - 2026-11-16
 
 ### Added

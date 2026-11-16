@@ -22,6 +22,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      # The generated pandas scripts are run for real by the unit tests, which needs Python and pandas.
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install pandas openpyxl pyarrow
       - run: npm ci
       - run: npm run check
       - run: npm run build

@@ -216,6 +216,7 @@ async function prepareExcel(file: File, options: PrepareOptions): Promise<Prepar
   const sheet = workbook.sheets[index];
   const format = tableFormat(table.header, table.rows, false);
   details.sheetIndex = index;
+  details.headerRow = format.hasHeader ? grid.rowNumbers[table.headerIndex] : undefined;
   details.facts = [
     `sheet "${sheet.name}"`,
     format.hasHeader ? `header on row ${grid.rowNumbers[table.headerIndex]}` : 'no header row',
@@ -332,6 +333,8 @@ async function prepareJson(file: File): Promise<PreparedSource> {
     'list-under-key': `records under "${table.listPath}"`,
   };
   details.facts = [shapes[table.shape]];
+  details.listPath = table.listPath;
+  details.jsonLines = table.shape === 'lines';
   if (table.shape === 'list-under-key') {
     details.notes.push({
       key: 'list-under-key',

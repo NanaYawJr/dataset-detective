@@ -43,6 +43,12 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 - **Date coverage:** a rows-per-month chart for each date column; months with no rows in an otherwise steady run, and dates in the future, are flagged.
 - **Corrections:** if a decision is wrong, change a column's role or date order. Everything updates, and the correction is labelled as yours, with the original evidence still visible.
 
+**Fixing what was found (0.5)**
+
+- **A cleaning script in three languages:** Power Query (M), T-SQL and pandas, written from the profile. It turns placeholders into real blanks, converts `"5%"` and `"£1,200"` to numbers, reads dates in the order the evidence proved, splits packed columns, and adds a sortable number for ranks written into text.
+- **It says what it leaves alone, and why:** codes with leading zeros stay as text, and a date column whose order nothing proves is not converted until you choose the order. Change a decision with "Correct this" and the script changes with it.
+- **Safe by construction:** a value that can't be converted becomes blank, never an error and never a wrong value.
+
 Every value is read as text first, whatever the file format. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the file reader, so a value like `03/04/2026` is never silently turned into the wrong date, and every check works the same on every format.
 
 ## Roadmap
@@ -53,7 +59,7 @@ Every value is read as text first, whatever the file format. Deciding what a col
 | **0.2** ✅ | Decide each column: numbers stored as text, identifiers, dates with day/month evidence, packed fields (`City \| Region`), placeholder blanks, personal data |
 | **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections; first public deployment        |
 | **0.4** ✅ | More file formats: Excel workbooks, Parquet, JSON and JSON Lines, all read in the browser                                                                   |
-| 0.5        | Fix and export: Power Query M, T-SQL and pandas code, suggested validation rules, PDF report, saved profiles; compare two files                             |
+| **0.5** 🚧 | Fix and export. Done: cleaning scripts in Power Query M, T-SQL and pandas. Next: suggested validation rules, a report to share, compare two files           |
 | 0.6        | Optional, opt-in plain-English explanation of a report, sending a masked summary only — never rows                                                          |
 
 ## Privacy
@@ -146,6 +152,7 @@ The tests are built around a **golden sample**: [`samples/sales-sample.csv`](sam
 - **Unit tests** cover format detection, the column rules, NHS check digits, placeholders, region formatting and plain-English explanations.
 - **Format tests** read Excel and Parquet files written by four different real programs (openpyxl, XlsxWriter, pyarrow and DuckDB), and prove that the Excel and Parquet samples give the same column decisions as the CSV sample.
 - **Integration tests** run the real evidence SQL on the same DuckDB engine the browser uses, in Node, against the golden sample and a personal-data fixture, with expected answers computed independently.
+- **Generated code tests:** the pandas script written for each sample (CSV, Excel, Parquet) is run for real in Python, and the cleaned result is checked: 1,378 rows, `5%` as 0.05, real dates, 300 placeholders blank. The T-SQL and Power Query scripts are checked for structure; they are not executed by the tests.
 - **Server tests** (pytest) cover the usage counts, the password and lockout on the private usage page, and prove that no address or browser detail is written to disk.
 - **Browser tests** run the production build in Chromium with the security policy active, and fail on any console error — so a policy violation is caught, not just a wrong number.
 
@@ -158,6 +165,7 @@ src/
   lib/profile/    DuckDB setup, evidence SQL and the profiling pipeline
   lib/rules/      Column decisions, findings, corrections, placeholder and NHS number checks
   lib/table/      Whole-table checks: planning, SQL and interpretation
+  lib/fix/        The fix plan and its three writers: Power Query, T-SQL, pandas
   lib/region.ts   Region setting: date and number display
   lib/usage.ts    The anonymous usage signals
   hooks/          The React hook that runs the pipeline

@@ -31,6 +31,11 @@ export interface SourceDetails {
   /** Excel only: every sheet in the workbook, and which one was read. */
   sheets?: SheetInfo[];
   sheetIndex?: number;
+  /** Excel only: the row of the sheet the header is on (1-based). */
+  headerRow?: number;
+  /** JSON only: where the list of records sits when it isn't the whole file, and whether it is one record per line. */
+  listPath?: string;
+  jsonLines?: boolean;
 }
 
 export interface PreparedSource {
