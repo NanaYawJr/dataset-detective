@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-11-16
+
+### Added
+
+- **Compare with an earlier version.** After profiling a file, choose an earlier copy of it (last month's extract, say). It is profiled the same way and compared: columns added, removed, renamed (names that differ only in case, spaces or punctuation) or reordered; changes of type or date order; missing values that appear or grow; category values that are new or gone; averages that shift by 10% or more and maximums that more than double; date ranges that move; identifiers that stop being unique; and problems that are new or resolved. A one-line headline sums it up.
+- **Row matching.** When both files are profiled in full and share a column that is unique in both, rows are matched on it: counts of rows added, removed and edited, edits per column, and example keys.
+- `samples/sales-sample-previous.csv`, the sample one delivery earlier, made by `scripts/make-previous.mjs`.
+- Decision record 0011.
+
+### Changed
+
+- The roadmap: validation rules and a shareable report move to "Later"; the optional explainer is next.
+
 ## [0.5.0] - 2026-11-16
 
 ### Added

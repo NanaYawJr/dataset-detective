@@ -5,6 +5,7 @@ import { ResultsView } from './components/ResultsView';
 import { StatsPage } from './components/StatsPage';
 import { StopPanel } from './components/StopPanel';
 import { UploadPanel } from './components/UploadPanel';
+import { useComparison } from './hooks/useComparison';
 import { useProfiler } from './hooks/useProfiler';
 import type { Scope } from './lib/profile/types';
 import { loadRegion, saveRegion, type Region } from './lib/region';
@@ -22,6 +23,8 @@ export default function App() {
   const [region, setRegion] = useState<Region>(loadRegion);
   const [scope, setScope] = useState<Scope>('full');
   const { state, start, skipBrokenRows, reset, setOverride, updating } = useProfiler(scope, region);
+  const doneResult = state.status === 'done' ? state.result : null;
+  const comparison = useComparison(doneResult, region);
 
   const showStats = useSyncExternalStore(watchHash, currentHash) === STATS_HASH;
 
@@ -78,6 +81,9 @@ export default function App() {
           updating={updating}
           onOverride={setOverride}
           onSheet={(sheet) => void start(state.file, sheet)}
+          comparison={comparison.state}
+          onCompare={(file) => void comparison.compare(state.result, file)}
+          onClearComparison={comparison.clear}
           onChooseAnother={reset}
         />
       )}

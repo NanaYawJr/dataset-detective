@@ -9,6 +9,8 @@ import { ColumnTable } from './ColumnTable';
 import { CoverageSection } from './CoverageChart';
 import { FindingsPanel } from './FindingsPanel';
 import { FixPanel } from './FixPanel';
+import { ComparePanel } from './ComparePanel';
+import type { ComparisonState } from '../hooks/useComparison';
 
 interface ResultsViewProps {
   result: ProfileResult;
@@ -18,10 +20,23 @@ interface ResultsViewProps {
   onOverride: (column: string, override: ColumnOverride | null) => void;
   /** Profiles another sheet of the same workbook. */
   onSheet: (sheet: number) => void;
+  comparison: ComparisonState;
+  onCompare: (file: File) => void;
+  onClearComparison: () => void;
   onChooseAnother: () => void;
 }
 
-export function ResultsView({ result, region, updating, onOverride, onSheet, onChooseAnother }: ResultsViewProps) {
+export function ResultsView({
+  result,
+  region,
+  updating,
+  onOverride,
+  onSheet,
+  comparison,
+  onCompare,
+  onClearComparison,
+  onChooseAnother,
+}: ResultsViewProps) {
   const { format, source } = result;
   const columnNames: Record<typeof source.kind, string> = {
     delimited: 'Names from the header row',
@@ -159,6 +174,14 @@ export function ResultsView({ result, region, updating, onOverride, onSheet, onC
       <FindingsPanel findings={findings} />
 
       <FixPanel result={result} />
+
+      <ComparePanel
+        result={result}
+        region={region}
+        state={comparison}
+        onCompare={onCompare}
+        onClear={onClearComparison}
+      />
 
       {result.table && <CoverageSection coverage={result.table.coverage} region={region} />}
 

@@ -49,6 +49,12 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 - **It says what it leaves alone, and why:** codes with leading zeros stay as text, and a date column whose order nothing proves is not converted until you choose the order. Change a decision with "Correct this" and the script changes with it.
 - **Safe by construction:** a value that can't be converted becomes blank, never an error and never a wrong value.
 
+**Comparing with an earlier version (0.5)**
+
+- **What changed since last time:** profile this month's extract, then choose last month's. The comparison lists columns added, removed, renamed or reordered; types and date orders that changed; new missing values; category values that appeared or disappeared; shifted averages and suspicious new maximums; date ranges that moved; and problems that are new or have gone.
+- **Row by row, when the file has a key:** rows are matched on a column that is unique in both files, giving counts of rows added, removed and edited, which columns were edited, and example keys.
+- Try it with [`samples/sales-sample-previous.csv`](samples/sales-sample-previous.csv), the sample as it looked one delivery earlier.
+
 Every value is read as text first, whatever the file format. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the file reader, so a value like `03/04/2026` is never silently turned into the wrong date, and every check works the same on every format.
 
 ## Roadmap
@@ -59,8 +65,9 @@ Every value is read as text first, whatever the file format. Deciding what a col
 | **0.2** ✅ | Decide each column: numbers stored as text, identifiers, dates with day/month evidence, packed fields (`City \| Region`), placeholder blanks, personal data |
 | **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections; first public deployment        |
 | **0.4** ✅ | More file formats: Excel workbooks, Parquet, JSON and JSON Lines, all read in the browser                                                                   |
-| **0.5** 🚧 | Fix and export. Done: cleaning scripts in Power Query M, T-SQL and pandas. Next: suggested validation rules, a report to share, compare two files           |
+| **0.5** ✅ | Cleaning scripts in Power Query M, T-SQL and pandas; comparing a file with an earlier version of it                                                         |
 | 0.6        | Optional, opt-in plain-English explanation of a report, sending a masked summary only — never rows                                                          |
+| Later      | Suggested validation rules for the next delivery; a report to share                                                                                         |
 
 ## Privacy
 
@@ -166,11 +173,12 @@ src/
   lib/rules/      Column decisions, findings, corrections, placeholder and NHS number checks
   lib/table/      Whole-table checks: planning, SQL and interpretation
   lib/fix/        The fix plan and its three writers: Power Query, T-SQL, pandas
+  lib/compare/    Comparing a file with an earlier version: rules, SQL and row matching
   lib/region.ts   Region setting: date and number display
   lib/usage.ts    The anonymous usage signals
   hooks/          The React hook that runs the pipeline
   components/     Upload, progress, stop, findings and results screens
-samples/          The golden sample as CSV, Excel and Parquet
+samples/          The golden sample as CSV, Excel and Parquet, and an earlier delivery of it
 scripts/          Sample and fixture generators
 e2e/              Browser tests
 api/              The server beside the site: anonymous usage counts (FastAPI)

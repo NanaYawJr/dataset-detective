@@ -4,6 +4,8 @@ import { decideColumns } from '../rules/decide';
 import type { ColumnDecision, ColumnFacts, Overrides } from '../rules/types';
 import { interpretTable } from '../table/interpret';
 import { runTableChecks, todayKey } from '../table/run';
+import { compareTables } from '../compare/run';
+import type { TableComparison } from '../compare/types';
 import { withDeclaredNote } from '../source/declared';
 import type { PreparedSource } from '../source/types';
 import type { TableReport } from '../table/types';
@@ -20,7 +22,9 @@ import {
 import { createTableSql, needsTranscoding, quoteIdent, readCsvSql } from './sql';
 import type { ColumnStats, DateRange, MeasureStats, ProfileResult, Scope, Step, ValueCount } from './types';
 
-const TABLE = 'data';
+/** The profiled file, and the earlier version it is being compared with. */
+export const TABLE = 'data';
+export const EARLIER_TABLE = 'earlier';
 const SOURCE_FILE = 'input.csv';
 
 export interface ProfileOptions {
@@ -28,6 +32,8 @@ export interface ProfileOptions {
   skipBrokenRows: boolean;
   region: Region;
   onStep?: (step: Step) => void;
+  /** Which table to load into. Left out, the main one. */
+  table?: string;
 }
 
 type Row = Record<string, unknown>;
@@ -104,6 +110,7 @@ async function decideAndMeasure(
   rowCount: number,
   region: Region,
   overrides: Overrides,
+  table = TABLE,
 ): Promise<Decided[]> {
   const decisions = decideColumns(
     columns.map(({ name, facts }) => ({ name, facts })),
@@ -112,7 +119,7 @@ async function decideAndMeasure(
     overrides,
   );
   const typed: TypedColumn[] = columns.map((c, i) => ({ name: c.sqlName, decision: decisions[i].decision }));
-  const sql = typedStatsSql(TABLE, typed);
+  const sql = typedStatsSql(table, typed);
   const [stats] = sql ? await rows(conn, sql) : [{} as Row];
 
   return decisions.map(({ decision }, i) => {
@@ -140,8 +147,9 @@ async function checkTable(
   rowCount: number,
   region: Region,
   sampled: boolean,
+  table = TABLE,
 ): Promise<TableReport> {
-  const results = await runTableChecks((sql) => rows(conn, sql), TABLE, columns, rowCount, todayKey(new Date()));
+  const results = await runTableChecks((sql) => rows(conn, sql), table, columns, rowCount, todayKey(new Date()));
   return interpretTable(results, { sampled, region });
 }
 
@@ -154,6 +162,7 @@ export async function profileFile(file: File, source: PreparedSource, options: P
   const { format } = source;
   const started = performance.now();
   const step = options.onStep ?? (() => undefined);
+  const target = options.table ?? TABLE;
 
   step('load');
   const db = await getDuckDb();
@@ -178,24 +187,24 @@ export async function profileFile(file: File, source: PreparedSource, options: P
       const [count] = await rows(conn, `SELECT count(*) AS n FROM ${read(options.skipBrokenRows)}`);
       totalRows = toNumber(count.n);
       if (options.skipBrokenRows) skippedRows = await countRejectedLines(conn);
-      await conn.query(createTableSql(TABLE, read(false), true));
+      await conn.query(createTableSql(target, read(false), true));
     } else {
-      await conn.query(createTableSql(TABLE, read(options.skipBrokenRows), false));
-      const [count] = await rows(conn, `SELECT count(*) AS n FROM ${quoteIdent(TABLE)}`);
+      await conn.query(createTableSql(target, read(options.skipBrokenRows), false));
+      const [count] = await rows(conn, `SELECT count(*) AS n FROM ${quoteIdent(target)}`);
       totalRows = toNumber(count.n);
       if (options.skipBrokenRows) skippedRows = await countRejectedLines(conn);
     }
 
-    const [profiled] = await rows(conn, `SELECT count(*) AS n FROM ${quoteIdent(TABLE)}`);
+    const [profiled] = await rows(conn, `SELECT count(*) AS n FROM ${quoteIdent(target)}`);
     const profiledRows = toNumber(profiled.n);
 
     // DuckDB's own column names, in file order (it renames blank and duplicate headers).
-    const described = await rows(conn, `DESCRIBE ${quoteIdent(TABLE)}`);
+    const described = await rows(conn, `DESCRIBE ${quoteIdent(target)}`);
     const sqlNames = described.map((r) => String(r.column_name));
     const displayName = (sqlName: string, index: number) => (format.hasHeader ? sqlName : `Column ${index + 1}`);
 
     step('evidence');
-    await conn.query(valueCountsSql(TABLE));
+    await conn.query(valueCountsSql(target));
     const factsByColumn = new Map((await rows(conn, columnFactsSql())).map((r) => [String(r.column_name), r]));
     const empty: Row = { filled: 0, distinct_values: 0 };
     const columns = sqlNames.map((sqlName, index) => ({
@@ -205,7 +214,7 @@ export async function profileFile(file: File, source: PreparedSource, options: P
     }));
 
     step('decide');
-    const decided = await decideAndMeasure(conn, columns, profiledRows, options.region, {});
+    const decided = await decideAndMeasure(conn, columns, profiledRows, options.region, {}, target);
 
     step('stats');
     const top = groupValues(await rows(conn, topValuesAllSql()));
@@ -225,7 +234,7 @@ export async function profileFile(file: File, source: PreparedSource, options: P
 
     step('table');
     const sampled = profiledRows < totalRows;
-    const table = await checkTable(conn, stats, profiledRows, options.region, sampled);
+    const table = await checkTable(conn, stats, profiledRows, options.region, sampled, target);
 
     return {
       fileName: file.name,
@@ -264,6 +273,37 @@ export async function redecide(result: ProfileResult, region: Region, overrides:
     const sampled = result.profiledRows < result.totalRows;
     const table = await checkTable(conn, columns, result.profiledRows, region, sampled);
     return { ...result, region, overrides, columns, table, source: withDeclaredNote(result.source, columns) };
+  } finally {
+    await conn.close();
+  }
+}
+
+/**
+ * Compares the profiled file with an earlier version of it: profiles the
+ * earlier file into its own table, then compares the two tables.
+ */
+export async function compareWithEarlier(
+  current: ProfileResult,
+  file: File,
+  source: PreparedSource,
+  options: Pick<ProfileOptions, 'region' | 'onStep'>,
+): Promise<{ earlier: ProfileResult; tables: TableComparison }> {
+  const earlier = await profileFile(file, source, {
+    scope: current.scope,
+    skipBrokenRows: false,
+    region: options.region,
+    onStep: options.onStep,
+    table: EARLIER_TABLE,
+  });
+  const db = await getDuckDb();
+  const conn = await db.connect();
+  try {
+    const tables = await compareTables(
+      (sql) => rows(conn, sql),
+      { table: TABLE, result: current },
+      { table: EARLIER_TABLE, result: earlier },
+    );
+    return { earlier, tables };
   } finally {
     await conn.close();
   }

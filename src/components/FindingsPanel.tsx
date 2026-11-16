@@ -1,11 +1,5 @@
 import type { ShownFinding } from '../lib/display';
-import type { Severity } from '../lib/rules/types';
-
-const BADGE: Record<Severity, { label: string; className: string }> = {
-  high: { label: 'High', className: 'bg-red text-white' },
-  warn: { label: 'Warning', className: 'bg-amber-tint text-amber' },
-  info: { label: 'Note', className: 'bg-surface text-ink-soft' },
-};
+import { BADGE } from './severity';
 
 export function FindingsPanel({ findings }: { findings: ShownFinding[] }) {
   const counts = { high: 0, warn: 0, info: 0 };

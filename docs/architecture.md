@@ -105,6 +105,14 @@ The rules are deterministic and every finding carries its evidence. Changing the
 | Write | `lib/fix/powerQuery.ts`, `tsql.ts`, `pandas.ts` | Each writer turns the same plan into a complete script, with the reading step adapted to the kind of file. See [decision 0010](decisions/0010-one-fix-plan-three-languages.md).          |
 | Show  | `components/FixPanel.tsx`                       | Summary, language tabs, copy and download. Re-derived from the profile, so a correction changes the script.                                                                              |
 
+### Comparing with an earlier version
+
+| Step    | Where                                 | Notes                                                                                                                                                                                                                      |
+| ------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Profile | `profiler.ts` → `compareWithEarlier`  | The earlier file goes through the same stages into a second table, `earlier`, beside the current file's `data`.                                                                                                            |
+| Compare | `lib/compare/run.ts`, `compareSql.ts` | Queries over both tables: category values in only one file, and, when a column is unique in both, a full outer join on it for rows added, removed and edited. See [decision 0011](decisions/0011-compare-two-profiles.md). |
+| Explain | `lib/compare/compare.ts`              | Pure TypeScript: compares the two profiles column by column and turns the differences into plain-English changes, ranked by severity.                                                                                      |
+
 ### Why everything is read as text
 
 CSV readers guess types. A guess that `03/04/2026` is 4 March rather than 3 April is silently wrong for half the world. Reading text keeps every value exactly as written, so later stages can decide types from evidence — and say what that evidence was.
