@@ -42,37 +42,46 @@ function compareColumn(
   region: Region,
 ): ColumnChange[] {
   const changes: ColumnChange[] = [];
-  const add = (severity: Severity, text: string) => changes.push({ severity, text });
+  /** `gist` says the same with no values from the file in it, for the explainer. */
+  const add = (severity: Severity, text: string, gist: string) => changes.push({ severity, text, gist });
   const n = (value: number) => formatNumber(value, region);
+  const typeNow = typeLabel(now.decision.type).toLowerCase();
+  const typeBefore = typeLabel(before.decision.type).toLowerCase();
 
   if (now.decision.type !== before.decision.type) {
     add(
       'high',
-      `Type changed from ${typeLabel(before.decision.type).toLowerCase()} to ${typeLabel(now.decision.type).toLowerCase()}. Anything built on the old type will break or silently misread it.`,
+      `Type changed from ${typeBefore} to ${typeNow}. Anything built on the old type will break or silently misread it.`,
+      `type changed from ${typeBefore} to ${typeNow}`,
     );
   } else if (now.decision.role !== before.decision.role) {
-    add(
-      'info',
-      `Now treated as ${roleLabel(now.decision.role).toLowerCase()}; it was ${roleLabel(before.decision.role).toLowerCase()}.`,
-    );
+    const roleNow = roleLabel(now.decision.role).toLowerCase();
+    const roleBefore = roleLabel(before.decision.role).toLowerCase();
+    add('info', `Now treated as ${roleNow}; it was ${roleBefore}.`, `now treated as ${roleNow}; it was ${roleBefore}`);
   }
 
   const beforeOrder = before.decision.date?.order;
   const nowOrder = now.decision.date?.order;
   if (beforeOrder && nowOrder && beforeOrder !== nowOrder) {
-    add('high', `Dates are now ${nowOrder}; they were ${beforeOrder}. The same text now means a different date.`);
+    add(
+      'high',
+      `Dates are now ${nowOrder}; they were ${beforeOrder}. The same text now means a different date.`,
+      `date order changed from ${beforeOrder} to ${nowOrder}`,
+    );
   }
 
   const missingNow = missingShare(now, rows.current);
   const missingBefore = missingShare(before, rows.earlier);
   const missingChange = missingNow - missingBefore;
   if (Math.abs(missingChange) >= MISSING_NOTABLE || (missingBefore === 0) !== (missingNow === 0)) {
+    const gist = `missing values went from ${percent(missingBefore)} to ${percent(missingNow)} of rows`;
     if (missingChange > 0) {
       add(
         missingChange >= MISSING_SERIOUS || missingBefore === 0 ? 'warn' : 'info',
         missingBefore === 0
           ? `Now has missing values: ${percent(missingNow)} of rows. It had none.`
           : `More values are missing: ${percent(missingNow)} of rows, up from ${percent(missingBefore)}.`,
+        gist,
       );
     } else {
       add(
@@ -80,58 +89,69 @@ function compareColumn(
         missingNow === 0
           ? `No longer has missing values (it was ${percent(missingBefore)}).`
           : `Fewer values are missing: ${percent(missingNow)} of rows, down from ${percent(missingBefore)}.`,
+        gist,
       );
     }
   }
 
   if (values) {
+    const count = (k: number, one: string, many: string) => `${k} ${k === 1 ? one : many}`;
     if (values.added.length > 0) {
       add(
         'warn',
         `${values.added.length === 1 ? 'A new value' : `${values.added.length} new values`}: ${quotedList(values.added)}. Reports that group by this column may need updating.`,
+        `${count(values.added.length, 'new category value', 'new category values')}`,
       );
     }
     if (values.removed.length > 0) {
       add(
         'info',
         `${values.removed.length === 1 ? 'A value no longer appears' : `${values.removed.length} values no longer appear`}: ${quotedList(values.removed)}.`,
+        `${count(values.removed.length, 'category value no longer appears', 'category values no longer appear')}`,
       );
     }
   }
 
   if (now.measure && before.measure && before.measure.mean !== 0) {
+    const type = now.decision.type;
     const shift = (now.measure.mean - before.measure.mean) / Math.abs(before.measure.mean);
     if (Math.abs(shift) >= MEAN_NOTABLE) {
-      const type = now.decision.type;
+      const direction = shift > 0 ? 'rose' : 'fell';
       add(
         Math.abs(shift) >= MEAN_SERIOUS ? 'warn' : 'info',
-        `The average ${shift > 0 ? 'rose' : 'fell'} ${percent(Math.abs(shift))}, from ${formatMeasure(before.measure.mean, type, region)} to ${formatMeasure(now.measure.mean, type, region)}.`,
+        `The average ${direction} ${percent(Math.abs(shift))}, from ${formatMeasure(before.measure.mean, type, region)} to ${formatMeasure(now.measure.mean, type, region)}.`,
+        `the average ${direction} ${percent(Math.abs(shift))}`,
       );
     }
-    if (now.measure.max > before.measure.max && now.measure.max > before.measure.max * 2 && before.measure.max > 0) {
+    if (now.measure.max > before.measure.max * 2 && before.measure.max > 0) {
       add(
         'warn',
-        `The largest value is now ${formatMeasure(now.measure.max, now.decision.type, region)}, more than double the earlier ${formatMeasure(before.measure.max, now.decision.type, region)}. Check for an outlier or a change of unit.`,
+        `The largest value is now ${formatMeasure(now.measure.max, type, region)}, more than double the earlier ${formatMeasure(before.measure.max, type, region)}. Check for an outlier or a change of unit.`,
+        'the largest value more than doubled',
       );
     }
   }
 
   if (now.dateRange && before.dateRange) {
+    const date = (key: number) => formatDateKey(key, region);
     if (now.dateRange.last < before.dateRange.last) {
       add(
         'warn',
-        `The latest date moved back to ${formatDateKey(now.dateRange.last, region)}; it was ${formatDateKey(before.dateRange.last, region)}. Recent rows may be missing.`,
+        `The latest date moved back to ${date(now.dateRange.last)}; it was ${date(before.dateRange.last)}. Recent rows may be missing.`,
+        'the latest date moved earlier, so recent rows may be missing',
       );
     } else if (now.dateRange.last > before.dateRange.last) {
       add(
         'info',
-        `Now runs to ${formatDateKey(now.dateRange.last, region)}; it ran to ${formatDateKey(before.dateRange.last, region)}.`,
+        `Now runs to ${date(now.dateRange.last)}; it ran to ${date(before.dateRange.last)}.`,
+        'the latest date moved later',
       );
     }
     if (now.dateRange.first > before.dateRange.first) {
       add(
         'info',
-        `Now starts at ${formatDateKey(now.dateRange.first, region)}; it started at ${formatDateKey(before.dateRange.first, region)}. Earlier rows are no longer included.`,
+        `Now starts at ${date(now.dateRange.first)}; it started at ${date(before.dateRange.first)}. Earlier rows are no longer included.`,
+        'the earliest date moved later, so older rows are no longer included',
       );
     }
   }
@@ -140,9 +160,11 @@ function compareColumn(
   const wasUnique = before.facts.distinct === before.facts.filled && before.facts.filled > 1;
   const isUnique = now.facts.distinct === now.facts.filled;
   if (wasUnique && !isUnique && now.decision.role === 'identifier') {
+    const repeats = n(now.facts.filled - now.facts.distinct);
     add(
       'high',
-      `Was different on every row and now repeats in ${n(now.facts.filled - now.facts.distinct)} rows. Joins on it can now double-count.`,
+      `Was different on every row and now repeats in ${repeats} rows. Joins on it can now double-count.`,
+      `was different on every row and now repeats in ${repeats} rows`,
     );
   }
 

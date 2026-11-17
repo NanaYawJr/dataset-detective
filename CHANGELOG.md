@@ -4,6 +4,23 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-11-16
+
+### Added
+
+- **Explain in plain English.** An optional button writes a short explanation of the report: whether the file is fit to use, what to fix first, what is fine, and, after a comparison, what changed. It is written by Claude (Haiku), with OpenAI as a fallback, through the site's own server.
+- The request carries a summary of the report with no values in it: column names, types, roles, missing shares, distinct counts, finding titles and value-free comparison notes. The visitor can read the exact summary before sending it. The server validates it against a strict schema and rejects anything else.
+- Limits on free explanations: 5 per visitor and 200 for the site per day by default, with the daily total kept across restarts. A failed attempt is not counted.
+- **Your own key.** A visitor can use their own Claude or OpenAI key instead. It is passed on for that one request and never stored or logged; requests with it don't count against the free limits.
+- Settings for the keys, models, limits and an off switch, documented in the deployment guide.
+- Tests: the providers are simulated on the server (fallback, limits, refunds, key handling, schema), a planted-values test proves no value reaches the summary, and browser tests cover both modes.
+- Decision record 0012.
+
+### Changed
+
+- The privacy notice describes the explanations: what is sent, to whom, and what is not.
+- Each comparison change now carries a value-free form, used for explanations.
+
 ## [0.5.1] - 2026-11-16
 
 ### Added

@@ -39,11 +39,27 @@ To count different people, the server has to tell two visitors apart within a da
 
 The totals are visible only to the site's owner.
 
+## Plain-English explanations (optional)
+
+If you click **Explain this report**, and only then, a summary of the report is sent to the site's server, which passes it to an AI model and returns the explanation. Nothing is sent unless you click.
+
+**What the summary contains:** the file's format and number of rows and columns; for each column, its name, its type and role as decided by the tool, the share of missing values and the number of distinct values; the titles of the findings (such as "Placeholder values hide missing data"), with how many rows each affects; and, if you compared files, a description of the changes that holds no values (such as "the largest value more than doubled").
+
+**What it never contains:** rows, cell values, top values, examples, file names, minimums, maximums, averages or dates from the file. You can read the exact summary before sending it ("See exactly what will be sent"), and the server rejects any request that holds anything else.
+
+Column names are included, because an explanation needs them. If your column names are themselves sensitive, don't use this feature.
+
+**Who sees it:** the site's server passes the summary to [Anthropic](https://www.anthropic.com/legal/privacy) (Claude), or to [OpenAI](https://openai.com/policies/privacy-policy/) if Claude is unavailable, under their API terms. The site's server keeps no copy of the summary or the explanation.
+
+**Your own API key:** if you choose to use your own key, it is sent to the site's server with that one request, passed to the provider you chose, and never stored or logged. The page keeps it in memory only until you close or reload it.
+
+**Limits:** free explanations are limited per visitor per day. To apply the limit, the server tells visitors apart in memory in the same way as for usage counting (see above), and keeps only a daily total on disk.
+
 ## What is stored
 
 In your browser: only your region setting (United Kingdom, Canada or United States), in local storage, so it is remembered next time. You can clear it by clearing site data for this page.
 
-On the server: the daily usage totals described above, and nothing else.
+On the server: the daily usage totals and the daily count of free explanations described above, and nothing else.
 
 ## Future features
 

@@ -39,6 +39,8 @@ export interface TableComparison {
 export interface ColumnChange {
   severity: Severity;
   text: string;
+  /** The same change with no values from the file in it, for sending to the explainer. */
+  gist: string;
 }
 
 export interface ColumnComparison {

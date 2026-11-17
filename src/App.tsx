@@ -90,7 +90,7 @@ export default function App() {
 
       <footer className="mx-auto max-w-6xl px-4 pb-10 pt-4 text-sm text-muted sm:px-6">
         Dataset Detective gives a snapshot check of one file. It is not ongoing data quality monitoring. Usage is
-        counted anonymously; nothing about your files is ever sent.{' '}
+        counted anonymously, and the rows and values in your files are never sent.{' '}
         <a
           className="font-semibold text-teal-dark underline"
           href="https://github.com/NanaYawJr/dataset-detective/blob/main/PRIVACY.md"

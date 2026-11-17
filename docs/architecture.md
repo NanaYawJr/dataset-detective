@@ -113,6 +113,15 @@ The rules are deterministic and every finding carries its evidence. Changing the
 | Compare | `lib/compare/run.ts`, `compareSql.ts` | Queries over both tables: category values in only one file, and, when a column is unique in both, a full outer join on it for rows added, removed and edited. See [decision 0011](decisions/0011-compare-two-profiles.md). |
 | Explain | `lib/compare/compare.ts`              | Pure TypeScript: compares the two profiles column by column and turns the differences into plain-English changes, ranked by severity.                                                                                      |
 
+### Explaining a report (optional)
+
+| Step      | Where                         | Notes                                                                                                                                                                                                                                                                |
+| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Summarise | `lib/explain/summary.ts`      | Builds a summary that holds the shape of the report and no values: column names, types, counts, finding titles, value-free comparison notes.                                                                                                                         |
+| Send      | `lib/explain/client.ts`       | Posts it to `/api/explain` on the site's own address. The page never contacts a model provider.                                                                                                                                                                      |
+| Explain   | `api/app/explain.py`          | Validates the summary against a strict schema, applies the daily limits, adds the instructions and calls Claude, then OpenAI if Claude fails. A visitor's own key is used for that request only. See [decision 0012](decisions/0012-explanations-from-a-summary.md). |
+| Show      | `components/ExplainPanel.tsx` | Renders the answer as text (paragraphs, headings, lists), never as HTML, and marks it out of date if the report changes.                                                                                                                                             |
+
 ### Why everything is read as text
 
 CSV readers guess types. A guess that `03/04/2026` is 4 March rather than 3 April is silently wrong for half the world. Reading text keeps every value exactly as written, so later stages can decide types from evidence — and say what that evidence was.

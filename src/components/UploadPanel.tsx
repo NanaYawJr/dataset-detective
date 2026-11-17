@@ -120,8 +120,9 @@ export function UploadPanel({ region, scope, onScopeChange, onFile }: UploadPane
           </svg>
           <h2 className="text-lg font-bold">Your data never leaves this device</h2>
           <p className="text-sm leading-relaxed text-[#c7d2cd]">
-            Files are read and profiled inside your browser, and nothing about them is sent anywhere. The page's
-            security policy only lets it talk to its own address. The one thing the site counts is how often it is used.
+            Files are read and profiled inside your browser, and their rows and values are never sent anywhere. The
+            page's security policy only lets it talk to its own address. The site counts how often it is used, and an
+            optional AI explanation, only if you ask for one, sends a summary with column names and counts.
           </p>
         </aside>
       </section>

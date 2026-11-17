@@ -3,17 +3,29 @@ import { fileURLToPath } from 'node:url';
 
 const SAMPLE = fileURLToPath(new URL('../samples/sales-sample.csv', import.meta.url));
 
-/** Every request the page makes to the counting server, with its body. */
+/** Every usage signal the page sends, with its body. */
 function watchSignals(page: Page): string[] {
   const bodies: string[] = [];
   page.on('request', (request) => {
-    if (new URL(request.url()).pathname.startsWith('/api/')) bodies.push(request.postData() ?? '');
+    if (new URL(request.url()).pathname === '/api/event') bodies.push(request.postData() ?? '');
   });
   return bodies;
 }
 
+/** Every other request to the server: there should be none that carries a body, unless the visitor asks for an explanation. */
+function watchOtherApiCalls(page: Page): { method: string; path: string; body: string | null }[] {
+  const calls: { method: string; path: string; body: string | null }[] = [];
+  page.on('request', (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith('/api/') && path !== '/api/event')
+      calls.push({ method: request.method(), path, body: request.postData() });
+  });
+  return calls;
+}
+
 test('tells the server only that it was opened and that a file was profiled', async ({ page }) => {
   const signals = watchSignals(page);
+  const others = watchOtherApiCalls(page);
   await page.goto('/');
   await page.getByTestId('file-input').setInputFiles(SAMPLE);
   await expect(page.getByRole('heading', { name: 'sales-sample.csv' })).toBeVisible();
@@ -25,6 +37,11 @@ test('tells the server only that it was opened and that a file was profiled', as
   await page.getByLabel('Region').selectOption('US');
   await expect(page.getByTestId('column-Order Date')).toBeVisible();
   expect(signals).toHaveLength(2);
+
+  // The only other call is the explanation panel asking whether explanations are available: a GET with no body.
+  expect(others.every((call) => call.method === 'GET' && call.path === '/api/explain' && call.body === null)).toBe(
+    true,
+  );
 });
 
 test('keeps the usage page behind the password', async ({ page }) => {

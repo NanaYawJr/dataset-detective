@@ -11,6 +11,16 @@
 	}
 }
 
+# The small server behind /api. The visitor's address is passed on for counting and
+# limits; it is used in memory only and never stored.
+(api) {
+	reverse_proxy 127.0.0.1:{$API_PORT:8000} {
+		header_up X-Client-IP {client_ip}
+		header_up -X-Forwarded-For
+		header_up -X-Real-IP
+	}
+}
+
 :{$PORT:8080} {
 	root * {$SITE_ROOT:/srv}
 
@@ -39,17 +49,22 @@
 	@page not path /assets/* /api/*
 	header @page Cache-Control "no-cache"
 
-	# The counting server. It listens only inside the container; this is the one way in.
+	# The small server behind /api (usage counts and explanations) listens only inside the
+	# container; these two blocks are the one way in.
+	# A report summary for an explanation can be a few dozen kilobytes.
+	handle /api/explain {
+		request_body {
+			max_size 256KB
+		}
+		import api
+	}
+
+	# Everything else under /api is tiny: usage signals and the stats page.
 	handle /api/* {
 		request_body {
 			max_size 2KB
 		}
-		reverse_proxy 127.0.0.1:{$API_PORT:8000} {
-			# The visitor's address is used in memory to count distinct people, and never stored.
-			header_up X-Client-IP {client_ip}
-			header_up -X-Forwarded-For
-			header_up -X-Real-IP
-		}
+		import api
 	}
 
 	handle {

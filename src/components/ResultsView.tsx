@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { BLOCKING_PROBLEMS, DELIMITER_NAMES } from '../lib/format/detectFormat';
 import { encodingName, explainProblem, formatBytes } from '../lib/format/explain';
 import type { ProfileResult } from '../lib/profile/types';
@@ -10,6 +10,8 @@ import { CoverageSection } from './CoverageChart';
 import { FindingsPanel } from './FindingsPanel';
 import { FixPanel } from './FixPanel';
 import { ComparePanel } from './ComparePanel';
+import { ExplainPanel } from './ExplainPanel';
+import { compareProfiles } from '../lib/compare/compare';
 import type { ComparisonState } from '../hooks/useComparison';
 
 interface ResultsViewProps {
@@ -48,6 +50,13 @@ export function ResultsView({
   const notes = format.problems.filter((p) => !BLOCKING_PROBLEMS.includes(p.kind));
   const findings = allFindings(result.columns, result.table);
   const grain = result.table?.grain;
+  const comparisonResult = useMemo(
+    () =>
+      comparison.status === 'done'
+        ? compareProfiles(result, comparison.earlier, comparison.tables.values, region)
+        : null,
+    [comparison, result, region],
+  );
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
@@ -172,6 +181,8 @@ export function ResultsView({
       )}
 
       <FindingsPanel findings={findings} />
+
+      <ExplainPanel result={result} comparison={comparisonResult} />
 
       <FixPanel result={result} />
 

@@ -8,7 +8,7 @@ Dataset Detective is a static site: HTML, JavaScript, fonts and the DuckDB engin
 | --------------- | --------------------------------------------------------------------------------------------------------- |
 | `Dockerfile`    | Stage 1 builds the site with Node and compresses the files. Stage 2 is Caddy plus the built files only.   |
 | `Caddyfile`     | Serves the files with the security headers, caching rules and pre-compressed copies. Keeps no access log. |
-| `api/`          | The counting server (FastAPI). Listens only inside the container.                                         |
+| `api/`          | The small server (FastAPI): usage counts and explanations. Listens only inside the container.             |
 | `start.sh`      | Starts the counting server and Caddy together.                                                            |
 | `railway.json`  | Tells Railway to build from the Dockerfile and to health-check the home page.                             |
 | `.dockerignore` | Keeps tests, docs and local files out of the build.                                                       |
@@ -29,6 +29,24 @@ The site is published by the GitHub workflow, not by linking the repository to R
 6. In the service's **Settings → Networking**, choose **Generate Domain** (enter port `8080` if asked). Open the address and profile the sample file to check it works.
 
 Until the secret exists, the `deploy` job does nothing and stays green.
+
+### Plain-English explanations
+
+Set these in the service's **Variables**. Without a key, free explanations are off, but visitors can still use their own key.
+
+| Variable              | What it does                                                                  | Default            |
+| --------------------- | ----------------------------------------------------------------------------- | ------------------ |
+| `ANTHROPIC_API_KEY`   | Your Claude key. Used first.                                                  | (none)             |
+| `OPENAI_API_KEY`      | Your OpenAI key. Used if Claude fails.                                        | (none)             |
+| `EXPLAIN_PER_VISITOR` | Free explanations per visitor per day.                                        | `5`                |
+| `EXPLAIN_PER_DAY`     | Free explanations for the whole site per day. Stops spending at a known cap.  | `200`              |
+| `ANTHROPIC_MODEL`     | The Claude model.                                                             | `claude-haiku-5-5` |
+| `OPENAI_MODEL`        | The OpenAI model.                                                             | `gpt-4o-mini`      |
+| `EXPLAIN_ENABLED`     | Set to `0` to switch explanations off entirely, including visitors' own keys. | `1`                |
+
+The daily total is kept on the `/data` volume, so a restart doesn't reset it. As a second safety net, set a monthly spending limit in the [Anthropic console](https://console.anthropic.com/) and the [OpenAI dashboard](https://platform.openai.com/).
+
+To switch explanations off in a hurry, set `EXPLAIN_ENABLED` to `0`; Railway redeploys with the new value.
 
 ### Usage counts and the private usage page
 

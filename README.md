@@ -55,6 +55,12 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 - **Row by row, when the file has a key:** rows are matched on a column that is unique in both files, giving counts of rows added, removed and edited, which columns were edited, and example keys.
 - Try it with [`samples/sales-sample-previous.csv`](samples/sales-sample-previous.csv), the sample as it looked one delivery earlier.
 
+**Explaining it in plain English (0.6, optional)**
+
+- **One click for a written summary:** what's wrong, what to fix first and what's fine, written for someone who isn't a data specialist.
+- **Sends a summary, never the data:** column names, types, counts and finding titles. No rows, values, examples or statistics that would reveal a value. You can read the exact summary before sending it, and the server rejects anything else.
+- Written by Claude, with OpenAI as a fallback, through the site's own server, so the page still talks only to its own address. Free explanations are limited per visitor and per day; anyone can use their own Claude or OpenAI key instead, which is passed on for that request and never stored.
+
 Every value is read as text first, whatever the file format. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the file reader, so a value like `03/04/2026` is never silently turned into the wrong date, and every check works the same on every format.
 
 ## Roadmap
@@ -66,7 +72,7 @@ Every value is read as text first, whatever the file format. Deciding what a col
 | **0.3** ✅ | Whole-table checks and ranked alerts: keys and grain, dependencies, order of events, duplicates, date coverage; corrections; first public deployment        |
 | **0.4** ✅ | More file formats: Excel workbooks, Parquet, JSON and JSON Lines, all read in the browser                                                                   |
 | **0.5** ✅ | Cleaning scripts in Power Query M, T-SQL and pandas; comparing a file with an earlier version of it                                                         |
-| 0.6        | Optional, opt-in plain-English explanation of a report, sending a masked summary only — never rows                                                          |
+| **0.6** ✅ | Optional plain-English explanation of a report, written by AI from a summary that holds no rows or values                                                   |
 | Later      | Suggested validation rules for the next delivery; a report to share                                                                                         |
 
 ## Privacy
@@ -75,6 +81,7 @@ Every value is read as text first, whatever the file format. Deciding what a col
 - The production build sets a strict [Content Security Policy](docs/decisions/0004-strict-content-security-policy.md): the page may only load and fetch from its own address, so it cannot send your data to anyone else. The engine is bundled with the site rather than fetched from a CDN, and extension downloads are switched off. Excel, Parquet and JSON files are read by code that ships with the page, for the same reason.
 - The only thing stored in your browser is your region choice.
 - Usage is counted anonymously: the page tells its own server that it was opened and that a file of some format was profiled, and nothing about the file. Visitors are told apart in memory only, with a key that is replaced daily, so nobody is tracked. The exact signals are listed in [PRIVACY.md](PRIVACY.md).
+- The optional AI explanation is the one feature that sends anything about a file, and only when you click: a summary holding column names, types, counts and finding titles, never rows or values. It goes through the site's own server to Claude (or OpenAI as a fallback). See [PRIVACY.md](PRIVACY.md).
 
 See [PRIVACY.md](PRIVACY.md) for details.
 
@@ -103,7 +110,7 @@ The full design, including the stages still to come, is in [docs/architecture.md
 - **Tailwind CSS** for styling
 - **Vitest** for unit tests, **Playwright** for browser tests against the production build
 - **oxlint** and **Prettier** for linting and formatting
-- **FastAPI** and **SQLite** for the small server that counts usage, tested with **pytest**
+- **FastAPI** and **SQLite** for the small server that counts usage and writes explanations (Claude, with OpenAI as fallback, over **httpx**), tested with **pytest**
 - **Caddy** as the web server, in a container on **Railway**
 - **GitHub Actions** for CI and publishing
 
@@ -159,8 +166,9 @@ The tests are built around a **golden sample**: [`samples/sales-sample.csv`](sam
 - **Unit tests** cover format detection, the column rules, NHS check digits, placeholders, region formatting and plain-English explanations.
 - **Format tests** read Excel and Parquet files written by four different real programs (openpyxl, XlsxWriter, pyarrow and DuckDB), and prove that the Excel and Parquet samples give the same column decisions as the CSV sample.
 - **Integration tests** run the real evidence SQL on the same DuckDB engine the browser uses, in Node, against the golden sample and a personal-data fixture, with expected answers computed independently.
+- **Privacy tests:** a profile planted with recognisable values everywhere (top values, examples, averages, dates, category values) is turned into the explanation summary, and the test fails if any of them appear in it. A browser test checks the same against the real sample.
 - **Generated code tests:** the pandas script written for each sample (CSV, Excel, Parquet) is run for real in Python, and the cleaned result is checked: 1,378 rows, `5%` as 0.05, real dates, 300 placeholders blank. The T-SQL and Power Query scripts are checked for structure; they are not executed by the tests.
-- **Server tests** (pytest) cover the usage counts, the password and lockout on the private usage page, and prove that no address or browser detail is written to disk.
+- **Server tests** (pytest) cover the explanations with the AI providers simulated (fallback, limits, refunds on failure, a visitor's key used once and never stored, and rejection of anything that isn't a summary), the usage counts, the password and lockout on the private usage page, and prove that no address or browser detail is written to disk.
 - **Browser tests** run the production build in Chromium with the security policy active, and fail on any console error — so a policy violation is caught, not just a wrong number.
 
 ## Project structure
@@ -174,6 +182,7 @@ src/
   lib/table/      Whole-table checks: planning, SQL and interpretation
   lib/fix/        The fix plan and its three writers: Power Query, T-SQL, pandas
   lib/compare/    Comparing a file with an earlier version: rules, SQL and row matching
+  lib/explain/    The value-free report summary, and the client for explanations
   lib/region.ts   Region setting: date and number display
   lib/usage.ts    The anonymous usage signals
   hooks/          The React hook that runs the pipeline
@@ -181,7 +190,7 @@ src/
 samples/          The golden sample as CSV, Excel and Parquet, and an earlier delivery of it
 scripts/          Sample and fixture generators
 e2e/              Browser tests
-api/              The server beside the site: anonymous usage counts (FastAPI)
+api/              The server beside the site: anonymous usage counts and explanations (FastAPI)
 docs/             Architecture and decision records
 ```
 
