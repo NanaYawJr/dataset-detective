@@ -25,6 +25,7 @@ interface ResultsViewProps {
   comparison: ComparisonState;
   onCompare: (file: File) => void;
   onClearComparison: () => void;
+  onFeedback: () => void;
   onChooseAnother: () => void;
 }
 
@@ -37,6 +38,7 @@ export function ResultsView({
   comparison,
   onCompare,
   onClearComparison,
+  onFeedback,
   onChooseAnother,
 }: ResultsViewProps) {
   const { format, source } = result;
@@ -203,6 +205,22 @@ export function ResultsView({
         overrides={result.overrides}
         onOverride={onOverride}
       />
+
+      <aside
+        className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-line bg-white px-5 py-4"
+        aria-label="Feedback"
+      >
+        <p className="text-sm text-ink-soft">
+          <strong className="text-ink">Was this useful?</strong> Tell me in 30 seconds what worked and what didn't.
+        </p>
+        <button
+          type="button"
+          onClick={onFeedback}
+          className="min-h-11 rounded-xl border border-line-strong bg-white px-5 text-sm font-bold text-ink hover:bg-surface"
+        >
+          Give feedback
+        </button>
+      </aside>
     </main>
   );
 }

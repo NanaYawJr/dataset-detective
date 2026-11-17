@@ -55,11 +55,27 @@ Column names are included, because an explanation needs them. If your column nam
 
 **Limits:** free explanations are limited per visitor per day. To apply the limit, the server tells visitors apart in memory in the same way as for usage counting (see above), and keeps only a daily total on disk.
 
+## Feedback (optional)
+
+If you send feedback through the form, the site keeps:
+
+- your rating (1 to 5) and your comment, if you wrote one;
+- the app's version and the type of file you had open (CSV, Excel, Parquet or JSON), if any — never the file, its name or anything in it;
+- **only if you tick "I'd like a reply"**: the email address you give, and your name and country if you choose to add them.
+
+**Why:** to improve the tool, and to reply to you if you asked for a reply. Contact details are used for nothing else, never shared, and never added to any mailing list. They're kept because you ticked the box asking for a reply; untick it and none are kept.
+
+**Who sees it:** only the site's owner, on a password-protected page. When feedback arrives, the owner is sent an email about it through [Resend](https://resend.com/legal/privacy-policy), an email-delivery service; if you asked for a reply, that email includes your contact details so the owner can answer you directly.
+
+**How long:** every entry is deleted automatically after 12 months. To have yours deleted sooner, send feedback asking for it, with the email address you used, and it will be deleted.
+
+**Spam protection:** the form has a hidden field that only automated programs fill in, and a limit of a few entries per visitor per day, applied in memory in the same way as the usage counts. No CAPTCHA and no third-party scripts.
+
 ## What is stored
 
 In your browser: only your region setting (United Kingdom, Canada or United States), in local storage, so it is remembered next time. You can clear it by clearing site data for this page.
 
-On the server: the daily usage totals and the daily count of free explanations described above, and nothing else.
+On the server: the daily usage totals, the daily count of free explanations and any feedback you send, as described above, and nothing else.
 
 ## Future features
 

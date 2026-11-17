@@ -122,6 +122,14 @@ The rules are deterministic and every finding carries its evidence. Changing the
 | Explain   | `api/app/explain.py`          | Validates the summary against a strict schema, applies the daily limits, adds the instructions and calls Claude, then OpenAI if Claude fails. A visitor's own key is used for that request only. See [decision 0012](decisions/0012-explanations-from-a-summary.md). |
 | Show      | `components/ExplainPanel.tsx` | Renders the answer as text (paragraphs, headings, lists), never as HTML, and marks it out of date if the report changes.                                                                                                                                             |
 
+### Feedback
+
+| Step    | Where                           | Notes                                                                                                                                                                                                                                                                        |
+| ------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Collect | `components/FeedbackDialog.tsx` | A native `<dialog>`: rating, comment, and contact details only when a reply is wanted. Sends the app version and file type, never the file.                                                                                                                                  |
+| Store   | `api/app/feedback.py`           | Strict schema; contact details dropped unless a reply was asked for; a hidden spam-trap field and a per-visitor daily limit; entries older than 12 months deleted. Alerts go out through Resend after the response is sent. See [decision 0013](decisions/0013-feedback.md). |
+| Read    | `components/FeedbackView.tsx`   | The owner's list on the `#stats` page, behind the same password, with delete and CSV download.                                                                                                                                                                               |
+
 ### Why everything is read as text
 
 CSV readers guess types. A guess that `03/04/2026` is 4 March rather than 3 April is silently wrong for half the world. Reading text keeps every value exactly as written, so later stages can decide types from evidence — and say what that evidence was.

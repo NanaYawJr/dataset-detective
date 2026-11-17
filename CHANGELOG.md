@@ -4,6 +4,22 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-11-17
+
+### Added
+
+- **Feedback form.** A "Feedback" button in the header and a "Was this useful?" card under every report open a short form: a 1-to-5 rating (the only required answer), a comment whose question follows the rating ("What went wrong?", "What would make it better?", "What did you find most useful?"), and, only if the person ticks "I'd like a reply", their email, with name and country optional. The form shows what is sent with it: the app version and the file type, never the file.
+- **Feedback on the private page.** A Feedback tab on `#stats`, behind the same password: response count, average rating, how many of each rating, each entry newest first with a mail link for those who asked for a reply, Delete, and Download CSV (with spreadsheet formulas neutralised).
+- **Email alerts** for new feedback through Resend, with the person's address as reply-to when they asked for a reply. Up to 50 a day; feedback is kept whether or not an alert is sent.
+- Feedback is deleted automatically after 12 months. Spam is stopped by a hidden trap field and a per-visitor daily limit, with no CAPTCHA.
+- The app's version is built into the page, from `package.json`.
+- Decision record 0013.
+
+### Changed
+
+- The privacy notice describes feedback: what is kept, why, who sees it, the email service, and the 12-month deletion.
+- The owner's password check is shared by every private page.
+
 ## [0.6.0] - 2026-11-16
 
 ### Added

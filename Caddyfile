@@ -59,6 +59,14 @@
 		import api
 	}
 
+	# Feedback: a comment of up to 2,000 characters and optional contact details.
+	handle /api/feedback* {
+		request_body {
+			max_size 16KB
+		}
+		import api
+	}
+
 	# Everything else under /api is tiny: usage signals and the stats page.
 	handle /api/* {
 		request_body {

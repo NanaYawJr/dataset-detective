@@ -1,4 +1,5 @@
 /// <reference types="vitest/config" />
+import { readFileSync } from 'node:fs';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, type Plugin } from 'vite';
@@ -53,7 +54,11 @@ function usageCounterStandIn(): Plugin {
   };
 }
 
+const { version } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
+
 export default defineConfig({
+  // The app's version, sent with feedback so it can be matched to a release.
+  define: { __APP_VERSION__: JSON.stringify(version) },
   plugins: [react(), tailwindcss(), contentSecurityPolicy(), usageCounterStandIn()],
   build: {
     // Emit fonts and images as files instead of inline data: URLs,

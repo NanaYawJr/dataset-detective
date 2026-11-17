@@ -1,4 +1,5 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
+import { FeedbackDialog } from './components/FeedbackDialog';
 import { Header } from './components/Header';
 import { ProgressPanel } from './components/ProgressPanel';
 import { ResultsView } from './components/ResultsView';
@@ -27,6 +28,7 @@ export default function App() {
   const comparison = useComparison(doneResult, region);
 
   const showStats = useSyncExternalStore(watchHash, currentHash) === STATS_HASH;
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
 
   // One anonymous "the tool was opened" signal per page load. The owner's own stats page doesn't count.
   useEffect(() => {
@@ -45,7 +47,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
-      <Header region={region} onRegionChange={changeRegion} onHome={goHome} />
+      <Header region={region} onRegionChange={changeRegion} onHome={goHome} onFeedback={() => setFeedbackOpen(true)} />
 
       {showStats && <StatsPage region={region} />}
 
@@ -84,9 +86,16 @@ export default function App() {
           comparison={comparison.state}
           onCompare={(file) => void comparison.compare(state.result, file)}
           onClearComparison={comparison.clear}
+          onFeedback={() => setFeedbackOpen(true)}
           onChooseAnother={reset}
         />
       )}
+
+      <FeedbackDialog
+        open={feedbackOpen}
+        fileKind={doneResult?.source.kind ?? null}
+        onClose={() => setFeedbackOpen(false)}
+      />
 
       <footer className="mx-auto max-w-6xl px-4 pb-10 pt-4 text-sm text-muted sm:px-6">
         Dataset Detective gives a snapshot check of one file. It is not ongoing data quality monitoring. Usage is

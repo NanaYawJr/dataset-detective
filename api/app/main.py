@@ -14,11 +14,12 @@ from pathlib import Path
 from typing import Literal
 
 import httpx
-from fastapi import FastAPI, Header, HTTPException, Response
+from fastapi import BackgroundTasks, FastAPI, Header, HTTPException, Response
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from .explain import ExplainError, Explainer, ExplainRequest, Settings
+from .feedback import AlertSettings, FeedbackIn, FeedbackStore
 from .usage import UsageStore, is_bot
 
 FAILED_ATTEMPTS = 5
@@ -43,15 +44,27 @@ def settings_from_env() -> Settings:
     )
 
 
+def alerts_from_env() -> AlertSettings:
+    env = os.environ.get
+    return AlertSettings(
+        resend_key=env("RESEND_API_KEY", ""),
+        to=env("FEEDBACK_EMAIL_TO", ""),
+        sender=env("FEEDBACK_EMAIL_FROM", "Dataset Detective <onboarding@resend.dev>"),
+        site_url=env("SITE_URL", ""),
+    )
+
+
 def create_app(
     data_dir: Path | None = None,
     stats_password: str | None = None,
     settings: Settings | None = None,
     transport: httpx.BaseTransport | None = None,
+    alerts: AlertSettings | None = None,
 ) -> FastAPI:
     data = data_dir or Path(os.environ.get("DATA_DIR", "data"))
     store = UsageStore(data / "usage.db")
     explainer = Explainer(data, settings or settings_from_env(), transport)
+    feedback = FeedbackStore(data, alerts or alerts_from_env(), transport)
     password = stats_password if stats_password is not None else os.environ.get("STATS_PASSWORD", "")
     failures: dict[str, deque[float]] = defaultdict(deque)
 
@@ -59,6 +72,7 @@ def create_app(
     app = FastAPI(title="Dataset Detective", docs_url=None, redoc_url=None, openapi_url=None)
     app.state.store = store
     app.state.explainer = explainer
+    app.state.feedback = feedback
 
     @app.get("/api/health")
     def health() -> dict:
@@ -73,6 +87,21 @@ def create_app(
         store.record(body.type, body.kind, x_client_ip, user_agent)
         return Response(status_code=204)
 
+    def check_password(authorization: str, address: str) -> None:
+        """The owner's password, shared by every private page, with a lockout after repeated wrong guesses."""
+        if not password:
+            raise HTTPException(503, "The private pages are switched off: no STATS_PASSWORD is set on the server.")
+        recent = failures[address]
+        now = time.monotonic()
+        while recent and now - recent[0] > FAILED_WINDOW_SECONDS:
+            recent.popleft()
+        if len(recent) >= FAILED_ATTEMPTS:
+            raise HTTPException(429, "Too many wrong passwords. Wait a few minutes and try again.")
+        given = authorization.removeprefix("Bearer ").strip()
+        if not hmac.compare_digest(given.encode(), password.encode()):
+            recent.append(now)
+            raise HTTPException(401, "Wrong password.")
+
     @app.get("/api/stats")
     def stats(
         response: Response,
@@ -80,21 +109,41 @@ def create_app(
         x_client_ip: str = Header(default=""),
     ) -> dict:
         response.headers["Cache-Control"] = "no-store"
-        if not password:
-            raise HTTPException(503, "The stats page is switched off: no STATS_PASSWORD is set on the server.")
-
-        recent = failures[x_client_ip]
-        now = time.monotonic()
-        while recent and now - recent[0] > FAILED_WINDOW_SECONDS:
-            recent.popleft()
-        if len(recent) >= FAILED_ATTEMPTS:
-            raise HTTPException(429, "Too many wrong passwords. Wait a few minutes and try again.")
-
-        given = authorization.removeprefix("Bearer ").strip()
-        if not hmac.compare_digest(given.encode(), password.encode()):
-            recent.append(now)
-            raise HTTPException(401, "Wrong password.")
+        check_password(authorization, x_client_ip)
         return store.summary()
+
+    @app.post("/api/feedback", status_code=204)
+    def send_feedback(
+        body: FeedbackIn,
+        tasks: BackgroundTasks,
+        x_client_ip: str = Header(default=""),
+        user_agent: str = Header(default=""),
+    ) -> Response:
+        # Bots and floods get the same quiet "thanks" as everyone else, so there's nothing to probe.
+        if not is_bot(user_agent) and feedback.add(body, x_client_ip, user_agent) is not None:
+            tasks.add_task(feedback.send_alert, body)
+        return Response(status_code=204)
+
+    @app.get("/api/feedback")
+    def list_feedback(
+        response: Response,
+        authorization: str = Header(default=""),
+        x_client_ip: str = Header(default=""),
+    ) -> dict:
+        response.headers["Cache-Control"] = "no-store"
+        check_password(authorization, x_client_ip)
+        return feedback.list() | {"alerts": feedback.alerts_on}
+
+    @app.delete("/api/feedback/{entry_id}", status_code=204)
+    def delete_feedback(
+        entry_id: int,
+        authorization: str = Header(default=""),
+        x_client_ip: str = Header(default=""),
+    ) -> Response:
+        check_password(authorization, x_client_ip)
+        if not feedback.delete(entry_id):
+            raise HTTPException(404, "That feedback has already been deleted.")
+        return Response(status_code=204)
 
     @app.get("/api/explain")
     def explain_status(

@@ -61,6 +61,11 @@ Dataset Detective is a fast triage step for that moment: a quick, honest check o
 - **Sends a summary, never the data:** column names, types, counts and finding titles. No rows, values, examples or statistics that would reveal a value. You can read the exact summary before sending it, and the server rejects anything else.
 - Written by Claude, with OpenAI as a fallback, through the site's own server, so the page still talks only to its own address. Free explanations are limited per visitor and per day; anyone can use their own Claude or OpenAI key instead, which is passed on for that request and never stored.
 
+**Feedback (0.7)**
+
+- **A 30-second form:** a 1-to-5 rating (the only required answer), a comment whose question follows the rating, and contact details only for people who want a reply. Reachable from the header and from the bottom of every report.
+- **Private to the owner:** feedback is listed on the password-protected `#stats` page, with averages, contact links, deletion and a CSV download, and the owner gets an email for each new entry (through Resend), with reply-to set when a reply was asked for. Entries are deleted after 12 months.
+
 Every value is read as text first, whatever the file format. Deciding what a column really is — a number, a date, an ID — is the job of the rule engine, not the file reader, so a value like `03/04/2026` is never silently turned into the wrong date, and every check works the same on every format.
 
 ## Roadmap
@@ -73,6 +78,7 @@ Every value is read as text first, whatever the file format. Deciding what a col
 | **0.4** ✅ | More file formats: Excel workbooks, Parquet, JSON and JSON Lines, all read in the browser                                                                   |
 | **0.5** ✅ | Cleaning scripts in Power Query M, T-SQL and pandas; comparing a file with an earlier version of it                                                         |
 | **0.6** ✅ | Optional plain-English explanation of a report, written by AI from a summary that holds no rows or values                                                   |
+| **0.7** ✅ | Feedback: a short form in the app, private to the owner, with email alerts                                                                                  |
 | Later      | Suggested validation rules for the next delivery; a report to share                                                                                         |
 
 ## Privacy
@@ -110,7 +116,7 @@ The full design, including the stages still to come, is in [docs/architecture.md
 - **Tailwind CSS** for styling
 - **Vitest** for unit tests, **Playwright** for browser tests against the production build
 - **oxlint** and **Prettier** for linting and formatting
-- **FastAPI** and **SQLite** for the small server that counts usage and writes explanations (Claude, with OpenAI as fallback, over **httpx**), tested with **pytest**
+- **FastAPI** and **SQLite** for the small server that counts usage, collects feedback (alerts through **Resend**) and writes explanations (Claude, with OpenAI as fallback, over **httpx**), tested with **pytest**
 - **Caddy** as the web server, in a container on **Railway**
 - **GitHub Actions** for CI and publishing
 
@@ -168,7 +174,7 @@ The tests are built around a **golden sample**: [`samples/sales-sample.csv`](sam
 - **Integration tests** run the real evidence SQL on the same DuckDB engine the browser uses, in Node, against the golden sample and a personal-data fixture, with expected answers computed independently.
 - **Privacy tests:** a profile planted with recognisable values everywhere (top values, examples, averages, dates, category values) is turned into the explanation summary, and the test fails if any of them appear in it. A browser test checks the same against the real sample.
 - **Generated code tests:** the pandas script written for each sample (CSV, Excel, Parquet) is run for real in Python, and the cleaned result is checked: 1,378 rows, `5%` as 0.05, real dates, 300 placeholders blank. The T-SQL and Power Query scripts are checked for structure; they are not executed by the tests.
-- **Server tests** (pytest) cover the explanations with the AI providers simulated (fallback, limits, refunds on failure, a visitor's key used once and never stored, and rejection of anything that isn't a summary), the usage counts, the password and lockout on the private usage page, and prove that no address or browser detail is written to disk.
+- **Server tests** (pytest) cover feedback (validation, contact details kept only when a reply is wanted, the spam trap and limits, the alert email and its reply-to, deletion after 12 months, and the password on the owner's list), the explanations with the AI providers simulated (fallback, limits, refunds on failure, a visitor's key used once and never stored, and rejection of anything that isn't a summary), the usage counts, the password and lockout on the private usage page, and prove that no address or browser detail is written to disk.
 - **Browser tests** run the production build in Chromium with the security policy active, and fail on any console error — so a policy violation is caught, not just a wrong number.
 
 ## Project structure
@@ -190,7 +196,7 @@ src/
 samples/          The golden sample as CSV, Excel and Parquet, and an earlier delivery of it
 scripts/          Sample and fixture generators
 e2e/              Browser tests
-api/              The server beside the site: anonymous usage counts and explanations (FastAPI)
+api/              The server beside the site: usage counts, feedback and explanations (FastAPI)
 docs/             Architecture and decision records
 ```
 

@@ -8,7 +8,7 @@ Dataset Detective is a static site: HTML, JavaScript, fonts and the DuckDB engin
 | --------------- | --------------------------------------------------------------------------------------------------------- |
 | `Dockerfile`    | Stage 1 builds the site with Node and compresses the files. Stage 2 is Caddy plus the built files only.   |
 | `Caddyfile`     | Serves the files with the security headers, caching rules and pre-compressed copies. Keeps no access log. |
-| `api/`          | The small server (FastAPI): usage counts and explanations. Listens only inside the container.             |
+| `api/`          | The small server (FastAPI): usage counts, feedback and explanations. Listens only inside the container.   |
 | `start.sh`      | Starts the counting server and Caddy together.                                                            |
 | `railway.json`  | Tells Railway to build from the Dockerfile and to health-check the home page.                             |
 | `.dockerignore` | Keeps tests, docs and local files out of the build.                                                       |
@@ -47,6 +47,25 @@ Set these in the service's **Variables**. Without a key, free explanations are o
 The daily total is kept on the `/data` volume, so a restart doesn't reset it. As a second safety net, set a monthly spending limit in the [Anthropic console](https://console.anthropic.com/) and the [OpenAI dashboard](https://platform.openai.com/).
 
 To switch explanations off in a hurry, set `EXPLAIN_ENABLED` to `0`; Railway redeploys with the new value.
+
+### Feedback and email alerts
+
+Feedback works without any setup: it is saved on the `/data` volume and listed on the private page (`#stats`, Feedback tab). Email alerts need a free [Resend](https://resend.com) account:
+
+1. Sign up at Resend with the email address the alerts should go to.
+2. Create an API key (**API Keys → Create**, with "Sending access").
+3. In the service's **Variables**, add:
+
+| Variable              | Value                                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| `RESEND_API_KEY`      | The key from step 2.                                                                                   |
+| `FEEDBACK_EMAIL_TO`   | The address you signed up with.                                                                        |
+| `SITE_URL`            | The site's address, such as `https://detective.example.com`, so each alert links to the feedback page. |
+| `FEEDBACK_EMAIL_FROM` | Optional. Defaults to Resend's test sender, `onboarding@resend.dev`.                                   |
+
+With the test sender, Resend only delivers to the address the account was created with, which is all alerts need. To send from your own domain instead (for example `feedback@example.com`), verify the domain in Resend (**Domains → Add domain**, then add its DNS records) and set `FEEDBACK_EMAIL_FROM`.
+
+At most 50 alerts are sent a day; beyond that, feedback is still saved and shown on the private page. If an alert fails, the feedback is kept regardless.
 
 ### Usage counts and the private usage page
 

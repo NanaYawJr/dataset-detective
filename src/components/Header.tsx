@@ -6,9 +6,10 @@ interface HeaderProps {
   region: Region;
   onRegionChange: (region: Region) => void;
   onHome: () => void;
+  onFeedback: () => void;
 }
 
-export function Header({ region, onRegionChange, onHome }: HeaderProps) {
+export function Header({ region, onRegionChange, onHome, onFeedback }: HeaderProps) {
   // Each option shows today's date in that region's format. Read the clock
   // once, when the header first renders, rather than on every render.
   const [today] = useState(() => localCalendarDate(new Date()));
@@ -27,22 +28,31 @@ export function Header({ region, onRegionChange, onHome }: HeaderProps) {
           <span className="text-lg font-extrabold tracking-tight">Dataset Detective</span>
         </button>
 
-        <label className="flex items-center gap-2 text-sm font-semibold text-ink-soft">
-          Region
-          <select
-            value={region}
-            onChange={(e) => {
-              if (isRegion(e.target.value)) onRegionChange(e.target.value);
-            }}
-            className="min-h-11 rounded-lg border border-line-strong bg-white px-3 text-sm text-ink"
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={onFeedback}
+            className="min-h-11 rounded-lg px-3 text-sm font-bold text-teal-dark hover:bg-surface"
           >
-            {REGIONS.map((r) => (
-              <option key={r.id} value={r.id}>
-                {r.label} ({formatDate(today, r.id)})
-              </option>
-            ))}
-          </select>
-        </label>
+            Feedback
+          </button>
+          <label className="flex items-center gap-2 text-sm font-semibold text-ink-soft">
+            Region
+            <select
+              value={region}
+              onChange={(e) => {
+                if (isRegion(e.target.value)) onRegionChange(e.target.value);
+              }}
+              className="min-h-11 rounded-lg border border-line-strong bg-white px-3 text-sm text-ink"
+            >
+              {REGIONS.map((r) => (
+                <option key={r.id} value={r.id}>
+                  {r.label} ({formatDate(today, r.id)})
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
       </div>
     </header>
   );
